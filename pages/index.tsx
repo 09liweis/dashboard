@@ -1,4 +1,4 @@
-import type { GetStaticProps, NextPage } from 'next'
+import type { GetServerSideProps, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
@@ -46,10 +46,10 @@ const Home: NextPage = ({visual}:any) => {
   )
 }
 
-export const getStaticProps:GetStaticProps = async (ctx) => {
+export const getStaticProps:GetServerSideProps = async (ctx) => {
   const res = await fetch('https://what-i-watched.herokuapp.com/api/random_visual')
   const {result} = await res.json();
-  console.log(result);
+  // console.log(result);
   return {
     props:{
       visual:result
