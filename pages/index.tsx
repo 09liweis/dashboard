@@ -1,9 +1,22 @@
 import type { GetServerSideProps, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
 
-const Home: NextPage = ({visual}:any) => {
+const Home: NextPage = () => {
+  const [visual,setVisual] = useState({title:'',poster:'',summary:''});
+  const setRandomVisual = async () => {
+    const res = await fetch('https://what-i-watched.herokuapp.com/api/random_visual')
+    const {result} = await res.json();
+    setVisual(result);
+  }
+  useEffect(()=>{
+    setRandomVisual();
+    setInterval(()=>{
+      setRandomVisual();
+    },10000);
+  },[]);
   return (
     <div className={styles.container}>
       <Head>
