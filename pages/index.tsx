@@ -4,10 +4,12 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
 
+const RANDOM_VISUAL_API:string = 'https://what-i-watched.herokuapp.com/api/random_visual';
+
 const Home: NextPage = () => {
   const [visual,setVisual] = useState({title:'',poster:'',summary:''});
   const setRandomVisual = async () => {
-    const res = await fetch('https://what-i-watched.herokuapp.com/api/random_visual')
+    const res = await fetch(RANDOM_VISUAL_API)
     const {result} = await res.json();
     setVisual(result);
   }
@@ -60,7 +62,7 @@ const Home: NextPage = () => {
 }
 
 export const getStaticProps:GetServerSideProps = async (ctx) => {
-  const res = await fetch('https://what-i-watched.herokuapp.com/api/random_visual')
+  const res = await fetch(RANDOM_VISUAL_API)
   const {result} = await res.json();
   // console.log(result);
   return {
