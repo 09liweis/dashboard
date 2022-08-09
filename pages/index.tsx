@@ -1,13 +1,14 @@
 import type { GetServerSideProps, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
 
 const RANDOM_VISUAL_API:string = 'https://what-i-watched.herokuapp.com/api/random_visual';
 
 const Home: NextPage = () => {
-  const [visual,setVisual] = useState({title:'',poster:'',summary:''});
+  const [visual,setVisual] = useState({title:'',poster:'',summary:'',douban_id:''});
   const setRandomVisual = async () => {
     const res = await fetch(RANDOM_VISUAL_API)
     const {result} = await res.json();
@@ -37,8 +38,10 @@ const Home: NextPage = () => {
               <Image className='border-radius-left image' src={visual.poster} alt="Vercel Logo" layout='fill' />
             </section>
             <section className='width-70 padding'>
-              <h2>{visual.title}</h2>
-              <p>{visual.summary}</p>
+              <Link href={`/visuals/${visual.douban_id}`}>
+                <h2>{visual.title}</h2>
+              </Link>
+              <p>{visual.summary.substring(0,200)}...</p>
             </section>
           </article>
 
