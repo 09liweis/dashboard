@@ -41,7 +41,7 @@ export async function getStaticPaths() {
   return {
     paths: [
       // Object variant:
-      { params: { id: 'second-post' } },
+      { params: { id: '27077082' } },
     ],
     fallback: true,
   }
