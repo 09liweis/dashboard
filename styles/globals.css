@@ -33,8 +33,14 @@ a {
 .width-30 {
   width: 30%;
 }
+.width-100 {
+  width: 100%;
+}
 .width-70 {
   width: 70%
+}
+.height-400 {
+  height: 400px;
 }
 .padding {
   padding: 20px;
@@ -52,6 +58,7 @@ a {
   position: relative !important;
   height: unset !important;
 }
+
 
 .card {
   text-align: left;
