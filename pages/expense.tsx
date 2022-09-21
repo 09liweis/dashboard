@@ -7,8 +7,14 @@ import styles from '../styles/Home.module.css'
 
 const EXPANSE_API_DATA:string = 'https://samliweisen.herokuapp.com/api/transactions/statistics';
 
+interface SingleExpense {
+  name:string,
+  y:string
+}
+
 const Expense: NextPage = () => {
-  const [expenses,setExpenses] = useState([]);
+  const emptyExpenses:Array<SingleExpense> = [];
+  const [expenses,setExpenses] = useState(emptyExpenses);
   const [expenseNm, setExpenseNm] = useState('')
   const [expenseVal, setExpenseVal] = useState('')
   const getExpenseStatistics = async () => {
@@ -22,9 +28,9 @@ const Expense: NextPage = () => {
     };
     const res = await fetch(EXPANSE_API_DATA,opt);
     const statistics = await res.json();
-    let expenses = [];
+    let expenses:Array<SingleExpense> = [];
     for (const name in statistics.categoryPrice) {
-      const y = Math.abs(statistics.categoryPrice[name]);
+      const y = Math.abs(statistics.categoryPrice[name]).toString();
       expenses.push({name,y});
     }
     setExpenses(expenses);
@@ -48,7 +54,7 @@ const Expense: NextPage = () => {
     }
   }
   const addExpense = () =>{
-    expenses.push({nm:expenseNm,val:expenseVal});
+    expenses.push({name:expenseNm,y:expenseVal});
     setExpenses(expenses);
     setExpenseNm('');
     setExpenseVal('');
