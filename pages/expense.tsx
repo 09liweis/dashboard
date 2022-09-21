@@ -75,7 +75,7 @@ const Expense: NextPage = () => {
       }
     },
     title: {
-      text: 'My chart'
+      text: 'My Expense Chart'
     },
     series: [{
       name: 'Expense',
