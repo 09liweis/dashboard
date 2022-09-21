@@ -9,14 +9,14 @@ const EXPANSE_API_DATA:string = 'https://samliweisen.herokuapp.com/api/transacti
 
 interface SingleExpense {
   name:string,
-  y:string
+  y:number
 }
 
 const Expense: NextPage = () => {
   const emptyExpenses:Array<SingleExpense> = [];
   const [expenses,setExpenses] = useState(emptyExpenses);
   const [expenseNm, setExpenseNm] = useState('')
-  const [expenseVal, setExpenseVal] = useState('')
+  const [expenseVal, setExpenseVal] = useState(0)
   const getExpenseStatistics = async () => {
     const opt = {
       method: 'POST',
@@ -30,7 +30,7 @@ const Expense: NextPage = () => {
     const statistics = await res.json();
     let expenses:Array<SingleExpense> = [];
     for (const name in statistics.categoryPrice) {
-      const y = Math.abs(statistics.categoryPrice[name]).toString();
+      const y = Math.abs(statistics.categoryPrice[name]);
       expenses.push({name,y});
     }
     setExpenses(expenses);
@@ -50,7 +50,7 @@ const Expense: NextPage = () => {
       setExpenseNm(value);
     }
     if (field == 'val') {
-      setExpenseVal(value);
+      setExpenseVal(parseFloat(value));
     }
   }
   const addExpense = () =>{
