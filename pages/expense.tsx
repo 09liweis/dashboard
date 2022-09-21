@@ -57,7 +57,7 @@ const Expense: NextPage = () => {
     expenses.push({name:expenseNm,y:expenseVal});
     setExpenses(expenses);
     setExpenseNm('');
-    setExpenseVal('');
+    setExpenseVal(0);
   }
 
   const options = {
