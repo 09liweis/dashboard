@@ -1,6 +1,8 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
+import Highcharts from 'highcharts'
+import HighchartsReact from 'highcharts-react-official'
 import styles from '../styles/Home.module.css'
 
 const EXPANSE_API_DATA:string = 'https://samliweisen.herokuapp.com/api/transactions/statistics';
@@ -20,7 +22,12 @@ const Expense: NextPage = () => {
     };
     const res = await fetch(EXPANSE_API_DATA,opt);
     const statistics = await res.json();
-    console.log(statistics.categoryPrice);
+    let expenses = [];
+    for (const name in statistics.categoryPrice) {
+      const y = Math.abs(statistics.categoryPrice[name]);
+      expenses.push({name,y});
+    }
+    setExpenses(expenses);
   }
   useEffect(()=>{
     getExpenseStatistics();
@@ -28,50 +35,6 @@ const Expense: NextPage = () => {
   },[]);
 
   const renderChart = () => {
-    Highcharts.chart('container', {
-      chart: {
-        type: 'bar',
-        animation:{
-          duration:50
-        }
-      },
-      title: {
-        text: 'My Expenses'
-      },
-      xAxis: {
-        type:'category'
-      },
-      yAxis: {
-        min: 0,
-        title: {
-          text: 'Population (millions)',
-          align: 'high'
-        },
-        labels: {
-          overflow: 'justify'
-        }
-      },
-      plotOptions: {
-        bar: {
-          dataLabels: {
-            enabled: true
-          }
-        }
-      },
-      credits: {
-        enabled: false
-      },
-      series: [{
-        colorByPoint:true,
-        data: [{
-          name:'car',
-          y:1234
-        },{
-          name:'bill',
-          y:2234
-        }]
-      }]
-    });
 
   }
 
@@ -89,7 +52,36 @@ const Expense: NextPage = () => {
     setExpenses(expenses);
     setExpenseNm('');
     setExpenseVal('');
-    console.log(expenses);
+  }
+
+  const options = {
+    chart: {
+      type: 'bar',
+      animation:{
+        duration:50
+      }
+    },
+    xAxis: {
+      type:'category'
+    },
+    yAxis: {
+      min: 0,
+      title: {
+        text: 'Expense amount',
+        align: 'high'
+      },
+      labels: {
+        overflow: 'justify'
+      }
+    },
+    title: {
+      text: 'My chart'
+    },
+    series: [{
+      name: 'Expense',
+      colorByPoint:true,
+      data: expenses
+    }]
   }
 
   return (
@@ -104,8 +96,11 @@ const Expense: NextPage = () => {
         <input id='nm' placeholder='Category' value={expenseNm} onChange={(e)=>editInput(e,'nm')} />
         <input id='val' type='number' value={expenseVal} placeholder='Expense Amount' onChange={(e)=>editInput(e,'val')}/>
         <button onClick={addExpense}>Add</button>
-        <div id="container" className='width-100 height-400'></div>
-        <script async type="text/javascript" src="/js/highcharts.js"></script>
+        <HighchartsReact
+          highcharts={Highcharts}
+          options={options}
+        />
+        
       </main>
     </div>
   )
