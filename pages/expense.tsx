@@ -98,16 +98,16 @@ const Expense: NextPage = () => {
       </Head>
       <h2>Expense Page</h2>
       <main>
-        <input id='nm' placeholder='Category' value={expenseNm} onChange={(e)=>editInput(e,'nm')} />
-        <input id='val' type='number' value={expenseVal} placeholder='Expense Amount' onChange={(e)=>editInput(e,'val')}/>
-        <button onClick={addExpense}>Add</button>
+        <input className='width-100 margin-b-10 padding-10' id='nm' placeholder='Enter Your Category' value={expenseNm} onChange={(e)=>editInput(e,'nm')} />
+        <input className='width-100 margin-b-10 padding-10' id='val' type='number' value={expenseVal} placeholder='Enter Your Expense Amount' onChange={(e)=>editInput(e,'val')}/>
+        <button className='width-100 margin-b-10 padding-10' onClick={addExpense}>Add</button>
         {expenses.length?
         <React.Fragment>
           <section className='margin-tb-10'>
             {
               expenses.map((expense,idx)=>{
                 return (
-                  <article className='display-flex justify-content-sb margin-b-10' key={expense.name}>
+                  <article className='border border-radius padding-5 display-flex justify-content-sb margin-b-10' key={expense.name}>
                     <span>{expense.name}: {expense.y}</span>
                     <span onClick={()=>deleteExpense(idx)}>Delete</span>
                   </article>
