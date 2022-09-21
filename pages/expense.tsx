@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 import styles from '../styles/Home.module.css'
@@ -37,12 +37,7 @@ const Expense: NextPage = () => {
   }
   useEffect(()=>{
     getExpenseStatistics();
-    renderChart();
   },[]);
-
-  const renderChart = () => {
-
-  }
 
   const editInput = (e:any,field:string) =>{
     const value = e.target.value;
@@ -58,6 +53,10 @@ const Expense: NextPage = () => {
     setExpenses(expenses);
     setExpenseNm('');
     setExpenseVal(0);
+  }
+
+  const deleteExpense = (idx:number) => {
+    setExpenses(expenses.filter((item,i) => i !== idx));
   }
 
   const options = {
@@ -102,11 +101,26 @@ const Expense: NextPage = () => {
         <input id='nm' placeholder='Category' value={expenseNm} onChange={(e)=>editInput(e,'nm')} />
         <input id='val' type='number' value={expenseVal} placeholder='Expense Amount' onChange={(e)=>editInput(e,'val')}/>
         <button onClick={addExpense}>Add</button>
-        <HighchartsReact
-          highcharts={Highcharts}
-          options={options}
-        />
-        
+        {expenses.length?
+        <React.Fragment>
+          <section className='margin-tb-10'>
+            {
+              expenses.map((expense,idx)=>{
+                return (
+                  <article className='display-flex justify-content-sb margin-b-10' key={expense.name}>
+                    <span>{expense.name}: {expense.y}</span>
+                    <span onClick={()=>deleteExpense(idx)}>Delete</span>
+                  </article>
+                )
+              })
+            }
+          </section>
+          <HighchartsReact
+            highcharts={Highcharts}
+            options={options}
+          />
+        </React.Fragment>
+        :<section className='center'>Please add some expenses to show the chart</section>}
       </main>
     </div>
   )
