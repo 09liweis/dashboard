@@ -112,12 +112,13 @@ const Expense: NextPage = () => {
             highcharts={Highcharts}
             options={options}
           />
+          <h3>Total: {expenses.reduce((pVal,cVal)=> pVal + cVal.y,0).toFixed(2)}</h3>
           <section className='margin-tb-10'>
             {
               expenses.map((expense,idx)=>{
                 return (
                   <article className='border border-radius padding-5 display-flex justify-content-sb margin-b-10' key={expense.name}>
-                    <span>{expense.name}: {expense.y}</span>
+                    <span>{expense.name}: {expense.y.toFixed(2)}</span>
                     <span onClick={()=>deleteExpense(idx)}>Delete</span>
                   </article>
                 )
