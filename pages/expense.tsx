@@ -106,11 +106,12 @@ const Expense: NextPage = () => {
       </Head>
       <h2>Expense Page</h2>
       <main>
-        <input className='width-100 margin-b-10 padding-10' id='nm' placeholder='Enter Your Category' value={expenseNm} onChange={(e)=>editInput(e,'nm')} />
-        <input className='width-100 margin-b-10 padding-10' id='val' type='number' value={expenseVal} placeholder='Enter Your Expense Amount' onChange={(e)=>editInput(e,'val')}/>
-        <button className='width-100 margin-b-10 padding-10' onClick={addExpense}>Add</button>
         {expenses.length?
         <React.Fragment>
+          <HighchartsReact
+            highcharts={Highcharts}
+            options={options}
+          />
           <section className='margin-tb-10'>
             {
               expenses.map((expense,idx)=>{
@@ -123,12 +124,13 @@ const Expense: NextPage = () => {
               })
             }
           </section>
-          <HighchartsReact
-            highcharts={Highcharts}
-            options={options}
-          />
         </React.Fragment>
         :<section className='center'>Please add some expenses to show the chart</section>}
+        <div className='display-flex'>
+          <input className='width-100 margin-b-10 padding-10' id='nm' placeholder='Enter Category' value={expenseNm} onChange={(e)=>editInput(e,'nm')} />
+          <input className='width-100 margin-b-10 padding-10' id='val' type='number' value={expenseVal} placeholder='Enter Expense Amount' onChange={(e)=>editInput(e,'val')}/>
+          <button className='width-40 margin-b-10 padding-10' onClick={addExpense}>Add</button>
+        </div>
       </main>
     </div>
   )
