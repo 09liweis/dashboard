@@ -49,6 +49,14 @@ const Expense: NextPage = () => {
     }
   }
   const addExpense = () =>{
+    if (expenseNm.trim() === '') {
+      alert('Category can not be empty');
+      return;
+    }
+    if (expenseVal == 0) {
+      alert('Expense can not be 0');
+      return;
+    }
     expenses.push({name:expenseNm,y:expenseVal});
     setExpenses(expenses);
     setExpenseNm('');
