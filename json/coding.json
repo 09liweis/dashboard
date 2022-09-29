@@ -1,5 +1,37 @@
 {
-  "alogorithm":{
-    "nm": "动态规划Dynamic Programming"
-  }
+  "css":[
+    {"nm":"scale/translate/rotate without transform"},
+    {"nm":"scroll-snap"}
+  ],
+  "skills":[
+    {"nm":"防抖: debounce"},
+    {"nm":"节流: throttle"}
+  ],
+  "vue":[
+    {"nm":"nexttick","desc":"wait for the next DOM update cycle, then do callback"}
+  ],
+  "data structure":[
+    {"nm":"Array"},
+    {"nm":"String"},
+    {"nm":"stack"},
+    {"nm":"hash table"},
+    {"nm":"Graph"}
+  ],
+  "design pattern":[
+
+  ],
+  "alogorithm":[
+    {
+      "nm": "动态规划Dynamic Programming"
+    },
+    {
+      "nm": "排序"
+    },
+    {
+      "nm": "贪心greed"
+    },
+    {
+      "nm": "双指针"
+    }
+  ]
 }
