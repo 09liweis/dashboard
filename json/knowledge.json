@@ -1,5 +1,19 @@
 {
   "physics":{
     "nm": "Drake Equation"
-  }
+  },
+  "english":[
+    "intuitive",
+    "convention",
+    "liberal",
+    "i am not in danger, i am the danger",
+    "marry into money",
+    "drown",
+    "peculiar",
+    "smug"
+  ],
+  "society":[
+    "日本人少喝酒了，国税厅为收税鼓励年轻人多喝酒",
+    "幸运咖：5块钱咖啡吸引顾客，买更多其他10元上下的产品"
+  ]
 }
