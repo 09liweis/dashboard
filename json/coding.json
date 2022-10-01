@@ -1,14 +1,23 @@
 {
+  "api":[
+    "rickandmorty api"
+  ],
   "css":[
+    {"nm":"BFC"},
     {"nm":"scale/translate/rotate without transform"},
-    {"nm":"scroll-snap"}
+    {"nm":"scroll-snap"},
+    {"nm":"mix-blend-mode"}
   ],
   "skills":[
     {"nm":"防抖: debounce"},
-    {"nm":"节流: throttle"}
+    {"nm":"节流: throttle"},
+    {"nm":"函数柯里化,currying"},
+    {"nm":"diff算法"},
+    {"nm":"two way data binding, webpack split chunks"}
   ],
   "vue":[
-    {"nm":"nexttick","desc":"wait for the next DOM update cycle, then do callback"}
+    {"nm":"$nexttick","desc":"wait for the next DOM update cycle, then do callback"},
+    {"nm":"keep-alive"}
   ],
   "data structure":[
     {"nm":"Array"},
