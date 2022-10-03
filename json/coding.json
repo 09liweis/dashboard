@@ -3,6 +3,7 @@
     "rickandmorty api"
   ],
   "css":[
+    {"nm":"lightningcss"},
     {"nm":"BFC"},
     {"nm":"scale/translate/rotate without transform"},
     {"nm":"scroll-snap"},
@@ -13,11 +14,16 @@
     {"nm":"节流: throttle"},
     {"nm":"函数柯里化,currying"},
     {"nm":"diff算法"},
-    {"nm":"two way data binding, webpack split chunks"}
+    {"nm":"two way data binding, webpack split chunks"},
+    {"nm":"cross framework component跨框架组件"}
   ],
   "vue":[
     {"nm":"$nexttick","desc":"wait for the next DOM update cycle, then do callback"},
     {"nm":"keep-alive"}
+  ],
+  "JS Framework":[
+    {"nm":"Svelte"},
+    {"nm":"Solid"}
   ],
   "data structure":[
     {"nm":"Array"},
