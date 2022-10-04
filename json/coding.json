@@ -15,7 +15,9 @@
     {"nm":"函数柯里化,currying"},
     {"nm":"diff算法"},
     {"nm":"two way data binding, webpack split chunks"},
-    {"nm":"cross framework component跨框架组件"}
+    {"nm":"cross framework component跨框架组件"},
+    {"nm":"REST"},
+    {"nm":"GraphQL","pros":"Data Typing, real-time, introspection"}
   ],
   "vue":[
     {"nm":"$nexttick","desc":"wait for the next DOM update cycle, then do callback"},
@@ -33,7 +35,7 @@
     {"nm":"Graph"}
   ],
   "design pattern":[
-
+    {"nm":"Facade Pattern"}
   ],
   "alogorithm":[
     {
