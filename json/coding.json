@@ -24,6 +24,7 @@
     {"nm":"keep-alive"}
   ],
   "JS Framework":[
+    {"nm":"TypeScript"},
     {"nm":"Svelte"},
     {"nm":"Solid"}
   ],
@@ -35,7 +36,14 @@
     {"nm":"Graph"}
   ],
   "design pattern":[
-    {"nm":"Facade Pattern"}
+    {"nm":"Facade Pattern","pros":"封装第三方api"}
+  ],
+  "SOLID Design Principles":[
+    {"nm":"Single Responsibility"},
+    {"nm":"Open/Closed Principle","pros":"define better data structures, "},
+    {"nm":"Liskov Substitution Principle","pros":"Write better Object Oriented Code"},
+    {"nm":"Interface Segregation Principle"},
+    {"nm":"Dependency Inversion Principle"}
   ],
   "alogorithm":[
     {
