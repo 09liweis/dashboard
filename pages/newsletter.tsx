@@ -25,8 +25,8 @@ const Newsletter: NextPage = () => {
         throw data.error;
       }
       setState(2);
-    } catch (e) {
-      setErrorMsg(e);
+    } catch (e:any) {
+      setErrorMsg(e.toString());
       setState(3);
     }
   };
