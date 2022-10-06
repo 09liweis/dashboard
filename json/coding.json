@@ -24,6 +24,10 @@
     {"nm":"Linear Optimization"}
   ],
   "react":[
+    {"nm":"Declarative声明式设计"},
+    {"nm":"virtual dom","pros":"DOM不需要重排"},
+    {"nm":"jsx: syntax extension to JavaScript","pros":"babel compiler","how":"convert jsx to react.createElement"},
+    {"nm":"single data flow"},
     {"nm":"hooks","from":"algebraic effects代数效应"},
     {"nm":"useMemo","pros":"rerender only if useMemo dependency changes"},
     {"nm":"pureComponent","pros":"produce the same output given same input"}
