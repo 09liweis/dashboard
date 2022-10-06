@@ -7,7 +7,8 @@ const Newsletter: NextPage = () => {
   const [state, setState] = useState(0);
   const [errorMsg, setErrorMsg] = useState("");
   // 0 - initial , 1 - loading, 2 - success, 2 - error
-  const subscribe = async (e) => {
+  //TODO: fix e data type
+  const subscribe = async (e:any) => {
     e.preventDefault();
 
     setState(1);
