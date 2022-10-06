@@ -9,6 +9,9 @@
     {"nm":"scroll-snap"},
     {"nm":"mix-blend-mode"}
   ],
+  "git":[
+    {"nm":"git push sam HEAD:branch_name","desc":"push remote branch"}
+  ],
   "skills":[
     {"nm":"防抖: debounce"},
     {"nm":"节流: throttle"},
