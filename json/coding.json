@@ -17,7 +17,13 @@
     {"nm":"two way data binding, webpack split chunks"},
     {"nm":"cross framework component跨框架组件"},
     {"nm":"REST"},
-    {"nm":"GraphQL","pros":"Data Typing, real-time, introspection"}
+    {"nm":"GraphQL","pros":"Data Typing, real-time, introspection"},
+    {"nm":"Linear Optimization"}
+  ],
+  "react":[
+    {"nm":"hooks","from":"algebraic effects代数效应"},
+    {"nm":"useMemo","pros":"rerender only if useMemo dependency changes"},
+    {"nm":"pureComponent","pros":"produce the same output given same input"}
   ],
   "vue":[
     {"nm":"$nexttick","desc":"wait for the next DOM update cycle, then do callback"},
