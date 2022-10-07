@@ -41,6 +41,15 @@
     {"nm":"Svelte"},
     {"nm":"Solid"}
   ],
+  "cloud server":[
+    "aws",
+    "google cloud",
+    "azure",
+    "aliyun",
+    "tencentyun",
+    "vercel",
+    "netify"
+  ],
   "data structure":[
     {"nm":"Array"},
     {"nm":"String"},
