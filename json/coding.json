@@ -21,7 +21,19 @@
     {"nm":"cross framework component跨框架组件"},
     {"nm":"REST"},
     {"nm":"GraphQL","pros":"Data Typing, real-time, introspection"},
-    {"nm":"Linear Optimization"}
+    {"nm":"Linear Optimization"},
+    {
+      "nm":"Cross-origin resources sharing, CORS 跨域资源共享",
+      "pros":"浏览器保护机制",
+      "how":[
+        "后端: Access-Control-Allow-Origin, cors middleware, add allow domains",
+        "前端: vite create-react-app, vite.config.js server.proxy",
+        "nginx 中转服务器代理 http proxy middleware"
+      ]
+    }
+  ],
+  "optimazation":[
+    {"nm":"cdn"}
   ],
   "react":[
     {"nm":"Declarative声明式设计"},
@@ -65,7 +77,7 @@
     {"nm":"Open/Closed Principle","pros":"define better data structures, "},
     {"nm":"Liskov Substitution Principle","pros":"Write better Object Oriented Code"},
     {"nm":"Interface Segregation Principle"},
-    {"nm":"Dependency Inversion Principle"}
+    {"nm":"Dependency Inversion Principle","desc":"","pros":""}
   ],
   "alogorithm":[
     {
