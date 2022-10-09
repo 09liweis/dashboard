@@ -7,7 +7,8 @@
     {"nm":"BFC"},
     {"nm":"scale/translate/rotate without transform"},
     {"nm":"scroll-snap"},
-    {"nm":"mix-blend-mode"}
+    {"nm":"mix-blend-mode"},
+    {"nm":"nesting css","how":"use &"}
   ],
   "git":[
     {"nm":"git push sam HEAD:branch_name","desc":"push remote branch"}
@@ -30,7 +31,8 @@
         "前端: vite create-react-app, vite.config.js server.proxy",
         "nginx 中转服务器代理 http proxy middleware"
       ]
-    }
+    },
+    {"nm":"web components"}
   ],
   "optimazation":[
     {"nm":"cdn"}
