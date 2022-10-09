@@ -3,9 +3,13 @@ const Transaction = require('./models/transaction')
 const resolvers = {
   Query: {
     // transactions
-    getTransactions: async () => {
+    getTransactions: async (_,{date,category}) => {
       try {
-        const transactions = await Transaction.find({})
+        var query = {}
+        if (category) {
+          query.category = category
+        }
+        const transactions = await Transaction.find(query)
 
         return transactions
       } catch (err) {
