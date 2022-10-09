@@ -18,7 +18,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    getTransactions(category:String,date:String): [Transaction]
+    getTransactions(category:String,date:String,limit:Int): [Transaction]
     getTransaction(id: ID!): Transaction
   }
 

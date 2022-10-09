@@ -3,13 +3,21 @@ const Transaction = require('./models/transaction')
 const resolvers = {
   Query: {
     // transactions
-    getTransactions: async (_,{date,category}) => {
+    getTransactions: async (_,{date,category,limit}) => {
       try {
         var query = {}
         if (category) {
           query.category = category
         }
-        const transactions = await Transaction.find(query)
+        if (date) {
+          query.date = new RegExp(date);
+        }
+        var opts = {};
+        if (limit) {
+          opts.limit = limit;
+        }
+        console.log(opts);
+        const transactions = await Transaction.find(query,'',opts).sort('-date')
 
         return transactions
       } catch (err) {
