@@ -14,7 +14,6 @@ interface Props {
 }
 
 const Spacex: NextPage<Props> = ({lauches}) => {
-  console.log(lauches);
   return (
     <div className={styles.container}>
       <Head>

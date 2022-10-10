@@ -57,7 +57,7 @@ export async function getStaticProps() {
       pageMeta:{
         title:'Map Page'
       },
-      transactions:data.getTransactions
+      transactions:data?.getTransactions || []
     }
   }
 }
