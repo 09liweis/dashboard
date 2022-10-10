@@ -45,9 +45,8 @@ export async function getStaticProps() {
       category
       date
     }
-  }`;
-  // const {data} = await fetchData({uri,ql});
-  const data = {getTransactions:[]};
+  }`
+  const {data} = await fetchData({uri,ql})
   return  {
     props:{
       pageMeta:{
