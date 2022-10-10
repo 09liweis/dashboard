@@ -46,7 +46,8 @@ export async function getStaticProps() {
       date
     }
   }`;
-  const {data} = await fetchData({uri,ql});
+  // const {data} = await fetchData({uri,ql});
+  const data = {getTransactions:[]};
   return  {
     props:{
       pageMeta:{
