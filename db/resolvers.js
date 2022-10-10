@@ -16,7 +16,6 @@ const resolvers = {
         if (limit) {
           opts.limit = limit;
         }
-        console.log(opts);
         const transactions = await Transaction.find(query,'',opts).sort('-date')
 
         return transactions
