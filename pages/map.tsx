@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client'
 import styles from '../styles/Home.module.css'
+import {fetchData} from '../helpers'
 
 interface PageMeta {
   title:string
@@ -35,23 +36,17 @@ const Map: NextPage<Props> = ({transactions,pageMeta}) => {
 }
 
 export async function getStaticProps() {
-  const client = new ApolloClient({
-    uri: process.env.GRAPHQL_URI,
-    cache: new InMemoryCache()
-  });
-  const {data} = await client.query({
-    query: gql`
-      {
-        getTransactions (limit:10) {
-          id
-          title
-          price
-          category
-          date
-        }
-      }
-    `
-  });
+  const uri = process.env.GRAPHQL_URI;
+  const ql = `{
+    getTransactions (limit:10) {
+      id
+      title
+      price
+      category
+      date
+    }
+  }`;
+  const {data} = await fetchData({uri,ql});
   return  {
     props:{
       pageMeta:{
