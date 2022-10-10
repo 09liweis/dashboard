@@ -1,5 +1,6 @@
 import '../styles/globals.css'
 import Head from 'next/head'
+import Link from 'next/link'
 import type { AppProps } from 'next/app'
 
 const getPageTitle = (pageProps:any) => {
@@ -16,7 +17,15 @@ function MyApp({ Component, pageProps }: AppProps) {
       <link rel="icon" href="/favicon.ico" />
     </Head>
     <main>
-      <header>Header</header>
+      <header>
+        <section>Logo</section>
+        <nav>
+          <Link href='/expense'><a>Expense Page</a></Link>
+          <Link href='/spacex'><a>Spaxex</a></Link>
+          <Link href='/map'><a>Map</a></Link>
+          <Link href='/newsletter'><a>Subscription</a></Link>
+        </nav>
+      </header>
       <Component {...pageProps} />
     </main>
     </>
