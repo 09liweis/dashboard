@@ -7,8 +7,14 @@
     {"nm":"BFC"},
     {"nm":"scale/translate/rotate without transform"},
     {"nm":"scroll-snap"},
+    {"nm":"scroll-behavior: smooth"},
     {"nm":"mix-blend-mode"},
-    {"nm":"nesting css","how":"use &"}
+    {"nm":"nesting css","how":"use &"},
+    {"nm":"writing-mode:vertical-lr/horizontal-lr"},
+    {"nm":"gap in flexbox"},
+    {"nm":"resize: auto/vertical"},
+    {"nm":"Text Gradients","how":"background:linear-gradient();-webkit-background-clip:text;-webkit-text-fill-color:transparent;"},
+    {"nm":"object-fit","pros":"for image cover/contain","how":"cover"}
   ],
   "git":[
     {"nm":"git push sam HEAD:branch_name","desc":"push remote branch"}
@@ -32,7 +38,8 @@
         "nginx 中转服务器代理 http proxy middleware"
       ]
     },
-    {"nm":"web components"}
+    {"nm":"web components"},
+    {"nm":"微前端micro front end","pros":"","how":"model frederation"}
   ],
   "optimazation":[
     {"nm":"cdn"}
@@ -44,14 +51,15 @@
     {"nm":"single data flow"},
     {"nm":"hooks","from":"algebraic effects代数效应"},
     {"nm":"useMemo","pros":"rerender only if useMemo dependency changes"},
-    {"nm":"pureComponent","pros":"produce the same output given same input"}
+    {"nm":"pureComponent","pros":"produce the same output given same input"},
+    {"nm":"error boundary","how":"safe component"}
   ],
   "vue":[
     {"nm":"$nexttick","desc":"wait for the next DOM update cycle, then do callback"},
     {"nm":"keep-alive"}
   ],
   "JS Framework":[
-    {"nm":"TypeScript"},
+    {"nm":"TypeScript","pros":"more robust, easily spot bugs, predictability, readability","cons":"more code to write,more to learn,required compilation,not true static typing"},
     {"nm":"Svelte"},
     {"nm":"Solid"}
   ],
@@ -78,8 +86,8 @@
     {"nm":"Single Responsibility"},
     {"nm":"Open/Closed Principle","pros":"define better data structures, "},
     {"nm":"Liskov Substitution Principle","pros":"Write better Object Oriented Code"},
-    {"nm":"Interface Segregation Principle"},
-    {"nm":"Dependency Inversion Principle","desc":"","pros":""}
+    {"nm":"Interface Segregation Principle接口隔离"},
+    {"nm":"Dependency Inversion Principle依赖倒置原则","desc":"","pros":""}
   ],
   "alogorithm":[
     {
