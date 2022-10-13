@@ -20,8 +20,8 @@
     {"nm":"git push sam HEAD:branch_name","desc":"push remote branch"}
   ],
   "skills":[
-    {"nm":"防抖: debounce"},
-    {"nm":"节流: throttle"},
+    {"nm":"防抖: debounce, prevent the event trigger from being fired too often"},
+    {"nm":"节流: throttle, delaying function execution, infinite scrolling, Ajax-based instant search"},
     {"nm":"函数柯里化,currying"},
     {"nm":"diff算法"},
     {"nm":"two way data binding, webpack split chunks"},
@@ -52,7 +52,30 @@
     {"nm":"hooks","from":"algebraic effects代数效应"},
     {"nm":"useMemo","pros":"rerender only if useMemo dependency changes"},
     {"nm":"pureComponent","pros":"produce the same output given same input"},
-    {"nm":"error boundary","how":"safe component"}
+    {"nm":"error boundary","how":"safe component"},
+    {"nm":"Improve performance","how":[
+      "Keeping component state local where necessary",
+      "Memoizing React components to prevent unnecessary re-renders, use React.memo, React.memo is a higher-order component used to wrap a purely functional component to prevent re-rendering if the props received in that component never changes",
+      "To prevent the function from always redefining, we will use a useCallback Hook that returns a memoized version of the callback between renders, With the useCallback Hook, the incrementCount function only redefines when the count dependency array changes, const incrementCount = React.useCallback(() => setCount(count + 1), [count]);",
+      "Code-splitting in React using dynamic import(), React.lazy, <React.Suspense fallback={<p>Loading page...</p>}>",
+      "Windowing or list virtualization in React applications",
+      "Lazy loading images in React",
+      "React.PureComponent props shallow comparison, will not render if props are same",
+      "regular component shouldComponentUpdate",
+      "React Fragments  reduce html tags",
+      "Using Immutable Data Structures: Zero side-effects,Immutable data objects are simpler to create, test, and use,Helps prevent temporal coupling,Easier to track changes",
+      "Production Mode Flag in Webpack",
+      "Avoid Inline Function Definition in the Render Function",
+      "Throttling and Debouncing Event Action in JavaScript",
+      "Avoid using Index as Key for map",
+      "CSS Animations Instead of JS Animations",
+      "Using a CDN",
+      "Using Web Workers for CPU Extensive Tasks",
+      "Analyzing and Optimizing Your Webpack Bundle Bloat",
+      "Consider Server-side Rendering",
+      "Enable Gzip Compression on Web Server"
+    ]},
+    {"nm":"multipe set state","how":"ReactDOM.unstable_batchedUpdates()"}
   ],
   "vue":[
     {"nm":"$nexttick","desc":"wait for the next DOM update cycle, then do callback"},
