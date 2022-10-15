@@ -23,6 +23,7 @@
     {"nm":"防抖: debounce, prevent the event trigger from being fired too often"},
     {"nm":"节流: throttle, delaying function execution, infinite scrolling, Ajax-based instant search"},
     {"nm":"函数柯里化,currying"},
+    {"nm":"pure function"},
     {"nm":"diff算法"},
     {"nm":"two way data binding, webpack split chunks"},
     {"nm":"cross framework component跨框架组件"},
@@ -43,6 +44,37 @@
   ],
   "optimazation":[
     {"nm":"cdn"}
+  ],
+  "JavaScript":[
+    {"nm":"Hoisting"},
+    {"nm":"check parentheses function"},
+    {"nm":"arrow function"},
+    {"nm":"deconstruction"},
+    {"nm":"call"},
+    {"nm":"apply"},
+    {"nm":"ES class"},
+    {"nm":"spread operator","why":"if object has property of object, new object will share a reference"},
+    {"nm":"shallow copying"},
+    {"nm":"high order function: accept functions as parameters or return a function as their output"},
+    {"nm":"event loops"},
+    {"nm":"event queues"},
+    {"nm":"call stack"},
+    {"nm":"event bubbling"},
+    {"nm":"event capturing"},
+    {"nm":"asynchronous callbacks"},
+    {"nm":"Promises"},
+    {"nm":"same origin policy"},
+    {"nm":"strict keyword"},
+    {"nm":"throw error"},
+    {"nm":"generator","why":"create infinity loop", "how":"funnction* name() yield param, generatorObject.next(param) .return() .throw() (value:'',done:false)"},
+    {"nm":"continue break"},
+    {"nm":"Object.freeze"},
+    {"nm":"map for object","pros":"key can be object or other type"},
+    {"nm":"set for array","pros":"no duplicate items"},
+    {"nm":"float point number"},
+    {"nm":"console","how":"console.log .time .error .info .assert .table"},
+    {"nm":"debugger"},
+    {"nm":"closure"}
   ],
   "react":[
     {"nm":"Declarative声明式设计"},
@@ -75,7 +107,8 @@
       "Consider Server-side Rendering",
       "Enable Gzip Compression on Web Server"
     ]},
-    {"nm":"multipe set state","how":"ReactDOM.unstable_batchedUpdates()"}
+    {"nm":"multipe set state","how":"ReactDOM.unstable_batchedUpdates()"},
+    {"nm":"context","how":"createContext, useContext"}
   ],
   "vue":[
     {"nm":"$nexttick","desc":"wait for the next DOM update cycle, then do callback"},
@@ -127,6 +160,12 @@
     }
   ],
   "interview":[
+    {
+      "nm":"technical interview",
+      "question":"handle situation",
+      "knowledge":"JavaScript terminology, react skills",
+      "how car engine works":"analytical thinking"
+    },
     {
       "nm":"Tell me about yourself",
       "answer":[
