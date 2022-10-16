@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 import styles from '../styles/Home.module.css'
+import { fetchAPI } from '../helpers'
 
 const EXPANSE_API_DATA:string = 'https://samliweisen.herokuapp.com/api/transactions/statistics';
 
@@ -18,16 +19,8 @@ const Expense: NextPage = () => {
   const [expenseNm, setExpenseNm] = useState('')
   const [expenseVal, setExpenseVal] = useState(0)
   const getExpenseStatistics = async () => {
-    const opt = {
-      method: 'POST',
-      headers:{
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({date:'2022-08'})
-    };
-    const res = await fetch(EXPANSE_API_DATA,opt);
-    const statistics = await res.json();
+    const body = {date:'2022-09'};
+    const statistics = await fetchAPI({url:EXPANSE_API_DATA,body});
     let expenses:Array<SingleExpense> = [];
     for (const name in statistics.categoryPrice) {
       const y = Math.abs(statistics.categoryPrice[name]);
