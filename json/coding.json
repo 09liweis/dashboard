@@ -46,7 +46,11 @@
     {"nm":"cdn"}
   ],
   "JavaScript":[
+    {"nm":"Primitive Types","what":"String|Number|Boolean|Null|Undefined|Symbol|BitInt store directly in stack"},
+    {"nm":"Reference Types","what":"Arrays|Functions|Objects Stored in heap accessed by reference"},
+    {"nm":"Execution Context","what":"Global/Function memmory creation phase, execution phase"},
     {"nm":"Hoisting"},
+    {"nm":"let const is block scope"},
     {"nm":"check parentheses function"},
     {"nm":"arrow function"},
     {"nm":"deconstruction"},
@@ -57,12 +61,13 @@
     {"nm":"shallow copying"},
     {"nm":"high order function: accept functions as parameters or return a function as their output"},
     {"nm":"event loops"},
-    {"nm":"event queues"},
-    {"nm":"call stack"},
-    {"nm":"event bubbling"},
-    {"nm":"event capturing"},
+    {"nm":"microtask queue","what":"promiseJobs has high prioirty: fetch, browser observer"},
+    {"nm":"task/callback queues","what":"add cb function to queue first in first out"},
+    {"nm":"call stack","what":"add execution function to stack"},
+    {"nm":"event bubbling","why":"child to parent","how":"use stoppropagation"},
+    {"nm":"event capturing","why":"parent to child"},
     {"nm":"asynchronous callbacks"},
-    {"nm":"Promises"},
+    {"nm":"Promises","how":"promise.all([])"},
     {"nm":"same origin policy"},
     {"nm":"strict keyword"},
     {"nm":"throw error"},
@@ -74,7 +79,9 @@
     {"nm":"float point number"},
     {"nm":"console","how":"console.log .time .error .info .assert .table"},
     {"nm":"debugger"},
-    {"nm":"closure"}
+    {"nm":"closure","what":"when you have a function defined inside of another function, that inner function has access to the variables and scope of the outer function even if the outer function finishes executing and those variables are no longer accessible outside of that function"},
+    {"nm":"fetch","how":"new AbortController(); fetch(url,{signal:controller.signal}); return () => {controller.abort}"},
+    {"nm":"js engine","how":"source code -> parser -> abstract syntax tree -> interpreter -> JIT compilation"}
   ],
   "react":[
     {"nm":"Declarative声明式设计"},
@@ -108,7 +115,8 @@
       "Enable Gzip Compression on Web Server"
     ]},
     {"nm":"multipe set state","how":"ReactDOM.unstable_batchedUpdates()"},
-    {"nm":"context","how":"createContext, useContext"}
+    {"nm":"context","how":"createContext, useContext"},
+    {"nm":"react query"}
   ],
   "vue":[
     {"nm":"$nexttick","desc":"wait for the next DOM update cycle, then do callback"},
