@@ -1,6 +1,7 @@
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client'
 
-export async function fetchData({uri,ql}) {
+export async function fetchTransactions({ql}) {
+  const uri = process.env.GRAPHQL_URI;
   const client = new ApolloClient({
     uri,
     cache: new InMemoryCache()
@@ -10,7 +11,7 @@ export async function fetchData({uri,ql}) {
       ${ql}
     `
   });
-  return {data};
+  return {list:data.getTransactions};
 }
 
 export async function fetchAPI({url,body}) {

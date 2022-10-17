@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
-import { ApolloClient, InMemoryCache, gql } from '@apollo/client'
+import { useEffect, useMemo, useState } from 'react'
 import styles from '../styles/Home.module.css'
-import {fetchData} from '../helpers'
+import {fetchTransactions} from '../helpers'
 
 interface PageMeta {
   title:string
@@ -20,10 +20,34 @@ interface Props {
   transactions: Array<Transaction>
 }
 
-const Map: NextPage<Props> = ({transactions,pageMeta}) => {
+const Map: NextPage<Props> = ({pageMeta}) => {
+  const [transactions,setTransactions] = useState(Array<Transaction>);
+  const doFetchTransactions = async () => {
+    const ql = `{
+      getTransactions (limit:100) {
+        id
+        title
+        price
+        category
+        date
+      }
+    }`
+    const {list} = await fetchTransactions({ql})
+    setTransactions(list);
+  }
+
+  const totalExpenses = useMemo(()=>{
+    return (transactions.reduce((sum,t)=>sum+Math.abs(t.price),0)).toFixed(2);
+  },[transactions]);
+
+  useEffect(()=>{
+    doFetchTransactions();
+  },[]);
+
   return (
     <div className={styles.container}>
-      <h2>Map Page</h2>
+      <h1>Transactions Page</h1>
+      <h3>Total expenses: {totalExpenses}</h3>
       {transactions.map((t)=>{
         return (
           <article key={t.id}>
@@ -36,23 +60,11 @@ const Map: NextPage<Props> = ({transactions,pageMeta}) => {
 }
 
 export async function getStaticProps() {
-  const uri = process.env.GRAPHQL_URI;
-  const ql = `{
-    getTransactions (limit:10) {
-      id
-      title
-      price
-      category
-      date
-    }
-  }`
-  const {data} = await fetchData({uri,ql})
   return  {
     props:{
       pageMeta:{
         title:'Map Page'
-      },
-      transactions:data?.getTransactions || []
+      }
     }
   }
 }
