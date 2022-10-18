@@ -46,13 +46,15 @@
     {"nm":"cdn"}
   ],
   "JavaScript":[
+    {"nm":"Inheritance"},
+    {"nm":"prototype"},
     {"nm":"Primitive Types","what":"String|Number|Boolean|Null|Undefined|Symbol|BitInt store directly in stack"},
     {"nm":"Reference Types","what":"Arrays|Functions|Objects Stored in heap accessed by reference"},
     {"nm":"Execution Context","what":"Global/Function memmory creation phase, execution phase"},
     {"nm":"Hoisting"},
     {"nm":"let const is block scope"},
     {"nm":"check parentheses function"},
-    {"nm":"arrow function"},
+    {"nm":"arrow function","how":"should not use in class/object function"},
     {"nm":"deconstruction"},
     {"nm":"call"},
     {"nm":"apply"},
@@ -79,7 +81,11 @@
     {"nm":"float point number"},
     {"nm":"console","how":"console.log .time .error .info .assert .table"},
     {"nm":"debugger"},
-    {"nm":"closure","what":"when you have a function defined inside of another function, that inner function has access to the variables and scope of the outer function even if the outer function finishes executing and those variables are no longer accessible outside of that function"},
+    {
+      "nm":"closure",
+      "what":"when you have a function defined inside of another function, that inner function has access to the variables and scope of the outer function even if the outer function finishes executing and those variables are no longer accessible outside of that function",
+      "how":"function that returns function"
+    },
     {"nm":"fetch","how":"new AbortController(); fetch(url,{signal:controller.signal}); return () => {controller.abort}"},
     {"nm":"js engine","how":"source code -> parser -> abstract syntax tree -> interpreter -> JIT compilation"}
   ],
@@ -144,7 +150,10 @@
     {"nm":"Graph"}
   ],
   "design pattern":[
-    {"nm":"Facade Pattern","pros":"封装第三方api"}
+    {"nm":"factory design pattern"},
+    {"nm":"Facade Pattern","pros":"封装第三方api"},
+    {"nm":"Builder Pattern","pros":"simplify constructor reduce params, set other attribute in builder function or pass attributes as object in option param"},
+    {"nm":"Null Object Pattern"}
   ],
   "SOLID Design Principles":[
     {"nm":"Single Responsibility"},
