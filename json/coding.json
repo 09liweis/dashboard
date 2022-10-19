@@ -51,10 +51,10 @@
     {"nm":"Primitive Types","what":"String|Number|Boolean|Null|Undefined|Symbol|BitInt store directly in stack"},
     {"nm":"Reference Types","what":"Arrays|Functions|Objects Stored in heap accessed by reference"},
     {"nm":"Execution Context","what":"Global/Function memmory creation phase, execution phase"},
-    {"nm":"Hoisting"},
+    {"nm":"Hoisting","what":"var:undefined function, assignment dont get hoisting"},
     {"nm":"let const is block scope"},
     {"nm":"check parentheses function"},
-    {"nm":"arrow function","how":"should not use in class/object function"},
+    {"nm":"arrow function","how":"should not use in class/object function, this point to global context"},
     {"nm":"deconstruction"},
     {"nm":"call"},
     {"nm":"apply"},
@@ -69,7 +69,17 @@
     {"nm":"event bubbling","why":"child to parent","how":"use stoppropagation"},
     {"nm":"event capturing","why":"parent to child"},
     {"nm":"asynchronous callbacks"},
-    {"nm":"Promises","how":"promise.all([])"},
+    {
+      "nm":"Promises",
+      "what":"get a promise to the future value",
+      "how":"promise.all([])",
+      "pros":[
+        "Improves Code Readability.",
+        "Better handling of asynchronous operations.",
+        "Better flow of control definition in asynchronous logic.",
+        "Better Error Handling"
+      ]
+    },
     {"nm":"same origin policy"},
     {"nm":"strict keyword"},
     {"nm":"throw error"},
@@ -87,15 +97,20 @@
       "how":"function that returns function"
     },
     {"nm":"fetch","how":"new AbortController(); fetch(url,{signal:controller.signal}); return () => {controller.abort}"},
-    {"nm":"js engine","how":"source code -> parser -> abstract syntax tree -> interpreter -> JIT compilation"}
+    {"nm":"js engine","how":"source code -> parser -> abstract syntax tree -> interpreter -> JIT compilation"},
+    {"nm":"array methods","what":"filter map find forEach reduce"}
   ],
   "react":[
     {"nm":"Declarative声明式设计"},
     {"nm":"virtual dom","pros":"DOM不需要重排"},
     {"nm":"jsx: syntax extension to JavaScript","pros":"babel compiler","how":"convert jsx to react.createElement"},
     {"nm":"single data flow"},
-    {"nm":"hooks","from":"algebraic effects代数效应"},
-    {"nm":"useMemo","pros":"rerender only if useMemo dependency changes"},
+    {"nm":"hooks","from":"algebraic effects代数效应","what":"Hooks are functions that let you “hook into” React state and lifecycle features from function components. Hooks don't work inside classes — they let you use React without classes"},
+    {"nm":"useMemo","pros":"rerender only if useMemo dependency changes, for object, array too"},
+    {"nm":"useEffect","cons":"referencial equality for object","how":"useMemo for object array"},
+    {"nm":"useLayoutEffect","what":"not syncho, work before render"},
+    {"nm":"useTransition","what":"two set state, but large calculate, priority","how":"[isPending,startTransition] = useTransition()","pros":"performance","cons":"increase render times"},
+    {"nm":"useDeferredValue","what":"like debounce, use for low priority, if value not changed, do stuff"},
     {"nm":"pureComponent","pros":"produce the same output given same input"},
     {"nm":"error boundary","how":"safe component"},
     {"nm":"Improve performance","how":[
