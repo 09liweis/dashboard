@@ -17,7 +17,8 @@
     {"nm":"object-fit","pros":"for image cover/contain","how":"cover"}
   ],
   "git":[
-    {"nm":"git push sam HEAD:branch_name","desc":"push remote branch"}
+    {"nm":"git push sam HEAD:branch_name","desc":"push remote branch"},
+    {"nm":"git reset --soft HEAD~1","desc":"reset last commit local"}
   ],
   "skills":[
     {"nm":"防抖: debounce, prevent the event trigger from being fired too often"},
@@ -99,6 +100,9 @@
     {"nm":"fetch","how":"new AbortController(); fetch(url,{signal:controller.signal}); return () => {controller.abort}"},
     {"nm":"js engine","how":"source code -> parser -> abstract syntax tree -> interpreter -> JIT compilation"},
     {"nm":"array methods","what":"filter map find forEach reduce"}
+  ],
+  "react native":[
+
   ],
   "react":[
     {"nm":"Declarative声明式设计"},
@@ -190,6 +194,9 @@
     {
       "nm": "双指针"
     }
+  ],
+  "database":[
+    {"nm":"normalization"}
   ],
   "interview":[
     {
