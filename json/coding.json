@@ -43,8 +43,10 @@
     {"nm":"web components"},
     {"nm":"微前端micro front end","pros":"","how":"model frederation"}
   ],
-  "optimazation":[
-    {"nm":"cdn"}
+  "optimization":[
+    {"nm":"cdn"},
+    {"nm":"web worker"},
+    {"nm":"Memorization"}
   ],
   "JavaScript":[
     {"nm":"Inheritance"},
@@ -99,7 +101,8 @@
     },
     {"nm":"fetch","how":"new AbortController(); fetch(url,{signal:controller.signal}); return () => {controller.abort}"},
     {"nm":"js engine","how":"source code -> parser -> abstract syntax tree -> interpreter -> JIT compilation"},
-    {"nm":"array methods","what":"filter map find forEach reduce"}
+    {"nm":"array methods","what":"filter map find forEach reduce"},
+    {"nm":"jsonp"}
   ],
   "react native":[
 
