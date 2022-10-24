@@ -14,7 +14,11 @@
     {"nm":"gap in flexbox"},
     {"nm":"resize: auto/vertical"},
     {"nm":"Text Gradients","how":"background:linear-gradient();-webkit-background-clip:text;-webkit-text-fill-color:transparent;"},
-    {"nm":"object-fit","pros":"for image cover/contain","how":"cover"}
+    {"nm":"object-fit","pros":"for image cover/contain","how":"cover"},
+    {"nm":"translate does not trigger reflow or repaint"},
+    {"nm":"optimize for print","how":"print media create stylesheet for print"},
+    {"nm":"float","what":"position an image to the right or left including text wrapping around it"},
+    {"nm":"media","what":"print, speech, screen"}
   ],
   "git":[
     {"nm":"git push sam HEAD:branch_name","desc":"push remote branch"},
@@ -49,6 +53,7 @@
     {"nm":"Memorization"}
   ],
   "JavaScript":[
+    {"nm":"event delegation","what":"add event listener to parent node"},
     {"nm":"Inheritance"},
     {"nm":"prototype"},
     {"nm":"Primitive Types","what":"String|Number|Boolean|Null|Undefined|Symbol|BitInt store directly in stack"},
@@ -75,7 +80,7 @@
     {
       "nm":"Promises",
       "what":"get a promise to the future value",
-      "how":"promise.all([])",
+      "how":"promise.all([]), .allSettled: return all status, .any: return first fullfill, ignore all fails, promise chaining",
       "pros":[
         "Improves Code Readability.",
         "Better handling of asynchronous operations.",
@@ -93,6 +98,7 @@
     {"nm":"set for array","pros":"no duplicate items"},
     {"nm":"float point number"},
     {"nm":"console","how":"console.log .time .error .info .assert .table"},
+    {"nm":"garbage collection","what":" In contrast, JavaScript automatically allocates memory when objects are created and frees it when they are not used anymore"},
     {"nm":"debugger"},
     {
       "nm":"closure",
@@ -102,6 +108,10 @@
     {"nm":"fetch","how":"new AbortController(); fetch(url,{signal:controller.signal}); return () => {controller.abort}"},
     {"nm":"js engine","how":"source code -> parser -> abstract syntax tree -> interpreter -> JIT compilation"},
     {"nm":"array methods","what":"filter map find forEach reduce"},
+    {"nm":"implicit explicit binding"},
+    {"nm":"caching/memoize function","how":"create high order function has object to save value, fn.call(this,...args)"},
+    {"nm":"infinite curring","how":"if infinit args, use recursion, if infinit function args, reduce"},
+    {"nm":"infinite chaing","what":"calc.add(10),multiply(5),subtract(30).add(10) result.total","how":"use object function, return this in function"},
     {"nm":"jsonp"}
   ],
   "react native":[
