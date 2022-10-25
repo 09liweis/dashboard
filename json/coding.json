@@ -105,6 +105,8 @@
       "what":"when you have a function defined inside of another function, that inner function has access to the variables and scope of the outer function even if the outer function finishes executing and those variables are no longer accessible outside of that function",
       "how":"function that returns function"
     },
+    {"nm":"First Class Function","what":"functions can be passed as variables, can be returned, can be assigned to variable"},
+    {"nm":"IIFE","what":"define and call function"},
     {"nm":"fetch","how":"new AbortController(); fetch(url,{signal:controller.signal}); return () => {controller.abort}"},
     {"nm":"js engine","how":"source code -> parser -> abstract syntax tree -> interpreter -> JIT compilation"},
     {"nm":"array methods","what":"filter map find forEach reduce"},
