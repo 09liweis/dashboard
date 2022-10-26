@@ -26,6 +26,7 @@ const Newsletter: NextPage = () => {
       }
       setState(2);
     } catch (e:any) {
+      //TODO: fix e data type
       setErrorMsg(e.toString());
       setState(3);
     }

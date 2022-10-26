@@ -1,7 +1,11 @@
 import type { NextPage } from 'next'
-import { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import styles from '../styles/Home.module.css'
+import useDebounce from '../hooks/useDebounce';
 import {fetchTransactions} from '../helpers'
+
+import {ThemeProvider, useTheme, useThemeUpdate} from '../contexts/ThemeContext';
+import FunctionContextComponent from '../components/functionContextComponent';
 
 interface PageMeta {
   title:string
@@ -22,9 +26,12 @@ interface Props {
 
 const Map: NextPage<Props> = ({pageMeta}) => {
   const [transactions,setTransactions] = useState(Array<Transaction>);
+  const [searchDate, setSearchDate] = useState('');
+  const debouncedValue = useDebounce<string>(searchDate, 500);
+
   const doFetchTransactions = async () => {
     const ql = `{
-      getTransactions (limit:100) {
+      getTransactions (limit:100, date:"${searchDate}") {
         id
         title
         price
@@ -42,31 +49,54 @@ const Map: NextPage<Props> = ({pageMeta}) => {
 
   useEffect(()=>{
     doFetchTransactions();
-  },[]);
+  },[debouncedValue]);
+
+  const changeSearch = (e:React.ChangeEvent<HTMLInputElement>) => {
+    setSearchDate(e.target.value);
+  }
 
   return (
-    <div className={styles.container}>
-      <h1>Transactions Page</h1>
-      <h3>Total expenses: {totalExpenses}</h3>
-      {transactions.map((t)=>{
-        return (
-          <article key={t.id}>
-            <h2>{t.price} {t.category} {t.date}</h2>
-          </article>
-        )
-      })}
-    </div>
+    <ThemeProvider>
+      <FunctionContextComponent />
+    </ThemeProvider>
   )
 }
 
-export async function getStaticProps() {
-  return  {
-    props:{
-      pageMeta:{
-        title:'Map Page'
-      }
-    }
-  }
+interface TransactionItem {
+  t: Transaction
 }
+
+interface TransactionList {
+  ts: Array<Transaction>
+}
+
+const TransactionList = ({ts}:TransactionList) => {
+  return (
+    <>
+    {ts.map((t)=>{
+      return <TransactionItem key={t.id} t={t} />
+    })}
+    </>
+  )
+}
+
+const TransactionItem = ({t}:TransactionItem) => {
+  const darkTheme = useTheme()
+  return (
+    <article>
+      <h2>{t.price} {t.category} {t.date}</h2>
+    </article>
+  )
+}
+
+// export async function getStaticProps() {
+//   return  {
+//     props:{
+//       pageMeta:{
+//         title:'Map Page'
+//       }
+//     }
+//   }
+// }
 
 export default Map
