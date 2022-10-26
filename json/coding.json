@@ -1,267 +1,313 @@
-{
-  "api":[
-    "rickandmorty api"
-  ],
-  "css":[
-    {"nm":"lightningcss"},
-    {"nm":"BFC"},
-    {"nm":"scale/translate/rotate without transform"},
-    {"nm":"scroll-snap"},
-    {"nm":"scroll-behavior: smooth"},
-    {"nm":"mix-blend-mode"},
-    {"nm":"nesting css","how":"use &"},
-    {"nm":"writing-mode:vertical-lr/horizontal-lr"},
-    {"nm":"gap in flexbox"},
-    {"nm":"resize: auto/vertical"},
-    {"nm":"Text Gradients","how":"background:linear-gradient();-webkit-background-clip:text;-webkit-text-fill-color:transparent;"},
-    {"nm":"object-fit","pros":"for image cover/contain","how":"cover"},
-    {"nm":"translate does not trigger reflow or repaint"},
-    {"nm":"optimize for print","how":"print media create stylesheet for print"},
-    {"nm":"float","what":"position an image to the right or left including text wrapping around it"},
-    {"nm":"media","what":"print, speech, screen"}
-  ],
-  "git":[
-    {"nm":"git push sam HEAD:branch_name","desc":"push remote branch"},
-    {"nm":"git reset --soft HEAD~1","desc":"reset last commit local"}
-  ],
-  "skills":[
-    {"nm":"防抖: debounce, prevent the event trigger from being fired too often"},
-    {"nm":"节流: throttle, delaying function execution, infinite scrolling, Ajax-based instant search"},
-    {"nm":"函数柯里化,currying"},
-    {"nm":"pure function"},
-    {"nm":"diff算法"},
-    {"nm":"two way data binding, webpack split chunks"},
-    {"nm":"cross framework component跨框架组件"},
-    {"nm":"REST"},
-    {"nm":"GraphQL","pros":"Data Typing, real-time, introspection"},
-    {"nm":"Linear Optimization"},
-    {
-      "nm":"Cross-origin resources sharing, CORS 跨域资源共享",
-      "pros":"浏览器保护机制",
-      "how":[
-        "后端: Access-Control-Allow-Origin, cors middleware, add allow domains",
-        "前端: vite create-react-app, vite.config.js server.proxy",
-        "nginx 中转服务器代理 http proxy middleware"
-      ]
-    },
-    {"nm":"web components"},
-    {"nm":"微前端micro front end","pros":"","how":"model frederation"}
-  ],
-  "optimization":[
-    {"nm":"cdn"},
-    {"nm":"web worker"},
-    {"nm":"Memorization"}
-  ],
-  "JavaScript":[
-    {"nm":"event delegation","what":"add event listener to parent node"},
-    {"nm":"Inheritance"},
-    {"nm":"prototype"},
-    {"nm":"Primitive Types","what":"String|Number|Boolean|Null|Undefined|Symbol|BitInt store directly in stack"},
-    {"nm":"Reference Types","what":"Arrays|Functions|Objects Stored in heap accessed by reference"},
-    {"nm":"Execution Context","what":"Global/Function memmory creation phase, execution phase"},
-    {"nm":"Hoisting","what":"var:undefined function, assignment dont get hoisting"},
-    {"nm":"let const is block scope"},
-    {"nm":"variable shawdoning","what":"let const, not var"},
-    {"nm":"check parentheses function"},
-    {"nm":"arrow function","how":"should not use in class/object function, this point to global context"},
-    {"nm":"deconstruction"},
-    {"nm":"call"},
-    {"nm":"apply"},
-    {"nm":"ES class"},
-    {"nm":"spread operator","why":"if object has property of object, new object will share a reference"},
-    {"nm":"shallow copying"},
-    {"nm":"high order function: accept functions as parameters or return a function as their output"},
-    {"nm":"event loops"},
-    {"nm":"microtask queue","what":"promiseJobs has high prioirty: fetch, browser observer"},
-    {"nm":"task/callback queues","what":"add cb function to queue first in first out"},
-    {"nm":"call stack","what":"add execution function to stack"},
-    {"nm":"event bubbling","why":"child to parent","how":"use stoppropagation"},
-    {"nm":"event capturing","why":"parent to child"},
-    {"nm":"asynchronous callbacks"},
-    {
-      "nm":"Promises",
-      "what":"get a promise to the future value",
-      "how":"promise.all([]), .allSettled: return all status, .any: return first fullfill, ignore all fails, promise chaining",
-      "pros":[
-        "Improves Code Readability.",
-        "Better handling of asynchronous operations.",
-        "Better flow of control definition in asynchronous logic.",
-        "Better Error Handling"
-      ]
-    },
-    {"nm":"same origin policy"},
-    {"nm":"strict keyword"},
-    {"nm":"throw error"},
-    {"nm":"generator","why":"create infinity loop", "how":"funnction* name() yield param, generatorObject.next(param) .return() .throw() (value:'',done:false)"},
-    {"nm":"continue break"},
-    {"nm":"Object.freeze"},
-    {"nm":"map for object","pros":"key can be object or other type"},
-    {"nm":"set for array","pros":"no duplicate items"},
-    {"nm":"float point number"},
-    {"nm":"console","how":"console.log .time .error .info .assert .table"},
-    {"nm":"garbage collection","what":" In contrast, JavaScript automatically allocates memory when objects are created and frees it when they are not used anymore"},
-    {"nm":"debugger"},
-    {
-      "nm":"closure",
-      "what":"when you have a function defined inside of another function, that inner function has access to the variables and scope of the outer function even if the outer function finishes executing and those variables are no longer accessible outside of that function",
-      "how":"function that returns function"
-    },
-    {"nm":"First Class Function","what":"functions can be passed as variables, can be returned, can be assigned to variable"},
-    {"nm":"IIFE","what":"define and call function"},
-    {"nm":"fetch","how":"new AbortController(); fetch(url,{signal:controller.signal}); return () => {controller.abort}"},
-    {"nm":"js engine","how":"source code -> parser -> abstract syntax tree -> interpreter -> JIT compilation"},
-    {"nm":"array methods","what":"filter map find forEach reduce"},
-    {"nm":"implicit explicit binding","what":"implicit call function with obj, explicity: call function bind/call/apply other params"},
-    {"nm":"caching/memoize function","how":"create high order function has object to save value, fn.call(this,...args)"},
-    {"nm":"infinite curring","how":"if infinit args, use recursion, if infinit function args, reduce"},
-    {"nm":"infinite chaing","what":"calc.add(10),multiply(5),subtract(30).add(10) result.total","how":"use object function, return this in function"},
-    {"nm":"jsonp"}
-  ],
-  "react native":[
-
-  ],
-  "react":[
-    {"nm":"Declarative声明式设计"},
-    {"nm":"virtual dom","pros":"DOM不需要重排"},
-    {"nm":"jsx: syntax extension to JavaScript","pros":"babel compiler","how":"convert jsx to react.createElement"},
-    {"nm":"single data flow"},
-    {"nm":"hooks","from":"algebraic effects代数效应","what":"Hooks are functions that let you “hook into” React state and lifecycle features from function components. Hooks don't work inside classes — they let you use React without classes"},
-    {"nm":"useMemo","pros":"rerender only if useMemo dependency changes, for object, array too"},
-    {"nm":"useEffect","cons":"referencial equality for object","how":"useMemo for object array"},
-    {"nm":"useLayoutEffect","what":"not syncho, work before render"},
-    {"nm":"useTransition","what":"two set state, but large calculate, priority","how":"[isPending,startTransition] = useTransition()","pros":"performance","cons":"increase render times"},
-    {"nm":"useDeferredValue","what":"like debounce, use for low priority, if value not changed, do stuff"},
-    {"nm":"pureComponent","pros":"produce the same output given same input"},
-    {"nm":"error boundary","how":"safe component"},
-    {"nm":"Improve performance","how":[
-      "Keeping component state local where necessary",
-      "Memoizing React components to prevent unnecessary re-renders, use React.memo, React.memo is a higher-order component used to wrap a purely functional component to prevent re-rendering if the props received in that component never changes",
-      "To prevent the function from always redefining, we will use a useCallback Hook that returns a memoized version of the callback between renders, With the useCallback Hook, the incrementCount function only redefines when the count dependency array changes, const incrementCount = React.useCallback(() => setCount(count + 1), [count]);",
-      "Code-splitting in React using dynamic import(), React.lazy, <React.Suspense fallback={<p>Loading page...</p>}>",
-      "Windowing or list virtualization in React applications",
-      "Lazy loading images in React",
-      "React.PureComponent props shallow comparison, will not render if props are same",
-      "regular component shouldComponentUpdate",
-      "React Fragments  reduce html tags",
-      "Using Immutable Data Structures: Zero side-effects,Immutable data objects are simpler to create, test, and use,Helps prevent temporal coupling,Easier to track changes",
-      "Production Mode Flag in Webpack",
-      "Avoid Inline Function Definition in the Render Function",
-      "Throttling and Debouncing Event Action in JavaScript",
-      "Avoid using Index as Key for map",
-      "CSS Animations Instead of JS Animations",
-      "Using a CDN",
-      "Using Web Workers for CPU Extensive Tasks",
-      "Analyzing and Optimizing Your Webpack Bundle Bloat",
-      "Consider Server-side Rendering",
-      "Enable Gzip Compression on Web Server"
-    ]},
-    {"nm":"multipe set state","how":"ReactDOM.unstable_batchedUpdates()"},
-    {"nm":"context","how":"createContext, useContext"},
-    {"nm":"react query"}
-  ],
-  "vue":[
-    {"nm":"$nexttick","desc":"wait for the next DOM update cycle, then do callback"},
-    {"nm":"keep-alive"}
-  ],
-  "JS Framework":[
-    {"nm":"TypeScript","pros":"more robust, easily spot bugs, predictability, readability","cons":"more code to write,more to learn,required compilation,not true static typing"},
-    {"nm":"Svelte"},
-    {"nm":"Solid"}
-  ],
-  "cloud server":[
-    "aws",
-    "google cloud",
-    "azure",
-    "aliyun",
-    "tencentyun",
-    "vercel",
-    "netify"
-  ],
-  "data structure":[
-    {"nm":"Array"},
-    {"nm":"String"},
-    {"nm":"stack"},
-    {"nm":"hash table"},
-    {"nm":"Graph"}
-  ],
-  "design pattern":[
-    {"nm":"factory design pattern"},
-    {"nm":"Facade Pattern","pros":"封装第三方api"},
-    {"nm":"Builder Pattern","pros":"simplify constructor reduce params, set other attribute in builder function or pass attributes as object in option param"},
-    {"nm":"Null Object Pattern"}
-  ],
-  "SOLID Design Principles":[
-    {"nm":"Single Responsibility"},
-    {"nm":"Open/Closed Principle","pros":"define better data structures, "},
-    {"nm":"Liskov Substitution Principle","pros":"Write better Object Oriented Code"},
-    {"nm":"Interface Segregation Principle接口隔离"},
-    {"nm":"Dependency Inversion Principle依赖倒置原则","desc":"","pros":""}
-  ],
-  "alogorithm":[
-    {
-      "nm": "动态规划Dynamic Programming"
-    },
-    {
-      "nm": "排序"
-    },
-    {
-      "nm": "贪心greed"
-    },
-    {
-      "nm": "双指针"
-    }
-  ],
-  "database":[
-    {"nm":"normalization"}
-  ],
-  "interview":[
-    {
-      "nm":"technical interview",
-      "question":"handle situation",
-      "knowledge":"JavaScript terminology, react skills",
-      "how car engine works":"analytical thinking"
-    },
-    {
-      "nm":"Tell me about yourself",
-      "answer":[
-        "I'm an experienced web developer who constantly seeks out innovative solutions to everyday problems",
-        "I got my analytical thinking and collaboration skills, and I love working with a team.",
-        "I will learn and practice update-to-date coding skills on side projects, provide dev suggestioin or solution to freinds and family if they need my helpe for their business",
-        "love to challenge myself on work and life,"
-      ]
-    },
-    {
-      "nm":"what is fun",
-      "answer":""
-    },
-    {
-      "nm":"Where do you see yourself in the future",
-      "answer":"I want to contribute as much as I can to the business while working as a level 3 software engineer. However, once I have mastered all aspects of this role I see myself moving into a management role such as a tech lead or staff software engineer. I’m a leader and incredibly organized as I have demonstrated in previous roles. ",
-      "answer1":"In the future, I see myself as a successful software engineer who has benefited the business and achieved my technical goals. I enjoy new challenges and am eager to move up in the company into a specialized role where I can focus on the more technical problems we face and make a real difference."
-    },
-    {
-      "nm":"What is your biggest weakness and how do you overcome it",
-      "answer":"read some knowledges, if not use it, forget it, so mark it down"
-    },
-    {
-      "nm":"Describe a project you are proud of and what you technically contributed on it",
-      "answer":"Map features, debounce, Facade, encapsulation fetch api, lazy image load"
-    },
-    {
-      "nm":"question to ask",
-      "question":[
-        "What are the expectations that you have set for this role?",
-        "Can you describe the team that I would work with in this position?",
-        "What technology does your software engineer team use?",
-        "What do you think are the biggest challenges facing the software engineering team?",
-        "What are the growth opportunities like in this position?",
-        "What development methodology do you use at your company?",
-        "What is the culture of your company and software engineering department like?",
-        "What does a day in this position usually look like?",
-        "What learning opportunities could I have in this position?",
-        "What are your company's plans for the near future?",
-        "Why do you enjoy working at this company?"
-      ]
-    }
-  ]
-}
+[
+  {
+    "nm":"api",
+    "items":["rickandmorty api"]
+  },
+  {
+    "nm":"css",
+    "items":[
+      {"nm":"lightningcss"},
+      {"nm":"BFC"},
+      {"nm":"scale/translate/rotate without transform"},
+      {"nm":"scroll-snap"},
+      {"nm":"scroll-behavior: smooth"},
+      {"nm":"mix-blend-mode"},
+      {"nm":"nesting css","how":"use &"},
+      {"nm":"writing-mode:vertical-lr/horizontal-lr"},
+      {"nm":"gap in flexbox"},
+      {"nm":"resize: auto/vertical"},
+      {"nm":"Text Gradients","how":"background:linear-gradient();-webkit-background-clip:text;-webkit-text-fill-color:transparent;"},
+      {"nm":"object-fit","pros":"for image cover/contain","how":"cover"},
+      {"nm":"translate does not trigger reflow or repaint"},
+      {"nm":"optimize for print","how":"print media create stylesheet for print"},
+      {"nm":"float","what":"position an image to the right or left including text wrapping around it"},
+      {"nm":"media","what":"print, speech, screen"}
+    ]
+  },
+  {
+    "nm":"git",
+    "items":[
+      {"nm":"git push sam HEAD:branch_name","desc":"push remote branch"},
+      {"nm":"git reset --soft HEAD~1","desc":"reset last commit local"}
+    ]
+  },
+  {
+    "nm":"skills",
+    "items":[
+      {"nm":"防抖: debounce, prevent the event trigger from being fired too often"},
+      {"nm":"节流: throttle, delaying function execution, infinite scrolling, Ajax-based instant search"},
+      {"nm":"函数柯里化,currying"},
+      {"nm":"pure function"},
+      {"nm":"diff算法"},
+      {"nm":"two way data binding, webpack split chunks"},
+      {"nm":"cross framework component跨框架组件"},
+      {"nm":"REST"},
+      {"nm":"GraphQL","pros":"Data Typing, real-time, introspection"},
+      {"nm":"Linear Optimization"},
+      {
+        "nm":"Cross-origin resources sharing, CORS 跨域资源共享",
+        "pros":"浏览器保护机制",
+        "how":[
+          "后端: Access-Control-Allow-Origin, cors middleware, add allow domains",
+          "前端: vite create-react-app, vite.config.js server.proxy",
+          "nginx 中转服务器代理 http proxy middleware"
+        ]
+      },
+      {"nm":"web components"},
+      {"nm":"微前端micro front end","pros":"","how":"model frederation"}
+    ]
+  },
+  {
+    "nm":"optimization",
+    "items":[
+      {"nm":"cdn"},
+      {"nm":"web worker"},
+      {"nm":"Memorization"}
+    ]
+  },
+  {
+    "nm":"JavaScript",
+    "items":[
+      {"nm":"event delegation","what":"add event listener to parent node"},
+      {"nm":"Inheritance"},
+      {"nm":"prototype"},
+      {"nm":"Primitive Types","what":"String|Number|Boolean|Null|Undefined|Symbol|BitInt store directly in stack"},
+      {"nm":"Reference Types","what":"Arrays|Functions|Objects Stored in heap accessed by reference"},
+      {"nm":"Execution Context","what":"Global/Function memmory creation phase, execution phase"},
+      {"nm":"Hoisting","what":"var:undefined function, assignment dont get hoisting"},
+      {"nm":"let const is block scope"},
+      {"nm":"variable shawdoning","what":"let const, not var"},
+      {"nm":"check parentheses function"},
+      {"nm":"arrow function","how":"should not use in class/object function, this point to global context"},
+      {"nm":"deconstruction"},
+      {"nm":"call"},
+      {"nm":"apply"},
+      {"nm":"ES class"},
+      {"nm":"spread operator","why":"if object has property of object, new object will share a reference"},
+      {"nm":"shallow copying"},
+      {"nm":"high order function: accept functions as parameters or return a function as their output"},
+      {"nm":"event loops"},
+      {"nm":"microtask queue","what":"promiseJobs has high prioirty: fetch, browser observer"},
+      {"nm":"task/callback queues","what":"add cb function to queue first in first out"},
+      {"nm":"call stack","what":"add execution function to stack"},
+      {"nm":"event bubbling","why":"child to parent","how":"use stoppropagation"},
+      {"nm":"event capturing","why":"parent to child"},
+      {"nm":"asynchronous callbacks"},
+      {
+        "nm":"Promises",
+        "what":"get a promise to the future value",
+        "how":"promise.all([]), .allSettled: return all status, .any: return first fullfill, ignore all fails, promise chaining",
+        "pros":[
+          "Improves Code Readability.",
+          "Better handling of asynchronous operations.",
+          "Better flow of control definition in asynchronous logic.",
+          "Better Error Handling"
+        ]
+      },
+      {"nm":"same origin policy"},
+      {"nm":"strict keyword"},
+      {"nm":"throw error"},
+      {"nm":"generator","why":"create infinity loop", "how":"funnction* name() yield param, generatorObject.next(param) .return() .throw() (value:'',done:false)"},
+      {"nm":"continue break"},
+      {"nm":"Object.freeze"},
+      {"nm":"map for object","pros":"key can be object or other type"},
+      {"nm":"set for array","pros":"no duplicate items"},
+      {"nm":"float point number"},
+      {"nm":"console","how":"console.log .time .error .info .assert .table"},
+      {"nm":"garbage collection","what":" In contrast, JavaScript automatically allocates memory when objects are created and frees it when they are not used anymore"},
+      {"nm":"debugger"},
+      {
+        "nm":"closure",
+        "what":"when you have a function defined inside of another function, that inner function has access to the variables and scope of the outer function even if the outer function finishes executing and those variables are no longer accessible outside of that function",
+        "how":"function that returns function"
+      },
+      {"nm":"First Class Function","what":"functions can be passed as variables, can be returned, can be assigned to variable"},
+      {"nm":"IIFE","what":"define and call function"},
+      {"nm":"fetch","how":"new AbortController(); fetch(url,{signal:controller.signal}); return () => {controller.abort}"},
+      {"nm":"js engine","how":"source code -> parser -> abstract syntax tree -> interpreter -> JIT compilation"},
+      {"nm":"array methods","what":"filter map find forEach reduce"},
+      {"nm":"implicit explicit binding","what":"implicit call function with obj, explicity: call function bind/call/apply other params"},
+      {"nm":"caching/memoize function","how":"create high order function has object to save value, fn.call(this,...args)"},
+      {"nm":"infinite curring","how":"if infinit args, use recursion, if infinit function args, reduce"},
+      {"nm":"infinite chaing","what":"calc.add(10),multiply(5),subtract(30).add(10) result.total","how":"use object function, return this in function"},
+      {"nm":"jsonp"}
+    ]
+  },
+  {
+    "nm":"react native"
+  },
+  {
+    "nm":"react",
+    "items":[
+      {"nm":"Declarative声明式设计"},
+      {"nm":"virtual dom","pros":"DOM不需要重排"},
+      {"nm":"jsx: syntax extension to JavaScript","pros":"babel compiler","how":"convert jsx to react.createElement"},
+      {"nm":"single data flow"},
+      {"nm":"hooks","from":"algebraic effects代数效应","what":"Hooks are functions that let you “hook into” React state and lifecycle features from function components. Hooks don't work inside classes — they let you use React without classes"},
+      {"nm":"useMemo","pros":"rerender only if useMemo dependency changes, for object, array too"},
+      {"nm":"useEffect","cons":"referencial equality for object","how":"useMemo for object array"},
+      {"nm":"useLayoutEffect","what":"not syncho, work before render"},
+      {"nm":"useTransition","what":"two set state, but large calculate, priority","how":"[isPending,startTransition] = useTransition()","pros":"performance","cons":"increase render times"},
+      {"nm":"useDeferredValue","what":"like debounce, use for low priority, if value not changed, do stuff"},
+      {"nm":"pureComponent","pros":"produce the same output given same input"},
+      {"nm":"error boundary","how":"safe component"},
+      {"nm":"Improve performance","how":[
+        "Keeping component state local where necessary",
+        "Memoizing React components to prevent unnecessary re-renders, use React.memo, React.memo is a higher-order component used to wrap a purely functional component to prevent re-rendering if the props received in that component never changes",
+        "To prevent the function from always redefining, we will use a useCallback Hook that returns a memoized version of the callback between renders, With the useCallback Hook, the incrementCount function only redefines when the count dependency array changes, const incrementCount = React.useCallback(() => setCount(count + 1), [count]);",
+        "Code-splitting in React using dynamic import(), React.lazy, <React.Suspense fallback={<p>Loading page...</p>}>",
+        "Windowing or list virtualization in React applications",
+        "Lazy loading images in React",
+        "React.PureComponent props shallow comparison, will not render if props are same",
+        "regular component shouldComponentUpdate",
+        "React Fragments  reduce html tags",
+        "Using Immutable Data Structures: Zero side-effects,Immutable data objects are simpler to create, test, and use,Helps prevent temporal coupling,Easier to track changes",
+        "Production Mode Flag in Webpack",
+        "Avoid Inline Function Definition in the Render Function",
+        "Throttling and Debouncing Event Action in JavaScript",
+        "Avoid using Index as Key for map",
+        "CSS Animations Instead of JS Animations",
+        "Using a CDN",
+        "Using Web Workers for CPU Extensive Tasks",
+        "Analyzing and Optimizing Your Webpack Bundle Bloat",
+        "Consider Server-side Rendering",
+        "Enable Gzip Compression on Web Server"
+      ]},
+      {"nm":"multipe set state","how":"ReactDOM.unstable_batchedUpdates()"},
+      {"nm":"context","how":"createContext, useContext"},
+      {"nm":"react query"}
+    ]
+  },
+  {
+    "nm":"vue",
+    "items":[
+      {"nm":"$nexttick","desc":"wait for the next DOM update cycle, then do callback"},
+      {"nm":"keep-alive"}
+    ]
+  },
+  {
+    "nm":"JS Framework",
+    "items":[
+      {"nm":"TypeScript","pros":"more robust, easily spot bugs, predictability, readability","cons":"more code to write,more to learn,required compilation,not true static typing"},
+      {"nm":"Svelte"},
+      {"nm":"Solid"}
+    ]
+  },
+  {
+    "nm":"cloud server",
+    "items":[
+      "aws",
+      "google cloud",
+      "azure",
+      "aliyun",
+      "tencentyun",
+      "vercel",
+      "netify"
+    ]
+  },
+  {
+    "nm":"data structure",
+    "items":[
+      {"nm":"Array"},
+      {"nm":"String"},
+      {"nm":"stack"},
+      {"nm":"hash table"},
+      {"nm":"Graph"}
+    ]
+  },
+  {
+    "nm":"design pattern",
+    "items":[
+      {"nm":"factory design pattern"},
+      {"nm":"Facade Pattern","pros":"封装第三方api"},
+      {"nm":"Builder Pattern","pros":"simplify constructor reduce params, set other attribute in builder function or pass attributes as object in option param"},
+      {"nm":"Null Object Pattern"}
+    ]
+  },
+  {
+    "nm":"SOLID Design Principles",
+    "items":[
+      {"nm":"Single Responsibility"},
+      {"nm":"Open/Closed Principle","pros":"define better data structures, "},
+      {"nm":"Liskov Substitution Principle","pros":"Write better Object Oriented Code"},
+      {"nm":"Interface Segregation Principle接口隔离"},
+      {"nm":"Dependency Inversion Principle依赖倒置原则","desc":"","pros":""}
+    ]
+  },
+  {
+    "nm":"alogorithm",
+    "items":[
+      {
+        "nm": "动态规划Dynamic Programming"
+      },
+      {
+        "nm": "排序"
+      },
+      {
+        "nm": "贪心greed"
+      },
+      {
+        "nm": "双指针"
+      }
+    ]
+  },
+  {
+    "nm":"database",
+    "items":[
+      {"nm":"normalization"}
+    ]
+  },
+  {
+    "nm":"interview",
+    "items":[
+      {
+        "nm":"technical interview",
+        "question":"handle situation",
+        "knowledge":"JavaScript terminology, react skills",
+        "how car engine works":"analytical thinking"
+      },
+      {
+        "nm":"Tell me about yourself",
+        "answer":[
+          "I'm an experienced web developer who constantly seeks out innovative solutions to everyday problems",
+          "I got my analytical thinking and collaboration skills, and I love working with a team.",
+          "I will learn and practice update-to-date coding skills on side projects, provide dev suggestioin or solution to freinds and family if they need my helpe for their business",
+          "love to challenge myself on work and life,"
+        ]
+      },
+      {
+        "nm":"what is fun",
+        "answer":""
+      },
+      {
+        "nm":"Where do you see yourself in the future",
+        "answer":"I want to contribute as much as I can to the business while working as a level 3 software engineer. However, once I have mastered all aspects of this role I see myself moving into a management role such as a tech lead or staff software engineer. I’m a leader and incredibly organized as I have demonstrated in previous roles. ",
+        "answer1":"In the future, I see myself as a successful software engineer who has benefited the business and achieved my technical goals. I enjoy new challenges and am eager to move up in the company into a specialized role where I can focus on the more technical problems we face and make a real difference."
+      },
+      {
+        "nm":"What is your biggest weakness and how do you overcome it",
+        "answer":"read some knowledges, if not use it, forget it, so mark it down"
+      },
+      {
+        "nm":"Describe a project you are proud of and what you technically contributed on it",
+        "answer":"Map features, debounce, Facade, encapsulation fetch api, lazy image load"
+      },
+      {
+        "nm":"question to ask",
+        "question":[
+          "What are the expectations that you have set for this role?",
+          "Can you describe the team that I would work with in this position?",
+          "What technology does your software engineer team use?",
+          "What do you think are the biggest challenges facing the software engineering team?",
+          "What are the growth opportunities like in this position?",
+          "What development methodology do you use at your company?",
+          "What is the culture of your company and software engineering department like?",
+          "What does a day in this position usually look like?",
+          "What learning opportunities could I have in this position?",
+          "What are your company's plans for the near future?",
+          "Why do you enjoy working at this company?"
+        ]
+      }
+    ]
+  }
+]
