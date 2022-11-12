@@ -69,7 +69,6 @@ const TransactionList = ({ts}:TransactionListType) => {
 }
 
 const TransactionItem = ({t}:TransactionItem) => {
-  const darkTheme = useTheme()
   return (
     <article>
       <h2>{t.price} {t.category} {t.date}</h2>
