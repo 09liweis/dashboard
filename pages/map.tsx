@@ -2,10 +2,9 @@ import type { NextPage } from 'next'
 import React, { useEffect, useMemo, useState } from 'react'
 import styles from '../styles/Home.module.css'
 import useDebounce from '../hooks/useDebounce';
-import {fetchTransactions} from '../helpers'
 
-import {ThemeProvider, useTheme, useThemeUpdate} from '../contexts/ThemeContext';
-import FunctionContextComponent from '../components/functionContextComponent';
+// import {ThemeProvider, useTheme, useThemeUpdate} from '../contexts/ThemeContext';
+// import FunctionContextComponent from '../components/functionContextComponent';
 
 interface PageMeta {
   title:string
@@ -29,26 +28,12 @@ const Map: NextPage<Props> = ({pageMeta}) => {
   const [searchDate, setSearchDate] = useState('');
   const debouncedValue = useDebounce<string>(searchDate, 500);
 
-  const doFetchTransactions = async () => {
-    const ql = `{
-      getTransactions (limit:100, date:"${searchDate}") {
-        id
-        title
-        price
-        category
-        date
-      }
-    }`
-    const {list} = await fetchTransactions({ql})
-    setTransactions(list);
-  }
-
   const totalExpenses = useMemo(()=>{
     return (transactions.reduce((sum,t)=>sum+Math.abs(t.price),0)).toFixed(2);
   },[transactions]);
 
   useEffect(()=>{
-    doFetchTransactions();
+    
   },[debouncedValue]);
 
   const changeSearch = (e:React.ChangeEvent<HTMLInputElement>) => {
@@ -56,9 +41,12 @@ const Map: NextPage<Props> = ({pageMeta}) => {
   }
 
   return (
-    <ThemeProvider>
-      <FunctionContextComponent />
-    </ThemeProvider>
+    <main>
+      {/* <ThemeProvider>
+        <FunctionContextComponent />
+      </ThemeProvider> */}
+      <TransactionList ts={transactions} />
+    </main>
   )
 }
 
@@ -66,11 +54,11 @@ interface TransactionItem {
   t: Transaction
 }
 
-interface TransactionList {
+interface TransactionListType {
   ts: Array<Transaction>
 }
 
-const TransactionList = ({ts}:TransactionList) => {
+const TransactionList = ({ts}:TransactionListType) => {
   return (
     <>
     {ts.map((t)=>{
