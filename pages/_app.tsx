@@ -21,7 +21,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         <section>Logo</section>
         <nav>
           <Link href='/expense'><a>Expense Page</a></Link>
-          <Link href='/spacex'><a>Spaxex</a></Link>
           <Link href='/map'><a>Map</a></Link>
           <Link href='/newsletter'><a>Subscription</a></Link>
         </nav>
