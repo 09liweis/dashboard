@@ -1,9 +1,9 @@
 import { ApolloServer } from 'apollo-server-micro'
 import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core";
 
-import typeDefs from '../../db/schema'
-import resolvers from '../../db/resolvers'
-import connectDb from '../../db/config'
+import typeDefs from './schema'
+import resolvers from './resolvers'
+import connectDb from './config'
 
 connectDb()
 
