@@ -23,6 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Link href='/expense'><a>Expense Page</a></Link>
           <Link href='/map'><a>Map</a></Link>
           <Link href='/newsletter'><a>Subscription</a></Link>
+          <Link href='/comments'><a>Comments</a></Link>
         </nav>
       </header>
       <Component {...pageProps} />
