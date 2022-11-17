@@ -11,6 +11,10 @@ interface Visual {
   poster: string
 }
 
+const loaderProp = ({src,width,quality}:any) => {
+  return `${src}?w=${width}&q=${quality || 75}`;
+}
+
 const Visuals: NextPage = () => {
   const [visuals,setVisuals] = useState([]);
 
@@ -26,7 +30,7 @@ const Visuals: NextPage = () => {
   const visualsHTML = visuals.map((c:Visual)=>{
     return (
       <article key={c._id} className='w-full sm:w-6/12 md:w-4/12 lg:w-3/12 p-4'>
-        <Image src={c.poster} alt={c.title} width={200} height={300} layout='responsive' />
+        <Image src={c.poster} alt={c.title} width={200} height={300} layout='responsive' loader={loaderProp} />
       </article>
     )
   })
