@@ -1,3 +1,4 @@
+import NextCors from 'nextjs-cors';
 import VisualModel from '../../../db/models/visual';
 
 import connectDb from '../../../db/config'
@@ -5,8 +6,13 @@ import connectDb from '../../../db/config'
 connectDb()
 
 export default async function handler(req,res) {
-  res.setHeader('Access-Control-Allow-Origin','*');
   const method = req.method;
+  await NextCors(req, res, {
+    // Options
+    methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+    origin: '*',
+    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+  });
   try {
     if (method == 'GET') {
       const query = {};
