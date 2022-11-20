@@ -35,7 +35,7 @@ const Home: NextPage = () => {
         <section className={styles.grid}>
           <article className="card display-flex">
             <section className='width-30 pos-relative img-container'>
-              <Image className='border-radius-left image' src={visual.poster} alt="Vercel Logo" layout='fill' />
+              {/* <Image className='border-radius-left image' src={visual.poster} alt="Vercel Logo" layout='fill' /> */}
             </section>
             <section className='width-70 padding'>
               <Link href={`/visuals/${visual.douban_id}`}>
