@@ -23,6 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <header>
         <section>Logo</section>
         <nav className='flex justify-between'>
+          <Link href='/knowledges'><a>Knowledges</a></Link>
           <Link href='/visuals'><a>Movies</a></Link>
           <Link href='/expense'><a>Expense Page</a></Link>
           <Link href='/map'><a>Map</a></Link>
