@@ -14,15 +14,17 @@
 //   return {list:data.getTransactions};
 // }
 
-export async function fetchAPI({url,body}) {
+export async function fetchAPI({method='POST',url,body}) {
   const opt = {
-    method: 'POST',
+    method,
     headers:{
       'Accept': 'application/json',
       'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(body)
+    }
   };
+  if (Object.keys(body).length) {
+    opt.body = JSON.stringify(body);
+  }
   const response = await fetch(url,opt);
   const data = await response.json();
   return data;
