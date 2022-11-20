@@ -23,7 +23,7 @@ const Visuals: NextPage = () => {
   },[]);
 
   const getVisuals = async () => {
-    const {visuals} = await fetchAPI({url:'/api/visuals',body:{}});
+    const {visuals} = await fetchAPI({url:'/api/visuals',method:'GET',body:{}});
     setVisuals(visuals);
   }
 
