@@ -1,7 +1,7 @@
 [
   {
     "nm":"api",
-    "items":["rickandmorty api"]
+    "items":[{"nm":"rickandmorty api"}]
   },
   {
     "nm":"css",
@@ -199,13 +199,13 @@
   {
     "nm":"cloud server",
     "items":[
-      "aws",
-      "google cloud",
-      "azure",
-      "aliyun",
-      "tencentyun",
-      "vercel",
-      "netify"
+      {"nm":"aws"},
+      {"nm":"google cloud"},
+      {"nm":"azure"},
+      {"nm":"aliyun"},
+      {"nm":"tencentyun"},
+      {"nm":"vercel"},
+      {"nm":"netify"}
     ]
   },
   {
@@ -265,13 +265,14 @@
     "items":[
       {
         "nm":"technical interview",
-        "question":"handle situation",
-        "knowledge":"JavaScript terminology, react skills",
-        "how car engine works":"analytical thinking"
+        "items":[
+          {"nm":"handle situation"},
+          {"nm":"analytical thinking"}
+        ]
       },
       {
         "nm":"Tell me about yourself",
-        "answer":[
+        "items":[
           "I'm an experienced web developer who constantly seeks out innovative solutions to everyday problems",
           "I got my analytical thinking and collaboration skills, and I love working with a team.",
           "I will learn and practice update-to-date coding skills on side projects, provide dev suggestioin or solution to freinds and family if they need my helpe for their business",
@@ -279,25 +280,23 @@
         ]
       },
       {
-        "nm":"what is fun",
-        "answer":""
-      },
-      {
         "nm":"Where do you see yourself in the future",
-        "answer":"I want to contribute as much as I can to the business while working as a level 3 software engineer. However, once I have mastered all aspects of this role I see myself moving into a management role such as a tech lead or staff software engineer. I’m a leader and incredibly organized as I have demonstrated in previous roles. ",
-        "answer1":"In the future, I see myself as a successful software engineer who has benefited the business and achieved my technical goals. I enjoy new challenges and am eager to move up in the company into a specialized role where I can focus on the more technical problems we face and make a real difference."
+        "items":[
+          "I want to contribute as much as I can to the business while working as a level 3 software engineer. However, once I have mastered all aspects of this role I see myself moving into a management role such as a tech lead or staff software engineer. I’m a leader and incredibly organized as I have demonstrated in previous roles. ",
+          "In the future, I see myself as a successful software engineer who has benefited the business and achieved my technical goals. I enjoy new challenges and am eager to move up in the company into a specialized role where I can focus on the more technical problems we face and make a real difference."
+        ]
       },
       {
         "nm":"What is your biggest weakness and how do you overcome it",
-        "answer":"read some knowledges, if not use it, forget it, so mark it down"
+        "items":["read some knowledges, if not use it, forget it, so mark it down"]
       },
       {
         "nm":"Describe a project you are proud of and what you technically contributed on it",
-        "answer":"Map features, debounce, Facade, encapsulation fetch api, lazy image load"
+        "items":["Map features, debounce, Facade, encapsulation fetch api, lazy image load"]
       },
       {
         "nm":"question to ask",
-        "question":[
+        "items":[
           "What are the expectations that you have set for this role?",
           "Can you describe the team that I would work with in this position?",
           "What technology does your software engineer team use?",
