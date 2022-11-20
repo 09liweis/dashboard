@@ -19,9 +19,11 @@ export default async function handler(req,res) {
         return res.status(200).json({msg:'No douban id'});
       }
       const filter = {douban_id:update.douban_id};
-      const doc = await Character.findOneAndUpdate(filter, update, {
-        returnOriginal: false
-      });
+      update.date_updated = new Date();
+      if (!update._id) {
+        update.date_watched = new Date();
+      }
+      const doc = await VisualModel.findOneAndUpdate(filter, update, { new: true, upsert: true });
 
       return res.status(200).json({visual:doc});
     }
