@@ -5,6 +5,7 @@ import connectDb from '../../../db/config'
 connectDb()
 
 export default async function handler(req,res) {
+  res.setHeader('Access-Control-Allow-Origin','*');
   const method = req.method;
   try {
     if (method == 'GET') {
