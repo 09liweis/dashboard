@@ -60,7 +60,8 @@
       {"nm":"translate does not trigger reflow or repaint"},
       {"nm":"optimize for print","how":"print media create stylesheet for print"},
       {"nm":"float","what":"position an image to the right or left including text wrapping around it"},
-      {"nm":"media","what":"print, speech, screen"}
+      {"nm":"media","what":"print, speech, screen"},
+      {"nm":"focus-within", "what":"update parent element style if focus input", "how":"parent:focus-within {/*css style*/}"}
     ]
   },
   {
