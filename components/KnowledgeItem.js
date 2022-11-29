@@ -22,7 +22,13 @@ function KnowledgeItem({knowledgeItem}) {
     )
   } else {
     return (
-      <section>{knowledgeItem.nm}</section>
+      <section className="mb-3">
+        <p>{knowledgeItem.nm}</p>
+        {knowledgeItem.what ? <p>What: {knowledgeItem.what}</p> :''}
+        {knowledgeItem.how ? <p>How: {knowledgeItem.how}</p> :''}
+        {knowledgeItem.why ? <p>Why: {knowledgeItem.why}</p> :''}
+        {knowledgeItem.pros ? <p>Pros: {knowledgeItem.pros}</p> :''}
+      </section>
     )
   }
 }
