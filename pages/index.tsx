@@ -65,12 +65,12 @@ const Home: NextPage = () => {
 }
 
 export const getStaticProps:GetServerSideProps = async (ctx) => {
-  const res = await fetch(RANDOM_VISUAL_API)
-  const {result} = await res.json();
+  //const res = await fetch(RANDOM_VISUAL_API)
+  //const {result} = await res.json();
   // console.log(result);
   return {
     props:{
-      visual:result
+      visual:{}
     }
   }
 }
