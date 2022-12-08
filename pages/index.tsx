@@ -15,10 +15,10 @@ const Home: NextPage = () => {
     setVisual(result);
   }
   useEffect(()=>{
-    setRandomVisual();
-    setInterval(()=>{
-      setRandomVisual();
-    },10000);
+    // setRandomVisual();
+    // setInterval(()=>{
+    //   setRandomVisual();
+    // },10000);
   },[]);
   return (
     <div className={styles.container}>
