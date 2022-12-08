@@ -26,7 +26,7 @@ function KnowledgeItem({knowledgeItem}) {
         <p>{knowledgeItem.nm}</p>
         {knowledgeItem.what ? <p>What: {knowledgeItem.what}</p> :''}
         {knowledgeItem.how ? 
-          Array.isArray(knowledgeItem.how) ? knowledgeItem.how.map(how => <div>{how}</div>)
+          Array.isArray(knowledgeItem.how) ? knowledgeItem.how.map(how => <div key={how}>{how}</div>)
           : <p>How: {knowledgeItem.how}</p>
         :''}
         {knowledgeItem.why ? <p>Why: {knowledgeItem.why}</p> :''}
