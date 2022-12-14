@@ -297,7 +297,17 @@
   {
     "nm":"database",
     "items":[
-      {"nm":"normalization"}
+      {"nm":"normalization"},
+      {
+        "nm":"mongoose",
+        "items":[
+          {
+            "nm":"loadClass",
+            "what": "use to create a Mongoose schema from an ES6 class",
+            "how":"schema.loadClass(MyClass)"
+          }
+        ]
+      }
     ]
   },
   {
