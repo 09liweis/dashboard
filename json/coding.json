@@ -245,7 +245,9 @@
       {"nm":"aliyun"},
       {"nm":"tencentyun"},
       {"nm":"vercel"},
-      {"nm":"netify"}
+      {"nm":"netify"},
+      {"nm":"onrender"},
+      {"nm":"cycle.sh"}
     ]
   },
   {
