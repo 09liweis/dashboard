@@ -45,6 +45,7 @@
           }
         ]
       },
+      {"nm":"Button element always vertical center child element"},
       {"nm":"lightningcss"},
       {"nm":"BFC"},
       {"nm":"scale/translate/rotate without transform"},
