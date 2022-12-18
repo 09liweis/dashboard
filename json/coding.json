@@ -314,6 +314,28 @@
     ]
   },
   {
+    "nm":"payment",
+    "items":[
+      {
+        "nm":"stripe",
+        "items":[
+          {
+            "nm":"custom payment flow",
+            "what":"will create payment record in stripe when payment form render",
+            "how":[
+              "create own api with stripe library to get payment intent client secret",
+              "use clientSecret render payment form",
+              "each payment render will have a payment id, should reuse the id if payment is not paid"
+            ]
+          },
+          {
+            "nm":"session checkout"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "nm":"interview",
     "items":[
       {
