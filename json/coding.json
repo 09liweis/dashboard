@@ -234,7 +234,16 @@
     "items":[
       {"nm":"TypeScript","pros":"more robust, easily spot bugs, predictability, readability","cons":"more code to write,more to learn,required compilation,not true static typing"},
       {"nm":"Svelte"},
-      {"nm":"Solid"}
+      {"nm":"Solid"},
+      {
+        "nm":"Next Js",
+        "items":[
+          {
+            "nm":"useEffect call twice",
+            "how":"set reactStrictMode to false"
+          }
+        ]
+      }
     ]
   },
   {
