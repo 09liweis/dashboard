@@ -189,6 +189,12 @@
   {
     "nm":"react",
     "items":[
+      {
+        "nm":"A component is changing an uncontrolled input of type text to be controlled error in ReactJS",
+        "what":"during render input value is undefined, value={undefined}",
+        "why": "because '' is a valid string value. so when you change '' to 'xyz', input type is not changing means controlled to controlled. But in case of undefined to xyz type will change from uncontrolled to controlled",
+        "how": "set default value to input value"
+      },
       {"nm":"Declarative声明式设计"},
       {"nm":"virtual dom","pros":"DOM不需要重排"},
       {"nm":"state","what":""},
