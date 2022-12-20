@@ -45,6 +45,10 @@
           }
         ]
       },
+      {
+        "nm":"keep elements same width even thought different content width, but not full width",
+        "how":"use display: inline-flex; flex-direction:column"
+      },
       {"nm":"Button element always vertical center child element"},
       {"nm":"lightningcss"},
       {"nm":"BFC"},
