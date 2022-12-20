@@ -1,7 +1,16 @@
 [
   {
     "nm":"api",
-    "items":[{"nm":"rickandmorty api"}]
+    "items":[
+      {
+        "nm":"rickandmorty api",
+        "url":"https://rickandmortyapi.com/"
+      },
+      {
+        "nm":"The RESTful Pokémon API",
+        "url":"https://pokeapi.co/"
+      }
+    ]
   },
   {
     "nm":"html",
