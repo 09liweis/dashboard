@@ -23,7 +23,7 @@ function KnowledgeItem({knowledgeItem}) {
   } else {
     return (
       <section className="mb-3">
-        <p>{knowledgeItem.nm}</p>
+        {knowledgeItem.url ? <a href={knowledgeItem.url} target="_blank">{knowledgeItem.nm}</a> :<p>{knowledgeItem.nm}</p>}
         {knowledgeItem.what ? <p>What: {knowledgeItem.what}</p> :''}
         {knowledgeItem.how ? 
           Array.isArray(knowledgeItem.how) ? knowledgeItem.how.map(how => <div key={how}>{how}</div>)
