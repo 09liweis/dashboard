@@ -13,7 +13,7 @@ function KnowledgeItem({knowledgeItem}) {
       }
     })
     return (
-      <section className="mb-3">
+      <section className="mb-3 font-bold">
         <h4 onClick={()=>setExpand(!expand)}>{knowledgeItem.nm} {expand?'-':'+'}</h4>
         <div style={{paddingLeft: '25px',display: expand ? 'block' : 'none'}}>
           {items}
@@ -23,7 +23,7 @@ function KnowledgeItem({knowledgeItem}) {
   } else {
     return (
       <section className="mb-3">
-        {knowledgeItem.url ? <a href={knowledgeItem.url} rel="noreferrer" target="_blank">{knowledgeItem.nm}</a> :<p>{knowledgeItem.nm}</p>}
+        {knowledgeItem.url ? <a className="font-bold" href={knowledgeItem.url} rel="noreferrer" target="_blank">{knowledgeItem.nm}</a> :<p className="font-bold">{knowledgeItem.nm}</p>}
         {knowledgeItem.what ? <p>What: {knowledgeItem.what}</p> :''}
         {knowledgeItem.how ? 
           Array.isArray(knowledgeItem.how) ? knowledgeItem.how.map(how => <div key={how}>{how}</div>)
