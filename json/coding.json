@@ -260,11 +260,15 @@
       {"nm":"Svelte"},
       {"nm":"Solid"},
       {
-        "nm":"Next Js",
+        "nm":"NextJs",
         "items":[
           {
             "nm":"useEffect call twice",
             "how":"set reactStrictMode to false"
+          },
+          {
+            "nm":"<Script src />",
+            "how":"add onLoad={() => {console.log('Script has loaded')}}"
           }
         ]
       }
