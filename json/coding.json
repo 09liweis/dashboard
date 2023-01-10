@@ -60,6 +60,16 @@
         ]
       },
       {
+        "nm": "position",
+        "items":[
+          {
+            "nm":"fixed element height not working",
+            "why":"when ancestor elements transform, perspective, filter not none, element will position relative to ancestor instead of viewport",
+            "what": "ios backdrop-filter not really work"
+          }
+        ]
+      },
+      {
         "nm":"keep elements same width even thought different content width, but not full width",
         "how":"use display: inline-flex; flex-direction:column"
       },
