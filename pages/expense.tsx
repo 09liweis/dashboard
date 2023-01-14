@@ -6,7 +6,7 @@ import HighchartsReact from 'highcharts-react-official'
 import styles from '../styles/Home.module.css'
 import { fetchAPI } from '../helpers'
 
-const EXPANSE_API_DATA:string = 'https://samliweisen.herokuapp.com/api/transactions/statistics';
+const EXPANSE_API_DATA:string = 'https://samliweisen.onrender.com/api/transactions/statistics';
 
 interface SingleExpense {
   name:string,
