@@ -98,7 +98,72 @@ const Expense: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h2>费用支出</h2>
+      <article className="month">
+      <p>Jan</p>
+      <p>Fed</p>
+      <p>Mar</p>
+      <p>Apr</p>
+      <p>May</p>
+      <p>June</p>
+      <p>July</p>
+      <p>Aug</p>
+      <p>Sep</p>
+      <p>Oct</p>
+      <p>Nov</p>
+      <p>Dec</p>
+      </article>
+
+      <article className="pay">
+        <div>
+        <span className='type'>food</span>
+        <span className='money'>36</span>
+        <ul className="detail1">
+          <li>12月16日 星期一 麦当劳 支出$28</li>
+          <li>12月28日 星期五 麦当劳 支出$28</li>
+        </ul>
+        </div>
+
+        <div>
+        <span className='type'>gas</span>
+        <span className='money'>75</span>
+        </div>
+
+        <div>
+        <span className='type'>grocery</span>
+        <span className='money'>50</span>
+        <ul>
+          <li className="detail1">12月1日 星期二 森哥哥杂货铺 支出25
+            <ul className="detail2">
+              <li>tomato</li>
+              <li>banana</li>
+              <li>apple</li>
+            </ul>
+          </li>
+          <li className="detail1">12月15日 星期六 森哥哥market 支出25
+            <ul className="detail2">
+              <li>生日蛋糕</li>
+              <li>苹果</li>
+            </ul>
+            </li>
+        </ul>
+        </div>
       
+        <div>
+        <span className='type'>phone</span>
+        <span className='money'>100</span>
+        </div>
+
+        <div>
+        <span className='type'>electricity</span>
+        <span className='money'>60</span>
+        </div>
+
+      <div>
+      <span className='type'>internet</span>
+      <span className='money'>120</span>
+      </div>
+      </article>
+    
       <main>
         {expenses.length?
         <React.Fragment>

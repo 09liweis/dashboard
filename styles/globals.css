@@ -96,3 +96,45 @@ a {
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
 }
+
+.month {
+  width: 30%;
+  float: left;
+}
+
+.pay {
+  width: 70%;
+  float: left;
+}
+
+.type {
+  display: inline-block;
+  width: 30%;
+  color: #101ad7;
+  background-color: pink;
+  margin: 10px 0 10px;
+}
+
+.money {
+  background-color: pink;
+  color: #101ad7;
+}
+
+.className {
+  display: inline-block;
+  width: 70%;
+}
+
+.detail1 {
+  color: pink;
+  margin-left: 10px;
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
+.detail2 {
+  color:green;
+  margin-left: 20px;
+  list-style-type: square;
+  list-style-position: inside;
+}
