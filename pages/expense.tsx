@@ -19,7 +19,7 @@ const Expense: NextPage = () => {
   const [expenseNm, setExpenseNm] = useState('')
   const [expenseVal, setExpenseVal] = useState(0)
   const getExpenseStatistics = async () => {
-    const body = {date:'2022-09'};
+    const body = {date:'2023-01'};
     const statistics = await fetchAPI({url:EXPANSE_API_DATA,body});
     let expenses:Array<SingleExpense> = [];
     for (const name in statistics.categoryPrice) {
