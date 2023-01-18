@@ -8,6 +8,15 @@ const getPageTitle = (pageProps:any) => {
   return pageMeta?.title || 'Dashboard';
 }
 
+const NAV_LINKS = [
+  {tl:'Knowledges',url:'/knowledges'},
+  {tl:'Movies',url:'/visuals'},
+  {tl:'Expense Page',url:'/expense'},
+  {tl:'Comments',url:'/comments'},
+  {tl:'Subscription',url:'/newsletter'},
+  {tl:'Map',url:'/map'}
+];
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
@@ -23,12 +32,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       <header>
         <section>Logo</section>
         <nav className='flex justify-between'>
-          <Link href='/knowledges'><a>Knowledges</a></Link>
-          <Link href='/visuals'><a>Movies</a></Link>
-          <Link href='/expense'><a>Expense Page</a></Link>
-          <Link href='/map'><a>Map</a></Link>
-          <Link href='/newsletter'><a>Subscription</a></Link>
-          <Link href='/comments'><a>Comments</a></Link>
+          {NAV_LINKS.map((nav)=>
+            <Link key={nav.url} className="hover:text-sky-700 transition duration-300" href={nav.url}>{nav.tl}</Link>
+          )}
         </nav>
       </header>
       <Component {...pageProps} />
