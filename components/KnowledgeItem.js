@@ -14,7 +14,7 @@ function KnowledgeItem({knowledgeItem}) {
     })
     return (
       <section className="mb-3 font-bold">
-        <h4 onClick={()=>setExpand(!expand)}>{knowledgeItem.nm} {expand?'-':'+'}</h4>
+        <h4 className="cursor-pointer" onClick={()=>setExpand(!expand)}>{knowledgeItem.nm} {expand?'-':'+'}</h4>
         <div style={{paddingLeft: '25px',display: expand ? 'block' : 'none'}}>
           {items}
         </div>
