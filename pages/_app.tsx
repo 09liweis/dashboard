@@ -11,7 +11,6 @@ const getPageTitle = (pageProps:any) => {
 
 const NAV_LINKS = [
   {tl:'Knowledges',url:'/knowledges'},
-  {tl:'Movies',url:'/visuals'},
   {tl:'Expense Page',url:'/expense'},
   {tl:'Comments',url:'/comments'},
   {tl:'Subscription',url:'/newsletter'},
