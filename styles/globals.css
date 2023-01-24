@@ -109,28 +109,36 @@ a {
   border: dashed 5px gray;
   border-radius: 30px;
   padding: 20px;
+  background-color: rgb(255 253 203 / 13%);
 }
 
 .total {
   text-align: right;
-  color: #101ad7;
+  color: #e8176e;
   font-style: italic;
   font-size: large;
   font-weight: 500;
 }
 
+.father {
+  padding: 5px;
+  background-color: rgb(255 192 203 / 40%);
+  color: #e8176e;
+  margin: 10px;
+  border: double 5px;
+  border-radius: 10px;
+}
+
+.fa-solid {
+  margin-right: 10px;
+}
+
 .type {
   display: inline-block;
-  color: #101ad7;
-  background-color: rgb(255 192 203 / 50%);
-  margin: 10px 0 10px;
   width: 70%;
-
 }
 
 .money {
-  background-color: rgb(255 192 203 / 50%);
-  color: #101ad7;
   display: inline-block;
   width: 30%;
   text-align: right;
@@ -142,14 +150,14 @@ a {
 }
 
 .detail1 {
-  color: pink;
+  color: rgb(235 107 128);
   margin-left: 10px;
   list-style-type: disc;
   list-style-position: inside;
 }
 
 .detail2 {
-  color:green;
+  color:gray;
   margin-left: 20px;
   list-style-type: square;
   list-style-position: inside;

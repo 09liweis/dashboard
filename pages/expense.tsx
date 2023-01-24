@@ -114,10 +114,13 @@ const Expense: NextPage = () => {
       </article>
 
       <article className="pay">
-        <p className="total">Total:200</p>
+        <p className="total"><i className="fa-solid fa-sack-dollar"></i>Total:200</p>
         <div>
-        <span className='type'>food</span>
-        <span className='money'>36</span>
+          <div className="father">
+          <span className='type'><i className="fa-solid fa-utensils"></i>food</span>
+          <span className='money'><i className="fa-solid fa-sack-dollar"></i>36</span>
+          </div>
+        
         <ul className="detail1">
           <li>12月16日 星期一 麦当劳 支出$28</li>
           <li>12月28日 星期五 麦当劳 支出$28</li>
@@ -125,13 +128,17 @@ const Expense: NextPage = () => {
         </div>
 
         <div>
-        <span className='type'>gas</span>
-        <span className='money'>75</span>
+        <div className="father">
+        <span className='type'><i className="fa-solid fa-gas-pump"></i>gas</span>
+        <span className='money'><i className="fa-solid fa-sack-dollar"></i>75</span>
+        </div>
         </div>
 
         <div>
-        <span className='type'>grocery</span>
-        <span className='money'>50</span>
+        <div className="father">
+        <span className='type'><i className="fa-solid fa-cart-shopping"></i>grocery</span>
+        <span className='money'><i className="fa-solid fa-sack-dollar"></i>50</span>
+        </div>
         <ul>
           <li className="detail1">12月1日 星期二 森哥哥杂货铺 支出25
             <ul className="detail2">
@@ -148,21 +155,28 @@ const Expense: NextPage = () => {
             </li>
         </ul>
         </div>
+        
       
         <div>
-        <span className='type'>phone</span>
-        <span className='money'>100</span>
+        <div className="father">
+        <span className='type'><i className="fa-solid fa-phone"></i>phone</span>
+        <span className='money'><i className="fa-solid fa-sack-dollar"></i>100</span>
+        </div>
         </div>
 
         <div>
-        <span className='type'>electricity</span>
-        <span className='money'>60</span>
+        <div className="father">
+        <span className='type'><i className="fa-solid fa-bolt"></i>electricity</span>
+        <span className='money'><i className="fa-solid fa-sack-dollar"></i>60</span>
+        </div>
         </div>
 
-      <div className="content">
-      <span className='type'>internet</span>
-      <span className='money'>120</span>
-      </div>
+        <div className="father">
+        <div className="content">
+        <span className='type'><i className="fa-brands fa-internet-explorer"></i>internet</span>
+        <span className='money'><i className="fa-solid fa-sack-dollar"></i>120</span>
+        </div>
+        </div>
       </article>
     
       <main>
