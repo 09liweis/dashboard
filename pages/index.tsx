@@ -5,20 +5,8 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
 
-const RANDOM_VISUAL_API:string = 'https://what-i-watched.herokuapp.com/api/random_visual';
-
 const Home: NextPage = () => {
-  const [visual,setVisual] = useState({title:'',poster:'',summary:'',douban_id:''});
-  const setRandomVisual = async () => {
-    const res = await fetch(RANDOM_VISUAL_API)
-    const {result} = await res.json();
-    setVisual(result);
-  }
   useEffect(()=>{
-    // setRandomVisual();
-    // setInterval(()=>{
-    //   setRandomVisual();
-    // },10000);
   },[]);
   return (
     <div className={styles.container}>
@@ -30,21 +18,31 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Dashboard</h1>
-        <p className={styles.description}>For personal use</p>
-        <section className={styles.grid}>
-          <article className="card display-flex">
-            <section className='width-30 pos-relative img-container'>
-              {/* <Image className='border-radius-left image' src={visual.poster} alt="Vercel Logo" layout='fill' /> */}
-            </section>
-            <section className='width-70 padding'>
-              <Link href={`/visuals/${visual.douban_id}`}>
-                <h2>{visual.title}</h2>
-              </Link>
-              <p>{visual.summary.substring(0,200)}...</p>
-            </section>
+        <section className='flex flex-wrap'>
+          <article className="p-2 w-1/4">
+            <div className="card p-2 shadow bg-blue-400">
+              <h2 className='text-2xl text-white'>Todos</h2>
+              <i className="fa-solid text-white text-xl fa-list"></i>
+            </div>
           </article>
-
+          <article className="p-2 w-1/4">
+            <div className="card p-2 shadow bg-red-400">
+              <h2 className='text-2xl text-white'>Comments</h2>
+              <i className="fa-solid text-white text-xl fa-comments"></i>
+            </div>
+          </article>
+          <article className="p-2 w-1/4">
+            <div className="card p-2 shadow bg-green-400">
+              <h2 className='text-2xl text-white'>Expense</h2>
+              <i className="fa-solid text-white text-xl fa-dollar-sign"></i>
+            </div>
+          </article>
+          <article className="p-2 w-1/4">
+            <div className="card p-2 shadow bg-indigo-500">
+              <h2 className='text-2xl text-white'>Places</h2>
+              <i className="fa-solid text-white text-xl fa-location-dot"></i>
+            </div>
+          </article>
         </section>
       </main>
 
@@ -65,9 +63,6 @@ const Home: NextPage = () => {
 }
 
 export const getStaticProps:GetServerSideProps = async (ctx) => {
-  //const res = await fetch(RANDOM_VISUAL_API)
-  //const {result} = await res.json();
-  // console.log(result);
   return {
     props:{
       visual:{}
