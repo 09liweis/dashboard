@@ -114,6 +114,7 @@ const Expense: NextPage = () => {
       </article>
 
       <article className="pay">
+        <p className="total">Total:200</p>
         <div>
         <span className='type'>food</span>
         <span className='money'>36</span>
@@ -158,7 +159,7 @@ const Expense: NextPage = () => {
         <span className='money'>60</span>
         </div>
 
-      <div>
+      <div className="content">
       <span className='type'>internet</span>
       <span className='money'>120</span>
       </div>
