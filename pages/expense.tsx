@@ -33,6 +33,8 @@ interface CategoryTransactions {
 const ICON_CATEGORY:{[key:string]:string} = {
   food: 'fa-utensils',
   gas: 'fa-gas-pump',
+  computer: 'fa-computer',
+  clothes: 'fa-clothes-hanger',
   grocery: 'fa-cart-shopping',
   phone: 'fa-phone',
   electricity: 'fa-bolt',
