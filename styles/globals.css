@@ -103,15 +103,12 @@ a {
 
 .month {
   width: 10%;
-  float: left;
+  background-color: #ffffffa6;
 }
 
 .pay {
-  width: 90%;
-  float: left;
-  border: dashed 5px gray;
-  border-radius: 30px;
-  padding: 20px;
+  width: 85%;
+  padding: 10px;
   background-color: #ffffffa6;
 }
 
@@ -127,7 +124,7 @@ a {
   padding: 5px;
   background-color: rgb(255 192 203 / 40%);
   color: #e8176e;
-  margin: 10px;
+  margin: 10px 0;
   border: double 5px;
   border-radius: 10px;
 }

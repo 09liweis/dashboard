@@ -19,6 +19,7 @@ interface CategoryTransaction {
     _id:string,
     price:number,
     date: string,
+    title:string,
     place:{
       _id:string,
       name:string
@@ -80,7 +81,7 @@ const Expense: NextPage = () => {
     setTotal(total);
     let expenses:Array<SingleExpense> = [];
     for (const name in categoryPrice) {
-      const y = Math.abs(categoryPrice[name]);
+      const y = Math.abs(categoryPrice[name].total);
       expenses.push({name,y});
     }
     setExpenses(expenses);
@@ -155,35 +156,36 @@ const Expense: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h2>费用支出</h2>
-      <article className="month">
-        {YEARS.map((year)=><p className={curYear==year?'text-red-300':''} key={year} onClick={()=>setYear(year)}>{year}</p>)}
-        {curYear?
-        Object.keys(MONTHS).map((month)=><p className={curMonth==month?'text-red-300':''} key={month} onClick={()=>setMonth(month)}>{MONTHS[month]}</p>)
-        :null}
-        
-      </article>
+      <section className='flex mb-3'>
+        <article className="month bg-white p-2 rounded">
+          {YEARS.map((year)=><p className={curYear==year?'text-red-300':''} key={year} onClick={()=>setYear(year)}>{year}</p>)}
+          {curYear?
+          Object.keys(MONTHS).map((month)=><p className={curMonth==month?'text-red-300':''} key={month} onClick={()=>setMonth(month)}>{MONTHS[month]}</p>)
+          :null}
+        </article>
 
-      <article className="pay">
-        <p className="total"><i className="fa-solid fa-sack-dollar"></i>Total:{curTotal}</p>
-        {Object.keys(categoryTransactions).map((key)=>{
-          const {total, items} = categoryTransactions[key];
-          return (
-            <div key={key}>
-              <div className="father">
-                <span className='type'><i className={`fa-solid ${ICON_CATEGORY[key]}`}></i>{key}</span>
-                <span className='money'><i className="fa-solid fa-sack-dollar"></i>{total}</span>
-              </div>  
-              <ul className="detail1">
-                {items.map(({_id,price,date,place})=>{
-                  return (
-                    <li key={_id}>{date} {place.name} 支出${price}</li>
-                  )
-                })}
-              </ul>
-            </div>
-          )
-        })}
-      </article>
+        <article className="pay rounded ml-5">
+          <p className="total"><i className="fa-solid fa-sack-dollar"></i>Total:{curTotal}</p>
+          {Object.keys(categoryTransactions).map((key)=>{
+            const {total, items} = categoryTransactions[key];
+            return (
+              <div key={key}>
+                <div className="father">
+                  <span className='type'><i className={`fa-solid ${ICON_CATEGORY[key]}`}></i>{key}</span>
+                  <span className='money'><i className="fa-solid fa-sack-dollar"></i>{total}</span>
+                </div>  
+                <ul className="detail1">
+                  {items.map(({_id,price,date,place,title})=>{
+                    return (
+                      <li key={_id}>{date} {place.name} {title} 支出${price}</li>
+                    )
+                  })}
+                </ul>
+              </div>
+            )
+          })}
+        </article>
+      </section>
     
       <main>
         {expenses.length?
