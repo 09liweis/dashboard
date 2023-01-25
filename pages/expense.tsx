@@ -13,24 +13,79 @@ interface SingleExpense {
   y:number
 }
 
+interface CategoryTransaction {
+  total: number,
+  items: [{
+    _id:string,
+    price:number,
+    date: string,
+    place:{
+      _id:string,
+      name:string
+    }
+  }]
+}
+
+interface CategoryTransactions {
+  [key:string]: CategoryTransaction
+}
+
+const ICON_CATEGORY:{[key:string]:string} = {
+  food: 'fa-utensils',
+  gas: 'fa-gas-pump',
+  grocery: 'fa-cart-shopping',
+  phone: 'fa-phone',
+  electricity: 'fa-bolt',
+  internet: 'fa-internet-explorer'
+};
+
+const YEARS = ['2023','2022','2021','2020'];
+const MONTHS:{[key:string]:string} = {
+  '1':'Jan',
+  '2':'Fed',
+  '3':'Mar',
+  '4':'Apr',
+  '5':'May',
+  '6':'June',
+  '7':'July',
+  '8':'Aug',
+  '9':'Sep',
+  '10':'Oct',
+  '11':'Nov',
+  '12':'Dec'
+}
+
 const Expense: NextPage = () => {
   const emptyExpenses:Array<SingleExpense> = [];
+  const emptyTransactions:CategoryTransactions = {};
+  const [curYear, setYear] = useState('');
+  const [curMonth, setMonth] = useState(0);
+  const [curTotal, setTotal] = useState(0);
+  const [categoryTransactions, setCategoryTransactions] = useState(emptyTransactions);
   const [expenses,setExpenses] = useState(emptyExpenses);
   const [expenseNm, setExpenseNm] = useState('')
   const [expenseVal, setExpenseVal] = useState(0)
   const getExpenseStatistics = async () => {
-    const body = {date:'2023-01'};
-    const statistics = await fetchAPI({url:EXPANSE_API_DATA,body});
+    const body = {date:''};
+    if (curYear || curMonth) {
+      body.date = `${curYear}`;
+      if (curMonth) {
+        body.date += `-${curMonth<10?'0'+curMonth:curMonth}`
+      }
+    }
+    const {categoryPrice,total} = await fetchAPI({url:EXPANSE_API_DATA,body});
+    setCategoryTransactions(categoryPrice);
+    setTotal(total);
     let expenses:Array<SingleExpense> = [];
-    for (const name in statistics.categoryPrice) {
-      const y = Math.abs(statistics.categoryPrice[name]);
+    for (const name in categoryPrice) {
+      const y = Math.abs(categoryPrice[name]);
       expenses.push({name,y});
     }
     setExpenses(expenses);
   }
   useEffect(()=>{
     getExpenseStatistics();
-  },[]);
+  },[curYear, curMonth]);
 
   const editInput = (e:any,field:string) =>{
     const value = e.target.value;
@@ -99,84 +154,33 @@ const Expense: NextPage = () => {
       </Head>
       <h2>费用支出</h2>
       <article className="month">
-      <p>Jan</p>
-      <p>Fed</p>
-      <p>Mar</p>
-      <p>Apr</p>
-      <p>May</p>
-      <p>June</p>
-      <p>July</p>
-      <p>Aug</p>
-      <p>Sep</p>
-      <p>Oct</p>
-      <p>Nov</p>
-      <p>Dec</p>
+        {YEARS.map((year)=><p className={curYear==year?'text-red-300':''} key={year} onClick={()=>setYear(year)}>{year}</p>)}
+        {curYear?
+        Object.keys(MONTHS).map((month)=><p className={curMonth==month?'text-red-300':''} key={month} onClick={()=>setMonth(month)}>{MONTHS[month]}</p>)
+        :null}
+        
       </article>
 
       <article className="pay">
-        <p className="total"><i className="fa-solid fa-sack-dollar"></i>Total:200</p>
-        <div>
-          <div className="father">
-          <span className='type'><i className="fa-solid fa-utensils"></i>food</span>
-          <span className='money'><i className="fa-solid fa-sack-dollar"></i>36</span>
-          </div>
-        
-        <ul className="detail1">
-          <li>12月16日 星期一 麦当劳 支出$28</li>
-          <li>12月28日 星期五 麦当劳 支出$28</li>
-        </ul>
-        </div>
-
-        <div>
-        <div className="father">
-        <span className='type'><i className="fa-solid fa-gas-pump"></i>gas</span>
-        <span className='money'><i className="fa-solid fa-sack-dollar"></i>75</span>
-        </div>
-        </div>
-
-        <div>
-        <div className="father">
-        <span className='type'><i className="fa-solid fa-cart-shopping"></i>grocery</span>
-        <span className='money'><i className="fa-solid fa-sack-dollar"></i>50</span>
-        </div>
-        <ul>
-          <li className="detail1">12月1日 星期二 森哥哥杂货铺 支出25
-            <ul className="detail2">
-              <li>tomato</li>
-              <li>banana</li>
-              <li>apple</li>
-            </ul>
-          </li>
-          <li className="detail1">12月15日 星期六 森哥哥market 支出25
-            <ul className="detail2">
-              <li>生日蛋糕</li>
-              <li>苹果</li>
-            </ul>
-            </li>
-        </ul>
-        </div>
-        
-      
-        <div>
-        <div className="father">
-        <span className='type'><i className="fa-solid fa-phone"></i>phone</span>
-        <span className='money'><i className="fa-solid fa-sack-dollar"></i>100</span>
-        </div>
-        </div>
-
-        <div>
-        <div className="father">
-        <span className='type'><i className="fa-solid fa-bolt"></i>electricity</span>
-        <span className='money'><i className="fa-solid fa-sack-dollar"></i>60</span>
-        </div>
-        </div>
-
-        <div className="father">
-        <div className="content">
-        <span className='type'><i className="fa-brands fa-internet-explorer"></i>internet</span>
-        <span className='money'><i className="fa-solid fa-sack-dollar"></i>120</span>
-        </div>
-        </div>
+        <p className="total"><i className="fa-solid fa-sack-dollar"></i>Total:{curTotal}</p>
+        {Object.keys(categoryTransactions).map((key)=>{
+          const {total, items} = categoryTransactions[key];
+          return (
+            <div key={key}>
+              <div className="father">
+                <span className='type'><i className={`fa-solid ${ICON_CATEGORY[key]}`}></i>{key}</span>
+                <span className='money'><i className="fa-solid fa-sack-dollar"></i>{total}</span>
+              </div>  
+              <ul className="detail1">
+                {items.map(({_id,price,date,place})=>{
+                  return (
+                    <li key={_id}>{date} {place.name} 支出${price}</li>
+                  )
+                })}
+              </ul>
+            </div>
+          )
+        })}
       </article>
     
       <main>

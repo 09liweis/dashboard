@@ -99,12 +99,12 @@ a {
 }
 
 .month {
-  width: 30%;
+  width: 10%;
   float: left;
 }
 
 .pay {
-  width: 70%;
+  width: 90%;
   float: left;
   border: dashed 5px gray;
   border-radius: 30px;
