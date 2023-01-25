@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 import styles from '../styles/Home.module.css'
@@ -59,18 +59,18 @@ const Expense: NextPage = () => {
   const emptyExpenses:Array<SingleExpense> = [];
   const emptyTransactions:CategoryTransactions = {};
   const [curYear, setYear] = useState('');
-  const [curMonth, setMonth] = useState(0);
+  const [curMonth, setMonth] = useState('');
   const [curTotal, setTotal] = useState(0);
   const [categoryTransactions, setCategoryTransactions] = useState(emptyTransactions);
   const [expenses,setExpenses] = useState(emptyExpenses);
   const [expenseNm, setExpenseNm] = useState('')
   const [expenseVal, setExpenseVal] = useState(0)
-  const getExpenseStatistics = async () => {
+  const getExpenseStatistics = useCallback(async () => {
     const body = {date:''};
     if (curYear || curMonth) {
       body.date = `${curYear}`;
       if (curMonth) {
-        body.date += `-${curMonth<10?'0'+curMonth:curMonth}`
+        body.date += `-${parseInt(curMonth)<10?'0'+curMonth:curMonth}`
       }
     }
     const {categoryPrice,total} = await fetchAPI({url:EXPANSE_API_DATA,body});
@@ -82,10 +82,10 @@ const Expense: NextPage = () => {
       expenses.push({name,y});
     }
     setExpenses(expenses);
-  }
+  },[curYear,curMonth])
   useEffect(()=>{
     getExpenseStatistics();
-  },[curYear, curMonth]);
+  },[curYear, curMonth, getExpenseStatistics]);
 
   const editInput = (e:any,field:string) =>{
     const value = e.target.value;
