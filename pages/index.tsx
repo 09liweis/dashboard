@@ -43,6 +43,18 @@ const Home: NextPage = () => {
               <i className="fa-solid text-white text-xl fa-location-dot"></i>
             </div>
           </article>
+          <article className="p-2 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+            <div className="card p-2 shadow bg-purple-400">
+              <h2 className='text-2xl text-white'>Blog</h2>
+              <i className="fa-solid text-white text-xl fa-blog"></i>
+            </div>
+          </article>
+          <article className="p-2 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+            <div className="card p-2 shadow bg-purple-400">
+              <h2 className='text-2xl text-white'>Movie</h2>
+              <i className="fa-solid text-white text-xl fa-camera-movie"></i>
+            </div>
+          </article>
         </section>
       </main>
 
