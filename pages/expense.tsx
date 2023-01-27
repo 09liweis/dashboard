@@ -64,6 +64,7 @@ const MONTHS: { [key: string]: string } = {
 const Expense: NextPage = () => {
   const emptyExpenses: Array<SingleExpense> = [];
   const emptyTransactions: CategoryTransactions = {};
+  const [loading, setLoading] = useState(false);
   const [curYear, setYear] = useState('');
   const [curMonth, setMonth] = useState('');
   const [curTotal, setTotal] = useState(0);
@@ -73,6 +74,7 @@ const Expense: NextPage = () => {
   const [expenseNm, setExpenseNm] = useState('');
   const [expenseVal, setExpenseVal] = useState(0);
   const getExpenseStatistics = useCallback(async () => {
+    setLoading(true);
     const body = { date: '' };
     if (curYear || curMonth) {
       body.date = `${curYear}`;
@@ -84,6 +86,7 @@ const Expense: NextPage = () => {
       url: EXPANSE_API_DATA,
       body,
     });
+    setLoading(false);
     setCategoryTransactions(categoryPrice);
     setTotal(total);
     let expenses: Array<SingleExpense> = [];
@@ -157,6 +160,34 @@ const Expense: NextPage = () => {
     ],
   };
 
+  const expensesHTML = 
+    Object.keys(categoryTransactions).map((key) => {
+      const { total, items } = categoryTransactions[key];
+      return (
+        <div key={key}>
+          <div className="father">
+            <span className="type">
+              <i className={`fa-solid ${ICON_CATEGORY[key]}`}></i>
+              {key}
+            </span>
+            <span className="money">
+              <i className="fa-solid fa-sack-dollar"></i>
+              {total}
+            </span>
+          </div>
+          <ul className="detail1">
+            {items.map(({ _id, price, date, place, title }) => {
+              return (
+                <li key={_id}>
+                  {date} {place.name} {title} 支出${price}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      );
+    });
+
   return (
     <>
       <h2>费用支出</h2>
@@ -188,32 +219,10 @@ const Expense: NextPage = () => {
           <p className="total">
             <i className="fa-solid fa-sack-dollar"></i>Total:{curTotal}
           </p>
-          {Object.keys(categoryTransactions).map((key) => {
-            const { total, items } = categoryTransactions[key];
-            return (
-              <div key={key}>
-                <div className="father">
-                  <span className="type">
-                    <i className={`fa-solid ${ICON_CATEGORY[key]}`}></i>
-                    {key}
-                  </span>
-                  <span className="money">
-                    <i className="fa-solid fa-sack-dollar"></i>
-                    {total}
-                  </span>
-                </div>
-                <ul className="detail1">
-                  {items.map(({ _id, price, date, place, title }) => {
-                    return (
-                      <li key={_id}>
-                        {date} {place.name} {title} 支出${price}
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            );
-          })}
+          {loading?
+            <div className='flex justify-center'><i className="animate-spin margin-auto fa-solid fa-spinner"></i></div>
+          :expensesHTML}
+          
         </article>
       </section>
 
