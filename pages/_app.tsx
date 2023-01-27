@@ -9,12 +9,12 @@ const getPageTitle = (pageProps: any) => {
 };
 
 const NAV_LINKS = [
-  { tl: 'Home', url: '/'},
-  { tl: 'Knowledges', url: '/knowledges' },
-  { tl: 'Expense', url: '/expense' },
-  { tl: 'Comments', url: '/comments' },
-  { tl: 'Subscription', url: '/newsletter' },
-  { tl: 'Map', url: '/map' },
+  { tl: 'Home', url: '/',icon:'fa-solid fa-house-user'},
+  { tl: 'Knowledges', url: '/knowledges',icon:'fa-solid fa-book'},
+  { tl: 'Expense', url: '/expense',icon:'fa-solid fa-piggy-bank'},
+  { tl: 'Comments', url: '/comments',icon:'fa-solid fa-comment'},
+  { tl: 'Subscription', url: '/newsletter',icon:'fa-solid fa-envelope'},
+  { tl: 'Map', url: '/map',icon:'fa-solid fa-map-location-dot'},
 ];
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -38,7 +38,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             {NAV_LINKS.map((nav) => (
               <Link key={nav.url} href={nav.url}>
                 <span className="mb-3 cursor-pointer text-red-500 hover:text-red-600 transition duration-300">
-                  {nav.tl}
+                <i className={nav.icon}></i> {nav.tl}
                 </span>
               </Link>
             ))}
