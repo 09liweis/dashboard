@@ -9,6 +9,7 @@ const getPageTitle = (pageProps: any) => {
 };
 
 const NAV_LINKS = [
+  { tl: 'Home', url: '/'},
   { tl: 'Knowledges', url: '/knowledges' },
   { tl: 'Expense', url: '/expense' },
   { tl: 'Comments', url: '/comments' },
@@ -32,18 +33,22 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="stylesheet" href="/tailwind.css" />
       </Head>
       <main className="flex">
-        <header className="w-1/4 bg-white">
-          <nav className="flex flex-col p-2">
+        <header className="flex-none p-3">
+          <nav className="flex flex-col p-3 bg-card rounded shadow">
             {NAV_LINKS.map((nav) => (
               <Link key={nav.url} href={nav.url}>
-                <span className="mb-3 cursor-pointer text-red-300 hover:text-red-500 transition duration-300">
+                <span className="mb-3 cursor-pointer text-red-500 hover:text-red-600 transition duration-300">
                   {nav.tl}
                 </span>
               </Link>
             ))}
           </nav>
         </header>
-        <Component {...pageProps} />
+        <section className='flex-1 p-3'>
+          <section className='bg-card p-3 rounded'>
+            <Component {...pageProps} />
+          </section>
+        </section>
       </main>
     </>
   );

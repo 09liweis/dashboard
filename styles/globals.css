@@ -47,13 +47,15 @@ a {
   transition: color 0.15s ease, border-color 0.15s ease;
 }
 
+.bg-card {
+  background-color: #ffffffa6;
+}
+
 .month {
-  width: 10%;
   background-color: #ffffffa6;
 }
 
 .pay {
-  width: 85%;
   padding: 10px;
   background-color: #ffffffa6;
 }
