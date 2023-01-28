@@ -195,7 +195,7 @@ const Expense: NextPage = () => {
         <article className="month p-3 rounded flex-none">
           {YEARS.map((year) => (
             <p
-              className={curYear == year ? 'text-red-300' : ''}
+              className={curYear == year ? 'text-red-300' : 'mouse'}
               key={year}
               onClick={() => setYear(year)}
             >

@@ -110,3 +110,7 @@ a {
   list-style-type: square;
   list-style-position: inside;
 }
+
+.mouse {
+  cursor: pointer;
+}
