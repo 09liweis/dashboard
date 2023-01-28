@@ -9,12 +9,12 @@ const getPageTitle = (pageProps: any) => {
 };
 
 const NAV_LINKS = [
-  { tl: 'Home', url: '/',icon:'fa-solid fa-house-user'},
-  { tl: 'Knowledges', url: '/knowledges',icon:'fa-solid fa-book'},
-  { tl: 'Expense', url: '/expense',icon:'fa-solid fa-piggy-bank'},
-  { tl: 'Comments', url: '/comments',icon:'fa-solid fa-comment'},
-  { tl: 'Subscription', url: '/newsletter',icon:'fa-solid fa-envelope'},
-  { tl: 'Map', url: '/map',icon:'fa-solid fa-map-location-dot'},
+  { tl: 'Home', url: '/', icon: 'fa-solid fa-house-user' },
+  { tl: 'Knowledges', url: '/knowledges', icon: 'fa-solid fa-book' },
+  { tl: 'Expense', url: '/expense', icon: 'fa-solid fa-piggy-bank' },
+  { tl: 'Comments', url: '/comments', icon: 'fa-solid fa-comment' },
+  { tl: 'Subscription', url: '/newsletter', icon: 'fa-solid fa-envelope' },
+  { tl: 'Map', url: '/map', icon: 'fa-solid fa-map-location-dot' },
 ];
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -33,19 +33,19 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="stylesheet" href="/tailwind.css" />
       </Head>
       <main className="flex">
-        <header className="flex-none p-3">
+        <header className="hidden sm:block sm:flex-none p-3">
           <nav className="flex flex-col p-3 bg-card rounded shadow">
             {NAV_LINKS.map((nav) => (
               <Link key={nav.url} href={nav.url}>
                 <span className="mb-3 cursor-pointer text-red-500 hover:text-red-600 transition duration-300">
-                <i className={nav.icon}></i> {nav.tl}
+                  <i className={nav.icon}></i> {nav.tl}
                 </span>
               </Link>
             ))}
           </nav>
         </header>
-        <section className='flex-1 p-3'>
-          <section className='bg-card p-3 rounded'>
+        <section className="flex-1 p-3">
+          <section className="bg-card p-3 rounded">
             <Component {...pageProps} />
           </section>
         </section>
