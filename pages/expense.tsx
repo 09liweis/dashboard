@@ -178,8 +178,13 @@ const Expense: NextPage = () => {
           <ul className="detail1">
             {items.map(({ _id, price, date, place, title }) => {
               return (
-                <li key={_id}>
-                  {date} {place.name} {title} 支出${price}
+                <li key={_id} className="box">
+                  <div>{place.name}</div>  
+                  <div className="box box2">
+                    <div>{date}</div>  
+                    <div>{title}</div> 
+                    <div>${price}</div>
+                  </div>
                 </li>
               );
             })}

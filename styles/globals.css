@@ -114,3 +114,12 @@ a {
 .mouse {
   cursor: pointer;
 }
+
+.box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.box2 {
+  width: 50%;
+}
