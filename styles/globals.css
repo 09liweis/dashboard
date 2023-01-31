@@ -52,12 +52,16 @@ a {
 }
 
 .month {
-  background-color: #ffffffa6;
+  
 }
 
 .pay {
   padding: 10px;
+}
+
+.rounded {
   background-color: #ffffffa6;
+  border-radius: 20px;
 }
 
 .total {
@@ -118,8 +122,12 @@ a {
 .box {
   display: flex;
   justify-content: space-between;
+  color: rgb(4 4 5 / 71%);
+  font-family: sans-serif;
 }
 
 .box2 {
   width: 50%;
+  color: #01010f;
+
 }
