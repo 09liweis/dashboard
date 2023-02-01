@@ -14,18 +14,48 @@
 //   return {list:data.getTransactions};
 // }
 
-export async function fetchAPI({method='POST',url,body}) {
+export function getAuthToken() {
+  return localStorage.getItem('auth-token');
+}
+
+export async function fetchAPI({ method = 'POST', url, body = {} }) {
   const opt = {
     method,
-    headers:{
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    }
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      'auth-token': getAuthToken(),
+    },
   };
   if (Object.keys(body).length) {
     opt.body = JSON.stringify(body);
   }
-  const response = await fetch(url,opt);
+  const response = await fetch(url, opt);
   const data = await response.json();
   return data;
+}
+
+export async function fetchUser() {
+  const userResponse = await fetchAPI({
+    url: 'https://samliweisen.onrender.com/api/user/detail',
+    body: {},
+  });
+  return userResponse;
+}
+
+export async function fetchToken({ eml, pwd }) {
+  const response = await fetchAPI({
+    url: 'https://samliweisen.onrender.com/api/user/login',
+    body: { eml, pwd },
+  });
+  return response;
+}
+
+export async function checkUserToken() {
+  const authToken = getAuthToken();
+  if (authToken) {
+    const userResponse = await fetchUser();
+    return userResponse;
+  }
+  return null;
 }

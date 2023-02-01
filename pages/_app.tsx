@@ -2,6 +2,9 @@ import '../styles/globals.css';
 import Head from 'next/head';
 import Link from 'next/link';
 import type { AppProps } from 'next/app';
+import AppContext from '../AppContext';
+import { useState, useRef, useEffect } from 'react';
+import { fetchUser, fetchToken, checkUserToken } from '../helpers';
 
 const getPageTitle = (pageProps: any) => {
   const pageMeta = pageProps.pageMeta;
@@ -18,6 +21,36 @@ const NAV_LINKS = [
 ];
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const [user, setUser] = useState(null);
+  const [showLogin, setShowLogin] = useState(false);
+
+  const usernameInput = useRef('');
+  const passwordInput = useRef('');
+  const handleLogin = async (e: React.SyntheticEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const body = {
+      eml: usernameInput.current.value,
+      pwd: passwordInput.current.value,
+    };
+    const response = await fetchToken(body);
+    if (response.token) {
+      localStorage.setItem('auth-token', response.token);
+      const userResponse = await fetchUser();
+      if (userResponse?.user) {
+        setUser(userResponse.user);
+      }
+    }
+  };
+
+  useEffect(() => {
+    const userResponse = checkUserToken();
+    userResponse.then((res: any) => {
+      if (res?.user) {
+        setUser(res.user);
+      }
+    });
+  }, []);
+
   return (
     <>
       <Head>
@@ -32,24 +65,70 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
         <link rel="stylesheet" href="/tailwind.css" />
       </Head>
-      <main className="flex">
-        <header className="hidden sm:block sm:flex-none p-3">
-          <nav className="flex flex-col p-3 bg-card rounded shadow">
-            {NAV_LINKS.map((nav) => (
-              <Link key={nav.url} href={nav.url}>
-                <span className="mb-3 cursor-pointer text-red-500 hover:text-red-600 transition duration-300">
-                  <i className={nav.icon}></i> {nav.tl}
-                </span>
-              </Link>
-            ))}
-          </nav>
-        </header>
-        <section className="flex-1 p-3">
-          <section className="bg-card p-3 rounded">
-            <Component {...pageProps} />
+      <AppContext.Provider
+        value={{
+          state: {
+            user,
+          },
+          setUser,
+        }}
+      >
+        <main className="flex">
+          <header className="hidden sm:block sm:flex-none p-3">
+            <nav className="flex flex-col p-3 bg-card rounded shadow">
+              {NAV_LINKS.map((nav) => (
+                <Link key={nav.url} href={nav.url}>
+                  <span className="mb-3 cursor-pointer text-red-500 hover:text-red-600 transition duration-300">
+                    <i className={nav.icon}></i> {nav.tl}
+                  </span>
+                </Link>
+              ))}
+              {user ? (
+                <>
+                  <span className="mb-3 text-red-500 hover:text-red-600 transition duration-300">
+                    <i className="fa-solid fa-user"></i> {user.nm}
+                  </span>
+                  <a
+                    onClick={() => {
+                      localStorage.removeItem('auth-token');
+                      setUser(null);
+                    }}
+                  >
+                    Logout
+                  </a>
+                </>
+              ) : (
+                <a onClick={() => setShowLogin(true)}>Login</a>
+              )}
+            </nav>
+          </header>
+          <section className="flex-1 p-3">
+            <section className="bg-card p-3 rounded">
+              <Component {...pageProps} />
+            </section>
           </section>
-        </section>
-      </main>
+          {!user && showLogin ? (
+            <section className="fixed bg-black w-full h-full flex justify-center items-center">
+              <form
+                className="bg-white p-3 mx-auto w-96"
+                onSubmit={handleLogin}
+              >
+                <input
+                  ref={usernameInput}
+                  className="border w-full p-3 rounded mb-2"
+                  placeholder="User Name"
+                />
+                <input
+                  ref={passwordInput}
+                  className="border w-full p-3 rounded mb-2"
+                  placeholder="Password"
+                />
+                <button>Login</button>
+              </form>
+            </section>
+          ) : null}
+        </main>
+      </AppContext.Provider>
     </>
   );
 }
