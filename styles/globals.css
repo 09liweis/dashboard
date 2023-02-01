@@ -79,6 +79,13 @@ a {
   margin: 10px 0;
   border: double 5px;
   border-radius: 10px;
+  transition-property: background-color,font-size;
+  transition-duration: 0.5s;
+}
+
+.father:hover {
+  background-color: burlywood;
+  font-size: 25px;
 }
 
 .fa-solid {
@@ -129,5 +136,14 @@ a {
 .box2 {
   width: 50%;
   color: #01010f;
+}
 
+.month p {
+  transition-property: color,font-size;
+  transition-duration: 2s;
+}
+
+.month p:hover {
+  color: rgb(21, 226, 234);
+  font-size: 30px;
 }
