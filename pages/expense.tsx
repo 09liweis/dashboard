@@ -4,7 +4,7 @@ import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import { fetchAPI } from '../helpers';
 
-const EXPANSE_API_DATA: string =
+const EXPANSE_API: string =
   'https://samliweisen.onrender.com/api/transactions/statistics';
 
 interface SingleExpense {
@@ -81,7 +81,7 @@ const Expense: NextPage = () => {
       }
     }
     const { categoryPrice, total } = await fetchAPI({
-      url: EXPANSE_API_DATA,
+      url: EXPANSE_API,
       body,
     });
     setLoading(false);
