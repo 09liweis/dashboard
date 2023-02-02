@@ -6,6 +6,8 @@ import AppContext from '../AppContext';
 import { useState, useRef, useEffect } from 'react';
 import { fetchUser, fetchToken, checkUserToken } from '../helpers';
 
+import Chat from '../components/Chat';
+
 const getPageTitle = (pageProps: any) => {
   const pageMeta = pageProps.pageMeta;
   return pageMeta?.title || 'Dashboard';
@@ -20,17 +22,25 @@ const NAV_LINKS = [
   { tl: 'Map', url: '/map', icon: 'fa-solid fa-map-location-dot' },
 ];
 
+interface User {
+  _id: string;
+  nm: string;
+  eml: string;
+  lts: string;
+}
+
 function MyApp({ Component, pageProps }: AppProps) {
-  const [user, setUser] = useState(null);
+  const emptyUser: User = { _id: '', nm: '', eml: '', lts: '' };
+  const [user, setUser] = useState(emptyUser);
   const [showLogin, setShowLogin] = useState(false);
 
-  const usernameInput = useRef('');
-  const passwordInput = useRef('');
+  const usernameInput = useRef<HTMLInputElement>(null);
+  const passwordInput = useRef<HTMLInputElement>(null);
   const handleLogin = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     const body = {
-      eml: usernameInput.current.value,
-      pwd: passwordInput.current.value,
+      eml: usernameInput?.current?.value,
+      pwd: passwordInput?.current?.value,
     };
     const response = await fetchToken(body);
     if (response.token) {
@@ -67,12 +77,11 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <AppContext.Provider
         value={{
-          state: {
-            user,
-          },
+          user,
           setUser,
         }}
       >
+        {/* <Chat /> */}
         <main className="flex">
           <header className="hidden sm:block sm:flex-none p-3">
             <nav className="flex flex-col p-3 bg-card rounded shadow">
@@ -91,7 +100,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                   <a
                     onClick={() => {
                       localStorage.removeItem('auth-token');
-                      setUser(null);
+                      setUser(emptyUser);
                     }}
                   >
                     Logout
@@ -107,7 +116,7 @@ function MyApp({ Component, pageProps }: AppProps) {
               <Component {...pageProps} />
             </section>
           </section>
-          {!user && showLogin ? (
+          {!user._id && showLogin ? (
             <section className="fixed bg-black w-full h-full flex justify-center items-center">
               <form
                 className="bg-white p-3 mx-auto w-96"

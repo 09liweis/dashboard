@@ -1,9 +1,7 @@
 import type { NextPage } from 'next';
-import Head from 'next/head';
 import React, { useEffect, useState, useCallback } from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
-import styles from '../styles/Home.module.css';
 import { fetchAPI } from '../helpers';
 
 const EXPANSE_API_DATA: string =
@@ -160,38 +158,37 @@ const Expense: NextPage = () => {
     ],
   };
 
-  const expensesHTML = 
-    Object.keys(categoryTransactions).map((key) => {
-      const { total, items } = categoryTransactions[key];
-      return (
-        <div key={key}>
-          <div className="father">
-            <span className="type">
-              <i className={`fa-solid ${ICON_CATEGORY[key]}`}></i>
-              {key}
-            </span>
-            <span className="money">
-              <i className="fa-solid fa-sack-dollar"></i>
-              {total}
-            </span>
-          </div>
-          <ul className="detail1">
-            {items.map(({ _id, price, date, place, title }) => {
-              return (
-                <li key={_id} className="box">
-                  <div>{place.name}</div>  
-                  <div className="box box2">
-                    <div>{date}</div>  
-                    <div>{title}</div> 
-                    <div>${price}</div>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
+  const expensesHTML = Object.keys(categoryTransactions).map((key) => {
+    const { total, items } = categoryTransactions[key];
+    return (
+      <div key={key}>
+        <div className="father">
+          <span className="type">
+            <i className={`fa-solid ${ICON_CATEGORY[key]}`}></i>
+            {key}
+          </span>
+          <span className="money">
+            <i className="fa-solid fa-sack-dollar"></i>
+            {total}
+          </span>
         </div>
-      );
-    });
+        <ul className="detail1">
+          {items.map(({ _id, price, date, place, title }) => {
+            return (
+              <li key={_id} className="box">
+                <div>{place.name}</div>
+                <div className="box box2">
+                  <div>{date}</div>
+                  <div>{title}</div>
+                  <div>${price}</div>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    );
+  });
 
   return (
     <>
@@ -224,10 +221,13 @@ const Expense: NextPage = () => {
           <p className="total">
             <i className="fa-solid fa-sack-dollar"></i>Total:{curTotal}
           </p>
-          {loading?
-            <div className='flex justify-center'><i className="animate-spin margin-auto fa-solid fa-spinner"></i></div>
-          :expensesHTML}
-          
+          {loading ? (
+            <div className="flex justify-center">
+              <i className="animate-spin margin-auto fa-solid fa-spinner"></i>
+            </div>
+          ) : (
+            expensesHTML
+          )}
         </article>
       </section>
 
