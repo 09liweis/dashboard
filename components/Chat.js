@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import ChatKitty from 'chatkitty';
+import ChatKitty from '@chatkitty/core';
 
 const chatkitty = ChatKitty.getInstance(process.env.CHATKITTY_API_KEY);
 

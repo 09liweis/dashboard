@@ -7,6 +7,7 @@ import { useState, useRef, useEffect } from 'react';
 import { fetchUser, fetchToken, checkUserToken } from '../helpers';
 
 import Chat from '../components/Chat';
+import Script from 'next/script';
 
 const getPageTitle = (pageProps: any) => {
   const pageMeta = pageProps.pageMeta;
@@ -92,7 +93,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                   </span>
                 </Link>
               ))}
-              {user ? (
+              {user._id ? (
                 <>
                   <span className="mb-3 text-red-500 hover:text-red-600 transition duration-300">
                     <i className="fa-solid fa-user"></i> {user.nm}
