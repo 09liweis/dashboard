@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@chatkitty/core": "^1.1.6",
     "highcharts": "^10.2.1",
     "highcharts-react-official": "^3.1.0",
     "mongoose": "^6.6.5",
