@@ -1,20 +1,15 @@
 import type { NextPage } from 'next';
-import React, {
-  useEffect,
-  useState,
-  useCallback,
-  useContext,
-  useRef,
-} from 'react';
+import React, { useEffect, useState, useCallback, useContext } from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import { fetchAPI } from '../helpers';
 import AppContext from '../AppContext';
+import ExpenseForm from '../components/ExpenseForm';
 
 const EXPANSE_API: string =
   'https://samliweisen.onrender.com/api/transactions/statistics';
 
-const CATEGORIES_api: string =
+const CATEGORIES_API: string =
   'https://samliweisen.onrender.com/api/transactions/categories';
 
 interface SingleExpense {
@@ -69,17 +64,13 @@ const MONTHS: { [key: string]: string } = {
   '12': 'Dec',
 };
 
-let formMap: google.maps.Map;
-
 const Expense: NextPage = () => {
   const { user } = useContext(AppContext);
 
   const [showForm, setShowForm] = useState(false);
 
-  const titleInput = useRef<HTMLInputElement>(null);
-  const priceInput = useRef<HTMLInputElement>(null);
-  const dateInput = useRef<HTMLInputElement>(null);
-  const placeInput = useRef<HTMLInputElement>(null);
+  const emptyCategories: Array<String> = [];
+  const [categories, setCategories] = useState(emptyCategories);
 
   const emptyExpenses: Array<SingleExpense> = [];
   const emptyTransactions: CategoryTransactions = {};
@@ -119,63 +110,16 @@ const Expense: NextPage = () => {
     getExpenseStatistics();
   }, [curYear, curMonth, getExpenseStatistics]);
 
+  const getCategories = async () => {
+    const response = await fetchAPI({ url: CATEGORIES_API, method: 'GET' });
+    if (Array.isArray(response)) {
+      setCategories(response);
+    }
+  };
+
   useEffect(() => {
-    // Create the script tag, set the appropriate attributes
-    var script = document.createElement('script');
-    script.src =
-      'https://maps.googleapis.com/maps/api/js?key=AIzaSyA74jvNet0DufU8aoTe39dELLy2rVMeuos&libraries=places&v=weekly&callback=initMap';
-    script.async = true;
-
-    // Attach your callback function to the `window` object
-    window.initMap = function () {
-      // JS API is loaded and available
-    };
-    // Append the 'script' element to 'head'
-    document.head.appendChild(script);
+    getCategories();
   }, []);
-
-  const getPlaceAutocomplete = () => {
-    const autocomplete = new google.maps.places.Autocomplete(
-      document.getElementById('address'),
-      { types: ['establishment'] } // 'establishment' / 'address' / 'geocode'
-    );
-    google.maps.event.addListener(autocomplete, 'place_changed', () => {
-      const { place_id, formatted_address, name, geometry } =
-        autocomplete.getPlace();
-      const place = {
-        place_id,
-        name,
-        address: formatted_address,
-        lat: geometry.location.lat(),
-        lng: geometry.location.lng(),
-      };
-      formMap.setCenter(place);
-    });
-  };
-
-  const loadFormMap = () => {
-    setTimeout(() => {
-      formMap = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: -34.397, lng: 150.644 },
-        zoom: 16,
-      });
-
-      navigator.geolocation.getCurrentPosition(
-        ({ coords }) => {
-          const { latitude, longitude } = coords;
-          formMap.setCenter({ lat: latitude, lng: longitude });
-        },
-        (err) => {},
-        {
-          enableHighAccuracy: true,
-          timeout: 5000,
-          maximumAge: 0,
-        }
-      );
-
-      getPlaceAutocomplete();
-    }, 5);
-  };
 
   const editInput = (e: any, field: string) => {
     const value = e.target.value;
@@ -269,56 +213,9 @@ const Expense: NextPage = () => {
     );
   });
 
-  const handleFormSubmit = async (e: any) => {
-    e.preventDefault();
-    const body = {
-      title: titleInput.current?.value,
-      price: priceInput.current?.value,
-      date: dateInput.current?.value,
-    };
-    console.log(body);
-  };
-
-  const formHTML = (
-    <section className="bg-black fixed w-full h-full flex justify-center items-center top-0 left-0">
-      <form
-        onSubmit={handleFormSubmit}
-        className="w-96 p-2 border rounded-lg bg-white"
-      >
-        <input
-          ref={titleInput}
-          className="w-full border p-2 mb-2"
-          placeholder="Title"
-        />
-        <input
-          type="number"
-          ref={priceInput}
-          className="w-full border p-2 mb-2"
-          placeholder="Price"
-        />
-        <input
-          type="date"
-          ref={dateInput}
-          className="w-full border p-2 mb-2"
-          placeholder="Date"
-        />
-        <input
-          id="address"
-          ref={placeInput}
-          className="w-full border p-2 mb-2"
-          placeholder="Place"
-        />
-        <section id="map" className="w-full h-36 border rounded-lg"></section>
-        <button className="border bg-red-500 text-white p-2 rounded-lg">
-          Add
-        </button>
-      </form>
-    </section>
-  );
-
   return (
     <>
-      {showForm ? formHTML : null}
+      {showForm && <ExpenseForm categories={categories} />}
       <section className="flex justify-between items-center mb-3">
         <h2>费用支出</h2>
         {user._id ? (
@@ -326,7 +223,6 @@ const Expense: NextPage = () => {
             className="p-2 bg-red-400 text-white border rounded-xl cursor-pointer hover:bg-red-500 transition duration-300"
             onClick={() => {
               setShowForm(true);
-              loadFormMap();
             }}
           >
             Add New
