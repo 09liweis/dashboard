@@ -1,7 +1,5 @@
 import type { NextPage } from 'next';
 import React, { useEffect, useState, useCallback, useContext } from 'react';
-import Highcharts from 'highcharts';
-import HighchartsReact from 'highcharts-react-official';
 import { fetchAPI } from '../helpers';
 import AppContext from '../AppContext';
 import ExpenseForm from '../components/ExpenseForm';
@@ -270,7 +268,6 @@ const Expense: NextPage = () => {
       <main>
         {expenses.length ? (
           <React.Fragment>
-            <HighchartsReact highcharts={Highcharts} options={options} />
             <h3>
               Total:{' '}
               {expenses.reduce((pVal, cVal) => pVal + cVal.y, 0).toFixed(2)}
