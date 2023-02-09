@@ -1,24 +1,19 @@
 import { useState, useRef, useEffect } from 'react';
 import ChatKitty from '@chatkitty/core';
+import Image from 'next/image';
 
 const chatkitty = ChatKitty.getInstance(process.env.CHATKITTY_API_KEY);
 
+let channel;
+
 function Chat() {
-  const sendMessage = async (channel) => {
-    const result = await chatkitty.sendMessage({
-      channel,
-      body: 'Hello, world!',
-    });
+  const [messages, setMessages] = useState([]);
+  const inputRef = useRef('');
 
-    if (result.succeeded) {
-      const message = result.message; // Handle message
-    }
-
-    if (result.failed) {
-      const error = result.error; // Handle error
-    }
-  };
   const startChatSession = async (channel) => {
+    const channelMessages = await getChannelMessages(channel);
+    setMessages(channelMessages);
+
     const result = chatkitty.startChatSession({
       channel,
       onMessageReceived: (message) => {
@@ -63,11 +58,9 @@ function Chat() {
   };
 
   const getChannel = async (channelId) => {
-    const result = await chatkitty.getChannel(channelId);
-    console.log(result);
+    const result = await chatkitty.retrieveChannel(channelId);
     if (result.succeeded) {
-      const channel = result.channel; // Handle channel
-      return channel;
+      return result.channel; // Handle channel
     }
 
     if (result.failed) {
@@ -77,19 +70,19 @@ function Chat() {
   };
 
   const startChannel = async () => {
-    const channelId = 'dashboard-public-channel';
-    // const channel = await getChannel(channelId);
-    // if (channel) {
-    //   await startChatSession(channel);
-    //   return;
-    // }
+    const channelName = 'dashboard-public-channel-new';
+    channel = await getChannel('143481');
+    if (channel) {
+      await startChatSession(channel);
+      return;
+    }
     const channelResult = await chatkitty.createChannel({
       type: 'PUBLIC',
-      name: channelId,
+      name: channelName,
     });
 
     if (channelResult.succeeded) {
-      const channel = channelResult.channel; // Handle channel
+      channel = channelResult.channel; // Handle channel
       await startChatSession(channel);
     }
 
@@ -113,6 +106,21 @@ function Chat() {
     }
   };
 
+  const getChannelMessages = async (channel) => {
+    const result = await chatkitty.listMessages({
+      channel,
+    });
+
+    if (result.succeeded) {
+      return result.paginator.items; // Handle messages
+    }
+
+    if (result.failed) {
+      const error = result.error; // Handle error
+      return [];
+    }
+  };
+
   useEffect(() => {
     initialChatkitty();
     return () => {
@@ -120,16 +128,53 @@ function Chat() {
     };
   }, []);
 
+  const sendMessage = async (body) => {
+    const result = await chatkitty.sendMessage({
+      channel,
+      body,
+    });
+
+    if (result.succeeded) {
+      const message = result.message; // Handle message
+      const channelMessages = await getChannelMessages(channel);
+      setMessages(channelMessages);
+    }
+
+    if (result.failed) {
+      const error = result.error; // Handle error
+    }
+  };
+
   const handleSendMsg = (event) => {
     event.preventDefault();
-    console.log(event);
+    const message = inputRef.current?.value;
+    sendMessage(message);
+    inputRef.current.value = '';
   };
   return (
     <section className="fixed bg-white p-3 right-0 bottom-0 w-96">
       <h4 className="text-3xl">Chat</h4>
-      <section className="overflow-y h-96"></section>
+      <section className="overflow-y h-96">
+        {messages.reverse().map((m) => {
+          return (
+            <div className="flex items-center" key={m.id}>
+              <Image
+                className="rounded-lg"
+                src={m.user.displayPictureUrl}
+                alt={m.user.displayName}
+                width={30}
+                height={30}
+              />
+              <span className="ml-2 border bg-purple-400 text-white p-2 mb-2 inline-block rounded-lg">
+                {m.body}
+              </span>
+            </div>
+          );
+        })}
+      </section>
       <form onSubmit={handleSendMsg} className="flex ">
         <input
+          ref={inputRef}
           placeholder="Type Your Message"
           className="flex-1 border rounded p-2"
         />

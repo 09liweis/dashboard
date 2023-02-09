@@ -7,7 +7,6 @@ import { useState, useRef, useEffect } from 'react';
 import { fetchUser, fetchToken, checkUserToken } from '../helpers';
 
 import Chat from '../components/Chat';
-import Script from 'next/script';
 
 const getPageTitle = (pageProps: any) => {
   const pageMeta = pageProps.pageMeta;
