@@ -18,9 +18,7 @@ const NAV_LINKS = [
   { tl: 'Home', url: '/', icon: 'fa-solid fa-house-user' },
   { tl: 'Knowledges', url: '/knowledges', icon: 'fa-solid fa-book' },
   { tl: 'Expense', url: '/expense', icon: 'fa-solid fa-piggy-bank' },
-  { tl: 'Comments', url: '/comments', icon: 'fa-solid fa-comment' },
   { tl: 'Subscription', url: '/newsletter', icon: 'fa-solid fa-envelope' },
-  { tl: 'Map', url: '/map', icon: 'fa-solid fa-map-location-dot' },
 ];
 
 interface User {
