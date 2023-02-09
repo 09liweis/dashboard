@@ -10,19 +10,18 @@ const EXPANSE_API: string =
 const CATEGORIES_API: string =
   'https://samliweisen.onrender.com/api/transactions/categories';
 
-interface SingleExpense {
-  name: string;
-  y: number;
-}
-
 interface Transaction {
-  _id: string;
-  price: number;
-  date: string;
-  title: string;
-  place: {
-    _id: string;
-    name: string;
+  _id?: string;
+  price?: number;
+  date?: string;
+  title?: string;
+  place?: {
+    _id?: string;
+    name?: string;
+    address?: string;
+    place_id?: string;
+    lat?: number;
+    lng?: number;
   };
 }
 
@@ -70,7 +69,10 @@ const Expense: NextPage = () => {
   const emptyCategories: Array<String> = [];
   const [categories, setCategories] = useState(emptyCategories);
 
-  const emptyExpenses: Array<SingleExpense> = [];
+  const emptyTransaction: Transaction = {};
+  const [selectedTransaction, setSelectTransaction] =
+    useState(emptyTransaction);
+
   const emptyTransactions: CategoryTransactions = {};
   const [loading, setLoading] = useState(false);
   const [curYear, setYear] = useState('');
@@ -78,9 +80,7 @@ const Expense: NextPage = () => {
   const [curTotal, setTotal] = useState(0);
   const [categoryTransactions, setCategoryTransactions] =
     useState(emptyTransactions);
-  const [expenses, setExpenses] = useState(emptyExpenses);
-  const [expenseNm, setExpenseNm] = useState('');
-  const [expenseVal, setExpenseVal] = useState(0);
+
   const getExpenseStatistics = useCallback(async () => {
     setLoading(true);
     const body = { date: '' };
@@ -97,13 +97,8 @@ const Expense: NextPage = () => {
     setLoading(false);
     setCategoryTransactions(categoryPrice);
     setTotal(total);
-    let expenses: Array<SingleExpense> = [];
-    for (const name in categoryPrice) {
-      const y = Math.abs(categoryPrice[name].total);
-      expenses.push({ name, y });
-    }
-    setExpenses(expenses);
   }, [curYear, curMonth]);
+
   useEffect(() => {
     getExpenseStatistics();
   }, [curYear, curMonth, getExpenseStatistics]);
@@ -119,64 +114,9 @@ const Expense: NextPage = () => {
     getCategories();
   }, []);
 
-  const editInput = (e: any, field: string) => {
-    const value = e.target.value;
-    if (field == 'nm') {
-      setExpenseNm(value);
-    }
-    if (field == 'val') {
-      setExpenseVal(parseFloat(value));
-    }
-  };
-  const addExpense = () => {
-    if (expenseNm.trim() === '') {
-      alert('Category can not be empty');
-      return;
-    }
-    if (expenseVal == 0) {
-      alert('Expense can not be 0');
-      return;
-    }
-    expenses.push({ name: expenseNm, y: expenseVal });
-    setExpenses(expenses);
-    setExpenseNm('');
-    setExpenseVal(0);
-  };
-
-  const deleteExpense = (idx: number) => {
-    setExpenses(expenses.filter((item, i) => i !== idx));
-  };
-
-  const options = {
-    chart: {
-      type: 'bar',
-      animation: {
-        duration: 50,
-      },
-    },
-    xAxis: {
-      type: 'category',
-    },
-    yAxis: {
-      min: 0,
-      title: {
-        text: 'Expense amount',
-        align: 'high',
-      },
-      labels: {
-        overflow: 'justify',
-      },
-    },
-    title: {
-      text: 'My Expense Chart',
-    },
-    series: [
-      {
-        name: 'Expense',
-        colorByPoint: true,
-        data: expenses,
-      },
-    ],
+  const openTransactionDetail = (t: Transaction) => {
+    setShowForm(true);
+    setSelectTransaction(t);
   };
 
   const expensesHTML = Object.keys(categoryTransactions).map((key) => {
@@ -194,10 +134,15 @@ const Expense: NextPage = () => {
           </span>
         </div>
         <ul className="detail1">
-          {items.map(({ _id, price, date, place, title }) => {
+          {items.map((transaction) => {
+            const { _id, price, date, place, title } = transaction;
             return (
-              <li key={_id} className="box">
-                <div>{place.name}</div>
+              <li
+                key={_id}
+                className="box cursor-pointer"
+                onClick={() => openTransactionDetail(transaction)}
+              >
+                <div>{place?.name}</div>
                 <div className="box box2">
                   <div>{date}</div>
                   <div>{title}</div>
@@ -213,7 +158,14 @@ const Expense: NextPage = () => {
 
   return (
     <>
-      {showForm && <ExpenseForm categories={categories} />}
+      {showForm && (
+        <ExpenseForm
+          transaction={selectedTransaction}
+          categories={categories}
+          setShowForm={setShowForm}
+          user={user}
+        />
+      )}
       <section className="flex justify-between items-center mb-3">
         <h2>费用支出</h2>
         {user._id ? (
@@ -264,56 +216,6 @@ const Expense: NextPage = () => {
           )}
         </article>
       </section>
-
-      <main>
-        {expenses.length ? (
-          <React.Fragment>
-            <h3>
-              Total:{' '}
-              {expenses.reduce((pVal, cVal) => pVal + cVal.y, 0).toFixed(2)}
-            </h3>
-            <section className="margin-tb-10">
-              {expenses.map((expense, idx) => {
-                return (
-                  <article className="border" key={expense.name}>
-                    <span>
-                      {expense.name}: {expense.y.toFixed(2)}
-                    </span>
-                    <span onClick={() => deleteExpense(idx)}>Delete</span>
-                  </article>
-                );
-              })}
-            </section>
-          </React.Fragment>
-        ) : (
-          <section className="center">
-            Please add some expenses to show the chart
-          </section>
-        )}
-        <div className="display-flex">
-          <input
-            className="width-100 margin-b-10 padding-10"
-            id="nm"
-            placeholder="Enter Category"
-            value={expenseNm}
-            onChange={(e) => editInput(e, 'nm')}
-          />
-          <input
-            className="width-100 margin-b-10 padding-10"
-            id="val"
-            type="number"
-            value={expenseVal}
-            placeholder="Enter Expense Amount"
-            onChange={(e) => editInput(e, 'val')}
-          />
-          <button
-            className="width-40 margin-b-10 padding-10"
-            onClick={addExpense}
-          >
-            Add
-          </button>
-        </div>
-      </main>
     </>
   );
 };
