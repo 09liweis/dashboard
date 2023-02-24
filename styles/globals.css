@@ -52,7 +52,6 @@ a {
 }
 
 .month {
-  
 }
 
 .pay {
@@ -77,15 +76,14 @@ a {
   background-color: rgb(255 192 203 / 40%);
   color: #e8176e;
   margin: 10px 0;
-  border: double 5px;
+  border: dashed 2px;
   border-radius: 10px;
-  transition-property: background-color,font-size;
-  transition-duration: 0.1s;
+  transition-property: background-color, font-size;
+  transition-duration: 0.3s;
 }
 
 .father:hover {
   background-color: burlywood;
-  font-size: 20px;
 }
 
 .fa-solid {
@@ -139,11 +137,11 @@ a {
 }
 
 .month p {
-  transition-property: color,font-size;
+  transition-property: color, font-size;
   transition-duration: 0.5s;
 }
 
 .month p:hover {
-  color: rgb(21, 226, 234);
-  font-size: 30px;
+  color: rgb(180, 77, 26);
+  font-size: 18px;
 }

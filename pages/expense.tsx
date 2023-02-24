@@ -139,6 +139,7 @@ const Expense: NextPage = () => {
             return (
               <li
                 key={_id}
+                title={place?.address}
                 className="box cursor-pointer"
                 onClick={() => openTransactionDetail(transaction)}
               >
@@ -146,7 +147,7 @@ const Expense: NextPage = () => {
                 <div className="box box2">
                   <div>{date}</div>
                   <div>{title}</div>
-                  <div>${price}</div>
+                  {price && <div>${Math.abs(price)}</div>}
                 </div>
               </li>
             );
@@ -173,6 +174,7 @@ const Expense: NextPage = () => {
             className="p-2 bg-red-400 text-white border rounded-xl cursor-pointer hover:bg-red-500 transition duration-300"
             onClick={() => {
               setShowForm(true);
+              setSelectTransaction(emptyTransaction);
             }}
           >
             Add New

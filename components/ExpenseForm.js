@@ -18,22 +18,27 @@ export default function ExpenseForm({
 }) {
   const placeInput = useRef(null);
   const [curTransaction, setCurTransaction] = useState({});
+  const [curPlace, setCurPlace] = useState({});
 
   useEffect(() => {
     setCurTransaction(transaction);
+    if (transaction.place) {
+      setCurPlace(transaction.place);
+    }
     loadGoogleMapScript(loadFormMap);
   }, []);
 
   useEffect(() => {
     setTimeout(() => {
-      googleMap.setCenter(curTransaction.place);
-    }, 100);
-  }, [curTransaction]);
+      googleMap.setCenter(curPlace);
+    }, 20);
+  }, [curPlace]);
 
   const loadFormMap = () => {
     googleMap.initMap('map', curTransaction.place);
     googleMap.getPlaceAutocomplete((place) => {
-      updateCurTransaction(place, 'place');
+      setCurPlace(place);
+      googleMap.setCenter(place);
     });
   };
 
@@ -45,25 +50,25 @@ export default function ExpenseForm({
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    const body = { ...curTransaction };
+    const body = { ...curTransaction, place: curPlace };
     const response = await fetchAPI({
       url: 'https://samliweisen.onrender.com/api/transactions/new',
       body,
     });
-    console.log(response);
+    setShowForm(false);
   };
 
   const formHTML = (
     <section className="bg-black z-10 fixed w-full h-full flex justify-center items-center top-0 left-0">
-      <span
-        className="absolute top-2 right-2 rounded-full bg-white p-1"
+      <a
+        className="absolute top-2 right-2 rounded-full bg-white p-1 flex justify-center items-center w-5 h-5 cursor-pointer"
         onClick={() => setShowForm(false)}
       >
         X
-      </span>
+      </a>
       <form
         onSubmit={handleFormSubmit}
-        className="w-96 md:w-5/6 p-2 border rounded-lg bg-white"
+        className="w-96 p-2 border rounded-lg bg-white"
       >
         {TRANSACTION_FIELDS.map(({ name, type }) => (
           <input
@@ -85,7 +90,7 @@ export default function ExpenseForm({
                 className={`inline-block mb-2 mr-2 border rounded-lg p-2 cursor-pointer ${
                   curTransaction.category === c ? 'bg-red-400 text-white' : ''
                 }`}
-                onClick={() => setCategory(c)}
+                onClick={() => updateCurTransaction(c, 'category')}
               >
                 {c}
               </span>
