@@ -140,7 +140,7 @@ const Expense: NextPage = () => {
               <li
                 key={_id}
                 title={place?.address}
-                className="box cursor-pointer"
+                className="box cursor-pointer hover:text-red-600 transition duration-300"
                 onClick={() => openTransactionDetail(transaction)}
               >
                 <div>{place?.name}</div>

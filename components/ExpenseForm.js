@@ -24,6 +24,7 @@ export default function ExpenseForm({
     setCurTransaction(transaction);
     if (transaction.place) {
       setCurPlace(transaction.place);
+      placeInput.current.value = transaction.place.address;
     }
     loadGoogleMapScript(loadFormMap);
   }, []);
@@ -50,6 +51,9 @@ export default function ExpenseForm({
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    if (!user._id) {
+      return;
+    }
     const body = { ...curTransaction, place: curPlace };
     const response = await fetchAPI({
       url: 'https://samliweisen.onrender.com/api/transactions/new',
