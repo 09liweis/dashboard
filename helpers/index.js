@@ -59,3 +59,25 @@ export async function checkUserToken() {
   }
   return null;
 }
+
+export const LANGUAGES = {
+  en: {
+    home: 'Home',
+    knowledges: 'KnowLedges',
+    expense: 'Expense',
+    logout: 'Log Out',
+    addNew: 'Add New',
+  },
+  zh: {
+    home: '页面',
+    knowledges: '芝士',
+    expense: '消费',
+    logout: '登出',
+    total: '总计',
+    addNew: '添加',
+  },
+};
+
+export function getTranslate(lang, key) {
+  return lang[key] || key;
+}

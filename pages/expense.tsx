@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import React, { useEffect, useState, useCallback, useContext } from 'react';
-import { fetchAPI } from '../helpers';
+import { fetchAPI, getTranslate } from '../helpers';
 import AppContext from '../AppContext';
 import ExpenseForm from '../components/ExpenseForm';
 
@@ -62,7 +62,7 @@ const MONTHS: { [key: string]: string } = {
 };
 
 const Expense: NextPage = () => {
-  const { user } = useContext(AppContext);
+  const { user, lang } = useContext(AppContext);
 
   const [showForm, setShowForm] = useState(false);
 
@@ -168,7 +168,7 @@ const Expense: NextPage = () => {
         />
       )}
       <section className="flex justify-between items-center mb-3">
-        <h2>费用支出</h2>
+        <h2>{getTranslate(lang, 'expense')}</h2>
         {user._id ? (
           <a
             className="p-2 bg-red-400 text-white border rounded-xl cursor-pointer hover:bg-red-500 transition duration-300"
@@ -177,7 +177,7 @@ const Expense: NextPage = () => {
               setSelectTransaction(emptyTransaction);
             }}
           >
-            Add New
+            {getTranslate(lang, 'addNew')}
           </a>
         ) : null}
       </section>
@@ -207,7 +207,8 @@ const Expense: NextPage = () => {
 
         <article className="pay rounded ml-3 flex-1">
           <p className="total">
-            <i className="fa-solid fa-sack-dollar"></i>Total:{curTotal}
+            <i className="fa-solid fa-sack-dollar"></i>
+            {getTranslate(lang, 'total')}:{curTotal}
           </p>
           {loading ? (
             <div className="flex justify-center">

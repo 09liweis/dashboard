@@ -4,7 +4,13 @@ import Link from 'next/link';
 import type { AppProps } from 'next/app';
 import AppContext from '../AppContext';
 import { useState, useRef, useEffect } from 'react';
-import { fetchUser, fetchToken, checkUserToken } from '../helpers';
+import {
+  fetchUser,
+  fetchToken,
+  checkUserToken,
+  LANGUAGES,
+  getTranslate,
+} from '../helpers';
 
 import Chat from '../components/Chat';
 
@@ -14,10 +20,10 @@ const getPageTitle = (pageProps: any) => {
 };
 
 const NAV_LINKS = [
-  { tl: 'Home', url: '/', icon: 'fa-solid fa-house-user' },
-  { tl: 'Knowledges', url: '/knowledges', icon: 'fa-solid fa-book' },
-  { tl: 'Expense', url: '/expense', icon: 'fa-solid fa-piggy-bank' },
-  { tl: 'Subscription', url: '/newsletter', icon: 'fa-solid fa-envelope' },
+  { tl: 'home', url: '/', icon: 'fa-solid fa-house-user' },
+  { tl: 'knowledges', url: '/knowledges', icon: 'fa-solid fa-book' },
+  { tl: 'expense', url: '/expense', icon: 'fa-solid fa-piggy-bank' },
+  { tl: 'subscription', url: '/newsletter', icon: 'fa-solid fa-envelope' },
 ];
 
 interface User {
@@ -30,6 +36,7 @@ interface User {
 function MyApp({ Component, pageProps }: AppProps) {
   const emptyUser: User = { _id: '', nm: '', eml: '', lts: '' };
   const [user, setUser] = useState(emptyUser);
+  const [lang, setLang] = useState(LANGUAGES['en']);
   const [showLogin, setShowLogin] = useState(false);
 
   const usernameInput = useRef<HTMLInputElement>(null);
@@ -76,6 +83,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <AppContext.Provider
         value={{
           user,
+          lang,
           setUser,
         }}
       >
@@ -86,7 +94,7 @@ function MyApp({ Component, pageProps }: AppProps) {
               {NAV_LINKS.map((nav) => (
                 <Link key={nav.url} href={nav.url}>
                   <span className="mb-3 cursor-pointer text-red-500 hover:text-red-600 transition duration-300">
-                    <i className={nav.icon}></i> {nav.tl}
+                    <i className={nav.icon}></i> {getTranslate(lang, nav.tl)}
                   </span>
                 </Link>
               ))}
@@ -107,6 +115,13 @@ function MyApp({ Component, pageProps }: AppProps) {
               ) : (
                 <a onClick={() => setShowLogin(true)}>Login</a>
               )}
+              <section>
+                {Object.keys(LANGUAGES).map((l) => (
+                  <a onClick={() => setLang(LANGUAGES[l])} key={l}>
+                    {l}
+                  </a>
+                ))}
+              </section>
             </nav>
           </header>
           <section className="flex-1 p-3">

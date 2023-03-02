@@ -65,7 +65,7 @@ export default function ExpenseForm({
   const formHTML = (
     <section className="bg-black z-10 fixed w-full h-full flex justify-center items-center top-0 left-0">
       <a
-        className="absolute top-2 right-2 rounded-full bg-white p-1 flex justify-center items-center w-5 h-5 cursor-pointer"
+        className="transition duration-300 rotate-0 hover:rotate-45 absolute top-2 right-2 rounded-full bg-white p-1 flex justify-center items-center w-5 h-5 cursor-pointer"
         onClick={() => setShowForm(false)}
       >
         X
