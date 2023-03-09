@@ -54,19 +54,9 @@ body {
   background-color: #ffffffa6;
 }
 
-.total {
-  text-align: right;
-  color: #e8176e;
-  font-weight: bold;
-}
-
 .father {
-  padding: 5px;
   background-color: rgb(255 192 203 / 40%);
-  color: #e8176e;
-  margin: 10px 0;
   border: dashed 2px;
-  border-radius: 10px;
   transition-property: background-color, font-size;
   transition-duration: 0.3s;
 }
@@ -77,17 +67,6 @@ body {
 
 .fa-solid {
   margin-right: 10px;
-}
-
-.type {
-  display: inline-block;
-  width: 70%;
-}
-
-.money {
-  display: inline-block;
-  width: 30%;
-  text-align: right;
 }
 
 .className {

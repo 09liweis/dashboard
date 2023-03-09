@@ -123,12 +123,12 @@ const Expense: NextPage = () => {
     const { total, items } = categoryTransactions[key];
     return (
       <div key={key}>
-        <div className="father">
-          <span className="type">
+        <div className="father p-1 flex justify-between my-2 rounded text-red-600">
+          <span className="">
             <i className={`fa-solid ${ICON_CATEGORY[key]}`}></i>
             {key}
           </span>
-          <span className="money">
+          <span className="">
             <i className="fa-solid fa-sack-dollar"></i>
             {total}
           </span>
@@ -206,7 +206,7 @@ const Expense: NextPage = () => {
         </article>
 
         <article className="pay rounded ml-3 flex-1">
-          <p className="total">
+          <p className="text-right font-bold text-red-600">
             <i className="fa-solid fa-sack-dollar"></i>
             {getTranslate(lang, 'total')}:{curTotal}
           </p>
