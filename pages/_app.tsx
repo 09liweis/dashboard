@@ -1,6 +1,7 @@
 import '../styles/globals.css';
 import Head from 'next/head';
 import Link from 'next/link';
+import { Router } from 'next/router';
 import type { AppProps } from 'next/app';
 import AppContext from '../AppContext';
 import { useState, useRef, useEffect } from 'react';
@@ -38,6 +39,15 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [user, setUser] = useState(emptyUser);
   const [lang, setLang] = useState(LANGUAGES['en']);
   const [showLogin, setShowLogin] = useState(false);
+
+  const [loading, setLoading] = useState(false);
+  Router.events.on('routeChangeStart', () => {
+    setLoading(true);
+  });
+
+  Router.events.on('routeChangeComplete', () => {
+    setLoading(false);
+  });
 
   const usernameInput = useRef<HTMLInputElement>(null);
   const passwordInput = useRef<HTMLInputElement>(null);
@@ -126,6 +136,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           </header>
           <section className="flex-1 p-3">
             <section className="bg-card p-3 rounded">
+              {loading && <div>Loading...</div>}
               <Component {...pageProps} />
             </section>
           </section>
