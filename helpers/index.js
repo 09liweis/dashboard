@@ -78,6 +78,14 @@ export const LANGUAGES = {
   },
 };
 
+export function getLanguageKeys() {
+  return Object.keys(LANGUAGES);
+}
+
+export function getLanguages(lang) {
+  return LANGUAGES[lang];
+}
+
 export function getTranslate(lang, key) {
   return lang[key] || key;
 }

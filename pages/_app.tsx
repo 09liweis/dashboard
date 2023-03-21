@@ -9,7 +9,8 @@ import {
   fetchUser,
   fetchToken,
   checkUserToken,
-  LANGUAGES,
+  getLanguages,
+  getLanguageKeys,
   getTranslate,
 } from '../helpers';
 
@@ -37,7 +38,7 @@ interface User {
 function MyApp({ Component, pageProps }: AppProps) {
   const emptyUser: User = { _id: '', nm: '', eml: '', lts: '' };
   const [user, setUser] = useState(emptyUser);
-  const [lang, setLang] = useState(LANGUAGES['en']);
+  const [lang, setLang] = useState(getLanguages('en'));
   const [showLogin, setShowLogin] = useState(false);
 
   const [loading, setLoading] = useState(false);
@@ -126,8 +127,8 @@ function MyApp({ Component, pageProps }: AppProps) {
                 <a onClick={() => setShowLogin(true)}>Login</a>
               )}
               <section>
-                {Object.keys(LANGUAGES).map((l) => (
-                  <a onClick={() => setLang(LANGUAGES[l])} key={l}>
+                {getLanguageKeys().map((l) => (
+                  <a onClick={() => setLang(getLanguages(l))} key={l}>
                     {l}
                   </a>
                 ))}
