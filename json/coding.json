@@ -1,335 +1,477 @@
 [
   {
-    "nm":"api",
-    "items":[
+    "nm": "api",
+    "items": [
       {
-        "nm":"rickandmorty api",
-        "url":"https://rickandmortyapi.com/"
+        "nm": "rickandmorty api",
+        "url": "https://rickandmortyapi.com/"
       },
       {
-        "nm":"The RESTful Pokémon API",
-        "url":"https://pokeapi.co/"
+        "nm": "The RESTful Pokémon API",
+        "url": "https://pokeapi.co/"
       }
     ]
   },
   {
-    "nm":"html",
-    "items":[
-    ]
+    "nm": "html",
+    "items": []
   },
   {
-    "nm":"css",
-    "items":[
+    "nm": "css",
+    "items": [
       {
-        "nm":"optimize css",
-        "items":[
+        "nm": "optimize css",
+        "items": [
           {
-            "nm":"避免高消耗属性",
-            "why":"上述属性都是对性能要求比较高的。如果这些属性使用较少，那这就不是问题。但是如果一个页面出现几百次，那么整体的CSS可能会受到影响，所以要谨慎使用",
-            "how":"avoid using box-shadow,border-radius,position:fixed,transform,:nth-child,filter"
+            "nm": "避免高消耗属性",
+            "why": "上述属性都是对性能要求比较高的。如果这些属性使用较少，那这就不是问题。但是如果一个页面出现几百次，那么整体的CSS可能会受到影响，所以要谨慎使用",
+            "how": "avoid using box-shadow,border-radius,position:fixed,transform,:nth-child,filter"
           },
           {
-            "nm":"使用 <link> 代替 @import",
-            "why":"@import 规则主要用于导入资源或者CSS文件。它会阻止其他文件并行下载，并可能会导致网站速度变慢。",
-            "how":"可以使用多个HTML 中的<link>标签来代替@import，它将并行加载CSS文件，可以在一定程度上提高应用的加载的速度"
+            "nm": "使用 <link> 代替 @import",
+            "why": "@import 规则主要用于导入资源或者CSS文件。它会阻止其他文件并行下载，并可能会导致网站速度变慢。",
+            "how": "可以使用多个HTML 中的<link>标签来代替@import，它将并行加载CSS文件，可以在一定程度上提高应用的加载的速度"
           },
           {
-            "nm":"简化选择器",
-            "why":"降低选择器的复杂性就可以减少浏览器的负载并保持代码简洁明了"
+            "nm": "简化选择器",
+            "why": "降低选择器的复杂性就可以减少浏览器的负载并保持代码简洁明了"
           },
           {
-            "nm":"避免使用 !Important",
-            "why":"如果CSS的规则中 !Important 太多，浏览器就必须对代码进行额外的检查，这可能会降低页面的加载速度"
+            "nm": "避免使用 !Important",
+            "why": "如果CSS的规则中 !Important 太多，浏览器就必须对代码进行额外的检查，这可能会降低页面的加载速度"
           },
           {
-            "nm":"CSS实现特效和SVG代替图片",
-            "why":"使用 CSS 代码实现就会比图片加载速度更快, SVG可以给图片添加效果,图像自动适应用户屏幕"
+            "nm": "CSS实现特效和SVG代替图片",
+            "why": "使用 CSS 代码实现就会比图片加载速度更快, SVG可以给图片添加效果,图像自动适应用户屏幕"
           },
           {
-            "nm":"压缩 CSS",
-            "why":"我们可以通过压缩CSS文件来删除文件中所有的空白和不必要的代码来减少文件的大小。CSS文件变小了，加载的时间自然就变少了，页面的加载速度就会变"
+            "nm": "压缩 CSS",
+            "why": "我们可以通过压缩CSS文件来删除文件中所有的空白和不必要的代码来减少文件的大小。CSS文件变小了，加载的时间自然就变少了，页面的加载速度就会变"
           },
           {
-            "nm":"使用0而不是0px",
-            "why":"当处理一个巨大的CSS文件时，没有单位会比有单位时文件小一点。"
+            "nm": "使用0而不是0px",
+            "why": "当处理一个巨大的CSS文件时，没有单位会比有单位时文件小一点。"
           },
           {
-            "nm":"使用十六进制而不是颜色名称",
-            "why":"浏览器就会花费更多时间来找出颜色的十六进制值。不同的浏览器显示效果可能是不一样的"
+            "nm": "使用十六进制而不是颜色名称",
+            "why": "浏览器就会花费更多时间来找出颜色的十六进制值。不同的浏览器显示效果可能是不一样的"
           }
         ]
       },
       {
         "nm": "position",
-        "items":[
+        "items": [
           {
-            "nm":"fixed element height not working",
-            "why":"when ancestor elements transform, perspective, filter not none, element will position relative to ancestor instead of viewport",
+            "nm": "fixed element height not working",
+            "why": "when ancestor elements transform, perspective, filter not none, element will position relative to ancestor instead of viewport",
             "what": "ios backdrop-filter not really work"
           }
         ]
       },
       {
-        "nm":"keep elements same width even thought different content width, but not full width",
-        "how":"use display: inline-flex; flex-direction:column"
+        "nm": "keep elements same width even thought different content width, but not full width",
+        "how": "use display: inline-flex; flex-direction:column"
       },
-      {"nm":"Button element always vertical center child element"},
-      {"nm":"lightningcss"},
-      {"nm":"BFC"},
-      {"nm":"scale/translate/rotate without transform"},
-      {"nm":"scroll-snap"},
-      {"nm":"scroll-behavior: smooth"},
-      {"nm":"mix-blend-mode"},
-      {"nm":"nesting css","how":"use &"},
-      {"nm":"writing-mode:vertical-lr/horizontal-lr"},
-      {"nm":"gap in flexbox"},
-      {"nm":"resize: auto/vertical"},
-      {"nm":"Text Gradients","how":"background:linear-gradient();-webkit-background-clip:text;-webkit-text-fill-color:transparent;"},
-      {"nm":"object-fit","pros":"for image cover/contain","how":"cover"},
-      {"nm":"translate does not trigger reflow or repaint"},
-      {"nm":"optimize for print","how":"print media create stylesheet for print"},
-      {"nm":"float","what":"position an image to the right or left including text wrapping around it"},
-      {"nm":"media","what":"print, speech, screen"},
-      {"nm":"focus-within", "what":"update parent element style if focus input", "how":"parent:focus-within {/*css style*/}"}
-    ]
-  },
-  {
-    "nm":"git",
-    "items":[
-      {"nm":"git push sam HEAD:branch_name","desc":"push remote branch"},
-      {"nm":"git reset --soft HEAD~1","desc":"reset last commit local"}
-    ]
-  },
-  {
-    "nm":"skills",
-    "items":[
-      {"nm":"防抖: debounce, prevent the event trigger from being fired too often"},
-      {"nm":"节流: throttle, delaying function execution, infinite scrolling, Ajax-based instant search"},
-      {"nm":"函数柯里化,currying"},
-      {"nm":"pure function"},
-      {"nm":"diff算法"},
-      {"nm":"two way data binding, webpack split chunks"},
-      {"nm":"cross framework component跨框架组件"},
-      {"nm":"REST"},
-      {"nm":"GraphQL","pros":"Data Typing, real-time, introspection"},
-      {"nm":"Linear Optimization"},
+      { "nm": "Button element always vertical center child element" },
+      { "nm": "lightningcss" },
+      { "nm": "BFC" },
+      { "nm": "scale/translate/rotate without transform" },
+      { "nm": "scroll-snap" },
+      { "nm": "scroll-behavior: smooth" },
+      { "nm": "mix-blend-mode" },
+      { "nm": "nesting css", "how": "use &" },
+      { "nm": "writing-mode:vertical-lr/horizontal-lr" },
+      { "nm": "gap in flexbox" },
+      { "nm": "resize: auto/vertical" },
       {
-        "nm":"Cross-origin resources sharing, CORS 跨域资源共享",
-        "pros":"浏览器保护机制",
-        "how":[
+        "nm": "Text Gradients",
+        "how": "background:linear-gradient();-webkit-background-clip:text;-webkit-text-fill-color:transparent;"
+      },
+      { "nm": "object-fit", "pros": "for image cover/contain", "how": "cover" },
+      { "nm": "translate does not trigger reflow or repaint" },
+      {
+        "nm": "optimize for print",
+        "how": "print media create stylesheet for print"
+      },
+      {
+        "nm": "float",
+        "what": "position an image to the right or left including text wrapping around it"
+      },
+      { "nm": "media", "what": "print, speech, screen" },
+      {
+        "nm": "focus-within",
+        "what": "update parent element style if focus input",
+        "how": "parent:focus-within {/*css style*/}"
+      }
+    ]
+  },
+  {
+    "nm": "git",
+    "items": [
+      { "nm": "git push sam HEAD:branch_name", "desc": "push remote branch" },
+      { "nm": "git reset --soft HEAD~1", "desc": "reset last commit local" }
+    ]
+  },
+  {
+    "nm": "skills",
+    "items": [
+      {
+        "nm": "防抖: debounce, prevent the event trigger from being fired too often"
+      },
+      {
+        "nm": "节流: throttle, delaying function execution, infinite scrolling, Ajax-based instant search"
+      },
+      { "nm": "函数柯里化,currying" },
+      { "nm": "pure function" },
+      { "nm": "diff算法" },
+      { "nm": "two way data binding, webpack split chunks" },
+      { "nm": "cross framework component跨框架组件" },
+      { "nm": "REST" },
+      { "nm": "GraphQL", "pros": "Data Typing, real-time, introspection" },
+      { "nm": "Linear Optimization" },
+      {
+        "nm": "Cross-origin resources sharing, CORS 跨域资源共享",
+        "pros": "浏览器保护机制",
+        "how": [
           "后端: Access-Control-Allow-Origin, cors middleware, add allow domains",
           "前端: vite create-react-app, vite.config.js server.proxy",
           "nginx 中转服务器代理 http proxy middleware"
         ]
       },
-      {"nm":"web components"},
-      {"nm":"微前端micro front end","pros":"","how":"model frederation"}
+      { "nm": "web components" },
+      { "nm": "微前端micro front end", "pros": "", "how": "model frederation" }
     ]
   },
   {
-    "nm":"optimization",
-    "items":[
-      {"nm":"cdn"},
-      {"nm":"web worker"},
-      {"nm":"Memorization"}
-    ]
+    "nm": "optimization",
+    "items": [{ "nm": "cdn" }, { "nm": "web worker" }, { "nm": "Memorization" }]
   },
   {
-    "nm":"JavaScript",
-    "items":[
-      {"nm":"event delegation","what":"add event listener to parent node"},
-      {"nm":"Inheritance"},
-      {"nm":"prototype"},
-      {"nm":"Primitive Types","what":"String|Number|Boolean|Null|Undefined|Symbol|BitInt store directly in stack"},
-      {"nm":"Reference Types","what":"Arrays|Functions|Objects Stored in heap accessed by reference"},
-      {"nm":"Execution Context","what":"Global/Function memmory creation phase, execution phase"},
-      {"nm":"Hoisting","what":"var:undefined function, assignment dont get hoisting"},
-      {"nm":"let const is block scope"},
-      {"nm":"variable shawdoning","what":"let const, not var"},
-      {"nm":"check parentheses function"},
-      {"nm":"arrow function","how":"should not use in class/object function, this point to global context"},
-      {"nm":"deconstruction"},
-      {"nm":"call"},
-      {"nm":"apply"},
-      {"nm":"ES class"},
-      {"nm":"spread operator","why":"if object has property of object, new object will share a reference"},
-      {"nm":"shallow copying"},
-      {"nm":"high order function: accept functions as parameters or return a function as their output"},
-      {"nm":"event loops"},
-      {"nm":"microtask queue","what":"promiseJobs has high prioirty: fetch, browser observer"},
-      {"nm":"task/callback queues","what":"add cb function to queue first in first out"},
-      {"nm":"call stack","what":"add execution function to stack"},
-      {"nm":"event bubbling","why":"child to parent","how":"use stoppropagation"},
-      {"nm":"event capturing","why":"parent to child"},
-      {"nm":"asynchronous callbacks"},
+    "nm": "JavaScript",
+    "items": [
       {
-        "nm":"Promises",
-        "what":"get a promise to the future value",
-        "how":"promise.all([]), .allSettled: return all status, .any: return first fullfill, ignore all fails, promise chaining",
-        "pros":[
+        "nm": "Optional Chaining (?.)",
+        "what": "This feature allows developers to safely access properties or methods of an object, even if they are nested deep inside the object and may not exist. It avoids errors that occur when trying to access properties of undefined or null values"
+      },
+      {
+        "nm": "Nullish Coalescing (??)",
+        "what": "This feature provides a way to check for null or undefined values and provide a default value if either of these values is encountered. It is similar to the logical OR operator (||), but only returns the right-hand side value if the left-hand side value is nullish (null or undefined)."
+      },
+      { "nm": "event delegation", "what": "add event listener to parent node" },
+      { "nm": "Inheritance" },
+      { "nm": "prototype" },
+      {
+        "nm": "Primitive Types",
+        "what": "String|Number|Boolean|Null|Undefined|Symbol|BitInt store directly in stack"
+      },
+      {
+        "nm": "Reference Types",
+        "what": "Arrays|Functions|Objects Stored in heap accessed by reference"
+      },
+      {
+        "nm": "Execution Context",
+        "what": "Global/Function memmory creation phase, execution phase"
+      },
+      {
+        "nm": "Hoisting",
+        "what": "var:undefined function, assignment dont get hoisting"
+      },
+      { "nm": "let const is block scope" },
+      { "nm": "variable shawdoning", "what": "let const, not var" },
+      { "nm": "check parentheses function" },
+      {
+        "nm": "arrow function",
+        "how": "should not use in class/object function, this point to global context"
+      },
+      { "nm": "deconstruction" },
+      { "nm": "call" },
+      { "nm": "apply" },
+      { "nm": "ES class" },
+      {
+        "nm": "spread operator",
+        "why": "if object has property of object, new object will share a reference"
+      },
+      { "nm": "shallow copying" },
+      {
+        "nm": "high order function: accept functions as parameters or return a function as their output"
+      },
+      { "nm": "event loops" },
+      {
+        "nm": "microtask queue",
+        "what": "promiseJobs has high prioirty: fetch, browser observer"
+      },
+      {
+        "nm": "task/callback queues",
+        "what": "add cb function to queue first in first out"
+      },
+      { "nm": "call stack", "what": "add execution function to stack" },
+      {
+        "nm": "event bubbling",
+        "why": "child to parent",
+        "how": "use stoppropagation"
+      },
+      { "nm": "event capturing", "why": "parent to child" },
+      { "nm": "asynchronous callbacks" },
+      {
+        "nm": "Promises",
+        "what": "get a promise to the future value",
+        "how": "promise.all([]), .allSettled: return all status, .any: return first fullfill, ignore all fails, promise chaining",
+        "pros": [
           "Improves Code Readability.",
           "Better handling of asynchronous operations.",
           "Better flow of control definition in asynchronous logic.",
           "Better Error Handling"
         ]
       },
-      {"nm":"same origin policy"},
-      {"nm":"strict keyword"},
-      {"nm":"throw error"},
-      {"nm":"generator","why":"create infinity loop", "how":"funnction* name() yield param, generatorObject.next(param) .return() .throw() (value:'',done:false)"},
-      {"nm":"continue break"},
-      {"nm":"Object.freeze"},
-      {"nm":"map for object","pros":"key can be object or other type"},
-      {"nm":"set for array","pros":"no duplicate items"},
-      {"nm":"float point number"},
-      {"nm":"console","how":"console.log .time .error .info .assert .table .dir .count"},
-      {"nm":"garbage collection","what":" In contrast, JavaScript automatically allocates memory when objects are created and frees it when they are not used anymore"},
-      {"nm":"debugger"},
+      { "nm": "same origin policy" },
+      { "nm": "strict keyword" },
+      { "nm": "throw error" },
       {
-        "nm":"closure",
-        "what":"when you have a function defined inside of another function, that inner function has access to the variables and scope of the outer function even if the outer function finishes executing and those variables are no longer accessible outside of that function",
-        "how":"function that returns function"
+        "nm": "generator",
+        "why": "create infinity loop",
+        "how": "funnction* name() yield param, generatorObject.next(param) .return() .throw() (value:'',done:false)"
       },
-      {"nm":"First Class Function","what":"functions can be passed as variables, can be returned, can be assigned to variable"},
-      {"nm":"IIFE","what":"define and call function"},
-      {"nm":"fetch","how":"new AbortController(); fetch(url,{signal:controller.signal}); return () => {controller.abort}"},
-      {"nm":"js engine","how":"source code -> parser -> abstract syntax tree -> interpreter -> JIT compilation"},
-      {"nm":"array methods","what":"filter map find forEach reduce"},
-      {"nm":"implicit explicit binding","what":"implicit call function with obj, explicity: call function bind/call/apply other params"},
-      {"nm":"caching/memoize function","how":"create high order function has object to save value, fn.call(this,...args)"},
-      {"nm":"infinite curring","how":"if infinit args, use recursion, if infinit function args, reduce"},
-      {"nm":"infinite chaing","what":"calc.add(10),multiply(5),subtract(30).add(10) result.total","how":"use object function, return this in function"},
-      {"nm":"jsonp"}
+      { "nm": "continue break" },
+      { "nm": "Object.freeze" },
+      { "nm": "map for object", "pros": "key can be object or other type" },
+      { "nm": "set for array", "pros": "no duplicate items" },
+      { "nm": "float point number" },
+      {
+        "nm": "console",
+        "how": "console.log .time .error .info .assert .table .dir .count"
+      },
+      {
+        "nm": "garbage collection",
+        "what": " In contrast, JavaScript automatically allocates memory when objects are created and frees it when they are not used anymore"
+      },
+      { "nm": "debugger" },
+      {
+        "nm": "closure",
+        "what": "when you have a function defined inside of another function, that inner function has access to the variables and scope of the outer function even if the outer function finishes executing and those variables are no longer accessible outside of that function",
+        "how": "function that returns function"
+      },
+      {
+        "nm": "First Class Function",
+        "what": "functions can be passed as variables, can be returned, can be assigned to variable"
+      },
+      { "nm": "IIFE", "what": "define and call function" },
+      {
+        "nm": "fetch",
+        "how": "new AbortController(); fetch(url,{signal:controller.signal}); return () => {controller.abort}"
+      },
+      {
+        "nm": "js engine",
+        "how": "source code -> parser -> abstract syntax tree -> interpreter -> JIT compilation"
+      },
+      { "nm": "array methods", "what": "filter map find forEach reduce" },
+      {
+        "nm": "implicit explicit binding",
+        "what": "implicit call function with obj, explicity: call function bind/call/apply other params"
+      },
+      {
+        "nm": "caching/memoize function",
+        "how": "create high order function has object to save value, fn.call(this,...args)"
+      },
+      {
+        "nm": "infinite curring",
+        "how": "if infinit args, use recursion, if infinit function args, reduce"
+      },
+      {
+        "nm": "infinite chaing",
+        "what": "calc.add(10),multiply(5),subtract(30).add(10) result.total",
+        "how": "use object function, return this in function"
+      },
+      { "nm": "jsonp" }
     ]
   },
   {
-    "nm":"react native"
+    "nm": "react native"
   },
   {
-    "nm":"react",
-    "items":[
+    "nm": "react",
+    "items": [
       {
-        "nm":"A component is changing an uncontrolled input of type text to be controlled error in ReactJS",
-        "what":"during render input value is undefined, value={undefined}",
+        "nm": "A component is changing an uncontrolled input of type text to be controlled error in ReactJS",
+        "what": "during render input value is undefined, value={undefined}",
         "why": "because '' is a valid string value. so when you change '' to 'xyz', input type is not changing means controlled to controlled. But in case of undefined to xyz type will change from uncontrolled to controlled",
         "how": "set default value to input value"
       },
-      {"nm":"Declarative声明式设计"},
-      {"nm":"virtual dom","pros":"DOM不需要重排"},
-      {"nm":"state","what":""},
-      {"nm":"jsx: syntax extension to JavaScript","pros":"babel compiler","how":"convert jsx to react.createElement"},
-      {"nm":"single data flow"},
-      {"nm":"hooks","from":"algebraic effects代数效应","what":"Hooks are functions that let you “hook into” React state and lifecycle features from function components. Hooks don't work inside classes — they let you use React without classes"},
-      {"nm":"useReducer","pros":"handle set multiple states, complex state"},
-      {"nm":"useMemo","pros":"rerender only if useMemo dependency changes, for object, array too"},
-      {"nm":"useCallback","how":"if pass function to child and use in useEffect, should useCallBack"},
-      {"nm":"useEffect","what":"works after render","cons":"referencial equality for object","how":"useMemo for object array"},
-      {"nm":"useLayoutEffect","what":"not syncho, work before useEffect"},
-      {"nm":"useTransition","what":"two set state, but large calculate, priority","how":"[isPending,startTransition] = useTransition()","pros":"performance","cons":"increase render times"},
-      {"nm":"useDeferredValue","what":"like debounce, use for low priority, if value not changed, do stuff"},
-      {"nm":"pureComponent","pros":"produce the same output given same input"},
-      {"nm":"error boundary","how":"safe component"},
-      {"nm":"Improve performance","how":[
-        "Keeping component state local where necessary",
-        "Memoizing React components to prevent unnecessary re-renders, use React.memo, React.memo is a higher-order component used to wrap a purely functional component to prevent re-rendering if the props received in that component never changes",
-        "To prevent the function from always redefining, we will use a useCallback Hook that returns a memoized version of the callback between renders, With the useCallback Hook, the incrementCount function only redefines when the count dependency array changes, const incrementCount = React.useCallback(() => setCount(count + 1), [count]);",
-        "Code-splitting in React using dynamic import(), React.lazy, <React.Suspense fallback={<p>Loading page...</p>}>",
-        "Windowing or list virtualization in React applications",
-        "Lazy loading images in React",
-        "React.PureComponent props shallow comparison, will not render if props are same",
-        "regular component shouldComponentUpdate",
-        "React Fragments  reduce html tags",
-        "Using Immutable Data Structures: Zero side-effects,Immutable data objects are simpler to create, test, and use,Helps prevent temporal coupling,Easier to track changes",
-        "Production Mode Flag in Webpack",
-        "Avoid Inline Function Definition in the Render Function",
-        "Throttling and Debouncing Event Action in JavaScript",
-        "Avoid using Index as Key for map",
-        "CSS Animations Instead of JS Animations",
-        "Using a CDN",
-        "Using Web Workers for CPU Extensive Tasks",
-        "Analyzing and Optimizing Your Webpack Bundle Bloat",
-        "Consider Server-side Rendering",
-        "Enable Gzip Compression on Web Server"
-      ]},
-      {"nm":"multipe set state","how":"ReactDOM.unstable_batchedUpdates()"},
-      {"nm":"context","how":"createContext, useContext"},
-      {"nm":"react query"}
-    ]
-  },
-  {
-    "nm":"vue",
-    "items":[
-      {"nm":"$nexttick","desc":"wait for the next DOM update cycle, then do callback"},
-      {"nm":"keep-alive"}
-    ]
-  },
-  {
-    "nm":"JS Framework",
-    "items":[
-      {"nm":"TypeScript","pros":"more robust, easily spot bugs, predictability, readability","cons":"more code to write,more to learn,required compilation,not true static typing"},
-      {"nm":"Svelte"},
-      {"nm":"Solid"},
+      { "nm": "Declarative声明式设计" },
+      { "nm": "virtual dom", "pros": "DOM不需要重排" },
+      { "nm": "state", "what": "" },
       {
-        "nm":"NextJs",
-        "items":[
+        "nm": "jsx: syntax extension to JavaScript",
+        "pros": "babel compiler",
+        "how": "convert jsx to react.createElement"
+      },
+      { "nm": "single data flow" },
+      {
+        "nm": "hooks",
+        "from": "algebraic effects代数效应",
+        "what": "Hooks are functions that let you “hook into” React state and lifecycle features from function components. Hooks don't work inside classes — they let you use React without classes"
+      },
+      {
+        "nm": "useReducer",
+        "pros": "handle set multiple states, complex state"
+      },
+      {
+        "nm": "useMemo",
+        "pros": "rerender only if useMemo dependency changes, for object, array too"
+      },
+      {
+        "nm": "useCallback",
+        "how": "if pass function to child and use in useEffect, should useCallBack"
+      },
+      {
+        "nm": "useEffect",
+        "what": "works after render",
+        "cons": "referencial equality for object",
+        "how": "useMemo for object array"
+      },
+      { "nm": "useLayoutEffect", "what": "not syncho, work before useEffect" },
+      {
+        "nm": "useTransition",
+        "what": "two set state, but large calculate, priority",
+        "how": "[isPending,startTransition] = useTransition()",
+        "pros": "performance",
+        "cons": "increase render times"
+      },
+      {
+        "nm": "useDeferredValue",
+        "what": "like debounce, use for low priority, if value not changed, do stuff"
+      },
+      {
+        "nm": "pureComponent",
+        "pros": "produce the same output given same input"
+      },
+      { "nm": "error boundary", "how": "safe component" },
+      {
+        "nm": "Improve performance",
+        "how": [
+          "Keeping component state local where necessary",
+          "Memoizing React components to prevent unnecessary re-renders, use React.memo, React.memo is a higher-order component used to wrap a purely functional component to prevent re-rendering if the props received in that component never changes",
+          "To prevent the function from always redefining, we will use a useCallback Hook that returns a memoized version of the callback between renders, With the useCallback Hook, the incrementCount function only redefines when the count dependency array changes, const incrementCount = React.useCallback(() => setCount(count + 1), [count]);",
+          "Code-splitting in React using dynamic import(), React.lazy, <React.Suspense fallback={<p>Loading page...</p>}>",
+          "Windowing or list virtualization in React applications",
+          "Lazy loading images in React",
+          "React.PureComponent props shallow comparison, will not render if props are same",
+          "regular component shouldComponentUpdate",
+          "React Fragments  reduce html tags",
+          "Using Immutable Data Structures: Zero side-effects,Immutable data objects are simpler to create, test, and use,Helps prevent temporal coupling,Easier to track changes",
+          "Production Mode Flag in Webpack",
+          "Avoid Inline Function Definition in the Render Function",
+          "Throttling and Debouncing Event Action in JavaScript",
+          "Avoid using Index as Key for map",
+          "CSS Animations Instead of JS Animations",
+          "Using a CDN",
+          "Using Web Workers for CPU Extensive Tasks",
+          "Analyzing and Optimizing Your Webpack Bundle Bloat",
+          "Consider Server-side Rendering",
+          "Enable Gzip Compression on Web Server"
+        ]
+      },
+      {
+        "nm": "multipe set state",
+        "how": "ReactDOM.unstable_batchedUpdates()"
+      },
+      { "nm": "context", "how": "createContext, useContext" },
+      { "nm": "react query" }
+    ]
+  },
+  {
+    "nm": "vue",
+    "items": [
+      {
+        "nm": "$nexttick",
+        "desc": "wait for the next DOM update cycle, then do callback"
+      },
+      { "nm": "keep-alive" }
+    ]
+  },
+  {
+    "nm": "JS Framework",
+    "items": [
+      {
+        "nm": "TypeScript",
+        "pros": "more robust, easily spot bugs, predictability, readability",
+        "cons": "more code to write,more to learn,required compilation,not true static typing"
+      },
+      { "nm": "Svelte" },
+      { "nm": "Solid" },
+      {
+        "nm": "NextJs",
+        "items": [
           {
-            "nm":"useEffect call twice",
-            "how":"set reactStrictMode to false"
+            "nm": "useEffect call twice",
+            "how": "set reactStrictMode to false"
           },
           {
-            "nm":"<Script src />",
-            "how":"add onLoad={() => {console.log('Script has loaded')}}"
+            "nm": "<Script src />",
+            "how": "add onLoad={() => {console.log('Script has loaded')}}"
           }
         ]
       }
     ]
   },
   {
-    "nm":"cloud server",
-    "items":[
-      {"nm":"aws"},
-      {"nm":"google cloud"},
-      {"nm":"azure"},
-      {"nm":"aliyun"},
-      {"nm":"tencentyun"},
-      {"nm":"vercel"},
-      {"nm":"netify"},
-      {"nm":"onrender"},
-      {"nm":"cycle.sh"}
+    "nm": "cloud server",
+    "items": [
+      { "nm": "aws" },
+      { "nm": "google cloud" },
+      { "nm": "azure" },
+      { "nm": "aliyun" },
+      { "nm": "tencentyun" },
+      { "nm": "vercel" },
+      { "nm": "netify" },
+      { "nm": "onrender" },
+      { "nm": "cycle.sh" }
     ]
   },
   {
-    "nm":"data structure",
-    "items":[
-      {"nm":"Array"},
-      {"nm":"String"},
-      {"nm":"stack"},
-      {"nm":"hash table"},
-      {"nm":"Graph"}
+    "nm": "data structure",
+    "items": [
+      { "nm": "Array" },
+      { "nm": "String" },
+      { "nm": "stack" },
+      { "nm": "hash table" },
+      { "nm": "Graph" }
     ]
   },
   {
-    "nm":"design pattern",
-    "items":[
-      {"nm":"factory design pattern"},
-      {"nm":"Facade Pattern","pros":"封装第三方api"},
-      {"nm":"Builder Pattern","pros":"simplify constructor reduce params, set other attribute in builder function or pass attributes as object in option param"},
-      {"nm":"Null Object Pattern"}
+    "nm": "design pattern",
+    "items": [
+      { "nm": "factory design pattern" },
+      { "nm": "Facade Pattern", "pros": "封装第三方api" },
+      {
+        "nm": "Builder Pattern",
+        "pros": "simplify constructor reduce params, set other attribute in builder function or pass attributes as object in option param"
+      },
+      { "nm": "Null Object Pattern" }
     ]
   },
   {
-    "nm":"SOLID Design Principles",
-    "items":[
-      {"nm":"Single Responsibility"},
-      {"nm":"Open/Closed Principle","pros":"define better data structures, "},
-      {"nm":"Liskov Substitution Principle","pros":"Write better Object Oriented Code"},
-      {"nm":"Interface Segregation Principle接口隔离"},
-      {"nm":"Dependency Inversion Principle依赖倒置原则","desc":"","pros":""}
+    "nm": "SOLID Design Principles",
+    "items": [
+      { "nm": "Single Responsibility" },
+      {
+        "nm": "Open/Closed Principle",
+        "pros": "define better data structures, "
+      },
+      {
+        "nm": "Liskov Substitution Principle",
+        "pros": "Write better Object Oriented Code"
+      },
+      { "nm": "Interface Segregation Principle接口隔离" },
+      {
+        "nm": "Dependency Inversion Principle依赖倒置原则",
+        "desc": "",
+        "pros": ""
+      }
     ]
   },
   {
-    "nm":"alogorithm",
-    "items":[
+    "nm": "alogorithm",
+    "items": [
       {
         "nm": "动态规划Dynamic Programming"
       },
@@ -345,56 +487,53 @@
     ]
   },
   {
-    "nm":"database",
-    "items":[
-      {"nm":"normalization"},
+    "nm": "database",
+    "items": [
+      { "nm": "normalization" },
       {
-        "nm":"mongoose",
-        "items":[
+        "nm": "mongoose",
+        "items": [
           {
-            "nm":"loadClass",
+            "nm": "loadClass",
             "what": "use to create a Mongoose schema from an ES6 class",
-            "how":"schema.loadClass(MyClass)"
+            "how": "schema.loadClass(MyClass)"
           }
         ]
       }
     ]
   },
   {
-    "nm":"payment",
-    "items":[
+    "nm": "payment",
+    "items": [
       {
-        "nm":"stripe",
-        "items":[
+        "nm": "stripe",
+        "items": [
           {
-            "nm":"custom payment flow",
-            "what":"will create payment record in stripe when payment form render",
-            "how":[
+            "nm": "custom payment flow",
+            "what": "will create payment record in stripe when payment form render",
+            "how": [
               "create own api with stripe library to get payment intent client secret",
               "use clientSecret render payment form",
               "each payment render will have a payment id, should reuse the id if payment is not paid"
             ]
           },
           {
-            "nm":"session checkout"
+            "nm": "session checkout"
           }
         ]
       }
     ]
   },
   {
-    "nm":"interview",
-    "items":[
+    "nm": "interview",
+    "items": [
       {
-        "nm":"technical interview",
-        "items":[
-          {"nm":"handle situation"},
-          {"nm":"analytical thinking"}
-        ]
+        "nm": "technical interview",
+        "items": [{ "nm": "handle situation" }, { "nm": "analytical thinking" }]
       },
       {
-        "nm":"Tell me about yourself",
-        "items":[
+        "nm": "Tell me about yourself",
+        "items": [
           "I'm an experienced web developer who constantly seeks out innovative solutions to everyday problems",
           "I got my analytical thinking and collaboration skills, and I love working with a team.",
           "I will learn and practice update-to-date coding skills on side projects, provide dev suggestioin or solution to freinds and family if they need my helpe for their business",
@@ -402,23 +541,27 @@
         ]
       },
       {
-        "nm":"Where do you see yourself in the future",
-        "items":[
+        "nm": "Where do you see yourself in the future",
+        "items": [
           "I want to contribute as much as I can to the business while working as a level 3 software engineer. However, once I have mastered all aspects of this role I see myself moving into a management role such as a tech lead or staff software engineer. I’m a leader and incredibly organized as I have demonstrated in previous roles. ",
           "In the future, I see myself as a successful software engineer who has benefited the business and achieved my technical goals. I enjoy new challenges and am eager to move up in the company into a specialized role where I can focus on the more technical problems we face and make a real difference."
         ]
       },
       {
-        "nm":"What is your biggest weakness and how do you overcome it",
-        "items":["read some knowledges, if not use it, forget it, so mark it down"]
+        "nm": "What is your biggest weakness and how do you overcome it",
+        "items": [
+          "read some knowledges, if not use it, forget it, so mark it down"
+        ]
       },
       {
-        "nm":"Describe a project you are proud of and what you technically contributed on it",
-        "items":["Map features, debounce, Facade, encapsulation fetch api, lazy image load"]
+        "nm": "Describe a project you are proud of and what you technically contributed on it",
+        "items": [
+          "Map features, debounce, Facade, encapsulation fetch api, lazy image load"
+        ]
       },
       {
-        "nm":"question to ask",
-        "items":[
+        "nm": "question to ask",
+        "items": [
           "What are the expectations that you have set for this role?",
           "Can you describe the team that I would work with in this position?",
           "What technology does your software engineer team use?",
