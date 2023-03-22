@@ -79,7 +79,10 @@ export const LANGUAGES = {
 };
 
 export function getLanguageKeys() {
-  return Object.keys(LANGUAGES);
+  return [
+    { k: 'en', v: 'English' },
+    { k: 'zh', v: '中文' },
+  ];
 }
 
 export function getLanguages(lang) {

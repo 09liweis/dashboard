@@ -100,6 +100,13 @@ function MyApp({ Component, pageProps }: AppProps) {
       >
         {/* <Chat /> */}
         <main className="p-3">
+          <section className="flex justify-end">
+            {getLanguageKeys().map(({ k, v }) => (
+              <a onClick={() => setLang(getLanguages(k))} key={k}>
+                {v}
+              </a>
+            ))}
+          </section>
           <header className="sticky top-3 left-3">
             <nav className="flex items-center p-2 bg-card rounded shadow">
               {NAV_LINKS.map((nav) => (
@@ -127,13 +134,6 @@ function MyApp({ Component, pageProps }: AppProps) {
               ) : (
                 <a onClick={() => setShowLogin(true)}>Login</a>
               )}
-              <section>
-                {getLanguageKeys().map((l) => (
-                  <a onClick={() => setLang(getLanguages(l))} key={l}>
-                    {l}
-                  </a>
-                ))}
-              </section>
             </nav>
           </header>
           <section className="bg-card mt-3 p-3 rounded">
