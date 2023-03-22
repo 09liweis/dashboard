@@ -99,23 +99,23 @@ function MyApp({ Component, pageProps }: AppProps) {
         }}
       >
         {/* <Chat /> */}
-        <main className="flex">
-          <header className="hidden sm:block sm:flex-none p-3">
-            <nav className="flex flex-col p-3 bg-card rounded shadow">
+        <main className="p-3">
+          <header className="sticky top-3 left-3">
+            <nav className="flex items-center p-2 bg-card rounded shadow">
               {NAV_LINKS.map((nav) => (
                 <Link key={nav.url} href={nav.url}>
-                  <span className="mb-3 cursor-pointer text-red-500 hover:text-red-600 transition duration-300">
+                  <span className="mr-3 cursor-pointer text-red-500 hover:text-red-600 transition duration-300">
                     <i className={nav.icon}></i> {getTranslate(lang, nav.tl)}
                   </span>
                 </Link>
               ))}
               {user._id ? (
                 <>
-                  <span className="mb-3 text-red-500 hover:text-red-600 transition duration-300">
+                  <span className="mr-3 text-red-500 hover:text-red-600 transition duration-300">
                     <i className="fa-solid fa-user"></i> {user.nm}
                   </span>
                   <a
-                    className="px-1 py-2 text-center rounded cursor-pointer text-white bg-red-400 transition duration-300 hover:rotate-12 hover:bg-red-600"
+                    className="p-1 text-center rounded-lg cursor-pointer text-white bg-red-400 transition duration-300 hover:rotate-12 hover:bg-red-600"
                     onClick={() => {
                       localStorage.removeItem('auth-token');
                       setUser(emptyUser);
@@ -136,11 +136,9 @@ function MyApp({ Component, pageProps }: AppProps) {
               </section>
             </nav>
           </header>
-          <section className="flex-1 p-3">
-            <section className="bg-card p-3 rounded">
-              {loading && <div>Loading...</div>}
-              <Component {...pageProps} />
-            </section>
+          <section className="bg-card mt-3 p-3 rounded">
+            {loading && <div>Loading...</div>}
+            <Component {...pageProps} />
           </section>
           {!user._id && showLogin ? (
             <section className="fixed bg-black w-full h-full flex justify-center items-center">
