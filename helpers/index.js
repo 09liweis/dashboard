@@ -67,6 +67,7 @@ export const LANGUAGES = {
     expense: 'Expense',
     logout: 'Log Out',
     addNew: 'Add New',
+    subscription: 'Subscription',
   },
   zh: {
     home: '页面',
@@ -75,6 +76,7 @@ export const LANGUAGES = {
     logout: '登出',
     total: '总计',
     addNew: '添加',
+    subscription: '订阅',
   },
 };
 

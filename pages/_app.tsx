@@ -1,7 +1,7 @@
 import '../styles/globals.css';
 import Head from 'next/head';
 import Link from 'next/link';
-import { Router } from 'next/router';
+import { Router, useRouter } from 'next/router';
 import type { AppProps } from 'next/app';
 import AppContext from '../AppContext';
 import { useState, useRef, useEffect } from 'react';
@@ -49,6 +49,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   Router.events.on('routeChangeComplete', () => {
     setLoading(false);
   });
+
+  const router = useRouter();
 
   const usernameInput = useRef<HTMLInputElement>(null);
   const passwordInput = useRef<HTMLInputElement>(null);
@@ -115,7 +117,13 @@ function MyApp({ Component, pageProps }: AppProps) {
             <nav className="flex items-center p-2 bg-card rounded shadow">
               {NAV_LINKS.map((nav) => (
                 <Link key={nav.url} href={nav.url}>
-                  <span className="mr-3 cursor-pointer text-red-500 hover:text-red-600 transition duration-300">
+                  <span
+                    className={`mr-3 cursor-pointer text-red-500 hover:text-red-600 transition duration-300 ${
+                      nav.url == router.pathname
+                        ? 'border-b-2 border-red-500'
+                        : ''
+                    }`}
+                  >
                     <i className={nav.icon}></i> {getTranslate(lang, nav.tl)}
                   </span>
                 </Link>
