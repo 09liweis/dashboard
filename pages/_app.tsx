@@ -100,9 +100,13 @@ function MyApp({ Component, pageProps }: AppProps) {
       >
         {/* <Chat /> */}
         <main className="p-3">
-          <section className="flex justify-end">
+          <section className="flex justify-end mb-3">
             {getLanguageKeys().map(({ k, v }) => (
-              <a onClick={() => setLang(getLanguages(k))} key={k}>
+              <a
+                className="ml-2 cursor-pointer border p-1 rounded-lg text-white bg-red-400 hover:bg-red-600 transition duration-300"
+                onClick={() => setLang(getLanguages(k))}
+                key={k}
+              >
                 {v}
               </a>
             ))}
