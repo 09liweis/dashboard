@@ -115,6 +115,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                     <i className="fa-solid fa-user"></i> {user.nm}
                   </span>
                   <a
+                    className="px-1 py-2 text-center rounded cursor-pointer text-white bg-red-400 transition duration-300 hover:rotate-12 hover:bg-red-600"
                     onClick={() => {
                       localStorage.removeItem('auth-token');
                       setUser(emptyUser);
