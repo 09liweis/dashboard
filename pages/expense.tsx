@@ -182,7 +182,7 @@ const Expense: NextPage = () => {
         ) : null}
       </section>
       <section className="flex mb-3">
-        <article className="month p-3 rounded flex-none">
+        <article className="month p-3 bg-card flex-none">
           {YEARS.map((year) => (
             <p
               className={curYear == year ? 'text-red-300' : 'mouse'}
@@ -205,7 +205,7 @@ const Expense: NextPage = () => {
             : null}
         </article>
 
-        <article className="pay rounded ml-3 flex-1">
+        <article className="pay bg-card ml-3 flex-1">
           <p className="text-right font-bold text-red-600">
             <i className="fa-solid fa-sack-dollar"></i>
             {getTranslate(lang, 'total')}:{curTotal}
