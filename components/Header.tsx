@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { getTranslate } from '../helpers';
+import { HeaderProps, emptyUser } from '../types';
 
 const NAV_LINKS = [
   { tl: 'home', url: '/', icon: 'fa-solid fa-house-user' },
@@ -8,7 +9,13 @@ const NAV_LINKS = [
   { tl: 'subscription', url: '/newsletter', icon: 'fa-solid fa-envelope' },
 ];
 
-export default function Header({ user, setUser, router, lang }) {
+export default function Header({
+  setShowLogin,
+  user,
+  setUser,
+  router,
+  lang,
+}: HeaderProps) {
   return (
     <header className="sticky top-3 left-3">
       <nav className="flex items-center p-2 bg-card rounded shadow">

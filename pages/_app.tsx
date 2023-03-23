@@ -4,6 +4,7 @@ import { Router, useRouter } from 'next/router';
 import type { AppProps } from 'next/app';
 import AppContext from '../AppContext';
 import Header from '../components/Header';
+import { emptyUser } from '../types';
 import { useState, useRef, useEffect } from 'react';
 import {
   fetchUser,
@@ -21,15 +22,7 @@ const getPageTitle = (pageProps: any) => {
   return pageMeta?.title || 'Dashboard';
 };
 
-interface User {
-  _id: string;
-  nm: string;
-  eml: string;
-  lts: string;
-}
-
 function MyApp({ Component, pageProps }: AppProps) {
-  const emptyUser: User = { _id: '', nm: '', eml: '', lts: '' };
   const [user, setUser] = useState(emptyUser);
   const [lang, setLang] = useState(getLanguages('en'));
   const [showLogin, setShowLogin] = useState(false);
@@ -106,7 +99,13 @@ function MyApp({ Component, pageProps }: AppProps) {
               </a>
             ))}
           </section>
-          <Header lang={lang} user={user} setUser={setUser} router={router} />
+          <Header
+            setShowLogin={setShowLogin}
+            lang={lang}
+            user={user}
+            setUser={setUser}
+            router={router}
+          />
           <section className="bg-card mt-3 p-3 rounded">
             {loading && <div>Loading...</div>}
             <Component {...pageProps} />
