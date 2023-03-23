@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { getTranslate, getLanguageKeys } from '../helpers';
+import { getTranslate, getLanguageKeys, getLanguages } from '../helpers';
 import { HeaderProps, emptyUser } from '../types';
 
 const NAV_LINKS = [
