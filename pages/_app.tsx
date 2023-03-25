@@ -6,12 +6,8 @@ import AppContext from '../AppContext';
 import Header from '../components/Header';
 import { emptyUser } from '../types';
 import { useState, useRef, useEffect } from 'react';
-import {
-  fetchUser,
-  fetchToken,
-  checkUserToken,
-  getLanguages,
-} from '../helpers';
+import { checkUserToken, getLanguages } from '../helpers';
+import LoginForm from '../components/LoginForm';
 
 import Chat from '../components/Chat';
 
@@ -35,24 +31,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   });
 
   const router = useRouter();
-
-  const usernameInput = useRef<HTMLInputElement>(null);
-  const passwordInput = useRef<HTMLInputElement>(null);
-  const handleLogin = async (e: React.SyntheticEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const body = {
-      eml: usernameInput?.current?.value,
-      pwd: passwordInput?.current?.value,
-    };
-    const response = await fetchToken(body);
-    if (response.token) {
-      localStorage.setItem('auth-token', response.token);
-      const userResponse = await fetchUser();
-      if (userResponse?.user) {
-        setUser(userResponse.user);
-      }
-    }
-  };
 
   useEffect(() => {
     const userResponse = checkUserToken();
@@ -98,26 +76,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             {loading && <div>Loading...</div>}
             <Component {...pageProps} />
           </section>
-          {!user._id && showLogin ? (
-            <section className="fixed bg-black w-full h-full flex justify-center items-center">
-              <form
-                className="bg-white p-3 mx-auto w-96"
-                onSubmit={handleLogin}
-              >
-                <input
-                  ref={usernameInput}
-                  className="border w-full p-3 rounded mb-2"
-                  placeholder="User Name"
-                />
-                <input
-                  ref={passwordInput}
-                  className="border w-full p-3 rounded mb-2"
-                  placeholder="Password"
-                />
-                <button>Login</button>
-              </form>
-            </section>
-          ) : null}
+          {!user._id && showLogin ? <LoginForm setUser={setUser} /> : null}
         </main>
       </AppContext.Provider>
     </>

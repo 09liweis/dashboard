@@ -7,6 +7,10 @@ export interface User {
 
 export const emptyUser: User = { _id: '', nm: '', eml: '', lts: '' };
 
+export interface LoginFormProps {
+  setUser: Function;
+}
+
 export interface HeaderProps {
   user: User;
   setLang: Function;
