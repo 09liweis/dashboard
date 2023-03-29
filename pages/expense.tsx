@@ -12,7 +12,7 @@ const EXPANSE_API: string =
 const CATEGORIES_API: string =
   'https://samliweisen.onrender.com/api/transactions/categories';
 
-const YEARS = ['2023', '2022', '2021', '2020'];
+const YEARS = ['2023', '2022', '2021', '2020', '2019', '2018', '2017'];
 const MONTHS: { [key: string]: string } = {
   '1': 'Jan',
   '2': 'Fed',
@@ -110,31 +110,38 @@ const Expense: NextPage = () => {
           </a>
         ) : null}
       </section>
-      <section className="flex mb-3">
-        <article className="month p-3 bg-card flex-none">
-          {YEARS.map((year) => (
-            <p
-              className={curYear == year ? 'text-red-300' : 'mouse'}
-              key={year}
-              onClick={() => setYear(year)}
-            >
-              {year}
-            </p>
-          ))}
-          {curYear
-            ? Object.keys(MONTHS).map((month) => (
-                <p
-                  className={curMonth == month ? 'text-red-300' : ''}
-                  key={month}
-                  onClick={() => setMonth(month)}
-                >
-                  {MONTHS[month]}
-                </p>
-              ))
-            : null}
+      <section className="flex mb-3 flex-col gap-x-3 md:flex-row">
+        <article className="month p-3 mb-2 bg-card md:flex-none">
+          <section className="flex flex-row md:flex-col">
+            {YEARS.map((year) => (
+              <p
+                className={`mr-2 ${curYear == year ? 'text-red-300' : 'mouse'}`}
+                key={year}
+                onClick={() => setYear(year)}
+              >
+                {year}
+              </p>
+            ))}
+          </section>
+
+          <section className="flex flex-row md:flex-col">
+            {curYear
+              ? Object.keys(MONTHS).map((month) => (
+                  <p
+                    className={`mr-2 ${
+                      curMonth == month ? 'text-red-300' : ''
+                    }`}
+                    key={month}
+                    onClick={() => setMonth(month)}
+                  >
+                    {MONTHS[month]}
+                  </p>
+                ))
+              : null}
+          </section>
         </article>
 
-        <article className="pay bg-card ml-3 flex-1">
+        <article className="pay bg-card ml-3 md:flex-1">
           <p className="text-right capitalize text-2xl font-bold text-red-600">
             <i className="fa-solid fa-sack-dollar"></i>
             {getTranslate(lang, 'total')}:{curTotal.toFixed(2)}
