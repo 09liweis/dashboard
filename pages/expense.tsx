@@ -13,8 +13,6 @@ const EXPANSE_API: string =
 const CATEGORIES_API: string =
   'https://samliweisen.onrender.com/api/transactions/categories';
 
-
-
 const Expense: NextPage = () => {
   const { user, lang } = useContext(AppContext);
 
@@ -98,8 +96,13 @@ const Expense: NextPage = () => {
         ) : null}
       </section>
       <section className="flex mb-3 flex-col gap-x-3 md:flex-row">
-        <ExpenseDates curYear={curYear} curMonth={curMonth} setYear={setYear} setMonth={setMonth} />
-        <article className="pay bg-card ml-3 md:flex-1">
+        <ExpenseDates
+          curYear={curYear}
+          curMonth={curMonth}
+          setYear={setYear}
+          setMonth={setMonth}
+        />
+        <article className="pay bg-card md:flex-1">
           <p className="text-right capitalize text-2xl font-bold text-red-600">
             <i className="fa-solid fa-sack-dollar"></i>
             {getTranslate(lang, 'total')}:{curTotal.toFixed(2)}

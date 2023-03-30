@@ -18,37 +18,33 @@ export default function ExpenseList({
   const expensesHTML = Object.keys(categoryTransactions).map((key) => {
     const { total, items } = categoryTransactions[key];
     return (
-      <div key={key}>
-        <div className="father p-1 flex justify-between my-2 rounded text-red-600">
-          <span className="">
-            <i className={`fa-solid ${ICON_CATEGORY[key]}`}></i>
+      <div key={key} className="mb-2">
+        <div className="father border-dashed border-2 border-red-600 p-1 flex justify-between items-center mb-1 rounded text-red-600 transition duration-300">
+          <i
+            className={`flex gap-x-1 tracking-widest fa-solid transition duration-300 hover:translate-y-0.5 ${ICON_CATEGORY[key]}`}
+          >
             {key}
-          </span>
-          <span className="">
-            <i className="fa-solid fa-sack-dollar"></i>
-            {total}
-          </span>
+          </i>
+          <span>${total}</span>
         </div>
-        <ul className="detail1">
-          {items.map((transaction) => {
-            const { _id, price, date, place, title } = transaction;
-            return (
-              <li
-                key={_id}
-                title={place?.address}
-                className="box cursor-pointer hover:text-red-600 transition duration-300"
-                onClick={() => openTransactionDetail(transaction)}
-              >
-                <div>{place?.name}</div>
-                <div className="box box2">
-                  <div>{date}</div>
-                  <div>{title}</div>
-                  {price && <div>${Math.abs(price)}</div>}
-                </div>
-              </li>
-            );
-          })}
-        </ul>
+        {items.map((transaction) => {
+          const { _id, price, date, place, title } = transaction;
+          return (
+            <article
+              key={_id}
+              title={place?.address}
+              className="flex justify-between cursor-pointer text-red-400 hover:text-red-600 transition duration-300"
+              onClick={() => openTransactionDetail(transaction)}
+            >
+              <span className="truncate w-1/2">{place?.name}</span>
+              <span className="flex justify-between w-1/2 text-black">
+                <span>{date}</span>
+                <span className="truncate hidden md:block">{title}</span>
+                {price && <span>${Math.abs(price)}</span>}
+              </span>
+            </article>
+          );
+        })}
       </div>
     );
   });

@@ -52,17 +52,10 @@ body {
 
 .father {
   background-color: rgb(255 192 203 / 40%);
-  border: dashed 2px;
-  transition-property: background-color, font-size;
-  transition-duration: 0.3s;
 }
 
 .father:hover {
   background-color: burlywood;
-}
-
-.fa-solid {
-  margin-right: 3px;
 }
 
 .className {
@@ -70,42 +63,10 @@ body {
   width: 70%;
 }
 
-.detail1 {
-  color: rgb(8 12 92);
-  margin-left: 10px;
-  list-style-type: disc;
-  list-style-position: inside;
-}
-
-.detail2 {
-  color: gray;
-  margin-left: 20px;
-  list-style-type: square;
-  list-style-position: inside;
-}
-
-.mouse {
-  cursor: pointer;
-}
-
-.box {
-  display: flex;
-  justify-content: space-between;
-  color: rgb(4 4 5 / 71%);
-  font-family: sans-serif;
-}
-
-.box2 {
-  width: 50%;
-  color: #01010f;
-}
-
 .month p {
-  transition-property: color, font-size;
-  transition-duration: 0.5s;
+  transition: 0.5s;
 }
 
 .month p:hover {
   color: rgb(180, 77, 26);
-  font-size: 18px;
 }

@@ -16,6 +16,9 @@ const MONTHS: { [key: string]: string } = {
   '12': 'Dec',
 };
 
+const activeStyleClass = 'text-red-300 border-red-300';
+const defaultStyleClass = 'mr-2 p-0.5 rounded border';
+
 export default function ExpenseDates({
   curYear,
   curMonth,
@@ -27,7 +30,9 @@ export default function ExpenseDates({
       <section className="flex flex-row md:flex-col">
         {YEARS.map((year) => (
           <p
-            className={`mr-2 ${curYear == year ? 'text-red-300' : 'mouse'}`}
+            className={`${defaultStyleClass} ${
+              curYear == year ? activeStyleClass : 'cursor-pointer'
+            }`}
             key={year}
             onClick={() => setYear(year)}
           >
@@ -40,7 +45,9 @@ export default function ExpenseDates({
         {curYear
           ? Object.keys(MONTHS).map((month) => (
               <p
-                className={`mr-2 ${curMonth == month ? 'text-red-300' : ''}`}
+                className={`${defaultStyleClass} ${
+                  curMonth == month ? activeStyleClass : 'cursor-pointer'
+                }`}
                 key={month}
                 onClick={() => setMonth(month)}
               >
