@@ -52,5 +52,5 @@ export default function ExpenseList({
       </div>
     );
   });
-  return expensesHTML;
+  return <>{expensesHTML}</>;
 }
