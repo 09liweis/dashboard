@@ -19,13 +19,13 @@ export default function ExpenseList({
     const { total, items } = categoryTransactions[key];
     return (
       <div key={key} className="mb-2">
-        <div className="father border-dashed border-2 border-red-600 p-1 flex justify-between items-center mb-1 rounded text-red-600 transition duration-300">
+        <div className="father bg-gradient-to-r from-red-300 border-dashed border-2 border-red-600 p-1 flex justify-between items-center mb-1 rounded text-red-600 transition duration-300">
           <i
             className={`flex gap-x-1 tracking-widest fa-solid transition duration-300 hover:translate-y-0.5 ${ICON_CATEGORY[key]}`}
           >
             {key}
           </i>
-          <span>${total}</span>
+          <span className="font-bold">${total}</span>
         </div>
         {items.map((transaction) => {
           const { _id, price, date, place, title } = transaction;

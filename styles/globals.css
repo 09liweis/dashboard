@@ -46,25 +46,8 @@ body {
   background-color: #ffffffa6;
 }
 
-.pay {
-  padding: 10px;
-}
-
-.father {
-  background-color: rgb(255 192 203 / 40%);
-}
-
 .father:hover {
   background-color: burlywood;
-}
-
-.className {
-  display: inline-block;
-  width: 70%;
-}
-
-.month p {
-  transition: 0.5s;
 }
 
 .month p:hover {

@@ -17,7 +17,14 @@ const MONTHS: { [key: string]: string } = {
 };
 
 const activeStyleClass = 'text-red-300 border-red-300';
-const defaultStyleClass = 'mr-2 p-0.5 rounded border';
+const defaultStyleClass =
+  'mr-2 p-0.5 rounded border border-transparent transition duration-300';
+
+function getExpenseDateStyle(curDate: string, date: string) {
+  return `${defaultStyleClass} ${
+    curDate == date ? activeStyleClass : 'cursor-pointer'
+  }`;
+}
 
 export default function ExpenseDates({
   curYear,
@@ -26,13 +33,11 @@ export default function ExpenseDates({
   setMonth,
 }: ExpenseDatesProps) {
   return (
-    <article className="month p-3 mb-2 bg-card md:flex-none">
-      <section className="flex flex-row md:flex-col">
+    <article className="month p-2 mb-2 bg-card md:flex-none">
+      <section className="flex mb-1 flex-row md:flex-col">
         {YEARS.map((year) => (
           <p
-            className={`${defaultStyleClass} ${
-              curYear == year ? activeStyleClass : 'cursor-pointer'
-            }`}
+            className={getExpenseDateStyle(curYear, year)}
             key={year}
             onClick={() => setYear(year)}
           >
@@ -41,20 +46,17 @@ export default function ExpenseDates({
         ))}
       </section>
 
-      <section className="flex flex-row md:flex-col">
-        {curYear
-          ? Object.keys(MONTHS).map((month) => (
-              <p
-                className={`${defaultStyleClass} ${
-                  curMonth == month ? activeStyleClass : 'cursor-pointer'
-                }`}
-                key={month}
-                onClick={() => setMonth(month)}
-              >
-                {MONTHS[month]}
-              </p>
-            ))
-          : null}
+      <section className="flex flex-row md:flex-col overflow-hidden">
+        {curYear &&
+          Object.keys(MONTHS).map((month) => (
+            <p
+              className={getExpenseDateStyle(curMonth, month)}
+              key={month}
+              onClick={() => setMonth(month)}
+            >
+              {MONTHS[month]}
+            </p>
+          ))}
       </section>
     </article>
   );
