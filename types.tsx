@@ -48,3 +48,10 @@ export interface ExpenseListProps {
   categoryTransactions: CategoryTransactions;
   openTransactionDetail: Function;
 }
+
+export interface ExpenseDatesProps {
+  curMonth: string;
+  curYear: string;
+  setYear: Function;
+  setMonth: Function;
+}

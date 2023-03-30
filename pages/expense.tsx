@@ -4,6 +4,7 @@ import { fetchAPI, getTranslate } from '../helpers';
 import AppContext from '../AppContext';
 import ExpenseForm from '../components/ExpenseForm';
 import ExpenseList from '../components/ExpenseList';
+import ExpenseDates from '../components/ExpenseDates';
 import { Transaction, CategoryTransactions } from '../types';
 
 const EXPANSE_API: string =
@@ -12,21 +13,7 @@ const EXPANSE_API: string =
 const CATEGORIES_API: string =
   'https://samliweisen.onrender.com/api/transactions/categories';
 
-const YEARS = ['2023', '2022', '2021', '2020', '2019', '2018', '2017'];
-const MONTHS: { [key: string]: string } = {
-  '1': 'Jan',
-  '2': 'Fed',
-  '3': 'Mar',
-  '4': 'Apr',
-  '5': 'May',
-  '6': 'June',
-  '7': 'July',
-  '8': 'Aug',
-  '9': 'Sep',
-  '10': 'Oct',
-  '11': 'Nov',
-  '12': 'Dec',
-};
+
 
 const Expense: NextPage = () => {
   const { user, lang } = useContext(AppContext);
@@ -111,36 +98,7 @@ const Expense: NextPage = () => {
         ) : null}
       </section>
       <section className="flex mb-3 flex-col gap-x-3 md:flex-row">
-        <article className="month p-3 mb-2 bg-card md:flex-none">
-          <section className="flex flex-row md:flex-col">
-            {YEARS.map((year) => (
-              <p
-                className={`mr-2 ${curYear == year ? 'text-red-300' : 'mouse'}`}
-                key={year}
-                onClick={() => setYear(year)}
-              >
-                {year}
-              </p>
-            ))}
-          </section>
-
-          <section className="flex flex-row md:flex-col">
-            {curYear
-              ? Object.keys(MONTHS).map((month) => (
-                  <p
-                    className={`mr-2 ${
-                      curMonth == month ? 'text-red-300' : ''
-                    }`}
-                    key={month}
-                    onClick={() => setMonth(month)}
-                  >
-                    {MONTHS[month]}
-                  </p>
-                ))
-              : null}
-          </section>
-        </article>
-
+        <ExpenseDates curYear={curYear} curMonth={curMonth} setYear={setYear} setMonth={setMonth} />
         <article className="pay bg-card ml-3 md:flex-1">
           <p className="text-right capitalize text-2xl font-bold text-red-600">
             <i className="fa-solid fa-sack-dollar"></i>
