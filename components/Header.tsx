@@ -23,7 +23,7 @@ export default function Header({
         <section>
           {getLanguageKeys().map(({ k, v }) => (
             <a
-              className="ml-2 cursor-pointer border p-1 rounded-lg text-white bg-red-400 hover:bg-red-600 transition duration-300"
+              className="mr-2 cursor-pointer p-1 rounded-lg text-white bg-red-400 hover:bg-red-600 transition duration-300"
               onClick={() => setLang(getLanguages(k))}
               key={k}
             >
@@ -47,7 +47,12 @@ export default function Header({
             </a>
           </section>
         ) : (
-          <a onClick={() => setShowLogin(true)}>Login</a>
+          <a
+            className="p-1 text-center rounded-lg cursor-pointer text-white bg-red-400 transition duration-300 hover:rotate-12 hover:bg-red-600"
+            onClick={() => setShowLogin(true)}
+          >
+            Login
+          </a>
         )}
       </section>
 
