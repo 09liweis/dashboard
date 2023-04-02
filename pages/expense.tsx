@@ -6,6 +6,7 @@ import ExpenseForm from '../components/ExpenseForm';
 import ExpenseList from '../components/ExpenseList';
 import ExpenseDates from '../components/ExpenseDates';
 import { Transaction, CategoryTransactions } from '../types';
+import { buttonStyle } from '../constants';
 
 const EXPANSE_API: string =
   'https://samliweisen.onrender.com/api/transactions/statistics';
@@ -85,7 +86,7 @@ const Expense: NextPage = () => {
         <h2>{getTranslate(lang, 'expense')}</h2>
         {user._id ? (
           <a
-            className="p-2 bg-red-400 text-white border rounded-xl cursor-pointer hover:bg-red-500 transition duration-300"
+            className={buttonStyle}
             onClick={() => {
               setShowForm(true);
               setSelectTransaction(emptyTransaction);

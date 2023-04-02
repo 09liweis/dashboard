@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { fetchAPI } from '../helpers';
 import { loadGoogleMapScript, GoogleMap } from '../helpers/googleMap';
+import { buttonStyle } from '../constants';
 
 const googleMap = new GoogleMap();
 
@@ -108,11 +109,7 @@ export default function ExpenseForm({
           placeholder="Place"
         />
         <section id="map" className="w-full h-36 border rounded-lg"></section>
-        {user._id && (
-          <button className="border bg-red-500 text-white p-2 rounded-lg">
-            Add
-          </button>
-        )}
+        {user._id && <button className={buttonStyle}>Add</button>}
       </form>
     </section>
   );
