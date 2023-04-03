@@ -7,6 +7,7 @@ import ExpenseList from '../components/ExpenseList';
 import ExpenseDates from '../components/ExpenseDates';
 import { Transaction, CategoryTransactions } from '../types';
 import { buttonStyle } from '../constants';
+import Loading from '../components/Loading';
 
 const EXPANSE_API: string =
   'https://samliweisen.onrender.com/api/transactions/statistics';
@@ -110,7 +111,7 @@ const Expense: NextPage = () => {
           </p>
           {loading ? (
             <div className="flex justify-center">
-              <i className="animate-spin margin-auto fa-solid fa-spinner"></i>
+              <Loading />
             </div>
           ) : (
             <ExpenseList

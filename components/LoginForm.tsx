@@ -1,8 +1,11 @@
 import { useState, useRef, useEffect } from 'react';
+import { buttonStyle } from '../constants';
 import { fetchToken, fetchUser } from '../helpers';
 import { LoginFormProps } from '../types';
+import Loading from './Loading';
 
 export default function LoginForm({ setUser }: LoginFormProps) {
+  const [loginLoading, setLoginLoading] = useState(false);
   const usernameInput = useRef<HTMLInputElement>(null);
   const passwordInput = useRef<HTMLInputElement>(null);
   const handleLogin = async (e: React.SyntheticEvent<HTMLFormElement>) => {
@@ -11,10 +14,12 @@ export default function LoginForm({ setUser }: LoginFormProps) {
       eml: usernameInput?.current?.value,
       pwd: passwordInput?.current?.value,
     };
+    setLoginLoading(true);
     const response = await fetchToken(body);
     if (response.token) {
       localStorage.setItem('auth-token', response.token);
       const userResponse = await fetchUser();
+      setLoginLoading(false);
       if (userResponse?.user) {
         setUser(userResponse.user);
       }
@@ -33,7 +38,9 @@ export default function LoginForm({ setUser }: LoginFormProps) {
           className="border w-full p-3 rounded mb-2"
           placeholder="Password"
         />
-        <button>Login</button>
+        <button className={buttonStyle}>
+          {loginLoading ? <Loading /> : 'Login'}
+        </button>
       </form>
     </section>
   );
