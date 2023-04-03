@@ -103,7 +103,7 @@ const Expense: NextPage = () => {
           setYear={setYear}
           setMonth={setMonth}
         />
-        <article className="p-2 bg-card md:flex-1">
+        <article className="rounded p-2 bg-card md:flex-1">
           <p className="text-right capitalize text-2xl font-bold text-red-600">
             <i className="fa-solid fa-sack-dollar"></i>
             {getTranslate(lang, 'total')}:{curTotal.toFixed(2)}

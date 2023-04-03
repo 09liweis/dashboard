@@ -33,7 +33,7 @@ export default function ExpenseDates({
   setMonth,
 }: ExpenseDatesProps) {
   return (
-    <article className="month p-2 mb-2 bg-card md:flex-none">
+    <article className="rounded month p-2 mb-2 bg-card md:flex-none">
       <section className="flex mb-1 flex-row md:flex-col">
         {YEARS.map((year) => (
           <p
