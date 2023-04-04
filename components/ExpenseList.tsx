@@ -1,15 +1,16 @@
 const ICON_CATEGORY: { [key: string]: string } = {
-  food: 'fa-utensils',
-  gas: 'fa-gas-pump',
-  computer: 'fa-computer',
-  clothes: 'fa-clothes-hanger',
-  grocery: 'fa-cart-shopping',
-  phone: 'fa-phone',
-  electricity: 'fa-bolt',
-  internet: 'fa-internet-explorer',
+  food: 'utensils',
+  gas: 'gas-pump',
+  computer: 'computer',
+  clothes: 'clothes-hanger',
+  grocery: 'cart-shopping',
+  phone: 'phone',
+  electricity: 'bolt',
+  internet: 'internet-explorer',
 };
 
 import { ExpenseListProps } from '../types';
+import Icon from './Icon';
 
 export default function ExpenseList({
   categoryTransactions,
@@ -20,11 +21,13 @@ export default function ExpenseList({
     return (
       <div key={key} className="mb-2">
         <div className="father bg-gradient-to-r from-red-300 border-dashed border-2 border-red-600 p-1 flex justify-between items-center mb-1 rounded text-red-600 transition duration-300">
-          <i
-            className={`flex gap-x-1 tracking-widest fa-solid transition duration-300 hover:translate-y-0.5 ${ICON_CATEGORY[key]}`}
-          >
-            {key}
-          </i>
+          <Icon
+            classNames={
+              'flex gap-x-1 tracking-widest transition duration-300 hover:translate-y-0.5'
+            }
+            name={ICON_CATEGORY[key]}
+            text={key}
+          />
           <span className="font-bold">${total}</span>
         </div>
         {items.map((transaction) => {

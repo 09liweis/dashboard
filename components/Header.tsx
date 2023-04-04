@@ -2,12 +2,13 @@ import Link from 'next/link';
 import { getTranslate, getLanguageKeys, getLanguages } from '../helpers';
 import { HeaderProps, emptyUser } from '../types';
 import { buttonStyle } from '../constants';
+import Icon from './Icon';
 
 const NAV_LINKS = [
-  { tl: 'home', url: '/', icon: 'fa-solid fa-house-user' },
-  { tl: 'knowledges', url: '/knowledges', icon: 'fa-solid fa-book' },
-  { tl: 'expense', url: '/expense', icon: 'fa-solid fa-piggy-bank' },
-  { tl: 'subscription', url: '/newsletter', icon: 'fa-solid fa-envelope' },
+  { tl: 'home', url: '/', icon: 'house-user' },
+  { tl: 'knowledges', url: '/knowledges', icon: 'book' },
+  { tl: 'expense', url: '/expense', icon: 'piggy-bank' },
+  { tl: 'subscription', url: '/newsletter', icon: 'envelope' },
 ];
 
 export default function Header({
@@ -35,7 +36,7 @@ export default function Header({
         {user._id ? (
           <section>
             <span className="mr-3 text-red-500 hover:text-red-600 transition duration-300">
-              <i className="fa-solid fa-user"></i> {user.nm}
+              <Icon name={'user'} /> {user.nm}
             </span>
             <a
               className={buttonStyle}
@@ -65,7 +66,7 @@ export default function Header({
                 nav.url == router.pathname ? 'border-b-2 border-red-500' : ''
               }`}
             >
-              <i className={nav.icon}></i> {getTranslate(lang, nav.tl)}
+              <Icon name={nav.icon} /> {getTranslate(lang, nav.tl)}
             </span>
           </Link>
         ))}

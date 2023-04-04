@@ -8,6 +8,7 @@ import ExpenseDates from '../components/ExpenseDates';
 import { Transaction, CategoryTransactions } from '../types';
 import { buttonStyle } from '../constants';
 import Loading from '../components/Loading';
+import Icon from '../components/Icon';
 
 const EXPANSE_API: string =
   'https://samliweisen.onrender.com/api/transactions/statistics';
@@ -106,7 +107,7 @@ const Expense: NextPage = () => {
         />
         <article className="rounded p-2 bg-card md:flex-1">
           <p className="text-right capitalize text-2xl font-bold text-red-600">
-            <i className="fa-solid fa-sack-dollar"></i>
+            <Icon name={'sack-dollar'} />
             {getTranslate(lang, 'total')}:{curTotal.toFixed(2)}
           </p>
           {loading ? (

@@ -5,7 +5,7 @@ import type { AppProps } from 'next/app';
 import AppContext from '../AppContext';
 import Header from '../components/Header';
 import { emptyUser } from '../types';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { checkUserToken, getLanguages } from '../helpers';
 import LoginForm from '../components/LoginForm';
 
