@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Icon from '../components/Icon';
-import { TODO_LIST_API } from '../constants';
+import { COMMENT_LIST_API, TODO_LIST_API } from '../constants';
 import { fetchAPI } from '../helpers';
 import styles from '../styles/Home.module.css';
 
@@ -17,43 +17,62 @@ const DASHBOARD_CARDS = [
   { tl: 'movie', icon: 'film', bg: 'purple-600' },
 ];
 
-interface Todo {
+type Todo = {
   _id: string;
   name: string;
   status: string;
   date: string;
+};
+
+type Comment = {
+  _id: string;
+  content: string;
+};
+
+async function fetchTodos(): Promise<Array<Todo>> {
+  return await fetchAPI({
+    url: TODO_LIST_API,
+    method: 'GET',
+    body: {},
+  });
 }
 
-interface Todos {
-  [index: number]: Todo;
+async function fetchComments(): Promise<Array<Comment>> {
+  return await fetchAPI({
+    url: COMMENT_LIST_API,
+    method: 'GET',
+    body: {},
+  });
 }
 
 const Home: NextPage = () => {
-  const emptyTodos: Todos = [];
+  const emptyTodos: Array<Todo> = [];
   const [todos, setTodos] = useState(emptyTodos);
 
-  async function fetchTodos() {
-    const response = await fetchAPI({
-      url: TODO_LIST_API,
-      method: 'GET',
-      body: {},
-    });
-    if (response) {
-      setTodos(response);
-    }
-  }
+  const emptyComments: Array<Comment> = [];
+  const [comments, setComments] = useState(emptyComments);
 
   const renderCards = (type: string) => {
-    if (type == 'todos') {
-      const todosHTML = todos.map((todo) => (
-        <article key={todo._id}>{todo.name}</article>
-      ));
-      return todosHTML;
-    }
+    const cardMapping: { [key: string]: any } = {
+      todos: todos.map((todo) => <article key={todo._id}>{todo.name}</article>),
+      comments: comments.map((comment) => (
+        <article key={comment._id}>{comment.content}</article>
+      )),
+    };
+    return cardMapping[type];
+  };
+
+  const fetchDashBoardData = async () => {
+    const [newTodos, newComments] = await Promise.all([
+      fetchTodos(),
+      fetchComments(),
+    ]);
+    setTodos(newTodos);
+    setComments(newComments);
   };
 
   useEffect(() => {
-    fetchTodos();
+    fetchDashBoardData();
   }, []);
   return (
     <main className={styles.main}>
