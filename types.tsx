@@ -9,6 +9,7 @@ export const emptyUser: User = { _id: '', nm: '', eml: '', lts: '' };
 
 export interface LoginFormProps {
   setUser: Function;
+  setShowLogin: Function;
 }
 
 export interface HeaderProps {

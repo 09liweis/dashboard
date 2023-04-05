@@ -53,7 +53,10 @@ function MyApp({ Component, pageProps }: AppProps) {
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         />
-        <link rel="stylesheet" href="/tailwind.css" />
+        <link
+          rel="stylesheet"
+          href="https://tailwindcss.com/_next/static/css/2da53b57b572ba40.css"
+        />
       </Head>
       <AppContext.Provider
         value={{
@@ -76,7 +79,9 @@ function MyApp({ Component, pageProps }: AppProps) {
             {loading && <div>Loading...</div>}
             <Component {...pageProps} />
           </section>
-          {!user._id && showLogin ? <LoginForm setUser={setUser} /> : null}
+          {!user._id && showLogin ? (
+            <LoginForm setShowLogin={setShowLogin} setUser={setUser} />
+          ) : null}
         </main>
       </AppContext.Provider>
     </>
