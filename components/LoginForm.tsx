@@ -26,7 +26,7 @@ export default function LoginForm({ setUser }: LoginFormProps) {
     }
   };
   return (
-    <section className="fixed bg-black w-full h-full flex justify-center items-center top-0 left-0">
+    <section className="fixed bg-gray-200 w-full h-full flex justify-center items-center top-0 left-0">
       <form className="bg-white p-3 mx-auto w-96" onSubmit={handleLogin}>
         <input
           ref={usernameInput}
@@ -34,6 +34,7 @@ export default function LoginForm({ setUser }: LoginFormProps) {
           placeholder="User Name"
         />
         <input
+          type="password"
           ref={passwordInput}
           className="border w-full p-3 rounded mb-2"
           placeholder="Password"
