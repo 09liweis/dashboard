@@ -6,15 +6,13 @@ import ExpenseForm from '../components/ExpenseForm';
 import ExpenseList from '../components/ExpenseList';
 import ExpenseDates from '../components/ExpenseDates';
 import { Transaction, CategoryTransactions } from '../types';
-import { buttonStyle } from '../constants';
+import {
+  buttonStyle,
+  EXPENSE_LIST_API,
+  EXPENSE_CATEGORIES_API,
+} from '../constants';
 import Loading from '../components/Loading';
 import Icon from '../components/Icon';
-
-const EXPANSE_API: string =
-  'https://samliweisen.onrender.com/api/transactions/statistics';
-
-const CATEGORIES_API: string =
-  'https://samliweisen.onrender.com/api/transactions/categories';
 
 const Expense: NextPage = () => {
   const { user, lang } = useContext(AppContext);
@@ -46,7 +44,7 @@ const Expense: NextPage = () => {
       }
     }
     const { categoryPrice, total } = await fetchAPI({
-      url: EXPANSE_API,
+      url: EXPENSE_LIST_API,
       body,
     });
     setLoading(false);
@@ -59,7 +57,10 @@ const Expense: NextPage = () => {
   }, [curYear, curMonth, getExpenseStatistics]);
 
   const getCategories = async () => {
-    const response = await fetchAPI({ url: CATEGORIES_API, method: 'GET' });
+    const response = await fetchAPI({
+      url: EXPENSE_CATEGORIES_API,
+      method: 'GET',
+    });
     if (Array.isArray(response)) {
       setCategories(response);
     }
