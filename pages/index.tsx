@@ -11,10 +11,10 @@ import styles from '../styles/Home.module.css';
 const DASHBOARD_CARDS = [
   { tl: 'todos', icon: 'list', bg: 'blue-400' },
   { tl: 'comments', icon: 'comments', bg: 'red-400' },
-  { tl: 'expense', icon: 'dollar-sign', bg: 'green-400' },
+  { tl: 'expense', icon: 'dollar-sign', bg: 'green-500' },
   { tl: 'places', icon: 'location-dot', bg: 'indigo-500' },
   { tl: 'blogs', icon: 'blog', bg: 'purple-500' },
-  { tl: 'movie', icon: 'film', bg: 'purple-600' },
+  { tl: 'movie', icon: 'film', bg: 'teal-600' },
 ];
 
 type Todo = {
