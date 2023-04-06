@@ -23,7 +23,7 @@ export default function Header({
     <header className="top-3 left-3">
       <section className="flex justify-between mb-3">
         <section>
-          {getLanguageKeys().map(({ k, v }) => (
+          {getLanguageKeys().map(({ k, v }: { [k: string]: string }) => (
             <a
               className={`mr-2 ${buttonStyle}`}
               onClick={() => setLang(getLanguages(k))}

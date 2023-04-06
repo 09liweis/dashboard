@@ -53,10 +53,10 @@ function MyApp({ Component, pageProps }: AppProps) {
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         />
-        <link
+        {/* <link
           rel="stylesheet"
           href="https://tailwindcss.com/_next/static/css/2da53b57b572ba40.css"
-        />
+        /> */}
       </Head>
       <AppContext.Provider
         value={{
