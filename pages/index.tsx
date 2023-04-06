@@ -75,21 +75,19 @@ const Home: NextPage = () => {
     fetchDashBoardData();
   }, []);
   return (
-    <main className={styles.main}>
-      <section className="flex flex-wrap">
-        {DASHBOARD_CARDS.map(({ tl, icon, bg }) => (
-          <article key={tl} className="p-2 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
-            <div className={`card p-2 shadow bg-${bg}`}>
-              <h2 className="text-2xl text-white">
-                <Icon name={icon} classNames={'mr-2'} />
-                {tl}
-              </h2>
-              {renderCards(tl)}
-            </div>
-          </article>
-        ))}
-      </section>
-    </main>
+    <section className="flex flex-wrap gap-3">
+      {DASHBOARD_CARDS.map(({ tl, icon, bg }) => (
+        <article key={tl} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+          <div className={`p-2 drop-shadow-md shadow-lg bg-${bg}`}>
+            <h2 className="text-2xl text-white">
+              <Icon name={icon} classNames={'mr-2'} />
+              {tl}
+            </h2>
+            {renderCards(tl)}
+          </div>
+        </article>
+      ))}
+    </section>
   );
 };
 

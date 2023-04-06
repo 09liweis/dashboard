@@ -20,7 +20,7 @@ export default function Header({
   lang,
 }: HeaderProps) {
   return (
-    <header className="sticky top-3 left-3">
+    <header className="top-3 left-3">
       <section className="flex justify-between mb-3">
         <section>
           {getLanguageKeys().map(({ k, v }) => (

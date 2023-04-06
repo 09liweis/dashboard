@@ -60,6 +60,7 @@ const Expense: NextPage = () => {
     const response = await fetchAPI({
       url: EXPENSE_CATEGORIES_API,
       method: 'GET',
+      body: {},
     });
     if (Array.isArray(response)) {
       setCategories(response);
