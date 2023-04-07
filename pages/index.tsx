@@ -9,12 +9,12 @@ import { fetchAPI } from '../helpers';
 import styles from '../styles/Home.module.css';
 
 const DASHBOARD_CARDS = [
-  { tl: 'todos', icon: 'list', bg: 'blue-400' },
-  { tl: 'comments', icon: 'comments', bg: 'red-400' },
-  { tl: 'expense', icon: 'dollar-sign', bg: 'green-500' },
-  { tl: 'places', icon: 'location-dot', bg: 'indigo-500' },
-  { tl: 'blogs', icon: 'blog', bg: 'purple-500' },
-  { tl: 'movie', icon: 'film', bg: 'teal-600' },
+  { tl: 'todos', icon: 'list', bg: 'blue-400/75' },
+  { tl: 'comments', icon: 'comments', bg: 'red-400/75' },
+  { tl: 'expense', icon: 'dollar-sign', bg: 'green-500/75' },
+  { tl: 'places', icon: 'location-dot', bg: 'indigo-500/75' },
+  { tl: 'blogs', icon: 'blog', bg: 'purple-500/75' },
+  { tl: 'movie', icon: 'film', bg: 'teal-600/75' },
 ];
 
 type Todo = {
@@ -75,11 +75,11 @@ const Home: NextPage = () => {
     fetchDashBoardData();
   }, []);
   return (
-    <section className="flex flex-wrap gap-3">
+    <section className="flex flex-wrap">
       {DASHBOARD_CARDS.map(({ tl, icon, bg }) => (
-        <article key={tl} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+        <article key={tl} className="p-1 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
           <div className={`p-2 drop-shadow-md shadow-lg bg-${bg}`}>
-            <h2 className="text-2xl text-white">
+            <h2 className="text-2xl text-white capitalize">
               <Icon name={icon} classNames={'mr-2'} />
               {tl}
             </h2>
