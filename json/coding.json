@@ -160,6 +160,10 @@
     "nm": "JavaScript",
     "items": [
       {
+        "nm": "Intl",
+        "how": []
+      },
+      {
         "nm": "Optional Chaining (?.)",
         "what": "This feature allows developers to safely access properties or methods of an object, even if they are nested deep inside the object and may not exist. It avoids errors that occur when trying to access properties of undefined or null values"
       },
