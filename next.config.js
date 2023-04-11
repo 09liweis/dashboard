@@ -9,6 +9,10 @@ const nextConfig = {
   images: {
     domains: ['img9.doubanio.com', 'api.chatkitty.com'],
   },
+  i18n: {
+    locales: ['en', 'zh'],
+    defaultLocale: 'en',
+  },
 };
 
 module.exports = nextConfig;

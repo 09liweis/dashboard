@@ -41,6 +41,10 @@ function MyApp({ Component, pageProps }: AppProps) {
     });
   }, []);
 
+  useEffect(() => {
+    setLang(getLanguages(router.locale));
+  }, [router.locale]);
+
   return (
     <>
       <Head>
