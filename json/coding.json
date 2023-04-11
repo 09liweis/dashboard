@@ -416,6 +416,10 @@
         "nm": "NextJs",
         "items": [
           {
+            "nm": "international",
+            "how": "add i18n in next config, get locale from useRoute"
+          },
+          {
             "nm": "useEffect call twice",
             "how": "set reactStrictMode to false"
           },
