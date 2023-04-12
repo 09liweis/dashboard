@@ -13,6 +13,7 @@ interface Blog {
   content: string;
   // created_at?: string;
   [key: string]: string;
+  initialLoad: string;
 }
 
 const BlogDetail: NextPage = () => {
@@ -23,20 +24,19 @@ const BlogDetail: NextPage = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const emptyBlog: Blog = { title: '', content: '', url: '' };
+  const emptyBlog: Blog = { title: '', content: '', url: '', initialLoad: '1' };
   const [blog, setBlog] = useState(emptyBlog);
 
   const debounceUpdateContent = useDebounce(blog.content, 1000);
 
   useEffect(() => {
-    if (debounceUpdateContent) {
+    if (!blog.initialLoad && debounceUpdateContent) {
       updateBlog();
     }
   }, [debounceUpdateContent]);
 
   const fetchBlogDetail = async () => {
-    if (!blogId) return;
-    if (blogId === 'new') return;
+    if (!blogId || blogId === 'new') return;
     const response = await fetchAPI({
       url: `${BLOG_LIST_API}/${blogId}`,
       method: 'GET',
@@ -72,6 +72,9 @@ const BlogDetail: NextPage = () => {
       method,
     });
     setLoading(false);
+    if (blogId === 'new') {
+      router.replace(`/blogs/${response._id}`);
+    }
   };
 
   const handleBlogSubmit = async (e: any) => {
@@ -83,7 +86,6 @@ const BlogDetail: NextPage = () => {
     let formatedHTML = html
       .replaceAll('<h2>', '<h2 class="text-3xl mt-3">')
       .replaceAll('<p>', '<p class="text-xl">');
-    console.log(formatedHTML);
     return formatedHTML;
   };
 

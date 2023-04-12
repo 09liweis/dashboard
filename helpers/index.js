@@ -30,9 +30,13 @@ export async function fetchAPI({ method = 'POST', url, body = {} }) {
   if (Object.keys(body).length) {
     opt.body = JSON.stringify(body);
   }
-  const response = await fetch(url, opt);
-  const data = await response.json();
-  return data;
+  try {
+    const response = await fetch(url, opt);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    return { error };
+  }
 }
 
 export async function fetchUser() {
