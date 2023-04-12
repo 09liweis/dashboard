@@ -79,10 +79,20 @@ const BlogDetail: NextPage = () => {
     await updateBlog();
   };
 
+  const formatDisplayHTML = (html: string) => {
+    let formatedHTML = html
+      .replaceAll('<h2>', '<h2 class="text-3xl mt-3">')
+      .replaceAll('<p>', '<p class="text-xl">');
+    console.log(formatedHTML);
+    return formatedHTML;
+  };
+
   return (
     <section className="">
-      <h1>{blog.title}</h1>
-      <section dangerouslySetInnerHTML={{ __html: blog.content }}></section>
+      <h1 className="text-4xl font-bold">{blog.title}</h1>
+      <section
+        dangerouslySetInnerHTML={{ __html: formatDisplayHTML(blog.content) }}
+      ></section>
 
       {user._id && (
         <form className="mt-3" onSubmit={handleBlogSubmit}>
