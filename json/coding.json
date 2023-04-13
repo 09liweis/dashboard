@@ -272,7 +272,11 @@
         "nm": "First Class Function",
         "what": "functions can be passed as variables, can be returned, can be assigned to variable"
       },
-      { "nm": "IIFE", "what": "define and call function" },
+      {
+        "nm": "IIFE",
+        "what": "Immediately Invoked Function Expressions (function IIFE(){console.log( 'Hello!' );})()",
+        "how": "This pattern is often used when trying to avoid polluting the global namespace, because all the variables used inside the IIFE (like in any other normal function) are not visible outside its scope."
+      },
       {
         "nm": "fetch",
         "how": "new AbortController(); fetch(url,{signal:controller.signal}); return () => {controller.abort}"

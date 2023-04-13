@@ -73,7 +73,8 @@ export const LANGUAGES = {
     addNew: 'Add New',
     subscription: 'Subscription',
     todos: 'Todos',
-    comments: 'Comments'
+    comments: 'Comments',
+    blogs:'Blogs'
   },
   zh: {
     home: '页面',
@@ -84,7 +85,8 @@ export const LANGUAGES = {
     addNew: '添加',
     subscription: '订阅',
     todos: '待办事项',
-    comments: '评论'
+    comments: '评论',
+    blogs:'博客'
   },
 };
 
