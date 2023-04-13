@@ -1,12 +1,10 @@
 import type { GetServerSideProps, GetStaticProps, NextPage } from 'next';
-import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Icon from '../components/Icon';
 import { COMMENT_LIST_API, TODO_LIST_API } from '../constants';
 import { fetchAPI } from '../helpers';
-import styles from '../styles/Home.module.css';
 
 const DASHBOARD_CARDS = [
   { tl: 'todos', icon: 'list', bg: 'blue-400/75' },

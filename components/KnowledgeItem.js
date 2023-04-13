@@ -19,7 +19,7 @@ function KnowledgeItem({ knowledgeItem }) {
     return (
       <section className={`mb-2 ${TEXT_STYLE}`}>
         <h4 className="cursor-pointer" onClick={() => setExpand(!expand)}>
-          {knowledgeItem.nm} {expand ? '-' : '+'}
+          {knowledgeItem.nm} ({knowledgeItem.items.length}) {expand ? '-' : '+'}
         </h4>
         <div className={`pl-2 ${expand ? 'block' : 'hidden'}`}>{items}</div>
       </section>
