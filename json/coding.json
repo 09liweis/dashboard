@@ -325,6 +325,13 @@
         "what": "Hooks are functions that let you “hook into” React state and lifecycle features from function components. Hooks don't work inside classes — they let you use React without classes"
       },
       {
+        "nm": "useRef",
+        "pros": [
+          "store a ref to DOM elements so you can later do something with them",
+          "To store values without triggering re-renders"
+        ]
+      },
+      {
         "nm": "useReducer",
         "pros": "handle set multiple states, complex state"
       },
