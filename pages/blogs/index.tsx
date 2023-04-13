@@ -38,14 +38,14 @@ const Blogs: NextPage = () => {
   ));
 
   return (
-    <section className="">
+    <>
       {user._id && (
         <Link href="/blogs/new">
           <span className={buttonStyle}>Add New</span>
         </Link>
       )}
       {blogsHTML}
-    </section>
+    </>
   );
 };
 

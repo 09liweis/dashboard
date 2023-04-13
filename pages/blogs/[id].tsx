@@ -79,7 +79,7 @@ const BlogDetail: NextPage = () => {
   };
 
   return (
-    <section className="">
+    <>
       <h1 className="text-4xl font-bold">{blog.title}</h1>
       <section
         dangerouslySetInnerHTML={{ __html: formatDisplayHTML(blog.content) }}
@@ -106,7 +106,7 @@ const BlogDetail: NextPage = () => {
           </button>
         </form>
       )}
-    </section>
+    </>
   );
 };
 
