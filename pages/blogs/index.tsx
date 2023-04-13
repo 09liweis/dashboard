@@ -4,14 +4,7 @@ import { fetchAPI } from '../../helpers';
 import { BLOG_LIST_API, buttonStyle } from '../../constants';
 import Link from 'next/link';
 import AppContext from '../../AppContext';
-
-interface Blog {
-  _id: string;
-  title: string;
-  url: string;
-  content: string;
-  created_at: string;
-}
+import { Blog } from '../../types';
 
 const Blogs: NextPage = () => {
   const { user } = useContext(AppContext);

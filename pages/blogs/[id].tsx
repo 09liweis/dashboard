@@ -5,16 +5,7 @@ import { BLOG_LIST_API, buttonStyle } from '../../constants';
 import { useRouter } from 'next/router';
 import AppContext from '../../AppContext';
 import useDebounce from '../../hooks/useDebounce';
-
-interface Blog {
-  // _id?: string;
-  title: string;
-  url: string;
-  content: string;
-  // created_at?: string;
-  [key: string]: string;
-  initialLoad: string;
-}
+import { Blog } from '../../types';
 
 const BlogDetail: NextPage = () => {
   const router = useRouter();

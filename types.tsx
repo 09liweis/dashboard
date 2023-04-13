@@ -5,6 +5,15 @@ export interface User {
   lts: string;
 }
 
+export interface Blog {
+  // _id: string;
+  // title: string;
+  // url: string;
+  // content: string;
+  // created_at: string;
+  [key: string]: string;
+}
+
 export const emptyUser: User = { _id: '', nm: '', eml: '', lts: '' };
 
 export interface LoginFormProps {
