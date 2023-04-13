@@ -44,9 +44,7 @@ const BlogDetail: NextPage = () => {
 
   const handleBlogChange = (e: any) => {
     const { name, value } = e.target;
-    const updatedBlog = { ...blog };
-    updatedBlog[name] = value;
-    setBlog(updatedBlog);
+    setBlog((prevBlog) => ({ ...prevBlog, [name]: value }));
   };
 
   const updateBlog = async () => {
