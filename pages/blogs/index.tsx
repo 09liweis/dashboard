@@ -28,9 +28,12 @@ const Blogs: NextPage = () => {
   }, []);
 
   const blogsHTML = blogs.map((b) => (
-    <article key={b._id}>
-      <Link href={`/blogs/${b._id}`}>{b.title}</Link>
-    </article>
+    <Link key={b._id} href={`/blogs/${b._id}`}>
+      <article className="mb-2 cursor-pointer">
+        <h2 className="text-2xl">{b.title}</h2>
+        <span className="text-sm text-gray-200">{b.created_at}</span>
+      </article>
+    </Link>
   ));
 
   return (
