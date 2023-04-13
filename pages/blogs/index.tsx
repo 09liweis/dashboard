@@ -29,8 +29,9 @@ const Blogs: NextPage = () => {
 
   const blogsHTML = blogs.map((b) => (
     <Link key={b._id} href={`/blogs/${b._id}`}>
-      <article className="mb-2 cursor-pointer">
+      <article className="mb-2 p-2 rounded cursor-pointer transition duration-300 hover:bg-gray-300">
         <h2 className="text-2xl">{b.title}</h2>
+        <p>{b.content.substring(0, 200).replace(/(<([^>]+)>)/gi, '')}</p>
         <span className="text-sm text-gray-200">{b.created_at}</span>
       </article>
     </Link>
