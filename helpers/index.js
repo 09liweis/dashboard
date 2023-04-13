@@ -72,6 +72,8 @@ export const LANGUAGES = {
     logout: 'Log Out',
     addNew: 'Add New',
     subscription: 'Subscription',
+    todos: 'Todos',
+    comments: 'Comments'
   },
   zh: {
     home: '页面',
@@ -81,6 +83,8 @@ export const LANGUAGES = {
     total: '总计',
     addNew: '添加',
     subscription: '订阅',
+    todos: '待办事项',
+    comments: '评论'
   },
 };
 

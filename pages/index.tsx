@@ -1,10 +1,11 @@
 import type { GetServerSideProps, GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import AppContext from '../AppContext';
 import Icon from '../components/Icon';
 import { COMMENT_LIST_API, TODO_LIST_API } from '../constants';
-import { fetchAPI } from '../helpers';
+import { fetchAPI, getTranslate } from '../helpers';
 
 const DASHBOARD_CARDS = [
   { tl: 'todos', icon: 'list', bg: 'blue-400/75' },
@@ -44,6 +45,8 @@ async function fetchComments(): Promise<Array<Comment>> {
 }
 
 const Home: NextPage = () => {
+  const { user, lang } = useContext(AppContext);
+
   const emptyTodos: Array<Todo> = [];
   const [todos, setTodos] = useState(emptyTodos);
 
@@ -79,7 +82,7 @@ const Home: NextPage = () => {
           <div className={`p-2 drop-shadow-md shadow-lg bg-${bg}`}>
             <h2 className="text-2xl text-white capitalize">
               <Icon name={icon} classNames={'mr-2'} />
-              {tl}
+              {getTranslate(lang, tl)}
             </h2>
             {renderCards(tl)}
           </div>
