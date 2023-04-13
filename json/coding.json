@@ -324,6 +324,11 @@
       },
       { "nm": "single data flow" },
       {
+        "nm": "flushSync",
+        "what": "make async setState method sync",
+        "how": "flushSync(() => {setTodos([...todos, { id: uuid(), task: newTask }]);});"
+      },
+      {
         "nm": "hooks",
         "from": "algebraic effects代数效应",
         "what": "Hooks are functions that let you “hook into” React state and lifecycle features from function components. Hooks don't work inside classes — they let you use React without classes"
