@@ -105,6 +105,10 @@
         "nm": "Text Gradients",
         "how": "background:linear-gradient();-webkit-background-clip:text;-webkit-text-fill-color:transparent;"
       },
+      {
+        "nm": "create patterns using background image gradient",
+        "how": "set background-image with linear-gradient, background-size, background-position"
+      },
       { "nm": "object-fit", "pros": "for image cover/contain", "how": "cover" },
       { "nm": "translate does not trigger reflow or repaint" },
       {
