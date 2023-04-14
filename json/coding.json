@@ -24,6 +24,10 @@
     "nm": "css",
     "items": [
       {
+        "nm": "use * to debug element structure",
+        "how": "* {outline:2px solid black}"
+      },
+      {
         "nm": "css unit",
         "items": [
           {
