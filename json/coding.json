@@ -1,5 +1,16 @@
 [
   {
+    "nm": "Web Tools",
+    "items": [
+      { "nm": "Carbon share code image", "url": "https://carbon.now.sh" },
+      { "nm": "Regulex", "url": "https://jex.im/regulex/" },
+      { "nm": "Ionic", "url": "https://ionic.io" },
+      { "nm": "Colorhunt", "url": "https://colorhunt.co" },
+      { "nm": "Removebg", "url": "https://www.remove.bg" },
+      { "nm": "Manypixels", "url": "https://www.manypixels.co" }
+    ]
+  },
+  {
     "nm": "api",
     "items": [
       {
