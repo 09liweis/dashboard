@@ -177,7 +177,20 @@
   },
   {
     "nm": "optimization",
-    "items": [{ "nm": "cdn" }, { "nm": "web worker" }, { "nm": "Memorization" }]
+    "items": [
+      { "nm": "cdn" },
+      { "nm": "web worker" },
+      { "nm": "Memorization" },
+      {
+        "nm": "Load Balancing",
+        "what": "is simple technique for distributing workloads across multiple machines or clusters. The most common and simple load balancing algorithm is Round Robin. In this type of load balancing the request is divided in circular order ensuring all machines get equal number of requests and no single machine is overloaded or underloaded.",
+        "items": [
+          "Round robin",
+          "Session affinity or sticky session",
+          "IP Address affinity"
+        ]
+      }
+    ]
   },
   {
     "nm": "JavaScript",
