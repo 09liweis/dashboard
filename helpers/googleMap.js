@@ -1,8 +1,14 @@
 class GoogleMap {
   constructor() {
+    if (typeof google === 'undefined') {
+      return;
+    }
     this.mapObj = null;
   }
   initMap(containerId, pos) {
+    if (typeof google == 'undefined') {
+      return;
+    }
     this.mapObj = new google.maps.Map(document.getElementById(containerId), {
       center: { lat: -34.397, lng: 150.644 },
       zoom: 17,
