@@ -43,7 +43,7 @@ export default function Header({
                 setUser(emptyUser);
               }}
             >
-              Logout
+              {getTranslate(lang, 'logout')}
             </a>
           </section>
         ) : (
