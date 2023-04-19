@@ -35,6 +35,11 @@
     "nm": "css",
     "items": [
       {
+        "nm": "CSS Masking",
+        "what": "With CSS masking you create a mask layer to place over an element to partially or fully hide portions of the element",
+        "how": "-webkit-mask-image: url(w3logo.png);mask-image:url(w3logo.png);-webkit-mask-repeat:no-repeat;mask-repeat: no-repeat;-webkit-mask-image: linear-gradient(black, transparent)"
+      },
+      {
         "nm": "font-variant",
         "what": "In a small-caps font, all lowercase letters are converted to uppercase letters. However, the converted uppercase letters appears in a smaller font size than the original uppercase letters in the text",
         "how": "font-variant:normal/small-caps"
