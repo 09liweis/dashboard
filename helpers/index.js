@@ -75,6 +75,8 @@ export const LANGUAGES = {
     todos: 'Todos',
     comments: 'Comments',
     blogs: 'Blogs',
+    updating: 'Updating',
+    update: 'Update',
   },
   zh: {
     home: '页面',
@@ -87,6 +89,8 @@ export const LANGUAGES = {
     todos: '待办事项',
     comments: '评论',
     blogs: '博客',
+    updating: '更新中',
+    update: '更新',
   },
 };
 

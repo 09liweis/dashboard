@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import type { NextPage } from 'next';
-import { fetchAPI } from '../../helpers';
+import { fetchAPI, getTranslate } from '../../helpers';
 import { BLOG_LIST_API, buttonStyle } from '../../constants';
 import { useRouter } from 'next/router';
 import AppContext from '../../AppContext';
@@ -87,22 +87,23 @@ const BlogDetail: NextPage = () => {
 
       {user._id && (
         <form className="mt-3" onSubmit={handleBlogSubmit}>
-          <label>Title</label>
+          <label htmlFor="title">Title</label>
           <input
-            className="mb-3 w-full"
+            className="mb-3 w-full p-2 rounded"
             name="title"
+            id='title'
             onChange={(e) => handleBlogChange(e)}
             value={blog.title}
           />
           <textarea
-            className="w-full p-2 h-96"
+            className="w-full p-2 h-96 rounded"
             name="content"
             value={blog.content}
             onChange={(e) => handleBlogChange(e)}
           ></textarea>
 
           <button type="submit" className={buttonStyle}>
-            {loading ? 'Updating' : 'Update'}
+            {getTranslate(lang, loading ? 'updating' : 'update')}
           </button>
         </form>
       )}
