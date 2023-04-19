@@ -21,7 +21,6 @@ export default function Header({
   lang,
 }: HeaderProps) {
   const asPath = router.asPath;
-  console.log(router);
   return (
     <header className="top-3 left-3">
       <section className="flex justify-between mb-3">

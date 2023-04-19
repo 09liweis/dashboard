@@ -1,13 +1,13 @@
 import { useState, useEffect, useContext } from 'react';
 import type { NextPage } from 'next';
-import { fetchAPI } from '../../helpers';
+import { fetchAPI, getTranslate } from '../../helpers';
 import { BLOG_LIST_API, buttonStyle } from '../../constants';
 import Link from 'next/link';
 import AppContext from '../../AppContext';
 import { Blog } from '../../types';
 
 const Blogs: NextPage = () => {
-  const { user } = useContext(AppContext);
+  const { user, lang } = useContext(AppContext);
 
   const emptyBlogs: Array<Blog> = [];
   const [blogs, setBlogs] = useState(emptyBlogs);
@@ -41,7 +41,7 @@ const Blogs: NextPage = () => {
     <>
       {user._id && (
         <Link href="/blogs/new">
-          <span className={buttonStyle}>Add New</span>
+          <span className={buttonStyle}>{getTranslate(lang, 'addNew')}</span>
         </Link>
       )}
       {blogsHTML}
