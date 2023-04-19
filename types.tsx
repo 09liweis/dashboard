@@ -26,7 +26,7 @@ export interface HeaderProps {
   setLang: Function;
   setUser: Function;
   setShowLogin: Function;
-  router: { pathname: String };
+  router: { asPath: String };
   lang: String;
 }
 
