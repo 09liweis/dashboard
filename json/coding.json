@@ -35,6 +35,11 @@
     "nm": "css",
     "items": [
       {
+        "nm": "font-variant",
+        "what": "In a small-caps font, all lowercase letters are converted to uppercase letters. However, the converted uppercase letters appears in a smaller font size than the original uppercase letters in the text",
+        "how": "font-variant:normal/small-caps"
+      },
+      {
         "nm": "use * to debug element structure",
         "how": "* {outline:2px solid black}"
       },

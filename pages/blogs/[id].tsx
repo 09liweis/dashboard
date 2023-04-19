@@ -91,7 +91,7 @@ const BlogDetail: NextPage = () => {
           <input
             className="mb-3 w-full p-2 rounded"
             name="title"
-            id='title'
+            id="title"
             onChange={(e) => handleBlogChange(e)}
             value={blog.title}
           />
