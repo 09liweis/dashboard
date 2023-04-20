@@ -35,6 +35,10 @@
     "nm": "css",
     "items": [
       {
+        "nm": "column",
+        "how": "column-count, column-fill, column-gap, column-rule"
+      },
+      {
         "nm": "CSS Masking",
         "what": "With CSS masking you create a mask layer to place over an element to partially or fully hide portions of the element",
         "how": "-webkit-mask-image: url(w3logo.png);mask-image:url(w3logo.png);-webkit-mask-repeat:no-repeat;mask-repeat: no-repeat;-webkit-mask-image: linear-gradient(black, transparent)"
