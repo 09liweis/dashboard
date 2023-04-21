@@ -35,6 +35,11 @@
     "nm": "css",
     "items": [
       {
+        "nm": "caret-color Property",
+        "what": "The caret-color property specifies the color of the cursor (caret) in inputs, textareas, or any element that is editable",
+        "how": "caret-color: auto|color|initial|inherit;"
+      },
+      {
         "nm": "box-reflect Property",
         "what": "The box-reflect property is used to create a reflection of an element. The value of the box-reflect property can be: below, above, left, or right.",
         "how": "-webkit-box-reflect: below;"
