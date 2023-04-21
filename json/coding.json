@@ -35,6 +35,11 @@
     "nm": "css",
     "items": [
       {
+        "nm": "box-reflect Property",
+        "what": "The box-reflect property is used to create a reflection of an element. The value of the box-reflect property can be: below, above, left, or right.",
+        "how": "-webkit-box-reflect: below;"
+      },
+      {
         "nm": "Border Inline Style",
         "what": "Set the style, color and width of the borders for different elements in the inline direction:",
         "how": "border-inline: 5px solid red;"
