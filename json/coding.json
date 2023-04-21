@@ -35,6 +35,11 @@
     "nm": "css",
     "items": [
       {
+        "nm": "Border Inline Style",
+        "what": "Set the style, color and width of the borders for different elements in the inline direction:",
+        "how": "border-inline: 5px solid red;"
+      },
+      {
         "nm": "column",
         "how": "column-count, column-fill, column-gap, column-rule"
       },
