@@ -1,7 +1,12 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { fetchAPI } from '../helpers';
 import { loadGoogleMapScript, GoogleMap } from '../helpers/googleMap';
-import { buttonStyle } from '../constants';
+import {
+  buttonStyle,
+  EXPENSE_NEW_API,
+  EXPENSE_UPDATE_API,
+  EXPENSE_DELETE_API,
+} from '../constants';
 
 const googleMap = new GoogleMap();
 
@@ -16,6 +21,7 @@ export default function ExpenseForm({
   transaction,
   setShowForm,
   user,
+  getExpenseStatistics,
 }) {
   const placeInput = useRef(null);
   const [curTransaction, setCurTransaction] = useState({});
@@ -57,9 +63,21 @@ export default function ExpenseForm({
     }
     const body = { ...curTransaction, place: curPlace };
     const response = await fetchAPI({
-      url: 'https://samliweisen.onrender.com/api/transactions/new',
+      url: body._id ? EXPENSE_UPDATE_API(body._id) : EXPENSE_NEW_API,
       body,
+      method: body._id ? 'PUT' : 'POST',
     });
+    getExpenseStatistics();
+    setShowForm(false);
+  };
+
+  const handleTransactionDelete = async (id) => {
+    if (!id) return;
+    const response = await fetchAPI({
+      url: EXPENSE_DELETE_API(id),
+      method: 'DELETE',
+    });
+    getExpenseStatistics();
     setShowForm(false);
   };
 
@@ -108,8 +126,25 @@ export default function ExpenseForm({
           className="w-full border p-2 mb-2"
           placeholder="Place"
         />
-        <section id="map" className="w-full h-36 border rounded-lg"></section>
-        {user._id && <button className={buttonStyle}>Add</button>}
+        <section
+          id="map"
+          className="mb-2 w-full h-36 border rounded-lg"
+        ></section>
+        {user._id && (
+          <section className="flex justify-between">
+            <button className={buttonStyle}>
+              {transaction._id ? 'Update' : 'Add'}
+            </button>
+            {transaction._id && (
+              <span
+                onClick={() => handleTransactionDelete(transaction._id)}
+                className={`${buttonStyle}`}
+              >
+                Delete
+              </span>
+            )}
+          </section>
+        )}
       </form>
     </section>
   );

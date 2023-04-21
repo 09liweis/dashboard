@@ -80,6 +80,7 @@ const Expense: NextPage = () => {
     <>
       {showForm && (
         <ExpenseForm
+          getExpenseStatistics={getExpenseStatistics}
           transaction={selectedTransaction}
           categories={categories}
           setShowForm={setShowForm}
