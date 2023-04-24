@@ -602,6 +602,19 @@
             "how": "schema.loadClass(MyClass)"
           }
         ]
+      },
+      {
+        "nm": "MySQL",
+        "items": [
+          {
+            "nm": "DDL",
+            "what": "Data definition language (DDL) commands are the commands which are used to define the database. CREATE, ALTER, DROP and TRUNCATE are some common DDL commands."
+          },
+          {
+            "nm": "DML",
+            "what": "Data manipulation language (DML) commands are commands which are used for manipulation or modification of data. INSERT, UPDATE and DELETE are some common DML commands."
+          }
+        ]
       }
     ]
   },
