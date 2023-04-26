@@ -5,7 +5,7 @@ export const API_SERVER = 'https://samliweisen.onrender.com/api/';
 
 export const EXPENSE_LIST_API = `${API_SERVER}transactions/statistics`;
 
-export const EXPENSE_ADD_API = `${API_SERVER}transactions/new`;
+export const EXPENSE_NEW_API = `${API_SERVER}transactions/new`;
 
 export const EXPENSE_UPDATE_API = (id: string) =>
   `${API_SERVER}transactions/${id}`;
