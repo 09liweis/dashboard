@@ -73,7 +73,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         {/* <Chat /> */}
         <main className="p-3">
           <Header
-            setLang={setLang}
             setShowLogin={setShowLogin}
             lang={lang}
             user={user}

@@ -23,7 +23,6 @@ export interface LoginFormProps {
 
 export interface HeaderProps {
   user: User;
-  setLang: Function;
   setUser: Function;
   setShowLogin: Function;
   router: { asPath: String };

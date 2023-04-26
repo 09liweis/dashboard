@@ -13,7 +13,6 @@ const NAV_LINKS = [
 ];
 
 export default function Header({
-  setLang,
   setShowLogin,
   user,
   setUser,
