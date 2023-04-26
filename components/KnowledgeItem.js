@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
-const TEXT_STYLE = 'font-bold capitalize';
+const TEXT_STYLE =
+  'font-bold capitalize transition duration-300 hover:translate-x-2';
 
 function KnowledgeItem({ knowledgeItem }) {
   const [expand, setExpand] = useState(false);
