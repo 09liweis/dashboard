@@ -592,6 +592,27 @@
   {
     "nm": "database",
     "items": [
+      {
+        "nm": "Types of NoSQL Database",
+        "items": [
+          {
+            "nm": "Key-Value database",
+            "what": "Every item in the database is stored as an attribute name (or key) together with its value. #Example: DynamoDB (Amazon S3) and Redis (In Memory Database), etc."
+          },
+          {
+            "nm": "Document based database",
+            "what": "It stores data in form of documents (BSON format) and it can contains many different key-value pairs, or key-array pairs, or even nested documents.#Example: MongoDB"
+          },
+          {
+            "nm": "Column based database",
+            "what": "t stores data together as columns instead of rows and are optimized for queries over large datasets. #Example: Cassandra, HBase, etc"
+          },
+          {
+            "nm": "Graph based database",
+            "what": "It is used to store information about networks, such as social connections. #Example: Neo4J and HyperGraphDB, etc"
+          }
+        ]
+      },
       { "nm": "normalization" },
       {
         "nm": "mongoose",
