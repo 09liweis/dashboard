@@ -57,6 +57,10 @@ function MyApp({ Component, pageProps }: AppProps) {
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         />
+        <link
+          href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css"
+          rel="stylesheet"
+        />
         {/* <script src="https://cdn.tailwindcss.com" async></script> */}
       </Head>
       <AppContext.Provider

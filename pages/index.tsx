@@ -8,12 +8,12 @@ import { COMMENT_LIST_API, TODO_LIST_API } from '../constants';
 import { fetchAPI, getTranslate } from '../helpers';
 
 const DASHBOARD_CARDS = [
-  { tl: 'todos', icon: 'list', bg: 'blue-400/75' },
-  { tl: 'comments', icon: 'comments', bg: 'red-400/75' },
-  { tl: 'expense', icon: 'dollar-sign', bg: 'green-500/75' },
-  { tl: 'places', icon: 'location-dot', bg: 'indigo-500/75' },
-  { tl: 'blogs', icon: 'blog', bg: 'purple-500/75' },
-  { tl: 'movie', icon: 'film', bg: 'teal-600/75' },
+  { tl: 'todos', icon: 'list', bg: 'blue-400' },
+  { tl: 'comments', icon: 'comments', bg: 'red-400' },
+  { tl: 'expense', icon: 'dollar-sign', bg: 'green-500' },
+  { tl: 'places', icon: 'location-dot', bg: 'indigo-500' },
+  { tl: 'blogs', icon: 'blog', bg: 'purple-500' },
+  { tl: 'movie', icon: 'film', bg: 'teal-600' },
 ];
 
 type Todo = {
