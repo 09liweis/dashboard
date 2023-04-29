@@ -61,7 +61,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css"
           rel="stylesheet"
         />
-        {/* <script src="https://cdn.tailwindcss.com" async></script> */}
+        <script src="https://cdn.tailwindcss.com" async></script>
       </Head>
       <AppContext.Provider
         value={{
