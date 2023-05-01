@@ -5,7 +5,7 @@ export interface User {
   lts: string;
 }
 
-export interface Blog {
+export interface BlogType {
   // _id: string;
   // title: string;
   // url: string;

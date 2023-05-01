@@ -4,7 +4,8 @@ import { fetchAPI, getTranslate } from '../../helpers';
 import { BLOG_LIST_API, buttonStyle } from '../../constants';
 import Link from 'next/link';
 import AppContext from '../../AppContext';
-import { Blog } from '../../types';
+import { BlogType } from '../../types';
+import Blog from '../../classes/blog';
 
 const Blogs: NextPage = () => {
   const { user, lang } = useContext(AppContext);
@@ -19,7 +20,8 @@ const Blogs: NextPage = () => {
       body: {},
     });
     if (response) {
-      setBlogs(response);
+      const bs = response.map((b: BlogType) => new Blog(b));
+      setBlogs(bs);
     }
   };
 
@@ -28,11 +30,11 @@ const Blogs: NextPage = () => {
   }, []);
 
   const blogsHTML = blogs.map((b) => (
-    <Link key={b._id} href={`/blogs/${b._id}`}>
+    <Link key={b.getId()} href={`/blogs/${b.getId()}`}>
       <article className="mb-2 p-2 rounded cursor-pointer transition duration-300 hover:bg-gray-300">
-        <h2 className="text-2xl">{b.title}</h2>
-        <p>{b.content.substring(0, 200).replace(/(<([^>]+)>)/gi, '')}</p>
-        <span className="text-sm text-gray-200">{b.created_at}</span>
+        <h2 className="text-2xl">{b.getTitle()}</h2>
+        <p>{b.getShortContent()}</p>
+        <span className="text-sm text-gray-200">{b.getCreatedAt()}</span>
       </article>
     </Link>
   ));
