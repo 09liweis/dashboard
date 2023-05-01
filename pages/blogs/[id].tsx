@@ -5,7 +5,7 @@ import { BLOG_LIST_API, buttonStyle } from '../../constants';
 import { useRouter } from 'next/router';
 import AppContext from '../../AppContext';
 import useDebounce from '../../hooks/useDebounce';
-import { Blog } from '../../types';
+import { BlogType } from '../../types';
 
 const BlogDetail: NextPage = () => {
   const router = useRouter();
@@ -15,7 +15,12 @@ const BlogDetail: NextPage = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const emptyBlog: Blog = { title: '', content: '', url: '', initialLoad: '1' };
+  const emptyBlog: BlogType = {
+    title: '',
+    content: '',
+    url: '',
+    initialLoad: '1',
+  };
   const [blog, setBlog] = useState(emptyBlog);
 
   const debounceUpdateContent = useDebounce(blog.content, 1000);
