@@ -1,4 +1,4 @@
-export interface User {
+export interface UserType {
   _id: string;
   nm: string;
   eml: string;
@@ -14,7 +14,7 @@ export interface BlogType {
   [key: string]: string;
 }
 
-export const emptyUser: User = { _id: '', nm: '', eml: '', lts: '' };
+export const emptyUser: UserType = { _id: '', nm: '', eml: '', lts: '' };
 
 export interface LoginFormProps {
   setUser: Function;
@@ -22,7 +22,7 @@ export interface LoginFormProps {
 }
 
 export interface HeaderProps {
-  user: User;
+  user: UserType;
   setUser: Function;
   setShowLogin: Function;
   router: { asPath: String };
