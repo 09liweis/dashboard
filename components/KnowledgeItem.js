@@ -40,18 +40,32 @@ function KnowledgeItem({ knowledgeItem }) {
         ) : (
           <p className={TEXT_STYLE}>{knowledgeItem.nm}</p>
         )}
-        {knowledgeItem.what && <p>What: {knowledgeItem.what}</p>}
+        {knowledgeItem.what && (
+          <p>
+            <span className="text-red-600">What:</span> {knowledgeItem.what}
+          </p>
+        )}
         {knowledgeItem.how ? (
           Array.isArray(knowledgeItem.how) ? (
             knowledgeItem.how.map((how) => <div key={how}>{how}</div>)
           ) : (
-            <p>How: {knowledgeItem.how}</p>
+            <p>
+              <span className="text-blue-600">How:</span> {knowledgeItem.how}
+            </p>
           )
         ) : (
           ''
         )}
-        {knowledgeItem.why && <p>Why: {knowledgeItem.why}</p>}
-        {knowledgeItem.pros && <p>Pros: {knowledgeItem.pros}</p>}
+        {knowledgeItem.why && (
+          <p>
+            <span className="text-sky-600">Why:</span> {knowledgeItem.why}
+          </p>
+        )}
+        {knowledgeItem.pros && (
+          <p>
+            <span className="text-yellow-600">Pros:</span> {knowledgeItem.pros}
+          </p>
+        )}
       </section>
     );
   }
