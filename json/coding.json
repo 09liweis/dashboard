@@ -649,6 +649,10 @@
       {
         "nm": "Smoke Testing 烟雾测试",
         "what": "also called build verification testing or confidence testing, is a software testing method that is used to determine if a new software build is ready for the next testing phase. This testing method determines if the most crucial functions of a program work but does not delve into finer details."
+      },
+      {
+        "nm": "Regression Testing 回归测试",
+        "what": "Regression testing is defined as a type of software testing technique that re-runs functional and non-functional tests to ensure that a software application works as intended after any code changes, updates, revisions, improvements, or optimizations."
       }
     ]
   },
