@@ -27,7 +27,7 @@ function KnowledgeItem({ knowledgeItem }) {
     );
   } else {
     return (
-      <section className="mb-2">
+      <section className="mb-2 text-slate-700 text-sm">
         {knowledgeItem.url ? (
           <a
             className={TEXT_STYLE}
