@@ -77,6 +77,7 @@ export const LANGUAGES = {
     blogs: 'Blogs',
     updating: 'Updating',
     update: 'Update',
+    lost: 'Are you lost?'
   },
   zh: {
     home: '页面',
@@ -91,6 +92,7 @@ export const LANGUAGES = {
     blogs: '博客',
     updating: '更新中',
     update: '更新',
+    lost:'你迷路了吗?'
   },
 };
 
