@@ -10,9 +10,9 @@
   },
   "dependencies": {
     "mongoose": "^6.6.5",
-    "next": "12.2.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "next": "^13.3.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/node": "18.6.3",
