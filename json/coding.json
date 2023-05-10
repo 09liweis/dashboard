@@ -521,7 +521,12 @@
     "items": [
       { "nm": "fail fast vs fail saft" },
       { "nm": "Marker interface" },
-      { "nm": "thread" }
+      { "nm": "thread" },
+      {
+        "nm": "runnable",
+        "what": "A Runnable is basically a type of class (Runnable is an Interface) that can be put into a thread, describing what the thread is supposed to do.",
+        "how": "Thread t = new Thread(new Runnable() {public void run() {// stuff here}});t.start();"
+      }
     ]
   },
   {
