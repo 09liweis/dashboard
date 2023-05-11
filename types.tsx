@@ -3,6 +3,7 @@ export interface UserType {
   nm: string;
   eml: string;
   lts: string;
+  roles?: Array<string>;
 }
 
 export interface BlogType {

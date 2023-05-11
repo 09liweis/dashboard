@@ -10,6 +10,7 @@ import { checkUserToken, getLanguages } from '../helpers';
 import LoginForm from '../components/LoginForm';
 
 import Chat from '../components/Chat';
+import User from '../classes/User';
 
 const getPageTitle = (pageProps: any) => {
   const pageMeta = pageProps.pageMeta;
