@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import { useContext, useEffect, useState } from 'react';
 import AppContext from '../AppContext';
-import { API_SERVER, TODO_LIST_API } from '../constants';
+import { TODO_LIST_API } from '../constants';
 import { fetchAPI } from '../helpers';
 
 interface Todo {
