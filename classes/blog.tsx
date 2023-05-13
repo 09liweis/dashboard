@@ -22,6 +22,7 @@ export default class Blog {
     return this.content;
   }
   public getCreatedAt() {
-    return this.created_at;
+    const dateFormatter = new Intl.DateTimeFormat('en-US').format;
+    return dateFormatter(new Date(this.created_at));
   }
 }
