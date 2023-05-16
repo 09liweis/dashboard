@@ -43,7 +43,9 @@ const Blogs: NextPage = () => {
     <>
       {user._id && (
         <Link href="/blogs/new">
-          <span className={buttonStyle}>{getTranslate(lang, 'addNew')}</span>
+          <span className={`${buttonStyle} inline-block mb-2`}>
+            {getTranslate(lang, 'addNew')}
+          </span>
         </Link>
       )}
       {blogsHTML}
