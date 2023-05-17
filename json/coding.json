@@ -651,6 +651,19 @@
           {
             "nm": "Both TIMESTAMP and DATETIME are used to store data and time. Explain difference between them and when should one be used",
             "what": "Both TIMESTAMP and DATETIME store date time in YYYY-MM-DD HH:MM:SS format. While DATETIME stores provided date time, TIMESTAMP first converts provided time to UTC while storing and then again converts it back to server time zone upon retrieval. So if you need to serve different users in different countries using same time data, TIMESTAMP facilitates it. DATETIME simply stores provided date time without making any time zone related conversion."
+          },
+          {
+            "nm": "pagination optimization",
+            "items": [
+              {
+                "nm": "use index",
+                "how": "explain select * from user where id > 1000001 limit 100"
+              },
+              {
+                "nm": "multiple step sql",
+                "how": "select id first, then use sub query to select others"
+              }
+            ]
           }
         ]
       }
