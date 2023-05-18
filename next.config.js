@@ -7,7 +7,14 @@ const nextConfig = {
     CHATKITTY_API_KEY: process.env.CHATKITTY_API_KEY,
   },
   images: {
-    domains: ['img9.doubanio.com', 'api.chatkitty.com'],
+    domains: [
+      'img9.doubanio.com',
+      'api.chatkitty.com',
+      'archive.biliimg.com',
+      'i1.hdslb.com',
+      'i2.hdslb.com',
+      'i0.hdslb.com',
+    ],
   },
   i18n: {
     locales: ['en', 'zh'],
