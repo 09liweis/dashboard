@@ -62,10 +62,12 @@ export const LANGUAGES = {
     updating: 'Updating',
     update: 'Update',
     lost: 'Are you lost?',
+    videos: 'Videos',
   },
   zh: {
     home: '页面',
     knowledges: '芝士',
+    videos: 'Vlog',
     expense: '消费',
     logout: '登出',
     total: '总计',
