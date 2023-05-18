@@ -47,7 +47,12 @@ const VideosPage: NextPage = () => {
     </article>
   ));
 
-  return <section>{videosHTML}</section>;
+  return (
+    <section>
+      <h1 className="text-center font-bold text-2xl mb-2">In Construction</h1>
+      {videosHTML}
+    </section>
+  );
 };
 
 export default VideosPage;
