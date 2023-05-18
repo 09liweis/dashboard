@@ -179,6 +179,10 @@
     "nm": "skills",
     "items": [
       {
+        "nm": "Jump server",
+        "what": "A jump server is a server that is used to access other servers. It is also known as a bastion host. It is a server that is accessible from the internet and is used to access other servers that are not accessible from the internet."
+      },
+      {
         "nm": "防抖: debounce, prevent the event trigger from being fired too often"
       },
       {
