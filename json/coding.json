@@ -646,6 +646,10 @@
         "nm": "MySQL",
         "items": [
           {
+            "nm": "sargable query(search argment able)",
+            "what": "direct comparsion instead of warpping column in function in where clause "
+          },
+          {
             "nm": "DDL",
             "what": "Data definition language (DDL) commands are the commands which are used to define the database. CREATE, ALTER, DROP and TRUNCATE are some common DDL commands."
           },
