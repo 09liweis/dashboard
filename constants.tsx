@@ -3,6 +3,10 @@ export const buttonStyle =
 
 export const API_SERVER = 'https://samliweisen.onrender.com/api/';
 
+export const LOGIN_API = `${API_SERVER}user/login`;
+
+export const USER_API = `${API_SERVER}user/detail`;
+
 export const EXPENSE_LIST_API = `${API_SERVER}transactions/statistics`;
 
 export const EXPENSE_NEW_API = `${API_SERVER}transactions/new`;

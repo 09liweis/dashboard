@@ -1,3 +1,5 @@
+import { LOGIN_API, USER_API } from '../constants';
+
 export function getAuthToken() {
   return localStorage.getItem('auth-token');
 }
@@ -25,7 +27,7 @@ export async function fetchAPI({ method = 'POST', url, body = {} }) {
 
 export async function fetchUser() {
   const userResponse = await fetchAPI({
-    url: 'https://samliweisen.onrender.com/api/user/detail',
+    url: USER_API,
     body: {},
   });
   return userResponse;
@@ -33,7 +35,7 @@ export async function fetchUser() {
 
 export async function fetchToken({ eml, pwd }) {
   const response = await fetchAPI({
-    url: 'https://samliweisen.onrender.com/api/user/login',
+    url: LOGIN_API,
     body: { eml, pwd },
   });
   return response;
