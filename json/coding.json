@@ -379,6 +379,10 @@
     "nm": "react",
     "items": [
       {
+        "nm": "library",
+        "items": [{ "nm": " React Hook Form" }, { "nm": "Framer Motion." }]
+      },
+      {
         "nm": "A component is changing an uncontrolled input of type text to be controlled error in ReactJS",
         "what": "during render input value is undefined, value={undefined}",
         "why": "because '' is a valid string value. so when you change '' to 'xyz', input type is not changing means controlled to controlled. But in case of undefined to xyz type will change from uncontrolled to controlled",
