@@ -12,7 +12,7 @@
     ]
   },
   {
-    "nm": "api",
+    "nm": "Web API",
     "items": [
       {
         "nm": "rickandmorty api",
