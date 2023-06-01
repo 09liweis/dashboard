@@ -36,7 +36,7 @@ const TodosPage: NextPage = () => {
       className="relative shadow-lg bg-white/[30%] rounded-lg p-2 mb-2 flex justify-between"
     >
       <h2 className="text-teal-600">{todo.name}</h2>
-      <span className="text-blue-600">{todo.date}</span>
+      <span className="text-blue-500">{todo.date}</span>
       {user._id && (
         <span
           className="cursor-pointer absolute right-0 top-0"
