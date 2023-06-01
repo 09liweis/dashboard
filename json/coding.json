@@ -382,6 +382,8 @@
         "nm": "library",
         "items": [{ "nm": " React Hook Form" }, { "nm": "Framer Motion." }]
       },
+      { "nm": "issue prop drilling", "how": "composition component" },
+      { "nm": "server component" },
       {
         "nm": "A component is changing an uncontrolled input of type text to be controlled error in ReactJS",
         "what": "during render input value is undefined, value={undefined}",
