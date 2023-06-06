@@ -23,7 +23,9 @@ const TodosPage: NextPage = () => {
       url: TODO_LIST_API,
       body: {},
     });
-    setTodos(response);
+    if (Array.isArray(response)) {
+      setTodos(response);
+    }
   };
 
   useEffect(() => {
