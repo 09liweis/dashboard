@@ -275,7 +275,10 @@
         "nm": "spread operator",
         "why": "if object has property of object, new object will share a reference"
       },
-      { "nm": "shallow copying" },
+      {
+        "nm": "shallow copying",
+        "what": "outer object created new, but inner object still reference from the target"
+      },
       {
         "nm": "high order function: accept functions as parameters or return a function as their output"
       },
