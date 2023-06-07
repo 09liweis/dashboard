@@ -494,6 +494,7 @@
   {
     "nm": "vue",
     "items": [
+      {"nm":"Test: Cypress"},
       {
         "nm": "Provide / Inject",
         "what": "solve props drilling with provide and inject"
