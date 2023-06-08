@@ -1,18 +1,6 @@
 [
   {
-    "nm": "Web Tools",
-    "items": [
-      { "nm": "Dev Road Map", "url": "https://roadmap.sh/" },
-      { "nm": "Carbon share code image", "url": "https://carbon.now.sh" },
-      { "nm": "Regulex", "url": "https://jex.im/regulex/" },
-      { "nm": "Ionic", "url": "https://ionic.io" },
-      { "nm": "Colorhunt", "url": "https://colorhunt.co" },
-      { "nm": "Removebg", "url": "https://www.remove.bg" },
-      { "nm": "Manypixels", "url": "https://www.manypixels.co" }
-    ]
-  },
-  {
-    "nm": "Web API",
+    "nm": "api",
     "items": [
       {
         "nm": "rickandmorty api",
@@ -21,11 +9,19 @@
       {
         "nm": "The RESTful Pokémon API",
         "url": "https://pokeapi.co/"
-      },
-      {
-        "nm": "Humor API",
-        "url": "https://humorapi.com/"
       }
+    ]
+  },
+  {
+    "nm": "SEO",
+    "items": [
+      {
+        "nm": "youtube tutorial",
+        "url": "https://www.youtube.com/watch?v=-B58GgsehKQ&t=517s"
+      },
+      { "nm": "Make Good Content" },
+      { "nm": "clean HTML constructure" },
+      { "nm": "server side render, ISR" }
     ]
   },
   {
@@ -35,49 +31,6 @@
   {
     "nm": "css",
     "items": [
-      {
-        "nm": "caret-color Property",
-        "what": "The caret-color property specifies the color of the cursor (caret) in inputs, textareas, or any element that is editable",
-        "how": "caret-color: auto|color|initial|inherit;"
-      },
-      {
-        "nm": "box-reflect Property",
-        "what": "The box-reflect property is used to create a reflection of an element. The value of the box-reflect property can be: below, above, left, or right.",
-        "how": "-webkit-box-reflect: below;"
-      },
-      {
-        "nm": "Border Inline Style",
-        "what": "Set the style, color and width of the borders for different elements in the inline direction:",
-        "how": "border-inline: 5px solid red;"
-      },
-      {
-        "nm": "column",
-        "how": "column-count, column-fill, column-gap, column-rule"
-      },
-      {
-        "nm": "CSS Masking",
-        "what": "With CSS masking you create a mask layer to place over an element to partially or fully hide portions of the element",
-        "how": "-webkit-mask-image: url(w3logo.png);mask-image:url(w3logo.png);-webkit-mask-repeat:no-repeat;mask-repeat: no-repeat;-webkit-mask-image: linear-gradient(black, transparent)"
-      },
-      {
-        "nm": "font-variant",
-        "what": "In a small-caps font, all lowercase letters are converted to uppercase letters. However, the converted uppercase letters appears in a smaller font size than the original uppercase letters in the text",
-        "how": "font-variant:normal/small-caps"
-      },
-      {
-        "nm": "use * to debug element structure",
-        "how": "* {outline:2px solid black}"
-      },
-      {
-        "nm": "css unit",
-        "items": [
-          {
-            "nm": "rem",
-            "what": "update font size based on root font size",
-            "why": "adapt to browser default font size"
-          }
-        ]
-      },
       {
         "nm": "optimize css",
         "items": [
@@ -146,10 +99,6 @@
         "nm": "Text Gradients",
         "how": "background:linear-gradient();-webkit-background-clip:text;-webkit-text-fill-color:transparent;"
       },
-      {
-        "nm": "create patterns using background image gradient",
-        "how": "set background-image with linear-gradient, background-size, background-position"
-      },
       { "nm": "object-fit", "pros": "for image cover/contain", "how": "cover" },
       { "nm": "translate does not trigger reflow or repaint" },
       {
@@ -179,10 +128,6 @@
     "nm": "skills",
     "items": [
       {
-        "nm": "Jump server",
-        "what": "A jump server is a server that is used to access other servers. It is also known as a bastion host. It is a server that is accessible from the internet and is used to access other servers that are not accessible from the internet."
-      },
-      {
         "nm": "防抖: debounce, prevent the event trigger from being fired too often"
       },
       {
@@ -211,36 +156,11 @@
   },
   {
     "nm": "optimization",
-    "items": [
-      { "nm": "cdn" },
-      { "nm": "web worker" },
-      { "nm": "Memorization" },
-      {
-        "nm": "Load Balancing",
-        "what": "is simple technique for distributing workloads across multiple machines or clusters. The most common and simple load balancing algorithm is Round Robin. In this type of load balancing the request is divided in circular order ensuring all machines get equal number of requests and no single machine is overloaded or underloaded.",
-        "items": [
-          "Round robin",
-          "Session affinity or sticky session",
-          "IP Address affinity"
-        ]
-      }
-    ]
+    "items": [{ "nm": "cdn" }, { "nm": "web worker" }, { "nm": "Memorization" }]
   },
   {
     "nm": "JavaScript",
     "items": [
-      {
-        "nm": "Intl",
-        "how": []
-      },
-      {
-        "nm": "Optional Chaining (?.)",
-        "what": "This feature allows developers to safely access properties or methods of an object, even if they are nested deep inside the object and may not exist. It avoids errors that occur when trying to access properties of undefined or null values"
-      },
-      {
-        "nm": "Nullish Coalescing (??)",
-        "what": "This feature provides a way to check for null or undefined values and provide a default value if either of these values is encountered. It is similar to the logical OR operator (||), but only returns the right-hand side value if the left-hand side value is nullish (null or undefined)."
-      },
       { "nm": "event delegation", "what": "add event listener to parent node" },
       { "nm": "Inheritance" },
       { "nm": "prototype" },
@@ -275,10 +195,7 @@
         "nm": "spread operator",
         "why": "if object has property of object, new object will share a reference"
       },
-      {
-        "nm": "shallow copying",
-        "what": "outer object created new, but inner object still reference from the target"
-      },
+      { "nm": "shallow copying" },
       {
         "nm": "high order function: accept functions as parameters or return a function as their output"
       },
@@ -341,11 +258,7 @@
         "nm": "First Class Function",
         "what": "functions can be passed as variables, can be returned, can be assigned to variable"
       },
-      {
-        "nm": "IIFE",
-        "what": "Immediately Invoked Function Expressions (function IIFE(){console.log( 'Hello!' );})()",
-        "how": "This pattern is often used when trying to avoid polluting the global namespace, because all the variables used inside the IIFE (like in any other normal function) are not visible outside its scope."
-      },
+      { "nm": "IIFE", "what": "define and call function" },
       {
         "nm": "fetch",
         "how": "new AbortController(); fetch(url,{signal:controller.signal}); return () => {controller.abort}"
@@ -382,12 +295,6 @@
     "nm": "react",
     "items": [
       {
-        "nm": "library",
-        "items": [{ "nm": " React Hook Form" }, { "nm": "Framer Motion." }]
-      },
-      { "nm": "issue prop drilling", "how": "composition component" },
-      { "nm": "server component" },
-      {
         "nm": "A component is changing an uncontrolled input of type text to be controlled error in ReactJS",
         "what": "during render input value is undefined, value={undefined}",
         "why": "because '' is a valid string value. so when you change '' to 'xyz', input type is not changing means controlled to controlled. But in case of undefined to xyz type will change from uncontrolled to controlled",
@@ -403,25 +310,9 @@
       },
       { "nm": "single data flow" },
       {
-        "nm": "flushSync",
-        "what": "make async setState method sync",
-        "how": "flushSync(() => {setTodos([...todos, { id: uuid(), task: newTask }]);});"
-      },
-      {
         "nm": "hooks",
         "from": "algebraic effects代数效应",
         "what": "Hooks are functions that let you “hook into” React state and lifecycle features from function components. Hooks don't work inside classes — they let you use React without classes"
-      },
-      {
-        "nm": "useState set object update",
-        "how": "setObject(prevObject => ({...prevObject, [key]:value}))"
-      },
-      {
-        "nm": "useRef",
-        "pros": [
-          "store a ref to DOM elements so you can later do something with them",
-          "To store values without triggering re-renders"
-        ]
       },
       {
         "nm": "useReducer",
@@ -494,16 +385,6 @@
   {
     "nm": "vue",
     "items": [
-      {"nm":"Test: Cypress"},
-      {
-        "nm": "Provide / Inject",
-        "what": "solve props drilling with provide and inject"
-      },
-      {
-        "nm": "Teleport",
-        "what": "<Teleport> is a built-in component that allows us to teleport a part of a component's template into a DOM node that exists outside the DOM hierarchy of that component.",
-        "why": "Sometimes we may run into the following scenario: a part of a component's template belongs to it logically, but from a visual standpoint, it should be displayed somewhere else in the DOM, outside of the Vue application."
-      },
       {
         "nm": "$nexttick",
         "desc": "wait for the next DOM update cycle, then do callback"
@@ -525,10 +406,6 @@
         "nm": "NextJs",
         "items": [
           {
-            "nm": "international",
-            "how": "add i18n in next config, get locale from useRoute"
-          },
-          {
             "nm": "useEffect call twice",
             "how": "set reactStrictMode to false"
           },
@@ -537,19 +414,6 @@
             "how": "add onLoad={() => {console.log('Script has loaded')}}"
           }
         ]
-      }
-    ]
-  },
-  {
-    "nm": "Java",
-    "items": [
-      { "nm": "fail fast vs fail saft" },
-      { "nm": "Marker interface" },
-      { "nm": "thread" },
-      {
-        "nm": "runnable",
-        "what": "A Runnable is basically a type of class (Runnable is an Interface) that can be put into a thread, describing what the thread is supposed to do.",
-        "how": "Thread t = new Thread(new Runnable() {public void run() {// stuff here}});t.start();"
       }
     ]
   },
@@ -580,10 +444,18 @@
   {
     "nm": "design pattern",
     "items": [
-      { "nm": "factory design pattern" },
-      { "nm": "Facade Pattern", "pros": "封装第三方api" },
+      {
+        "nm": "factory design pattern",
+        "what": "A factory is a method or function that creates an object, or a set of objects, without exposing the creation logic to the client."
+      },
+      {
+        "nm": "Facade Pattern",
+        "pros": "封装第三方api",
+        "what": "A facade is a class that provides a simplified API for larger body of code. It is often to used to hide low-level details of a subsystem."
+      },
       {
         "nm": "Builder Pattern",
+        "how": "in js class each method return this with chaining way",
         "pros": "simplify constructor reduce params, set other attribute in builder function or pass attributes as object in option param"
       },
       { "nm": "Null Object Pattern" }
@@ -629,27 +501,6 @@
   {
     "nm": "database",
     "items": [
-      {
-        "nm": "Types of NoSQL Database",
-        "items": [
-          {
-            "nm": "Key-Value database",
-            "what": "Every item in the database is stored as an attribute name (or key) together with its value. #Example: DynamoDB (Amazon S3) and Redis (In Memory Database), etc."
-          },
-          {
-            "nm": "Document based database",
-            "what": "It stores data in form of documents (BSON format) and it can contains many different key-value pairs, or key-array pairs, or even nested documents.#Example: MongoDB"
-          },
-          {
-            "nm": "Column based database",
-            "what": "t stores data together as columns instead of rows and are optimized for queries over large datasets. #Example: Cassandra, HBase, etc"
-          },
-          {
-            "nm": "Graph based database",
-            "what": "It is used to store information about networks, such as social connections. #Example: Neo4J and HyperGraphDB, etc"
-          }
-        ]
-      },
       { "nm": "normalization" },
       {
         "nm": "mongoose",
@@ -660,57 +511,9 @@
             "how": "schema.loadClass(MyClass)"
           }
         ]
-      },
-      {
-        "nm": "MySQL",
-        "items": [
-          {
-            "nm": "sargable query(search argment able)",
-            "what": "direct comparsion instead of warpping column in function in where clause "
-          },
-          {
-            "nm": "DDL",
-            "what": "Data definition language (DDL) commands are the commands which are used to define the database. CREATE, ALTER, DROP and TRUNCATE are some common DDL commands."
-          },
-          {
-            "nm": "DML",
-            "what": "Data manipulation language (DML) commands are commands which are used for manipulation or modification of data. INSERT, UPDATE and DELETE are some common DML commands."
-          },
-          {
-            "nm": "Both TIMESTAMP and DATETIME are used to store data and time. Explain difference between them and when should one be used",
-            "what": "Both TIMESTAMP and DATETIME store date time in YYYY-MM-DD HH:MM:SS format. While DATETIME stores provided date time, TIMESTAMP first converts provided time to UTC while storing and then again converts it back to server time zone upon retrieval. So if you need to serve different users in different countries using same time data, TIMESTAMP facilitates it. DATETIME simply stores provided date time without making any time zone related conversion."
-          },
-          {
-            "nm": "pagination optimization",
-            "items": [
-              {
-                "nm": "use index",
-                "how": "explain select * from user where id > 1000001 limit 100"
-              },
-              {
-                "nm": "multiple step sql",
-                "how": "select id first, then use sub query to select others"
-              }
-            ]
-          }
-        ]
       }
     ]
   },
-  {
-    "nm": "Testing",
-    "items": [
-      {
-        "nm": "Smoke Testing 烟雾测试",
-        "what": "also called build verification testing or confidence testing, is a software testing method that is used to determine if a new software build is ready for the next testing phase. This testing method determines if the most crucial functions of a program work but does not delve into finer details."
-      },
-      {
-        "nm": "Regression Testing 回归测试",
-        "what": "Regression testing is defined as a type of software testing technique that re-runs functional and non-functional tests to ensure that a software application works as intended after any code changes, updates, revisions, improvements, or optimizations."
-      }
-    ]
-  },
-  { "nm": "web scrap" },
   {
     "nm": "payment",
     "items": [
