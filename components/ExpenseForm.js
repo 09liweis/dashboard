@@ -7,6 +7,7 @@ import {
   EXPENSE_UPDATE_API,
   EXPENSE_DELETE_API,
 } from '../constants';
+import Loading from './Loading';
 
 const googleMap = new GoogleMap();
 
@@ -26,6 +27,7 @@ export default function ExpenseForm({
   const placeInput = useRef(null);
   const [curTransaction, setCurTransaction] = useState({});
   const [curPlace, setCurPlace] = useState({});
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setCurTransaction(transaction);
@@ -62,11 +64,13 @@ export default function ExpenseForm({
       return;
     }
     const body = { ...curTransaction, place: curPlace };
+    setLoading(true);
     const response = await fetchAPI({
       url: body._id ? EXPENSE_UPDATE_API(body._id) : EXPENSE_NEW_API,
       body,
       method: body._id ? 'PUT' : 'POST',
     });
+    setLoading(false);
     getExpenseStatistics();
     setShowForm(false);
   };
@@ -133,7 +137,7 @@ export default function ExpenseForm({
         {user._id && (
           <section className="flex justify-between">
             <button className={buttonStyle}>
-              {transaction._id ? 'Update' : 'Add'}
+              {loading ? <Loading /> : transaction._id ? 'Update' : 'Add'}
             </button>
             {transaction._id && (
               <span
