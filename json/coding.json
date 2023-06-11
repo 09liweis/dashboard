@@ -1,5 +1,20 @@
 [
   {
+    "nm": "Web Tools",
+    "items": [
+      { "nm": "Dev Road Map", "url": "https://roadmap.sh/" },
+      { "nm": "Carbon share code image", "url": "https://carbon.now.sh" },
+      { "nm": "Regulex", "url": "https://jex.im/regulex/" },
+      { "nm": "Ionic", "url": "https://ionic.io" },
+      { "nm": "Colorhunt", "url": "https://colorhunt.co" },
+      { "nm": "Removebg", "url": "https://www.remove.bg" },
+      { "nm": "Manypixels", "url": "https://www.manypixels.co" },
+      { "nm": "Visual algorithm", "url": "https://visualgo.net/en" },
+      { "nm": "API Fox", "url": "https://apifox.com/" },
+      { "nm": "Draw canvas", "url": "https://c.runoob.com/more/svgeditor/" }
+    ]
+  },
+  {
     "nm": "web api",
     "items": [
       {
