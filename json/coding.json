@@ -127,6 +127,7 @@
       { "nm": "git reset --soft HEAD~1", "desc": "reset last commit local" }
     ]
   },
+  { "nm": "CI/CD" },
   {
     "nm": "skills",
     "items": [
