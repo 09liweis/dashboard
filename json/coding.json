@@ -294,6 +294,7 @@
       { "nm": "jsonp" }
     ]
   },
+  { "nm": "Flutter" },
   {
     "nm": "react native"
   },
