@@ -296,7 +296,7 @@
       { "nm": "jsonp" }
     ]
   },
-  { "nm": "Flutter" },
+  { "nm": "Flutter","items":[{"nm":"flutLab","url":"https://flutlab.io/"}] },
   {
     "nm": "react native"
   },
