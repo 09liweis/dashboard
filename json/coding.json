@@ -3,6 +3,7 @@
     "nm": "Web Tools",
     "items": [
       { "nm": "Dev Road Map", "url": "https://roadmap.sh/" },
+      {"nm":"Free for Dev","url":"https://free-for.dev/#/"},
       { "nm": "Carbon share code image", "url": "https://carbon.now.sh" },
       { "nm": "Regulex", "url": "https://jex.im/regulex/" },
       { "nm": "Ionic", "url": "https://ionic.io" },
