@@ -2,8 +2,12 @@
   {
     "nm": "Web Tools",
     "items": [
+      {
+        "nm": "9 Senior Developer Mental Models Every Programmer Should Master",
+        "url": "https://dev.to/dragosnedelcu/9-senior-developer-mental-models-every-programmer-should-master-1jlk"
+      },
       { "nm": "Dev Road Map", "url": "https://roadmap.sh/" },
-      {"nm":"Free for Dev","url":"https://free-for.dev/#/"},
+      { "nm": "Free for Dev", "url": "https://free-for.dev/#/" },
       { "nm": "Carbon share code image", "url": "https://carbon.now.sh" },
       { "nm": "Regulex", "url": "https://jex.im/regulex/" },
       { "nm": "Ionic", "url": "https://ionic.io" },
@@ -296,7 +300,10 @@
       { "nm": "jsonp" }
     ]
   },
-  { "nm": "Flutter","items":[{"nm":"flutLab","url":"https://flutlab.io/"}] },
+  {
+    "nm": "Flutter",
+    "items": [{ "nm": "flutLab", "url": "https://flutlab.io/" }]
+  },
   {
     "nm": "react native"
   },
