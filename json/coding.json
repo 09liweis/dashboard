@@ -412,6 +412,7 @@
   {
     "nm": "vue",
     "items": [
+      { "nm": "vite-plugin-vue-devtools" },
       { "nm": "Test: Cypress" },
       {
         "nm": "Provide / Inject",
