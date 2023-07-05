@@ -419,6 +419,7 @@
   {
     "nm": "vue",
     "items": [
+      { "nm": "tree shaking", "what": " dead-code elimination" },
       { "nm": "vite-plugin-vue-devtools" },
       { "nm": "Test: Cypress" },
       {
