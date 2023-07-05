@@ -317,6 +317,10 @@
   {
     "nm": "react",
     "items": [
+      {
+        "nm": "dangerouslySetInnerHTML",
+        "how": "use DOMPurify.sanitize to prevent js"
+      },
       { "nm": "React Fiber" },
       {
         "nm": "library",
