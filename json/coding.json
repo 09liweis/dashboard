@@ -309,7 +309,28 @@
   },
   {
     "nm": "Flutter",
-    "items": [{ "nm": "flutLab", "url": "https://flutlab.io/" }]
+    "items": [
+      { "nm": "flutLab", "url": "https://flutlab.io/" },
+      {
+        "nm": "widgets",
+        "items": [
+          { "nm": "Expanded" },
+          { "nm": "Wrap" },
+          { "nm": "SafeArea" },
+          { "nm": "AnimatedContainer" },
+          { "nm": "FadeTransition" },
+          { "nm": "FutureBuilder" },
+          { "nm": "FloatingActionButton" },
+          { "nm": "PageView" },
+          { "nm": "SliverList & SliverGrid" },
+          { "nm": "FadeInImage" },
+          { "nm": "PageView" },
+          { "nm": "Table" },
+          { "nm": "StreamBuilder" },
+          { "nm": "SliverAppBar" }
+        ]
+      }
+    ]
   },
   {
     "nm": "react native"
