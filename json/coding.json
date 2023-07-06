@@ -593,7 +593,12 @@
           { "nm": "boolean", "what": "1 bits" }
         ]
       },
-      { "nm": "fail fast vs fail saft" },
+      {
+        "nm": "overloading",
+        "what": "allow class have different constructors with different params"
+      },
+      { "nm": "Exceptions", "what": "Checked/Unchecked Exception" },
+      { "nm": "fail fast vs fail safe" },
       { "nm": "Marker interface" },
       { "nm": "thread" },
       {
