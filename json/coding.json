@@ -580,6 +580,19 @@
   {
     "nm": "Java",
     "items": [
+      {
+        "nm": "Primitive Types",
+        "items": [
+          { "nm": "byte", "what": "8 bits" },
+          { "nm": "short", "what": "16 bits" },
+          { "nm": "int", "what": "32 bits" },
+          { "nm": "long", "what": "64 bits" },
+          { "nm": "float", "what": "32 bits" },
+          { "nm": "double", "what": "64 bits" },
+          { "nm": "char", "what": "16 bits" },
+          { "nm": "boolean", "what": "1 bits" }
+        ]
+      },
       { "nm": "fail fast vs fail saft" },
       { "nm": "Marker interface" },
       { "nm": "thread" },
