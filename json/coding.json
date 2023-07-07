@@ -40,6 +40,14 @@
     ]
   },
   {
+    "nm":"VS Code",
+    "items":[
+      {"nm":"plugins","items":[
+        {"nm":"console ninjia"}
+      ]}
+    ]
+  },
+  {
     "nm": "html",
     "items": []
   },
