@@ -40,12 +40,8 @@
     ]
   },
   {
-    "nm":"VS Code",
-    "items":[
-      {"nm":"plugins","items":[
-        {"nm":"console ninjia"}
-      ]}
-    ]
+    "nm": "VS Code",
+    "items": [{ "nm": "plugins", "items": [{ "nm": "console ninjia" }] }]
   },
   {
     "nm": "html",
@@ -450,6 +446,10 @@
     "items": [
       { "nm": "tree shaking", "what": " dead-code elimination" },
       { "nm": "vite-plugin-vue-devtools" },
+      {
+        "nm": "state management",
+        "items": [{ "nm": "Pinia" }, { "nm": "Vuex" }]
+      },
       { "nm": "Test: Cypress" },
       {
         "nm": "Provide / Inject",
