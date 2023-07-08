@@ -1,7 +1,34 @@
 [
   {
-    "nm": "api",
+    "nm": "proof of concept"
+  },
+  {
+    "nm": "Web Tools",
     "items": [
+      {
+        "nm": "9 Senior Developer Mental Models Every Programmer Should Master",
+        "url": "https://dev.to/dragosnedelcu/9-senior-developer-mental-models-every-programmer-should-master-1jlk"
+      },
+      { "nm": "Dev Road Map", "url": "https://roadmap.sh/" },
+      { "nm": "Free for Dev", "url": "https://free-for.dev/#/" },
+      { "nm": "Carbon share code image", "url": "https://carbon.now.sh" },
+      { "nm": "Regulex", "url": "https://jex.im/regulex/" },
+      { "nm": "Ionic", "url": "https://ionic.io" },
+      { "nm": "Colorhunt", "url": "https://colorhunt.co" },
+      { "nm": "Removebg", "url": "https://www.remove.bg" },
+      { "nm": "Manypixels", "url": "https://www.manypixels.co" },
+      { "nm": "Visual algorithm", "url": "https://visualgo.net/en" },
+      { "nm": "API Fox", "url": "https://apifox.com/" },
+      { "nm": "Draw canvas", "url": "https://c.runoob.com/more/svgeditor/" }
+    ]
+  },
+  {
+    "nm": "web api",
+    "items": [
+      {
+        "nm": "face api",
+        "url": "https://www.bilibili.com/video/BV1Km4y1t7Gb/"
+      },
       {
         "nm": "rickandmorty api",
         "url": "https://rickandmortyapi.com/"
@@ -11,6 +38,10 @@
         "url": "https://pokeapi.co/"
       }
     ]
+  },
+  {
+    "nm": "VS Code",
+    "items": [{ "nm": "plugins", "items": [{ "nm": "console ninjia" }] }]
   },
   {
     "nm": "html",
@@ -125,6 +156,7 @@
       { "nm": "git reset --soft HEAD~1", "desc": "reset last commit local" }
     ]
   },
+  { "nm": "CI/CD" },
   {
     "nm": "skills",
     "items": [
@@ -196,7 +228,10 @@
         "nm": "spread operator",
         "why": "if object has property of object, new object will share a reference"
       },
-      { "nm": "shallow copying" },
+      {
+        "nm": "shallow copying",
+        "what": "outer object created new, but inner object still reference from the target"
+      },
       {
         "nm": "high order function: accept functions as parameters or return a function as their output"
       },
@@ -290,11 +325,48 @@
     ]
   },
   {
+    "nm": "Flutter",
+    "items": [
+      { "nm": "flutLab", "url": "https://flutlab.io/" },
+      {
+        "nm": "widgets",
+        "items": [
+          { "nm": "CallbackShortCuts" },
+          { "nm": "Expanded" },
+          { "nm": "Wrap" },
+          { "nm": "SafeArea" },
+          { "nm": "AnimatedContainer" },
+          { "nm": "FadeTransition" },
+          { "nm": "FutureBuilder" },
+          { "nm": "FloatingActionButton" },
+          { "nm": "PageView" },
+          { "nm": "SliverList & SliverGrid" },
+          { "nm": "FadeInImage" },
+          { "nm": "PageView" },
+          { "nm": "Table" },
+          { "nm": "StreamBuilder" },
+          { "nm": "SliverAppBar" }
+        ]
+      }
+    ]
+  },
+  {
     "nm": "react native"
   },
   {
     "nm": "react",
     "items": [
+      {
+        "nm": "dangerouslySetInnerHTML",
+        "how": "use DOMPurify.sanitize to prevent js"
+      },
+      { "nm": "React Fiber" },
+      {
+        "nm": "library",
+        "items": [{ "nm": " React Hook Form" }, { "nm": "Framer Motion." }]
+      },
+      { "nm": "issue prop drilling", "how": "composition component" },
+      { "nm": "server component" },
       {
         "nm": "A component is changing an uncontrolled input of type text to be controlled error in ReactJS",
         "what": "during render input value is undefined, value={undefined}",
@@ -386,6 +458,22 @@
   {
     "nm": "vue",
     "items": [
+      { "nm": "tree shaking", "what": " dead-code elimination" },
+      { "nm": "vite-plugin-vue-devtools" },
+      {
+        "nm": "state management",
+        "items": [{ "nm": "Pinia" }, { "nm": "Vuex" }]
+      },
+      { "nm": "Test: Cypress" },
+      {
+        "nm": "Provide / Inject",
+        "what": "solve props drilling with provide and inject"
+      },
+      {
+        "nm": "Teleport",
+        "what": "<Teleport> is a built-in component that allows us to teleport a part of a component's template into a DOM node that exists outside the DOM hierarchy of that component.",
+        "why": "Sometimes we may run into the following scenario: a part of a component's template belongs to it logically, but from a visual standpoint, it should be displayed somewhere else in the DOM, outside of the Vue application."
+      },
       {
         "nm": "$nexttick",
         "desc": "wait for the next DOM update cycle, then do callback"
@@ -445,13 +533,33 @@
   {
     "nm": "design pattern",
     "items": [
-      { "nm": "factory design pattern" },
-      { "nm": "Facade Pattern", "pros": "封装第三方api" },
+      {
+        "nm": "factory design pattern",
+        "what": "A factory is a method or function that creates an object, or a set of objects, without exposing the creation logic to the client."
+      },
+      {
+        "nm": "Facade Pattern",
+        "pros": "封装第三方api",
+        "what": "A facade is a class that provides a simplified API for larger body of code. It is often to used to hide low-level details of a subsystem."
+      },
       {
         "nm": "Builder Pattern",
+        "how": "in js class each method return this with chaining way",
         "pros": "simplify constructor reduce params, set other attribute in builder function or pass attributes as object in option param"
       },
       { "nm": "Null Object Pattern" }
+    ]
+  },
+  {
+    "nm": "SEO",
+    "items": [
+      {
+        "nm": "youtube tutorial",
+        "url": "https://www.youtube.com/watch?v=-B58GgsehKQ&t=517s"
+      },
+      { "nm": "Make Good Content" },
+      { "nm": "clean HTML constructure" },
+      { "nm": "server side render, ISR" }
     ]
   },
   {
@@ -492,9 +600,64 @@
     ]
   },
   {
+    "nm": "Java",
+    "items": [
+      {
+        "nm": "Primitive Types",
+        "items": [
+          { "nm": "byte", "what": "8 bits" },
+          { "nm": "short", "what": "16 bits" },
+          { "nm": "int", "what": "32 bits" },
+          { "nm": "long", "what": "64 bits" },
+          { "nm": "float", "what": "32 bits" },
+          { "nm": "double", "what": "64 bits" },
+          { "nm": "char", "what": "16 bits" },
+          { "nm": "boolean", "what": "1 bits" }
+        ]
+      },
+      {
+        "nm": "overloading",
+        "what": "allow class have different constructors with different params"
+      },
+      { "nm": "Exceptions", "what": "Checked/Unchecked Exception" },
+      { "nm": "fail fast vs fail safe" },
+      { "nm": "Marker interface" },
+      { "nm": "thread" },
+      {
+        "nm": "runnable",
+        "what": "A Runnable is basically a type of class (Runnable is an Interface) that can be put into a thread, describing what the thread is supposed to do.",
+        "how": "Thread t = new Thread(new Runnable() {public void run() {// stuff here}});t.start();"
+      }
+    ]
+  },
+  {
     "nm": "database",
     "items": [
-      { "nm": "normalization" },
+      {
+        "nm": "Types of NoSQL Database",
+        "items": [
+          {
+            "nm": "Key-Value database",
+            "what": "Every item in the database is stored as an attribute name (or key) together with its value. #Example: DynamoDB (Amazon S3) and Redis (In Memory Database), etc."
+          },
+          {
+            "nm": "Document based database",
+            "what": "It stores data in form of documents (BSON format) and it can contains many different key-value pairs, or key-array pairs, or even nested documents.#Example: MongoDB"
+          },
+          {
+            "nm": "Column based database",
+            "what": "t stores data together as columns instead of rows and are optimized for queries over large datasets. #Example: Cassandra, HBase, etc"
+          },
+          {
+            "nm": "Graph based database",
+            "what": "It is used to store information about networks, such as social connections. #Example: Neo4J and HyperGraphDB, etc"
+          }
+        ]
+      },
+      {
+        "nm": "normalization",
+        "what": "Normalization is a database design technique that reduces data redundancy and eliminates undesirable characteristics like Insertion, Update and Deletion Anomalies. Normalization rules divides larger tables into smaller tables and links them using relationships. The purpose of Normalisation in SQL is to eliminate redundant (repetitive) data and ensure data is stored logically."
+      },
       {
         "nm": "mongoose",
         "items": [
@@ -504,9 +667,57 @@
             "how": "schema.loadClass(MyClass)"
           }
         ]
+      },
+      {
+        "nm": "MySQL",
+        "items": [
+          {
+            "nm": "sargable query(search argment able)",
+            "what": "direct comparsion instead of warpping column in function in where clause "
+          },
+          {
+            "nm": "DDL",
+            "what": "Data definition language (DDL) commands are the commands which are used to define the database. CREATE, ALTER, DROP and TRUNCATE are some common DDL commands."
+          },
+          {
+            "nm": "DML",
+            "what": "Data manipulation language (DML) commands are commands which are used for manipulation or modification of data. INSERT, UPDATE and DELETE are some common DML commands."
+          },
+          {
+            "nm": "Both TIMESTAMP and DATETIME are used to store data and time. Explain difference between them and when should one be used",
+            "what": "Both TIMESTAMP and DATETIME store date time in YYYY-MM-DD HH:MM:SS format. While DATETIME stores provided date time, TIMESTAMP first converts provided time to UTC while storing and then again converts it back to server time zone upon retrieval. So if you need to serve different users in different countries using same time data, TIMESTAMP facilitates it. DATETIME simply stores provided date time without making any time zone related conversion."
+          },
+          {
+            "nm": "pagination optimization",
+            "items": [
+              {
+                "nm": "use index",
+                "how": "explain select * from user where id > 1000001 limit 100"
+              },
+              {
+                "nm": "multiple step sql",
+                "how": "select id first, then use sub query to select others"
+              }
+            ]
+          }
+        ]
       }
     ]
   },
+  {
+    "nm": "Testing",
+    "items": [
+      {
+        "nm": "Smoke Testing 烟雾测试",
+        "what": "also called build verification testing or confidence testing, is a software testing method that is used to determine if a new software build is ready for the next testing phase. This testing method determines if the most crucial functions of a program work but does not delve into finer details."
+      },
+      {
+        "nm": "Regression Testing 回归测试",
+        "what": "Regression testing is defined as a type of software testing technique that re-runs functional and non-functional tests to ensure that a software application works as intended after any code changes, updates, revisions, improvements, or optimizations."
+      }
+    ]
+  },
+  { "nm": "web scrap" },
   {
     "nm": "payment",
     "items": [
