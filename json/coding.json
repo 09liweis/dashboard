@@ -331,6 +331,7 @@
       {
         "nm": "widgets",
         "items": [
+          { "nm": "Container" },
           { "nm": "CallbackShortCuts" },
           { "nm": "Expanded" },
           { "nm": "Wrap" },
