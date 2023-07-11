@@ -332,6 +332,7 @@
         "nm": "widgets",
         "items": [
           { "nm": "Container" },
+          { "nm": "AlertDialog/CupertinoAlertDialog" },
           { "nm": "ToggleButtons" },
           { "nm": "CallbackShortCuts" },
           { "nm": "Expanded" },
