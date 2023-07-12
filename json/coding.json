@@ -455,7 +455,8 @@
         "how": "ReactDOM.unstable_batchedUpdates()"
       },
       { "nm": "context", "how": "createContext, useContext" },
-      { "nm": "react query" }
+      { "nm": "react query" },
+      { "nm": "Zustand" }
     ]
   },
   {
