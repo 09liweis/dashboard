@@ -331,6 +331,7 @@
       {
         "nm": "widgets",
         "items": [
+          { "nm": "Hero" },
           { "nm": "Container" },
           { "nm": "AlertDialog/CupertinoAlertDialog" },
           { "nm": "ToggleButtons" },
