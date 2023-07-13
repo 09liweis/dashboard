@@ -339,6 +339,7 @@
           { "nm": "Wrap" },
           { "nm": "SafeArea" },
           { "nm": "AnimatedContainer" },
+          { "nm": "AnimatedBuilder" },
           { "nm": "FadeTransition" },
           { "nm": "FutureBuilder" },
           { "nm": "FloatingActionButton" },
