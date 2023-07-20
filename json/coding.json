@@ -146,7 +146,8 @@
         "nm": "focus-within",
         "what": "update parent element style if focus input",
         "how": "parent:focus-within {/*css style*/}"
-      }
+      },
+      { "nm": "aspect-ratio", "what": "set relative width/height" }
     ]
   },
   {
