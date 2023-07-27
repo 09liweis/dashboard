@@ -17,3 +17,4 @@
 - [ ] todo page, style todo form
 - [ ] update, delete todo
 - [ ] background image change randomly
+- [ ] implement https://waifu.pics/docs
