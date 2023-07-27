@@ -11,3 +11,9 @@
 
 如何终止项目
 在终端按 ctrl+C
+
+## TODO
+
+- [ ] todo page, style todo form
+- [ ] update, delete todo
+- [ ] background image change randomly
