@@ -465,8 +465,17 @@
   {
     "nm": "vue",
     "items": [
+      {
+        "nm": "plugins",
+        "items": [
+          {
+            "nm": "vue-tree-color",
+            "what": "use to render tree structure organization"
+          },
+          { "nm": "vite-plugin-vue-devtools" }
+        ]
+      },
       { "nm": "tree shaking", "what": " dead-code elimination" },
-      { "nm": "vite-plugin-vue-devtools" },
       {
         "nm": "state management",
         "items": [{ "nm": "Pinia" }, { "nm": "Vuex" }]
