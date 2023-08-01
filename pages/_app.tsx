@@ -14,7 +14,7 @@ import User from '../classes/User';
 
 const getPageTitle = (pageProps: any) => {
   const pageMeta = pageProps.pageMeta;
-  return pageMeta?.title || 'Dashboard';
+  return pageMeta?.title || 'Sam - Web Developer';
 };
 
 function MyApp({ Component, pageProps }: AppProps) {
