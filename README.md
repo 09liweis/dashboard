@@ -16,5 +16,10 @@
 
 - [ ] todo page, style todo form
 - [ ] update, delete todo
+- [ ] user github sign up
+- [ ] user resume page
+- [ ] project dashboard page
+- [ ] experience dashboard page
+- [ ] resume public url
 - [ ] background image change randomly
 - [ ] implement https://waifu.pics/docs
