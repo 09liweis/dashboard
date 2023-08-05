@@ -76,9 +76,11 @@ const TodosPage: NextPage = () => {
 
   return (
     <section>
+			<h1>title </h1>
       {todosHTML}
       {user._id && (
         <>
+	
           <form onSubmit={handleTodoSubmit}>
             <input
               value={todo.name}
