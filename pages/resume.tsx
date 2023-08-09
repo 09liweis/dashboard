@@ -4,7 +4,6 @@ const RESUME = {
   experiences: [
     {
       "duty": [
-        ""
       ],
       "title": "Front End Developer",
       "company": "Real Master Inc",
@@ -49,9 +48,8 @@ const RESUME = {
     },
     {
       "duty": [
-        ""
       ],
-      "title": "Web Developer",
+      "title": "Intern student web developer",
       "company": "SCMA",
       "start_date": "2013-05-01",
       "end_date": "2013-08-30",
@@ -61,9 +59,13 @@ const RESUME = {
 
 const experiencesHTML = RESUME.experiences.map((e) =>
   <article className='my-3' key={e.company}>
-    <h3 className='font-bold'>{e.title} - {e.company}</h3>
+    <h3 className='font-bold border-l-2 border-black pl-2'>{e.title} - {e.company}</h3>
     <p className='text-gray-600'>{e.start_date} - {e.end_date}</p>
-    {e.duty.map((duty)=><p>{duty}</p>)}
+    {e.duty && 
+    <ul className='list-disc list-inside text-slate-900 dark:text-slate-200'>
+      {e.duty.map((duty)=><li key={duty}>{duty}</li>)}
+    </ul>
+    }
   </article>
 )
 
@@ -72,7 +74,7 @@ const ResumePage: NextPage = () => {
     <>
       <h1 className='text-center font-bold text-2xl'>My Resume</h1>
       <section className='mt-4'>
-        <h2 className='p-2 text-white bg-black text-lg'>Experience</h2>
+        <h2 className='p-2 text-white bg-black text-lg inline-block'>Experience</h2>
         {experiencesHTML}
       </section>
     </>
