@@ -76,11 +76,20 @@ const RESUME = {
   ]
 };
 
+const EXPERIENCE_FORM_FIELDS = ['title','company','start_date','end_date'];
+
 const ResumePage: NextPage = () => {
   const [resume, setResume] = useState(RESUME);
+  const [showExperienceForm, setShowExperienceForm] = useState(false);
+  const [currentExperience, setCurrentExperience] = useState({});
+
+  const handleExperience = (ex: any) => {
+    setShowExperienceForm(true);
+    setCurrentExperience(ex);
+  }
 
   const experiencesHTML = resume.experiences.map((e) =>
-    <article className='my-3' key={e.company}>
+    <article className='my-3' key={e.company} onClick={() => handleExperience(e)}>
       <h3 className='font-bold border-l-2 border-black pl-2'>{e.title} - {e.company}</h3>
       <p className='text-gray-600'>{e.start_date} - {e.end_date || 'Present'}</p>
       {e.duty &&
@@ -92,6 +101,14 @@ const ResumePage: NextPage = () => {
   )
   return (
     <>
+      {/* <section className='fixed top-0 left-0 w-full h-full bg-black-300'>    </section> */}
+      {showExperienceForm &&
+      <form className='fixed top-1/2 left-1/2 mx-auto w-96 bg-white p-2'>
+        {EXPERIENCE_FORM_FIELDS.map((field)=>
+        <input className='p-2 mb-3 w-full border rounded' placeholder={field} value={currentExperience[field]} />
+        )}
+      </form>
+      }
       <h1 className='text-center font-bold text-2xl'>My Resume</h1>
       <section className='mt-4'>
         <h2 className='p-2 text-white bg-black text-lg inline-block'>Experience</h2>
