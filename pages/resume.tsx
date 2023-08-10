@@ -1,9 +1,28 @@
 import type { NextPage } from 'next';
+import { useState, useEffect } from 'react';
 
 const RESUME = {
   experiences: [
     {
       "duty": [
+        "Rewrite MRIS portal with React.js",
+        "Build reusable HTML components with tailwind style for lottery ticket desig",
+        "Conduct code reviews and provide constructive feedback to ensure code quality and adherence to best practices",
+        "Help teammate solving technical problems"
+      ],
+      "title": "Front End Developer",
+      "company": "OLG",
+      "start_date": "2022-11",
+      "end_date": "",
+    },
+    {
+      "duty": [
+        "Write semantic well structure HTML5/CSS3, SASS, Bootstrap with responsive design",
+        "Designs, develops scalable, reusable, innovative solutions with Vuejs,ReactJs,React Native",
+        "Build and maintained Nodejs server APIs, implementing RESTful endpoints and handling database interactions",
+        "Successfully implement basic elasticsearch engine for millions data search feature",
+        "Generate thousand of map static image with Mapbox Geocoding api, reduce api call",
+        "Train and help new employees to be familiar with project structure"
       ],
       "title": "Front End Developer",
       "company": "Real Master Inc",
@@ -57,19 +76,20 @@ const RESUME = {
   ]
 };
 
-const experiencesHTML = RESUME.experiences.map((e) =>
-  <article className='my-3' key={e.company}>
-    <h3 className='font-bold border-l-2 border-black pl-2'>{e.title} - {e.company}</h3>
-    <p className='text-gray-600'>{e.start_date} - {e.end_date}</p>
-    {e.duty && 
-    <ul className='list-disc list-inside text-slate-900 dark:text-slate-200'>
-      {e.duty.map((duty)=><li key={duty}>{duty}</li>)}
-    </ul>
-    }
-  </article>
-)
-
 const ResumePage: NextPage = () => {
+  const [resume, setResume] = useState(RESUME);
+
+  const experiencesHTML = resume.experiences.map((e) =>
+    <article className='my-3' key={e.company}>
+      <h3 className='font-bold border-l-2 border-black pl-2'>{e.title} - {e.company}</h3>
+      <p className='text-gray-600'>{e.start_date} - {e.end_date || 'Present'}</p>
+      {e.duty &&
+        <ul className='list-disc list-inside text-slate-900 dark:text-slate-200'>
+          {e.duty.map((duty) => <li key={duty}>{duty}</li>)}
+        </ul>
+      }
+    </article>
+  )
   return (
     <>
       <h1 className='text-center font-bold text-2xl'>My Resume</h1>
