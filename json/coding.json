@@ -195,6 +195,7 @@
   {
     "nm": "JavaScript",
     "items": [
+      { "nm": "JS label", "what": "break out two for loop", "how": "outer: for ..... for.... break outer" },
       { "nm": "event delegation", "what": "add event listener to parent node" },
       { "nm": "Inheritance" },
       { "nm": "prototype" },
