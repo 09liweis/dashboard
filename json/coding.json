@@ -113,6 +113,12 @@
         ]
       },
       {
+        "nm": "margin", "items": [
+          { "nm": "margin collaps", "what": "child element margin top will render parent element margin top as well" },
+          { "nm": "margin merge" }
+        ]
+      },
+      {
         "nm": "keep elements same width even thought different content width, but not full width",
         "how": "use display: inline-flex; flex-direction:column"
       },
