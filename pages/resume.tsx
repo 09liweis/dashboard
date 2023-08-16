@@ -76,12 +76,30 @@ const RESUME = {
   ]
 };
 
+interface Experience {
+  _id?:string
+  duty:Array<string>,
+  title:string,
+  company:string,
+  start_date:string,
+  end_date:string
+};
+
+const emptyExperience: Experience = {
+  _id:'',
+  title: '',
+  duty: [],
+  company: '',
+  start_date: '',
+  end_date:''
+};
+
 const EXPERIENCE_FORM_FIELDS = ['title','company','start_date','end_date'];
 
 const ResumePage: NextPage = () => {
   const [resume, setResume] = useState(RESUME);
   const [showExperienceForm, setShowExperienceForm] = useState(false);
-  const [currentExperience, setCurrentExperience] = useState({});
+  const [currentExperience, setCurrentExperience] = useState(emptyExperience);
 
   const handleExperience = (ex: any) => {
     setShowExperienceForm(true);
@@ -105,7 +123,7 @@ const ResumePage: NextPage = () => {
       {showExperienceForm &&
       <form className='fixed top-1/2 left-1/2 mx-auto w-96 bg-white p-2'>
         {EXPERIENCE_FORM_FIELDS.map((field)=>
-        <input className='p-2 mb-3 w-full border rounded' placeholder={field} value={currentExperience[field]} />
+        <input key={field} className='p-2 mb-3 w-full border rounded' placeholder={field} value={currentExperience[field]} />
         )}
       </form>
       }
