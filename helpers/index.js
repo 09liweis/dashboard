@@ -4,7 +4,11 @@ export function getAuthToken() {
   return localStorage.getItem('auth-token');
 }
 
-export async function fetchAPI({ method = 'POST', url, body = {} }) {
+export function setAuthToken(token) {
+  localStorage.setItem('auth-token',token);
+}
+
+export async function fetchAPI({ method = 'POST', url, body = {}, headers = {} }) {
   const opt = {
     method,
     headers: {
@@ -13,6 +17,7 @@ export async function fetchAPI({ method = 'POST', url, body = {} }) {
       'auth-token': getAuthToken(),
     },
   };
+  opt.headers = { ...opt.headers, ...headers };
   if (Object.keys(body).length) {
     opt.body = JSON.stringify(body);
   }
