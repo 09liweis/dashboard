@@ -77,24 +77,24 @@ const RESUME = {
 };
 
 interface Experience {
-  _id?:string
-  duty:Array<string>,
-  title:string,
-  company:string,
-  start_date:string,
-  end_date:string
+  _id?: string
+  duty: Array<string>,
+  title: string,
+  company: string,
+  start_date: string,
+  end_date: string
 };
 
 const emptyExperience: Experience = {
-  _id:'',
+  _id: '',
   title: '',
   duty: [],
   company: '',
   start_date: '',
-  end_date:''
+  end_date: ''
 };
 
-const EXPERIENCE_FORM_FIELDS = ['title','company','start_date','end_date'];
+const EXPERIENCE_FORM_FIELDS = ['title', 'company', 'start_date', 'end_date'];
 
 const ResumePage: NextPage = () => {
   const [resume, setResume] = useState(RESUME);
@@ -120,13 +120,13 @@ const ResumePage: NextPage = () => {
   return (
     <>
       {/* <section className='fixed top-0 left-0 w-full h-full bg-black-300'>    </section> */}
-      {showExperienceForm &&
+      {/* {showExperienceForm &&
       <form className='fixed top-1/2 left-1/2 mx-auto w-96 bg-white p-2'>
         {EXPERIENCE_FORM_FIELDS.map((field)=>
         <input key={field} className='p-2 mb-3 w-full border rounded' placeholder={field} value={currentExperience[field]} />
         )}
       </form>
-      }
+      } */}
       <h1 className='text-center font-bold text-2xl'>My Resume</h1>
       <section className='mt-4'>
         <h2 className='p-2 text-white bg-black text-lg inline-block'>Experience</h2>
