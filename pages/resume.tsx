@@ -129,6 +129,24 @@ const ResumePage: NextPage = () => {
       } */}
       <h1 className='text-center font-bold text-2xl'>My Resume</h1>
       <section className='mt-4'>
+        <p>Linkin</p>
+        <p>weisen.li@mail.utoronto.ca</p>
+        <p>Toronto, ON</p>        
+      </section>
+      <section className='mt-4'>
+        <h2 className='p-2 text-white bg-black text-lg inline-block'>Summary</h2>
+        <p>Passionate front-end web developer with 7 years of experience using JavaScript, React, Vue, HTML5, and
+          CSS3 to build all aspects of the user experience and user interface for client-facing web applications.
+          Able to provide technical solutions and work under pressure to achieve company goals</p>
+      </section>
+      <section className='mt-4'>
+        <h2 className='p-2 text-white bg-black text-lg inline-block'>Technical Skills</h2>
+        <p>Web Front End: HTML5, CSS3, JavaScript, ReactJs, VueJs, Angular, JQuery, SASS, Bootstrap, Tailwind</p>
+        <p>Server Side: NodeJs, Express, REST API, NextJs, Python, PHP</p>
+        <p>Database: MongoDB, MySQL</p>
+        <p>Operating System and Tools: MacOS, Window, VS Code, Jira, Github, Bitbucket, GitLab</p>
+      </section>
+      <section className='mt-4'>
         <h2 className='p-2 text-white bg-black text-lg inline-block'>Experience</h2>
         {experiencesHTML}
       </section>
