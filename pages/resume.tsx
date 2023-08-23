@@ -127,17 +127,16 @@ const ResumePage: NextPage = () => {
         )}
       </form>
       } */}
-      <h1 className='text-center font-bold text-2xl'>My Resume</h1>
+      <h1 className='text-center font-bold text-2xl font-mono'>Sam Resume</h1>
       <section className='mt-4'>
-        <p>Linkin</p>
+        <p>Linkedin</p>
         <p>weisen.li@mail.utoronto.ca</p>
         <p>Toronto, ON</p>        
       </section>
       <section className='mt-4'>
         <h2 className='p-2 text-white bg-black text-lg inline-block'>Summary</h2>
-        <p>Passionate front-end web developer with 7 years of experience using JavaScript, React, Vue, HTML5, and
-          CSS3 to build all aspects of the user experience and user interface for client-facing web applications.
-          Able to provide technical solutions and work under pressure to achieve company goals</p>
+        <p className='font-sans'>Passionate front-end web developer with <span className='underline decoration-sky-700'>8 years</span> of experience using <span className='underline decoration-pink-500'>JavaScript, React, Vue, HTML5, and CSS3</span> to build all aspects of the user experience and user interface for client-facing web applications.
+Able to provide technical solutions and work under pressure to achieve company goals</p>
       </section>
       <section className='mt-4'>
         <h2 className='p-2 text-white bg-black text-lg inline-block'>Technical Skills</h2>
