@@ -136,6 +136,18 @@ const ResumePage: NextPage = () => {
       }
     </article>
   )
+
+  const projectsHTML = resume.projects.map((p)=>
+    <article  className='my-3' key={p.name}>
+      <h3 className='font-bold border-l-2 border-black pl-2'>{p.name}</h3>
+      {p.features &&
+        <ul className='list-disc list-inside text-slate-900 dark:text-slate-200'>
+          {p.features.map((feature) => <li key={feature}>{feature}</li>)}
+        </ul>
+      }
+    </article>
+  );
+  
   return (
     <>
       {/* <section className='fixed top-0 left-0 w-full h-full bg-black-300'>    </section> */}
@@ -167,6 +179,10 @@ const ResumePage: NextPage = () => {
       <section className='mt-4'>
         <h2 className='p-2 text-white bg-black text-lg inline-block'>Experience</h2>
         {experiencesHTML}
+      </section>
+      <section className='mt-4'>
+        <h2 className='p-2 text-white bg-black text-lg inline-block'>Projects</h2>
+        {projectsHTML}
       </section>
     </>
   );
