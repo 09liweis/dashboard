@@ -2,6 +2,25 @@ import type { NextPage } from 'next';
 import { useState, useEffect } from 'react';
 
 const RESUME = {
+  projects: [
+    {
+      "name": "Nextjs project",
+      "features": [
+        "Write my own Tailwind style CSS for project",
+        "Implement graphql server with mongoose",
+        "Build expense tracking page with React and Chart.js"
+      ]
+    },
+    {
+      "name": "Samliweisen Resume",
+      "features": [
+        "Design and implement with HTML5/CSS3 with mobile first design",
+        "Created with React, React Router, React Redux",
+        "Implemented styled-component in react component",
+        "Host with Nodejs, expressJs, MongoDB as backend microsserver"
+      ]
+    }
+  ],
   experiences: [
     {
       "duty": [
@@ -131,12 +150,12 @@ const ResumePage: NextPage = () => {
       <section className='mt-4'>
         <p>Linkedin</p>
         <p>weisen.li@mail.utoronto.ca</p>
-        <p>Toronto, ON</p>        
+        <p>Toronto, ON</p>
       </section>
       <section className='mt-4'>
         <h2 className='p-2 text-white bg-black text-lg inline-block'>Summary</h2>
         <p className='font-sans'>Passionate front-end web developer with <span className='underline decoration-sky-700'>8 years</span> of experience using <span className='underline decoration-pink-500'>JavaScript, React, Vue, HTML5, and CSS3</span> to build all aspects of the user experience and user interface for client-facing web applications.
-Able to provide technical solutions and work under pressure to achieve company goals</p>
+          Able to provide technical solutions and work under pressure to achieve company goals</p>
       </section>
       <section className='mt-4'>
         <h2 className='p-2 text-white bg-black text-lg inline-block'>Technical Skills</h2>
