@@ -10,6 +10,7 @@ import { fetchAPI, getTranslate } from '../helpers';
 const DASHBOARD_CARDS = [
   { tl: 'todos', icon: 'list', bg: 'blue-400' },
   { tl: 'comments', icon: 'comments', bg: 'red-400' },
+  { tl: 'waifu', icon: 'pic', bg: 'purple-400' },
   { tl: 'expense', icon: 'dollar-sign', bg: 'green-500' },
   { tl: 'places', icon: 'location-dot', bg: 'indigo-500' },
   { tl: 'blogs', icon: 'blog', bg: 'purple-500' },
@@ -28,6 +29,10 @@ type Comment = {
   content: string;
 };
 
+type WaiFu = {
+  url: string
+};
+
 async function fetchTodos(): Promise<Array<Todo>> {
   return await fetchAPI({
     url: TODO_LIST_API,
@@ -44,6 +49,16 @@ async function fetchComments(): Promise<Array<Comment>> {
   });
 }
 
+/** 
+https://waifu.pics/docs
+*/
+async function fetchWaifuPic(): Promise<WaiFu> {
+  return await fetchAPI({
+    url: 'https://api.waifu.pics/sfw/waifu',
+    method: 'GET'
+  });
+}
+
 const Home: NextPage = () => {
   const { user, lang } = useContext(AppContext);
 
@@ -53,23 +68,29 @@ const Home: NextPage = () => {
   const emptyComments: Array<Comment> = [];
   const [comments, setComments] = useState(emptyComments);
 
+  const [waifuPic, setWaifuPic] = useState('');
+
   const renderCards = (type: string) => {
     const cardMapping: { [key: string]: any } = {
       todos: todos.map((todo) => <article key={todo._id}>{todo.name}</article>),
       comments: comments.map((comment) => (
         <article key={comment._id}>{comment.content}</article>
       )),
+      waifu: <img src={waifuPic} className='w-full' />
     };
     return cardMapping[type];
   };
 
   const fetchDashBoardData = async () => {
-    const [newTodos, newComments] = await Promise.all([
+    const [newTodos, newComments, newWaifuPic] = await Promise.all([
       fetchTodos(),
       fetchComments(),
+      fetchWaifuPic()
     ]);
     setTodos(newTodos);
     setComments(newComments);
+    setWaifuPic(newWaifuPic.url);
+    console.log(newWaifuPic);
   };
 
   useEffect(() => {
