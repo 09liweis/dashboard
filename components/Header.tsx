@@ -24,7 +24,7 @@ export default function Header({
   const asPath = router.asPath;
   return (
     <header className="top-3 left-3">
-      <section className="flex justify-between mb-3">
+      <section className="flex justify-between mb-2">
         <section>
           {getLanguageKeys().map(({ k, v }: { [k: string]: string }) => (
             <Link key={k} href={`${asPath}`} locale={k}>

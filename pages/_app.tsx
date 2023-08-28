@@ -74,7 +74,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             setUser={setUser}
             router={router}
           />
-          <section className="bg-card mt-3 p-3 rounded">
+          <section className="bg-card mt-2 p-2 rounded">
             {loading && <div>Loading...</div>}
             <Component {...pageProps} />
           </section>
