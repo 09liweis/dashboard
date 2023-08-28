@@ -21,6 +21,8 @@ export const EXPENSE_CATEGORIES_API = `${API_SERVER}transactions/categories`;
 
 export const TODO_LIST_API = `${API_SERVER}todos`;
 
+export const CONTACT_LIST_API = `${API_SERVER}contacts`;
+
 export const COMMENT_LIST_API = `${API_SERVER}comments`;
 
 export const BLOG_LIST_API = `${API_SERVER}blogs`;
