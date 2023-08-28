@@ -35,9 +35,9 @@ const ContactsPage: NextPage = () => {
   const contactsHTML = contacts.map((contact) => (
     <article
       key={contact._id}
-      className="relative shadow-lg bg-white/[30%] rounded-lg p-2 mb-2 flex justify-between"
+      className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 relative shadow-lg bg-white/[30%] rounded-lg p-2 mb-2 flex justify-between"
     >
-      <h2 className="text-teal-600 cursor-pointer" onClick={()=>handleContactEdit(contact)} >{contact.name}</h2>
+      <h2 className="text-teal-600 cursor-pointer" onClick={() => handleContactEdit(contact)} >{contact.name}</h2>
       <span className="text-blue-500">{contact.groups}</span>
       {user._id && (
         <span
@@ -50,7 +50,7 @@ const ContactsPage: NextPage = () => {
     </article>
   ));
 
-  const handleContactEdit = async (contact:Contact) => {
+  const handleContactEdit = async (contact: Contact) => {
     setContact(contact);
   }
 
@@ -77,7 +77,7 @@ const ContactsPage: NextPage = () => {
       url += `/${contact._id}`;
       method = 'PUT';
     }
-    const todoResponse = await fetchAPI({ url, body: contact,method });
+    const todoResponse = await fetchAPI({ url, body: contact, method });
     if (todoResponse) {
       fetchContacts();
       setContact(emptyContact);
@@ -87,10 +87,11 @@ const ContactsPage: NextPage = () => {
   return (
     <section>
       <h1 className='mb-3 text-2xl font-bold'>Total <span className='text-red-700 underline'>{contacts.length}</span> Contacts</h1>
-      {contactsHTML}
+      <section className='flex flex-wrap'>
+        {contactsHTML}
+      </section>
       {user._id && (
         <>
-
           <form onSubmit={handleContactSubmit}>
             <input
               placeholder='name'
