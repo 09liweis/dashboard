@@ -36,6 +36,12 @@ const ContactsPage: NextPage = () => {
     fetchContacts();
   }, []);
 
+  useEffect(()=> {
+    if (!showForm) {
+      setContact(emptyContact);
+    }
+  },[showForm]);
+
   const contactsHTML = contacts.map((contact) => (
     <article
       key={contact._id}
