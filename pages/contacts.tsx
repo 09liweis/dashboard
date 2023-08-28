@@ -15,6 +15,8 @@ const ContactsPage: NextPage = () => {
   const emptyContact: Contact = { _id: '', name: '', group: '' };
   const [contact, setContact] = useState(emptyContact);
 
+  const [showForm, setShowForm] = useState(false);
+
   const { user } = useContext(AppContext);
 
   const fetchContacts = async () => {
@@ -51,7 +53,9 @@ const ContactsPage: NextPage = () => {
   ));
 
   const handleContactEdit = async (contact: Contact) => {
+    contact.group = contact.groups[0];
     setContact(contact);
+    setShowForm(true);
   }
 
   const handleContactDelete = async (id: string) => {
@@ -81,6 +85,7 @@ const ContactsPage: NextPage = () => {
     if (todoResponse) {
       fetchContacts();
       setContact(emptyContact);
+      setShowForm(false);
     }
   };
 
@@ -90,25 +95,26 @@ const ContactsPage: NextPage = () => {
       <section className='flex flex-wrap'>
         {contactsHTML}
       </section>
-      {user._id && (
-        <>
-          <form onSubmit={handleContactSubmit}>
+      <div className="fixed right-3 bottom-3 p-2 rounded-full font-bold text-lg shadow-lg bg-white leading-3 cursor-pointer" onClick={()=>setShowForm(true)}>+</div>
+      {user._id && showForm && (
+        <section className='fixed w-full h-full left-0 top-0 bg-gray-600 flex justify-center items-center'>
+          <a className='cursor-pointer transition duration-300 hover:scale-105 absolute top-5 right-5 text-white bg-red-800 p-2 rounded' onClick={()=>setShowForm(false)}>Close</a>
+          <form onSubmit={handleContactSubmit} className='w-96 bg-white p-2 rounded'>
             <input
+              className='w-full mb-2 p-2 border rounded'
               placeholder='name'
               value={contact.name}
               onChange={(e) => handleContactChange('name', e.target.value)}
             />
             <input
+              className='w-full mb-2 p-2 border rounded'
               placeholder='group'
               value={contact.group}
               onChange={(e) => handleContactChange('group', e.target.value)}
             />
-            <button type="submit">Add</button>
+            <button className='duration-300 transition hover:scale-105 bg-green-800 text-white p-2 border rounded' type="submit">{contact._id?'Update':'Add'}</button>
           </form>
-          <div className="fixed right-3 bottom-3 p-2 rounded-full font-bold text-lg shadow-lg bg-white leading-3 cursor-pointer">
-            +
-          </div>
-        </>
+        </section>
       )}
     </section>
   );
