@@ -130,7 +130,7 @@ const ResumePage: NextPage = () => {
       <h3 className='font-bold border-l-2 border-black pl-2'>{e.title} - {e.company}</h3>
       <p className='text-gray-600'>{e.start_date} - {e.end_date || 'Present'}</p>
       {e.duty &&
-        <ul className='list-disc list-inside text-slate-900 dark:text-slate-200'>
+        <ul className='list-disc list-inside text-slate-900 dark:text-slate-600'>
           {e.duty.map((duty) => <li key={duty}>{duty}</li>)}
         </ul>
       }
@@ -141,7 +141,7 @@ const ResumePage: NextPage = () => {
     <article  className='my-3' key={p.name}>
       <h3 className='font-bold border-l-2 border-black pl-2'>{p.name}</h3>
       {p.features &&
-        <ul className='list-disc list-inside text-slate-900 dark:text-slate-200'>
+        <ul className='list-disc list-inside text-slate-900 dark:text-slate-600'>
           {p.features.map((feature) => <li key={feature}>{feature}</li>)}
         </ul>
       }
