@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import AppContext from '../AppContext';
 import { CONTACT_LIST_API } from '../constants';
 import { fetchAPI } from '../helpers';
+import Loading from '../components/Loading';
 
 interface Contact {
   [key: string]: string;
@@ -16,6 +17,7 @@ const ContactsPage: NextPage = () => {
   const [contact, setContact] = useState(emptyContact);
 
   const [showForm, setShowForm] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const { user } = useContext(AppContext);
 
@@ -74,6 +76,7 @@ const ContactsPage: NextPage = () => {
   };
 
   const handleContactSubmit = async (e: any) => {
+    setLoading(true);
     e.preventDefault();
     let url = CONTACT_LIST_API;
     let method = 'POST';
@@ -87,6 +90,7 @@ const ContactsPage: NextPage = () => {
       setContact(emptyContact);
       setShowForm(false);
     }
+    setLoading(false);
   };
 
   return (
@@ -112,7 +116,7 @@ const ContactsPage: NextPage = () => {
               value={contact.group}
               onChange={(e) => handleContactChange('group', e.target.value)}
             />
-            <button className='duration-300 transition hover:scale-105 bg-green-800 text-white p-2 border rounded' type="submit">{contact._id?'Update':'Add'}</button>
+            <button className='duration-300 transition hover:scale-105 bg-green-800 text-white p-2 border rounded' type="submit">{loading && <Loading/>}{contact._id?'Update':'Add'}</button>
           </form>
         </section>
       )}
