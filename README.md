@@ -16,10 +16,16 @@
 
 - [ ] todo page, style todo form
 - [ ] update, delete todo
-- [ ] user github sign up
-- [ ] user resume page
+- [x] user github sign up
+- [x] user resume page
+- [x] contact page list
+- [x] contact form
 - [ ] project dashboard page
 - [ ] experience dashboard page
 - [ ] resume public url
 - [ ] background image change randomly
-- [ ] implement https://waifu.pics/docs
+- [x] implement https://waifu.pics/docs
+- [ ] todo statistic with fastapi
+- [ ] movie statistic with something
+- [ ] blog statistic with go
+- [ ] expense statistic with something
