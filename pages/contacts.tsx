@@ -39,18 +39,20 @@ const ContactsPage: NextPage = () => {
   const contactsHTML = contacts.map((contact) => (
     <article
       key={contact._id}
-      className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 relative shadow-lg bg-white/[30%] rounded-lg p-2 mb-2 flex justify-between"
+      className="group w-full sm:w-1/2 md:w-1/3 lg:w-1/4 relative shadow-lg bg-white/[30%] rounded-lg p-2 mb-2 flex justify-between"
     >
       <h2 className="text-teal-600 cursor-pointer" onClick={() => handleContactEdit(contact)} >{contact.name}</h2>
-      <span className="text-blue-500">{contact.groups}</span>
-      {user._id && (
-        <span
-          className="cursor-pointer absolute right-0 top-0"
-          onClick={() => handleContactDelete(contact._id)}
-        >
-          X
-        </span>
-      )}
+      <section>
+        <span className="text-blue-500">{contact.groups}</span>
+        {user._id && (
+          <span
+            className="group-hover:opacity-100 hover:scale-105 rounded duration-300 transition cursor-pointer bg-red-800 text-white p-1 opacity-0"
+            onClick={() => handleContactDelete(contact._id)}
+          >
+            X
+          </span>
+        )}
+      </section>
     </article>
   ));
 
