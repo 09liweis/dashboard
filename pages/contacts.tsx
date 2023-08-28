@@ -37,7 +37,7 @@ const ContactsPage: NextPage = () => {
       key={contact._id}
       className="relative shadow-lg bg-white/[30%] rounded-lg p-2 mb-2 flex justify-between"
     >
-      <h2 className="text-teal-600">{contact.name}</h2>
+      <h2 className="text-teal-600 cursor-pointer" onClick={()=>handleContactEdit(contact)} >{contact.name}</h2>
       <span className="text-blue-500">{contact.groups}</span>
       {user._id && (
         <span
@@ -49,6 +49,10 @@ const ContactsPage: NextPage = () => {
       )}
     </article>
   ));
+
+  const handleContactEdit = async (contact:Contact) => {
+    setContact(contact);
+  }
 
   const handleContactDelete = async (id: string) => {
     const todoResponse = await fetchAPI({
@@ -67,7 +71,13 @@ const ContactsPage: NextPage = () => {
 
   const handleContactSubmit = async (e: any) => {
     e.preventDefault();
-    const todoResponse = await fetchAPI({ url: CONTACT_LIST_API, body: contact });
+    let url = CONTACT_LIST_API;
+    let method = 'POST';
+    if (contact._id) {
+      url += `/${contact._id}`;
+      method = 'PUT';
+    }
+    const todoResponse = await fetchAPI({ url, body: contact,method });
     if (todoResponse) {
       fetchContacts();
       setContact(emptyContact);
@@ -76,7 +86,7 @@ const ContactsPage: NextPage = () => {
 
   return (
     <section>
-      <h1>Contacts</h1>
+      <h1 className='mb-3 text-2xl font-bold'>Total <span className='text-red-700 underline'>{contacts.length}</span> Contacts</h1>
       {contactsHTML}
       {user._id && (
         <>
