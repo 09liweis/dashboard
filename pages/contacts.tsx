@@ -102,12 +102,14 @@ const ContactsPage: NextPage = () => {
   };
 
   return (
-    <section>
+    <>
       <h1 className='mb-3 text-2xl font-bold'>Total <span className='text-red-700 underline'>{contacts.length}</span> Contacts</h1>
       <section className='flex flex-wrap'>
         {contactsHTML}
       </section>
-      <div className="fixed right-3 bottom-3 p-2 rounded-full font-bold text-lg shadow-lg bg-white leading-3 cursor-pointer" onClick={()=>setShowForm(true)}>+</div>
+      {user._id &&
+        <div className="fixed right-3 bottom-3 p-2 rounded-full font-bold text-lg shadow-lg bg-white leading-3 cursor-pointer" onClick={()=>setShowForm(true)}>+</div>
+      }
       {user._id && showForm && (
         <section className='fixed w-full h-full left-0 top-0 bg-gray-600 flex justify-center items-center'>
           <a className='cursor-pointer transition duration-300 hover:scale-105 absolute top-5 right-5 text-white bg-red-800 p-2 rounded' onClick={()=>setShowForm(false)}>Close</a>
@@ -128,7 +130,7 @@ const ContactsPage: NextPage = () => {
           </form>
         </section>
       )}
-    </section>
+    </>
   );
 };
 
