@@ -107,8 +107,13 @@ const Home: NextPage = () => {
   const [dogPic, setDogPic] = useState('');
 
   const emptyQuote: Quote = {
+    _id: '',
     content:'',
-    author:''
+    author:'',
+    authorSlug:'',
+    tags:[],
+    dateAdded:'',
+    dateModified:''
   }
   const [randomQuote, setRandomQuote] = useState(emptyQuote);
 
