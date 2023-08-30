@@ -153,6 +153,13 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     fetchDashBoardData();
+
+    const fetchTimer = setInterval(()=>{
+      fetchDashBoardData();
+    },5000);
+
+    return (()=>clearInterval(fetchTimer));
+    
   }, []);
   return (
     <section className="flex flex-wrap">
