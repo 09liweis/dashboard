@@ -157,7 +157,7 @@ const Home: NextPage = () => {
   return (
     <section className="flex flex-wrap">
       {DASHBOARD_CARDS.map(({ tl, icon, bg }) => (
-        <article key={tl} className="p-1 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+        <article key={tl} className="p-1 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5">
           <div className={`p-2 drop-shadow-md shadow-lg bg-${bg}`}>
             <h2 className="text-2xl text-white capitalize">
               <Icon name={icon} classNames={'mr-2'} />
