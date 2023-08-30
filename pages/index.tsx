@@ -8,9 +8,11 @@ import { COMMENT_LIST_API, TODO_LIST_API } from '../constants';
 import { fetchAPI, getTranslate } from '../helpers';
 
 const DASHBOARD_CARDS = [
+  { tl: 'waifu', icon: 'person-dress', bg: 'purple-400' },
+  { tl: 'dog', icon: 'dog', bg: 'purple-400' },
+  { tl: 'cat', icon: 'cat', bg: 'purple-400' },
   { tl: 'todos', icon: 'list', bg: 'blue-400' },
   { tl: 'comments', icon: 'comments', bg: 'red-400' },
-  { tl: 'waifu', icon: 'pic', bg: 'purple-400' },
   { tl: 'expense', icon: 'dollar-sign', bg: 'green-500' },
   { tl: 'places', icon: 'location-dot', bg: 'indigo-500' },
   { tl: 'blogs', icon: 'blog', bg: 'purple-500' },
@@ -32,6 +34,13 @@ type Comment = {
 type WaiFu = {
   url: string
 };
+
+type Animal = {
+  url: string,
+  id: string,
+  width: number,
+  height: number
+}
 
 async function fetchTodos(): Promise<Array<Todo>> {
   return await fetchAPI({
@@ -59,6 +68,13 @@ async function fetchWaifuPic(): Promise<WaiFu> {
   });
 }
 
+async function fetchAnimalPic(animal: string): Promise<Array<Animal>> {
+  return await fetchAPI({
+    url: `https://api.the${animal}api.com/v1/images/search`,
+    method: 'GET'
+  });
+}
+
 const Home: NextPage = () => {
   const { user, lang } = useContext(AppContext);
 
@@ -69,6 +85,8 @@ const Home: NextPage = () => {
   const [comments, setComments] = useState(emptyComments);
 
   const [waifuPic, setWaifuPic] = useState('');
+  const [catPic, setCatPic] = useState('');
+  const [dogPic, setDogPic] = useState('');
 
   const renderCards = (type: string) => {
     const cardMapping: { [key: string]: any } = {
@@ -76,21 +94,26 @@ const Home: NextPage = () => {
       comments: comments.map((comment) => (
         <article key={comment._id}>{comment.content}</article>
       )),
-      waifu: <img src={waifuPic} className='w-full' />
+      waifu: <img src={waifuPic} className='w-full' />,
+      dog: <img src={dogPic} className='w-full' />,
+      cat: <img src={catPic} className='w-full' />
     };
     return cardMapping[type];
   };
 
   const fetchDashBoardData = async () => {
-    const [newTodos, newComments, newWaifuPic] = await Promise.all([
+    const [newTodos, newComments, newWaifuPic,dogPics,catPics] = await Promise.all([
       fetchTodos(),
       fetchComments(),
-      fetchWaifuPic()
+      fetchWaifuPic(),
+      fetchAnimalPic('dog'),
+      fetchAnimalPic('cat')
     ]);
     setTodos(newTodos);
     setComments(newComments);
     setWaifuPic(newWaifuPic.url);
-    console.log(newWaifuPic);
+    setDogPic(dogPics[0].url);
+    setCatPic(catPics[0].url);
   };
 
   useEffect(() => {
