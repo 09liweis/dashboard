@@ -11,6 +11,7 @@ const DASHBOARD_CARDS = [
   { tl: 'waifu', icon: 'person-dress', bg: 'purple-400' },
   { tl: 'dog', icon: 'dog', bg: 'purple-400' },
   { tl: 'cat', icon: 'cat', bg: 'purple-400' },
+  { tl: 'quote', icon: 'blog', bg: 'purple-600' },
   { tl: 'todos', icon: 'list', bg: 'blue-400' },
   { tl: 'comments', icon: 'comments', bg: 'red-400' },
   { tl: 'expense', icon: 'dollar-sign', bg: 'green-500' },
@@ -75,6 +76,23 @@ async function fetchAnimalPic(animal: string): Promise<Array<Animal>> {
   });
 }
 
+type Quote = {
+  _id:string,
+  content:string,
+  author:string,
+  authorSlug:string
+  tags:Array<string>,
+  dateAdded:string,
+  dateModified:string
+}
+
+async function fetchRandomQuote(): Promise<Quote> {
+  return await fetchAPI({
+    url: `https://api.quotable.io/random`,
+    method: 'GET'
+  });
+}
+
 const Home: NextPage = () => {
   const { user, lang } = useContext(AppContext);
 
@@ -88,6 +106,12 @@ const Home: NextPage = () => {
   const [catPic, setCatPic] = useState('');
   const [dogPic, setDogPic] = useState('');
 
+  const emptyQuote: Quote = {
+    content:'',
+    author:''
+  }
+  const [randomQuote, setRandomQuote] = useState(emptyQuote);
+
   const renderCards = (type: string) => {
     const cardMapping: { [key: string]: any } = {
       todos: todos.map((todo) => <article key={todo._id}>{todo.name}</article>),
@@ -96,24 +120,30 @@ const Home: NextPage = () => {
       )),
       waifu: <img src={waifuPic} className='w-full' />,
       dog: <img src={dogPic} className='w-full' />,
-      cat: <img src={catPic} className='w-full' />
+      cat: <img src={catPic} className='w-full' />,
+      quote: <article className='text-white'>
+              <h2 className='text-lg font-bold'>{randomQuote.author}</h2>
+              <p>{randomQuote.content}</p>
+            </article>
     };
     return cardMapping[type];
   };
 
   const fetchDashBoardData = async () => {
-    const [newTodos, newComments, newWaifuPic,dogPics,catPics] = await Promise.all([
+    const [newTodos, newComments, newWaifuPic,dogPics,catPics,quote] = await Promise.all([
       fetchTodos(),
       fetchComments(),
       fetchWaifuPic(),
       fetchAnimalPic('dog'),
-      fetchAnimalPic('cat')
+      fetchAnimalPic('cat'),
+      fetchRandomQuote()
     ]);
     setTodos(newTodos);
     setComments(newComments);
     setWaifuPic(newWaifuPic.url);
     setDogPic(dogPics[0].url);
     setCatPic(catPics[0].url);
+    setRandomQuote(quote);
   };
 
   useEffect(() => {
