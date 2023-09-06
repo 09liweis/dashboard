@@ -25,7 +25,7 @@ const RESUME = {
     {
       "duty": [
         "Rewrite MRIS portal with React.js",
-        "Build reusable HTML components with tailwind style for lottery ticket desig",
+        "Build reusable HTML components with tailwind style for lottery ticket design",
         "Conduct code reviews and provide constructive feedback to ensure code quality and adherence to best practices",
         "Help teammate solving technical problems"
       ],
@@ -137,8 +137,8 @@ const ResumePage: NextPage = () => {
     </article>
   )
 
-  const projectsHTML = resume.projects.map((p)=>
-    <article  className='my-3' key={p.name}>
+  const projectsHTML = resume.projects.map((p) =>
+    <article className='my-3' key={p.name}>
       <h3 className='font-bold border-l-2 border-black pl-2'>{p.name}</h3>
       {p.features &&
         <ul className='list-disc list-inside text-slate-900 dark:text-slate-600'>
@@ -147,7 +147,7 @@ const ResumePage: NextPage = () => {
       }
     </article>
   );
-  
+
   return (
     <>
       {/* <section className='fixed top-0 left-0 w-full h-full bg-black-300'>    </section> */}
@@ -171,10 +171,10 @@ const ResumePage: NextPage = () => {
       </section>
       <section className='mt-4'>
         <h2 className='p-2 text-white bg-black text-lg inline-block'>Technical Skills</h2>
-        <p>Web Front End: HTML5, CSS3, JavaScript, ReactJs, VueJs, Angular, JQuery, SASS, Bootstrap, Tailwind</p>
-        <p>Server Side: NodeJs, Express, REST API, NextJs, Python, PHP</p>
-        <p>Database: MongoDB, MySQL</p>
-        <p>Operating System and Tools: MacOS, Window, VS Code, Jira, Github, Bitbucket, GitLab</p>
+        <p><b>Web Front End:</b> HTML5, CSS3, JavaScript, ReactJs, VueJs, Angular, JQuery, SASS, Bootstrap, Tailwind</p>
+        <p><b>Server Side:</b> NodeJs, Express, REST API, NextJs, Python, PHP</p>
+        <p><b>Database:</b> MongoDB, MySQL</p>
+        <p><b>Operating System and Tools:</b> MacOS, Window, VS Code, Jira, Github, Bitbucket, GitLab</p>
       </section>
       <section className='mt-4'>
         <h2 className='p-2 text-white bg-black text-lg inline-block'>Experience</h2>
