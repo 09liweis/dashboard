@@ -1,6 +1,4 @@
 import type { GetServerSideProps, GetStaticProps, NextPage } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
 import { useContext, useEffect, useState } from 'react';
 import AppContext from '../AppContext';
 import Icon from '../components/Icon';
