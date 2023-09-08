@@ -156,7 +156,7 @@ const Home: NextPage = () => {
 
     const fetchTimer = setInterval(() => {
       fetchDashBoardData();
-    }, 10 * 1000);
+    }, 15 * 1000);
 
     return (() => clearInterval(fetchTimer));
 
