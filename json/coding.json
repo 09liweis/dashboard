@@ -170,7 +170,7 @@
   {
     "nm": "skills",
     "items": [
-      { "nm": "function signature" },
+      { "nm": "function signature", "what": "define a function name, parameter, return " },
       {
         "nm": "防抖: debounce, prevent the event trigger from being fired too often"
       },
