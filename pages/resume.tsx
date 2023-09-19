@@ -24,10 +24,11 @@ const RESUME = {
   experiences: [
     {
       "duty": [
-        "Rewrite MRIS portal with React.js",
-        "Build reusable HTML components with tailwind style for lottery ticket design",
+        "Lead team members to rewrite MRIS portal from Jquery to React.js",
+        "Lead team members to build reusable HTML components with tailwind style for lottery ticket design",
         "Conduct code reviews and provide constructive feedback to ensure code quality and adherence to best practices",
-        "Help teammate solving technical problems"
+        "Created detailed design documentation, unit test plans, and well-documented Java code with Summerboot framework.",
+        "Learned company standards of application software development, Agile, and iterative development methodologies."
       ],
       "title": "Front End Developer",
       "company": "OLG",
@@ -172,7 +173,7 @@ const ResumePage: NextPage = () => {
       <section className='mt-4'>
         <h2 className='p-2 text-white bg-black text-lg inline-block'>Technical Skills</h2>
         <p><b>Web Front End:</b> HTML5, CSS3, JavaScript, ReactJs, VueJs, Angular, JQuery, SASS, Bootstrap, Tailwind</p>
-        <p><b>Server Side:</b> NodeJs, Express, REST API, NextJs, Python, PHP</p>
+        <p><b>Server Side:</b> NodeJs, Express, REST API, NextJs, Java, Python, PHP</p>
         <p><b>Database:</b> MongoDB, MySQL</p>
         <p><b>Operating System and Tools:</b> MacOS, Window, VS Code, Jira, Github, Bitbucket, GitLab</p>
       </section>
