@@ -8,7 +8,7 @@ const NAV_LINKS = [
   { tl: 'home', url: '/', icon: 'house-user' },
   { tl: 'knowledges', url: '/knowledges', icon: 'book' },
   { tl: 'todos', url: '/todos', icon: 'list' },
-  // { tl: 'videos', url: '/videos', icon: 'video' },
+  { tl: 'videos', url: '/videos', icon: 'video' },
   { tl: 'expense', url: '/expense', icon: 'piggy-bank' },
   { tl: 'blogs', url: '/blogs', icon: 'piggy-bank' },
   // { tl: 'subscription', url: '/newsletter', icon: 'envelope' },
@@ -61,9 +61,8 @@ export default function Header({
         {NAV_LINKS.map((nav) => (
           <Link key={nav.url} href={nav.url}>
             <span
-              className={`mr-2 cursor-pointer text-red-500 hover:text-red-600 transition duration-300 ${
-                nav.url == asPath ? 'border-b-2 border-red-500' : ''
-              }`}
+              className={`mr-2 cursor-pointer text-red-500 hover:text-red-600 transition duration-300 ${nav.url == asPath ? 'border-b-2 border-red-500' : ''
+                }`}
             >
               <Icon name={nav.icon} /> {getTranslate(lang, nav.tl)}
             </span>
