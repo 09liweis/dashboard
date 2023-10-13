@@ -27,6 +27,6 @@ export const COMMENT_LIST_API = `${API_SERVER}comments`;
 
 export const BLOG_LIST_API = `${API_SERVER}blogs`;
 
-export const VIDEO_LIST_API = `${API_SERVER}visuals/bilibili`;
+export const VIDEO_LIST_API = `${API_SERVER}videos/bilibili`;
 
 export const USER_AUTH_API = `${API_SERVER}user/auth`;
