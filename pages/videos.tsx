@@ -33,25 +33,22 @@ const VideosPage: NextPage = () => {
   const videosHTML = videos.map((v) => (
     <article
       key={v.bvid}
-      className="relative shadow-lg bg-white/[30%] rounded-lg mb-2 flex justify-between sm:w-1/2 md:w-1/3 lg:w-1/4"
+      className="relative p-1 flex justify-between sm:w-1/2 md:w-1/3 lg:w-1/4"
     >
+      <section className='p-1 shadow-lg bg-white/[30%] rounded-lg'>
       {v.pic &&
         (
           <Image
             src={v.pic}
             className="rounded"
             alt={v.title}
-            sizes="100vw"
-            style={{
-              width: '100%',
-              height: 'auto',
-            }}
             width={500}
             height={300}         
           />
         )
         /*< img src={v.pic} className="w-full rounded-lg" alt={v.title} />*/
       }
+      </section>
     </article>
   ));
 
