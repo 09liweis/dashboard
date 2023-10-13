@@ -11,7 +11,7 @@ const NAV_LINKS = [
   // { tl: 'videos', url: '/videos', icon: 'video' },
   { tl: 'expense', url: '/expense', icon: 'piggy-bank' },
   { tl: 'blogs', url: '/blogs', icon: 'piggy-bank' },
-  { tl: 'subscription', url: '/newsletter', icon: 'envelope' },
+  // { tl: 'subscription', url: '/newsletter', icon: 'envelope' },
 ];
 
 export default function Header({
@@ -61,7 +61,7 @@ export default function Header({
         {NAV_LINKS.map((nav) => (
           <Link key={nav.url} href={nav.url}>
             <span
-              className={`mr-3 cursor-pointer text-red-500 hover:text-red-600 transition duration-300 ${
+              className={`mr-2 cursor-pointer text-red-500 hover:text-red-600 transition duration-300 ${
                 nav.url == asPath ? 'border-b-2 border-red-500' : ''
               }`}
             >
