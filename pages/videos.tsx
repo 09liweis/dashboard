@@ -13,12 +13,23 @@ interface Video {
   };
 }
 
+interface Feed {
+  dynamic_id: number;
+  type: string;//"PIC_POST"|"VIDEO"
+  item: {
+    title: string,
+    description: string,
+    pictures: []
+  }
+
+}
+
 const VideosPage: NextPage = () => {
   const emptyVideos: Array<Video> = [];
   const [videos, setVideos] = useState(emptyVideos);
 
   const fetchVideos = async () => {
-    const { allVideos } = await fetchAPI({
+    const { allVideos, dynamics } = await fetchAPI({
       method: 'GET',
       url: VIDEO_LIST_API,
       body: {},
@@ -36,18 +47,17 @@ const VideosPage: NextPage = () => {
       className="relative p-1 flex justify-between sm:w-1/2 md:w-1/3 lg:w-1/4"
     >
       <section className='p-1 shadow-lg bg-white/[30%] rounded-lg'>
-      {v.pic &&
-        (
-          <Image
-            src={v.pic}
-            className="rounded"
-            alt={v.title}
-            width={500}
-            height={300}         
-          />
-        )
-        /*< img src={v.pic} className="w-full rounded-lg" alt={v.title} />*/
-      }
+        {v.pic &&
+          (
+            <Image
+              src={v.pic}
+              className="rounded"
+              alt={v.title}
+              width={500}
+              height={300}
+            />
+          )
+        }
       </section>
     </article>
   ));
