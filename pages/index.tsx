@@ -1,5 +1,6 @@
 import type { GetServerSideProps, GetStaticProps, NextPage } from 'next';
 import { useContext, useEffect, useState } from 'react';
+import Image from 'next/image';
 import AppContext from '../AppContext';
 import Icon from '../components/Icon';
 import { COMMENT_LIST_API, TODO_LIST_API } from '../constants';
@@ -57,6 +58,19 @@ async function fetchComments(): Promise<Array<Comment>> {
   });
 }
 
+interface Movie {
+  douban_poster: string,
+  title: string
+}
+
+async function fetchRandomMovie(): Promise<Movie> {
+  return await fetchAPI({
+    url: 'https://samliweisen.onrender.com/api/movies/update_random',
+    method: 'PUT',
+    body: {}
+  })
+}
+
 /** 
 https://waifu.pics/docs
 */
@@ -104,6 +118,9 @@ const Home: NextPage = () => {
   const [catPic, setCatPic] = useState('');
   const [dogPic, setDogPic] = useState('');
 
+  const emptyMovie: Movie = {};
+  const [randomMovie, setRandomMovie] = useState(emptyMovie);
+
   const emptyQuote: Quote = {
     _id: '',
     content: '',
@@ -121,6 +138,7 @@ const Home: NextPage = () => {
       comments: comments.map((comment) => (
         <article key={comment._id}>{comment.content}</article>
       )),
+      movie: randomMovie.douban_poster?<Image src={randomMovie.douban_poster} alt={randomMovie.title} className='w-full' width={300} height={500} />:null,
       waifu: <img src={waifuPic} className='w-full' />,
       dog: <img src={dogPic} className='w-full' />,
       cat: <img src={catPic} className='w-full' />,
@@ -133,13 +151,14 @@ const Home: NextPage = () => {
   };
 
   const fetchDashBoardData = async () => {
-    const [newTodos, newComments, newWaifuPic, dogPics, catPics, quote] = await Promise.all([
+    const [newTodos, newComments, newWaifuPic, dogPics, catPics, quote, movie] = await Promise.all([
       fetchTodos(),
       fetchComments(),
       fetchWaifuPic(),
       fetchAnimalPic('dog'),
       fetchAnimalPic('cat'),
-      fetchRandomQuote()
+      fetchRandomQuote(),
+      fetchRandomMovie()
     ]);
     setTodos(newTodos);
     setComments(newComments);
@@ -147,6 +166,7 @@ const Home: NextPage = () => {
     setDogPic(dogPics[0].url);
     setCatPic(catPics[0].url);
     setRandomQuote(quote);
+    setRandomMovie(movie);
   };
 
   useEffect(() => {
@@ -154,7 +174,7 @@ const Home: NextPage = () => {
 
     const fetchTimer = setInterval(() => {
       fetchDashBoardData();
-    }, 15 * 1000);
+    }, 60 * 1000);
 
     return (() => clearInterval(fetchTimer));
 
