@@ -7,6 +7,12 @@ const nextConfig = {
     CHATKITTY_API_KEY: process.env.CHATKITTY_API_KEY,
   },
   images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**.doubanio.com',
+      },
+    ],
     domains: [
       'img9.doubanio.com',
       'api.chatkitty.com',
