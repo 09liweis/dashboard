@@ -138,7 +138,7 @@ const Home: NextPage = () => {
       comments: comments.map((comment) => (
         <article key={comment._id}>{comment.content}</article>
       )),
-      movie: randomMovie.douban_poster ? <Image src={randomMovie.douban_poster} alt={randomMovie.title} className='w-full' width={300} height={500} /> : null,
+      movie: randomMovie.poster ? <Image src={randomMovie.poster} alt={randomMovie.title} className='w-full' width={300} height={500} /> : null,
       waifu: <img src={waifuPic} className='w-full' />,
       dog: <img src={dogPic} className='w-full' />,
       cat: <img src={catPic} className='w-full' />,
