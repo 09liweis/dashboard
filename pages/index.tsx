@@ -59,7 +59,7 @@ async function fetchComments(): Promise<Array<Comment>> {
 }
 
 interface Movie {
-  douban_poster: string,
+  poster: string,
   title: string
 }
 
@@ -118,7 +118,7 @@ const Home: NextPage = () => {
   const [catPic, setCatPic] = useState('');
   const [dogPic, setDogPic] = useState('');
 
-  const emptyMovie: Movie = {};
+  const emptyMovie: Movie = { poster: '', title: '' };
   const [randomMovie, setRandomMovie] = useState(emptyMovie);
 
   const emptyQuote: Quote = {
@@ -138,7 +138,7 @@ const Home: NextPage = () => {
       comments: comments.map((comment) => (
         <article key={comment._id}>{comment.content}</article>
       )),
-      movie: randomMovie.douban_poster?<Image src={randomMovie.douban_poster} alt={randomMovie.title} className='w-full' width={300} height={500} />:null,
+      movie: randomMovie.douban_poster ? <Image src={randomMovie.douban_poster} alt={randomMovie.title} className='w-full' width={300} height={500} /> : null,
       waifu: <img src={waifuPic} className='w-full' />,
       dog: <img src={dogPic} className='w-full' />,
       cat: <img src={catPic} className='w-full' />,
