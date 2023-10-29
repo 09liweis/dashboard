@@ -543,7 +543,11 @@
   {
     "nm": "cloud server",
     "items": [
-      { "nm": "aws" },
+      {
+        "nm": "aws", "items": [
+          { "nm": "amplify", "what": "Front end application host" }
+        ]
+      },
       { "nm": "google cloud" },
       { "nm": "azure" },
       { "nm": "aliyun" },
