@@ -97,18 +97,19 @@ const RESUME = {
 };
 
 interface Experience {
-  _id?: string
-  duty: Array<string>,
-  title: string,
-  company: string,
-  start_date: string,
-  end_date: string
+  // _id?: string
+  // duty: Array<string>,
+  // title: string,
+  // company: string,
+  // start_date: string,
+  // end_date: string,
+  [key: string]: '',
 };
 
 const emptyExperience: Experience = {
   _id: '',
   title: '',
-  duty: [],
+  // duty: [],
   company: '',
   start_date: '',
   end_date: ''
@@ -149,16 +150,19 @@ const ResumePage: NextPage = () => {
     </article>
   );
 
+  const btnStyleClassName = 'p-1.5 text-white bg-black text-lg inline-block';
+
   return (
     <>
-      {/* <section className='fixed top-0 left-0 w-full h-full bg-black-300'>    </section> */}
-      {/* {showExperienceForm &&
-      <form className='fixed top-1/2 left-1/2 mx-auto w-96 bg-white p-2'>
-        {EXPERIENCE_FORM_FIELDS.map((field)=>
-        <input key={field} className='p-2 mb-3 w-full border rounded' placeholder={field} value={currentExperience[field]} />
-        )}
-      </form>
-      } */}
+      {showExperienceForm &&
+        <section className='fixed top-0 left-0 w-full h-full bg-black-300'>
+          <form className='fixed top-1/2 left-1/2 mx-auto w-96 bg-white p-2'>
+            {EXPERIENCE_FORM_FIELDS.map((field) =>
+              <input key={field} className='p-2 mb-3 w-full border rounded' placeholder={field} value={currentExperience[field] || ''} />
+            )}
+          </form>
+        </section>
+      }
       <h1 className='text-center font-bold text-2xl font-mono'>Sam Resume</h1>
       <section className='mt-4'>
         <p>Linkedin</p>
@@ -166,23 +170,23 @@ const ResumePage: NextPage = () => {
         <p>Toronto, ON</p>
       </section>
       <section className='mt-4'>
-        <h2 className='p-2 text-white bg-black text-lg inline-block'>Summary</h2>
+        <h2 className={btnStyleClassName}>Summary</h2>
         <p className='font-sans'>Passionate front-end web developer with <span className='underline decoration-sky-700'>8 years</span> of experience using <span className='underline decoration-pink-500'>JavaScript, React, Vue, HTML5, and CSS3</span> to build all aspects of the user experience and user interface for client-facing web applications.
           Able to provide technical solutions and work under pressure to achieve company goals</p>
       </section>
       <section className='mt-4'>
-        <h2 className='p-2 text-white bg-black text-lg inline-block'>Technical Skills</h2>
+        <h2 className={btnStyleClassName}>Technical Skills</h2>
         <p><b>Web Front End:</b> HTML5, CSS3, JavaScript, ReactJs, VueJs, Angular, JQuery, SASS, Bootstrap, Tailwind</p>
         <p><b>Server Side:</b> NodeJs, Express, REST API, NextJs, Java, Python, PHP</p>
         <p><b>Database:</b> MongoDB, MySQL</p>
         <p><b>Operating System and Tools:</b> MacOS, Window, VS Code, Jira, Github, Bitbucket, GitLab</p>
       </section>
       <section className='mt-4'>
-        <h2 className='p-2 text-white bg-black text-lg inline-block'>Experience</h2>
+        <h2 className={btnStyleClassName}>Experience</h2>
         {experiencesHTML}
       </section>
       <section className='mt-4'>
-        <h2 className='p-2 text-white bg-black text-lg inline-block'>Projects</h2>
+        <h2 className={btnStyleClassName}>Projects</h2>
         {projectsHTML}
       </section>
     </>
