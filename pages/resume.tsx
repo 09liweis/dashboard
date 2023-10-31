@@ -127,6 +127,12 @@ const ResumePage: NextPage = () => {
     setCurrentExperience(ex);
   }
 
+  const handleExperienceFieldChange = (e:any) => {
+    const newCurrentExperience = {...currentExperience};
+    newCurrentExperience[e.target.name] = e.target.value;
+    setCurrentExperience(newCurrentExperience);
+  }
+
   const experiencesHTML = resume.experiences.map((e) =>
     <article className='my-3' key={e.company} onClick={() => handleExperience(e)}>
       <h3 className='font-bold border-l-2 border-black pl-2'>{e.title} - {e.company}</h3>
@@ -155,10 +161,11 @@ const ResumePage: NextPage = () => {
   return (
     <>
       {showExperienceForm &&
-        <section className='fixed top-0 left-0 w-full h-full bg-black-300'>
+        <section className='fixed top-0 left-0 w-full h-full bg-slate-800/75'>
+          <a className="absolute top-2 right-2 text-white bg-red-400 rounded p-1 cursor-pointer" onClick={()=>setShowExperienceForm(false)}>X</a>
           <form className='fixed top-1/2 left-1/2 mx-auto w-96 bg-white p-2'>
             {EXPERIENCE_FORM_FIELDS.map((field) =>
-              <input key={field} className='p-2 mb-3 w-full border rounded' placeholder={field} value={currentExperience[field] || ''} />
+              <input key={field} name={field} className='p-2 mb-3 w-full border rounded' placeholder={field} value={currentExperience[field] || ''} onChange={(e)=>handleExperienceFieldChange(e)} />
             )}
           </form>
         </section>
