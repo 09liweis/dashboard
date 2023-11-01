@@ -471,7 +471,8 @@
       },
       { "nm": "context", "how": "createContext, useContext" },
       { "nm": "react query" },
-      { "nm": "Zustand" }
+      { "nm": "Zustand" },
+      { "nm": "@preact/signals", "what": "Signals are a way of expressing state that ensure apps stay fast regardless of how complex they get. Signals are based on reactive principles and provide excellent developer ergonomics, with a unique implementation optimized for Virtual DOM", "why": "global state will make all the child components re-rendder" }
     ]
   },
   {
