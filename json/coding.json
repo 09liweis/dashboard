@@ -639,6 +639,7 @@
       }
     ]
   },
+  { "nm": "Python", "items": [{ "nm": "web server", "items": [{ "nm": "Uvicorn" }] }, { "nm": "web framework", "items": [{ "nm": "fastAPI" }] }] },
   {
     "nm": "Java",
     "items": [
