@@ -507,7 +507,8 @@
         "nm": "$nexttick",
         "desc": "wait for the next DOM update cycle, then do callback"
       },
-      { "nm": "keep-alive" }
+      { "nm": "keep-alive" },
+      { "nm": "setup", "why": "automatically have expose, dont expose all attribute, keep one way data flow" }
     ]
   },
   {
