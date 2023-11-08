@@ -547,7 +547,8 @@
     "items": [
       {
         "nm": "aws", "items": [
-          { "nm": "amplify", "what": "Front end application host" }
+          { "nm": "amplify", "what": "Front end application host" },
+          { "nm": "CloudFront", "what": "a content delivery network (CDN) service built for high performance, security, and developer convenience." }
         ]
       },
       { "nm": "google cloud" },
