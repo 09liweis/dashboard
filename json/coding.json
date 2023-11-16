@@ -200,7 +200,7 @@
   },
   {
     "nm": "optimization",
-    "items": [{ "nm": "cdn" }, { "nm": "web worker" }, { "nm": "Memorization" }]
+    "items": [{ "nm": "cdn" }, { "nm": "web worker" }, { "nm": "Memorization" }, { "nm": "replace json with others", "url": "https://medium.com/data-science-community-srm/json-is-incredibly-slow-heres-what-s-faster-ca35d5aaf9e8" }]
   },
   {
     "nm": "JavaScript",
