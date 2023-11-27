@@ -78,7 +78,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             router={router}
           />
           <section className="bg-card mt-2 p-2 rounded">
-            {loading && <div>Loading...</div>}
+            {loading && <div>Page Changing...</div>}
             <Component {...pageProps} />
           </section>
           {!user?._id && showLogin ? (
