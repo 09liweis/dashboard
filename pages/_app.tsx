@@ -1,6 +1,5 @@
 import '../styles/globals.css';
 import Head from 'next/head';
-import Script from 'next/script'
 import { Router, useRouter } from 'next/router';
 import type { AppProps } from 'next/app';
 import AppContext from '../AppContext';
@@ -11,7 +10,6 @@ import { checkUserToken, getLanguages } from '../helpers';
 import LoginForm from '../components/LoginForm';
 
 import Chat from '../components/Chat';
-import User from '../classes/User';
 
 const getPageTitle = (pageProps: any) => {
   const pageMeta = pageProps.pageMeta;
@@ -83,7 +81,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             {loading && <div>Loading...</div>}
             <Component {...pageProps} />
           </section>
-          {!user._id && showLogin ? (
+          {!user?._id && showLogin ? (
             <LoginForm setShowLogin={setShowLogin} setUser={setUser} />
           ) : null}
         </main>
