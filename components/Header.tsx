@@ -61,7 +61,7 @@ export default function Header({
         {NAV_LINKS.map((nav) => (
           <Link key={nav.url} href={nav.url}>
             <span
-              className={`mr-2 cursor-pointer text-red-500 hover:text-red-600 transition duration-300 ${nav.url == asPath ? 'border-b-2 border-red-500' : ''
+              className={`nav-link mr-2 cursor-pointer text-red-500 hover:text-red-600 ${nav.url == asPath ? 'border-b-2 border-red-500' : ''
                 }`}
             >
               <Icon name={nav.icon} /> {getTranslate(lang, nav.tl)}
