@@ -206,6 +206,7 @@
     "nm": "JavaScript",
     "items": [
       { "nm": "using" },
+      { "nm": "groupBy", "what": "return key value object of array of object", "how": "Array.groupBy((item)=>return item.field)" },
       { "nm": "JS label", "what": "break out two for loop", "how": "outer: for ..... for.... break outer" },
       { "nm": "event delegation", "what": "add event listener to parent node" },
       { "nm": "Inheritance" },
