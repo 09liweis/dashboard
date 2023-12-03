@@ -170,6 +170,7 @@
   {
     "nm": "skills",
     "items": [
+      { "nm": "Cyclomatic complexity 圈复杂度", "what": "a measurement developed by Thomas McCabe to determine the stability and level of confidence in a program" },
       { "nm": "function signature", "what": "define a function name, parameter, return " },
       {
         "nm": "防抖: debounce, prevent the event trigger from being fired too often"
