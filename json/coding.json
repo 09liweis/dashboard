@@ -549,6 +549,7 @@
     "items": [
       {
         "nm": "aws", "items": [
+          { "nm": "API Gateway", "what": "Amazon API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale." },
           { "nm": "amplify", "what": "Front end application host" },
           { "nm": "CloudFront", "what": "a content delivery network (CDN) service built for high performance, security, and developer convenience." }
         ]
