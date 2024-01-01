@@ -25,12 +25,14 @@
     ]
   },
   {
-    "nm":"Mircroservice patterns",
-    "items":[
-      {"nm":"Aggregator Pattern"},
-      {"nm":"Proxy Pattern"},
-      {"nm":"Chain Pattern"},
-      {"nm":""}
+    "nm": "Microservice patterns",
+    "items": [
+      { "nm": "Aggregator Pattern" },
+      { "nm": "Proxy Pattern" },
+      { "nm": "Chain Pattern" },
+      { "nm": "Parallel Pattern" },
+      { "nm": "Branch Pattern" },
+      {"nm":"Asynchronous Message Pattern"}
     ]
   },
   {
