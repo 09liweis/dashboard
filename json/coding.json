@@ -25,6 +25,15 @@
     ]
   },
   {
+    "nm":"Mircroservice patterns",
+    "items":[
+      {"nm":"Aggregator Pattern"},
+      {"nm":"Proxy Pattern"},
+      {"nm":"Chain Pattern"},
+      {"nm":""}
+    ]
+  },
+  {
     "nm": "web api",
     "items": [
       {
