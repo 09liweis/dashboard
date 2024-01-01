@@ -25,6 +25,14 @@
     ]
   },
   {
+    "nm": "Backend",
+    "items": [
+      { "nm": "API Gateway" },
+      { "nm": "REST API" },
+      { "nm": "JWT" }
+    ]
+  },
+  {
     "nm": "Microservice patterns",
     "items": [
       { "nm": "Aggregator Pattern" },
@@ -32,7 +40,7 @@
       { "nm": "Chain Pattern" },
       { "nm": "Parallel Pattern" },
       { "nm": "Branch Pattern" },
-      {"nm":"Asynchronous Message Pattern"}
+      { "nm": "Asynchronous Message Pattern" }
     ]
   },
   {
