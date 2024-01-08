@@ -1,6 +1,6 @@
 import { ExpenseDatesProps } from '../types';
 
-const YEARS = ['2023', '2022', '2021', '2020', '2019', '2018', '2017'];
+const YEARS = ['2024', '2023', '2022', '2021', '2020', '2019', '2018', '2017'];
 const MONTHS: { [key: string]: string } = {
   '1': 'Jan',
   '2': 'Fed',
