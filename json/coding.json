@@ -29,7 +29,8 @@
     "items": [
       { "nm": "API Gateway" },
       { "nm": "REST API" },
-      { "nm": "JWT" }
+      { "nm": "JWT" },
+      { "nm": "Docker" }
     ]
   },
   {
