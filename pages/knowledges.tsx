@@ -7,20 +7,20 @@ import KnowledgeItem from '../components/KnowledgeItem';
 
 interface Knowledge {
   nm: string,
-  items?: Array<Knowledge>|Array<string>,
-  pros?: string|Array<string>,
+  items?: Array<Knowledge> | Array<string>,
+  pros?: string | Array<string>,
   what?: string,
-  how?: string|Array<string>,
+  how?: string | Array<string>,
   why?: string
 }
 
 const KnowledgesPage: NextPage = () => {
-  const emptyKnowledges:Array<Knowledge> = [];
-  const [knowledges,setKnowledges] = useState(emptyKnowledges);
-  useEffect(()=>{
+  const emptyKnowledges: Array<Knowledge> = [];
+  const [knowledges, setKnowledges] = useState(emptyKnowledges);
+  useEffect(() => {
     setKnowledges(CodingknowledgeJSON);
-  },[])
-  const knowledgesHTML = knowledges.map((k)=><KnowledgeItem key={k.nm} knowledgeItem={k} />);
+  }, [])
+  const knowledgesHTML = knowledges.map((k) => <KnowledgeItem key={k.nm} knowledgeItem={k} />);
   return (
     <>
       {knowledgesHTML}
