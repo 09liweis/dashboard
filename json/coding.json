@@ -5,6 +5,7 @@
   {
     "nm": "Web Tools",
     "items": [
+      { "nm": "Web Monitor": "url": "https://www.datadoghq.com/" },
       { "nm": "autofit.js", "what": "handle large screen" },
       { "nm": "Patterns dev", "url": "https://www.patterns.dev/" },
       {
