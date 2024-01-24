@@ -394,7 +394,8 @@
     ]
   },
   {
-    "nm": "react native"
+    "nm": "react native",
+    "items": [{ "nm": "expo" }]
   },
   {
     "nm": "react",
