@@ -16,17 +16,17 @@ export default function ExpenseList({
   categoryTransactions,
   openTransactionDetail,
 }: ExpenseListProps) {
-  const expensesHTML = Object.keys(categoryTransactions).map((key) => {
-    const { total, items } = categoryTransactions[key];
+  const expensesHTML = Object.keys(categoryTransactions).map((expenseCategory) => {
+    const { total, items } = categoryTransactions[expenseCategory];
     return (
-      <div key={key} className="mb-2">
+      <div key={expenseCategory} className="mb-2">
         <div className="father bg-gradient-to-r from-red-300 border-dashed border-2 border-red-600 p-1 flex justify-between items-center mb-1 rounded text-red-600 transition duration-300">
           <Icon
             classNames={
               'flex gap-x-1 tracking-widest transition duration-300 hover:translate-y-0.5'
             }
-            name={ICON_CATEGORY[key]}
-            text={key}
+            name={ICON_CATEGORY[expenseCategory]}
+            text={expenseCategory}
           />
           <span className="font-bold">${total}</span>
         </div>
