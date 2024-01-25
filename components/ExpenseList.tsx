@@ -7,6 +7,7 @@ const ICON_CATEGORY: { [key: string]: string } = {
   phone: 'phone',
   electricity: 'bolt',
   internet: 'internet-explorer',
+  fuel: 'gas-pump'
 };
 
 import { ExpenseListProps } from '../types';
