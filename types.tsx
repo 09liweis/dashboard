@@ -47,15 +47,12 @@ export interface Transaction {
 
 export interface CategoryTransaction {
   total: number;
+  category: string;
   items: [Transaction];
 }
 
-export interface CategoryTransactions {
-  [key: string]: CategoryTransaction;
-}
-
 export interface ExpenseListProps {
-  categoryTransactions: CategoryTransactions;
+  categoryTransactions: [CategoryTransaction];
   openTransactionDetail: Function;
 }
 

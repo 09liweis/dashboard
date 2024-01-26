@@ -5,7 +5,7 @@ import AppContext from '../AppContext';
 import ExpenseForm from '../components/ExpenseForm';
 import ExpenseList from '../components/ExpenseList';
 import ExpenseDates from '../components/ExpenseDates';
-import { Transaction, CategoryTransactions } from '../types';
+import { Transaction, CategoryTransaction } from '../types';
 import {
   buttonStyle,
   EXPENSE_LIST_API,
@@ -26,7 +26,7 @@ const Expense: NextPage = () => {
   const [selectedTransaction, setSelectTransaction] =
     useState(emptyTransaction);
 
-  const emptyTransactions: CategoryTransactions = {};
+  const emptyTransactions: Array<CategoryTransaction> = [];
   const [loading, setLoading] = useState(false);
   const [curYear, setYear] = useState('');
   const [curMonth, setMonth] = useState('');
