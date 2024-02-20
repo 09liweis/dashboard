@@ -111,7 +111,7 @@ const Expense: NextPage = () => {
         <article className="rounded p-2 bg-card md:flex-1">
           <p className="text-right capitalize text-2xl font-bold text-red-600">
             <Icon name={'sack-dollar'} />
-            {getTranslate(lang, 'total')}:{curTotal.toFixed(2)}
+            {getTranslate(lang, 'total')}:{curTotal}
           </p>
           {loading ? (
             <div className="flex justify-center">
