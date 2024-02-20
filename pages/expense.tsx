@@ -26,13 +26,13 @@ const Expense: NextPage = () => {
   const [selectedTransaction, setSelectTransaction] =
     useState(emptyTransaction);
 
-  const emptyTransactions: Array<CategoryTransaction> = [];
+  const emptyCategoryTransactions: Array<CategoryTransaction> = [];
   const [loading, setLoading] = useState(false);
   const [curYear, setYear] = useState('');
   const [curMonth, setMonth] = useState('');
   const [curTotal, setTotal] = useState(0);
   const [categoryTransactions, setCategoryTransactions] =
-    useState(emptyTransactions);
+    useState(emptyCategoryTransactions);
 
   const getExpenseStatistics = useCallback(async () => {
     setLoading(true);

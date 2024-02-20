@@ -28,7 +28,7 @@ export default function ExpenseList({
             name={ICON_CATEGORY[category]}
             text={category}
           />
-          <span className="font-bold">${total}</span>
+          <span className="font-bold">{total}</span>
         </div>
         {items.map((transaction) => {
           const { _id, price, date, place, title } = transaction;
@@ -43,7 +43,7 @@ export default function ExpenseList({
               <span className="flex justify-between w-1/2 text-black">
                 <span>{date}</span>
                 <span className="truncate hidden md:block">{title}</span>
-                {price && <span>${Math.abs(price)}</span>}
+                {price && <span>{price}</span>}
               </span>
             </article>
           );
