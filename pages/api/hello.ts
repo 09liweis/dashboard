@@ -19,10 +19,9 @@ export default function handler(
     version: os.version(),
   };
 
-  console.log(currentOS);
   console.log(`The server has been up for ${os.uptime()} seconds.`);
   console.log(os.userInfo());
   console.log(os.networkInterfaces());
 
-  res.status(200).json({ name: 'John Doe' });
+  res.status(200).json(currentOS);
 }
