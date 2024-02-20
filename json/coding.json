@@ -31,7 +31,9 @@
       { "nm": "API Gateway" },
       { "nm": "REST API" },
       { "nm": "JWT" },
-      { "nm": "Docker" }
+      { "nm": "Docker" },
+      { "nm": "MQTT" },
+      { "nm": "Terraform" }
     ]
   },
   {
