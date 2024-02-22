@@ -44,6 +44,12 @@ function MyApp({ Component, pageProps }: AppProps) {
       alert('You are trying to copy my stuff');
     });
 
+    return () => {
+      document.removeEventListener('copy', (e) => {
+        console.info("remove copy event listener");
+      })
+    }
+
   }, []);
 
   useEffect(() => {
