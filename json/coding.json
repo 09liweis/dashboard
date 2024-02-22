@@ -409,7 +409,9 @@
       { "nm": "React Fiber" },
       {
         "nm": "library",
-        "items": [{ "nm": " React Hook Form" }, { "nm": "Framer Motion." }]
+        "items": [{ "nm": " React Hook Form" }, { "nm": "Framer Motion." }, { "nm": "react query" },
+        { "nm": "Zustand" },
+        { "nm": "@preact/signals", "what": "Signals are a way of expressing state that ensure apps stay fast regardless of how complex they get. Signals are based on reactive principles and provide excellent developer ergonomics, with a unique implementation optimized for Virtual DOM", "why": "global state will make all the child components re-rendder" }]
       },
       { "nm": "issue prop drilling", "how": "composition component" },
       { "nm": "server component" },
@@ -497,10 +499,7 @@
         "nm": "multipe set state",
         "how": "ReactDOM.unstable_batchedUpdates()"
       },
-      { "nm": "context", "how": "createContext, useContext" },
-      { "nm": "react query" },
-      { "nm": "Zustand" },
-      { "nm": "@preact/signals", "what": "Signals are a way of expressing state that ensure apps stay fast regardless of how complex they get. Signals are based on reactive principles and provide excellent developer ergonomics, with a unique implementation optimized for Virtual DOM", "why": "global state will make all the child components re-rendder" }
+      { "nm": "context", "how": "createContext, useContext" }
     ]
   },
   {
