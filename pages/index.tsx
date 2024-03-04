@@ -65,9 +65,8 @@ interface Movie {
 
 async function fetchRandomMovie(): Promise<Movie> {
   return await fetchAPI({
-    url: 'https://samliweisen.onrender.com/api/movies/update_random',
-    method: 'PUT',
-    body: {}
+    url: 'https://samliweisen.onrender.com/api/movies/random',
+    method: 'GET'
   })
 }
 
@@ -174,7 +173,7 @@ const Home: NextPage = () => {
 
     const fetchTimer = setInterval(() => {
       fetchDashBoardData();
-    }, 60 * 1000);
+    }, 5000);
 
     return (() => clearInterval(fetchTimer));
 
