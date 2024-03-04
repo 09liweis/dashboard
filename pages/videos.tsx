@@ -14,6 +14,9 @@ interface Video {
 }
 
 interface Feed {
+  title: string;
+  aid: string;
+  pic: string;
   dynamic_id: number;
   type: string;//"PIC_POST"|"VIDEO"
   item: {
@@ -25,16 +28,16 @@ interface Feed {
 }
 
 const VideosPage: NextPage = () => {
-  const emptyVideos: Array<Video> = [];
+  const emptyVideos: Array<Feed> = [];
   const [videos, setVideos] = useState(emptyVideos);
 
   const fetchVideos = async () => {
-    const { allVideos, dynamics } = await fetchAPI({
+    const { dynamics } = await fetchAPI({
       method: 'GET',
       url: VIDEO_LIST_API,
       body: {},
     });
-    setVideos(allVideos || []);
+    setVideos(dynamics || []);
   };
 
   useEffect(() => {
@@ -43,7 +46,7 @@ const VideosPage: NextPage = () => {
 
   const videosHTML = videos.map((v) => (
     <article
-      key={v.bvid}
+      key={v.aid}
       className="relative p-1 flex justify-between sm:w-1/2 md:w-1/3 lg:w-1/4"
     >
       <section className='p-1 shadow-lg bg-white/[30%] rounded-lg'>
