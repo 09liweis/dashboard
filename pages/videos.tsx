@@ -4,25 +4,20 @@ import { useEffect, useState } from 'react';
 import { VIDEO_LIST_API } from '../constants';
 import { fetchAPI } from '../helpers';
 
-interface Video {
-  bvid: string;
-  title: string;
-  pic: string;
-  meta: {
-    cover: string;
-  };
+interface Picture {
+  img_src: string
 }
 
 interface Feed {
   title: string;
-  aid: string;
+  aid?: string;
   pic: string;
   dynamic_id: number;
   type: string;//"PIC_POST"|"VIDEO"
   item: {
     title: string,
     description: string,
-    pictures: []
+    pictures: Picture[]
   }
 
 }
@@ -46,21 +41,17 @@ const VideosPage: NextPage = () => {
 
   const videosHTML = videos.map((v) => (
     <article
-      key={v.aid}
+      key={v.dynamic_id}
       className="relative p-1 flex justify-between sm:w-1/2 md:w-1/3 lg:w-1/4"
     >
-      <section className='p-1 shadow-lg bg-white/[30%] rounded-lg'>
-        {v.pic &&
-          (
-            <Image
-              src={v.pic}
-              className="rounded"
-              alt={v.title}
-              width={500}
-              height={300}
-            />
-          )
-        }
+      <section className='p-1 shadow-lg bg-white/[30%] rounded-lg transition duraion-500 hover:scale-110'>
+        <Image
+          src={v.pic || v.item.pictures[0].img_src}
+          className="rounded"
+          alt={v.title}
+          width={500}
+          height={300}
+        />
       </section>
     </article>
   ));
