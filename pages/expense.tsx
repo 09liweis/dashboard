@@ -40,7 +40,7 @@ const Expense: NextPage = () => {
     if (curYear || curMonth) {
       body.date = `${curYear}`;
       if (curMonth) {
-        body.date += `-${parseInt(curMonth) < 10 ? '0' + curMonth : curMonth}`;
+        body.date += `-${curMonth.padStart(2, '0')}`;
       }
     }
     const { categoryPrice, total } = await fetchAPI({
