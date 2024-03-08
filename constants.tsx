@@ -29,4 +29,6 @@ export const BLOG_LIST_API = `${API_URL}blogs`;
 
 export const VIDEO_LIST_API = `${API_URL}videos/bilibili`;
 
+export const MOVIES_LIST_API = `${API_URL}movies`;
+
 export const USER_AUTH_API = `${API_URL}user/auth`;
