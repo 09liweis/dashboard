@@ -69,7 +69,19 @@
   },
   {
     "nm": "VS Code",
-    "items": [{ "nm": "plugins", "items": [{ "nm": "console ninjia" }] }]
+    "items": [
+      {
+        "nm": "plugins",
+        "items": [
+          { "nm": "console ninjia" },
+          { "nm": "code runner" },
+          { "nm": "tabnine" },
+          { "nm": "live server" },
+          { "nm": "Excel Viewer" },
+          { "nm": "CodeTour" }
+        ]
+      }
+    ]
   },
   {
     "nm": "html",
