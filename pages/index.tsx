@@ -17,7 +17,7 @@ const DASHBOARD_CARDS = [
   { tl: 'places', icon: 'location-dot', bg: 'indigo-500' },
   { tl: 'blogs', icon: 'blog', bg: 'purple-500' },
   { tl: 'movie', icon: 'film', bg: 'teal-600' },
-];
+] as const;
 
 type Todo = {
   _id: string;
