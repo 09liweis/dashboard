@@ -169,6 +169,7 @@
       { "nm": "scroll-snap" },
       { "nm": "scroll-behavior: smooth" },
       { "nm": "mix-blend-mode" },
+      { "nm": "text-stroke: 2px black;" },
       { "nm": "nesting css", "how": "use &" },
       { "nm": "writing-mode:vertical-lr/horizontal-lr" },
       { "nm": "gap in flexbox" },
