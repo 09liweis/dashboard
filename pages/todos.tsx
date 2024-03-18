@@ -37,15 +37,19 @@ const TodosPage: NextPage = () => {
       key={todo._id}
       className="relative shadow-lg bg-white/[30%] rounded-lg p-2 mb-2 flex justify-between"
     >
-      <h2 className="text-teal-600">{todo.name}</h2>
+      <h2 className={`text-teal-600 ${todo.status === 'done' ? 'line-through' : ''}`}>{todo.name}</h2>
       <span className="text-blue-500">{todo.date}</span>
       {user._id && (
-        <span
-          className="cursor-pointer absolute right-0 top-0"
-          onClick={() => handleTodoDelete(todo._id)}
-        >
-          X
-        </span>
+        <section>
+          <span className='cursor-pointer' onClick={() => handleTodoFinish(todo._id)}>Finish
+          </span>
+          <span
+            className="cursor-pointer"
+            onClick={() => handleTodoDelete(todo._id)}
+          >
+            X
+          </span>
+        </section>
       )}
     </article>
   ));
@@ -58,6 +62,15 @@ const TodosPage: NextPage = () => {
     });
     fetchTodos();
   };
+
+  const handleTodoFinish = async (id: string) => {
+    const todoResponse = await fetchAPI({
+      url: `${TODO_LIST_API}/${id}`,
+      method: 'PUT',
+      body: { status: 'done' },
+    });
+    fetchTodos();
+  }
 
   const handleTodoChange = (field: string, value: string) => {
     const newTodo = { ...todo };
@@ -76,11 +89,11 @@ const TodosPage: NextPage = () => {
 
   return (
     <section>
-			<h1>title </h1>
+      <h1>title </h1>
       {todosHTML}
       {user._id && (
         <>
-	
+
           <form onSubmit={handleTodoSubmit}>
             <input
               value={todo.name}
