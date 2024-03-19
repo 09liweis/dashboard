@@ -20,7 +20,7 @@ export default function ExpenseList({
   const expensesHTML = categoryTransactions.map(({ category, total, items }) => {
     return (
       <div key={category} className="mb-2">
-        <div className="father bg-gradient-to-r from-red-300 border-dashed border-2 border-red-600 p-1 flex justify-between items-center mb-1 rounded text-red-600 transition duration-300">
+        <div className="father bg-gradient-to-l from-red-200 border-dashed border-2 border-red-600 p-1 flex justify-between items-center mb-1 rounded text-red-600 transition duration-300">
           <Icon
             classNames={
               'flex gap-x-1 tracking-widest transition duration-300 hover:translate-y-0.5'
@@ -41,9 +41,9 @@ export default function ExpenseList({
             >
               <span className="truncate w-1/2">{place?.name}</span>
               <span className="flex justify-between w-1/2 text-black">
-                <span>{date}</span>
+                <span className="text-indigo-500">{date}</span>
                 <span className="truncate hidden md:block">{title}</span>
-                {price && <span>{price}</span>}
+                {price && <span className='text-rose-600'>{price}</span>}
               </span>
             </article>
           );
