@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import Image from 'next/image';
 import AppContext from '../AppContext';
 import Icon from '../components/Icon';
-import { COMMENT_LIST_API, TODO_LIST_API } from '../constants';
+import { COMMENT_LIST_API, TODO_LIST_API, MOVIE_RANGDOM_API } from '../constants';
 import { fetchAPI, getTranslate } from '../helpers';
 
 const DASHBOARD_CARDS = [
@@ -65,7 +65,7 @@ interface Movie {
 
 async function fetchRandomMovie(): Promise<Movie> {
   return await fetchAPI({
-    url: 'https://samliweisen.onrender.com/api/movies/random',
+    url: MOVIE_RANGDOM_API,
     method: 'GET'
   })
 }

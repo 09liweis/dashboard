@@ -34,3 +34,5 @@ export const MOVIES_LIST_API = `${API_URL}movies`;
 export const STATS_LIST_API = `${API_URL}stats`;
 
 export const USER_AUTH_API = `${API_URL}user/auth`;
+
+export const MOVIE_RANGDOM_API = `${API_URL}movie/random`;
