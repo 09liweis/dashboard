@@ -6,6 +6,7 @@
     "nm": "Web Tools",
     "items": [
       { "nm": "Weppalyzer", "what": "Broswer plugin" },
+      { "nm": "Clerk auth", "url": "https://clerk.com/" },
       { "nm": "Web Monitor", "url": "https://www.datadoghq.com/" },
       { "nm": "autofit.js", "what": "handle large screen" },
       { "nm": "Patterns dev", "url": "https://www.patterns.dev/" },
