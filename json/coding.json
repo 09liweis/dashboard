@@ -95,6 +95,8 @@
       {
         "nm": "selectors",
         "items": [
+          { "nm": ":focus-visible", "what": "always take effect on tab action, click action only works on input" },
+          { "nm": ":focus-within", "what": "use on parent element, take effect on parent and children elements" },
           { "nm": ":is" },
           { "nm": ":has" },
           { "nm": ":where" },
