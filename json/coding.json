@@ -95,6 +95,11 @@
       {
         "nm": "selectors",
         "items": [
+          { "nm": "@media(hover)", "what": "style when hover" },
+          { "nm": "accent-color" },
+          { "nm": "caret-color" },
+          { "nm": "border-image" },
+          { "nm": "scroll-behavior: smooth;scroll-padding:10rem" },
           { "nm": ":focus-visible", "what": "always take effect on tab action, click action only works on input" },
           { "nm": ":focus-within", "what": "use on parent element, take effect on parent and children elements" },
           { "nm": ":is" },
@@ -171,7 +176,6 @@
       { "nm": "BFC" },
       { "nm": "scale/translate/rotate without transform" },
       { "nm": "scroll-snap" },
-      { "nm": "scroll-behavior: smooth" },
       { "nm": "mix-blend-mode" },
       { "nm": "text-stroke: 2px black;" },
       { "nm": "nesting css", "how": "use &" },
