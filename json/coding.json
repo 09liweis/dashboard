@@ -87,7 +87,9 @@
   },
   {
     "nm": "html",
-    "items": []
+    "items": [
+      { "nm": "inputmode", "what": "input tab attribute control for mobile device", "items": [{ "nm": "tel" }, { "nm": "email" }, { "nm": "numeric" }] }
+    ]
   },
   {
     "nm": "css",
