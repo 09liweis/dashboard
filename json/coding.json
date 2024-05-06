@@ -88,7 +88,12 @@
   {
     "nm": "html",
     "items": [
-      { "nm": "inputmode", "what": "input tab attribute control for mobile device", "items": [{ "nm": "tel" }, { "nm": "email" }, { "nm": "numeric" }] }
+      { "nm": "inputmode", "what": "input tab attribute control for mobile device", "items": [{ "nm": "tel" }, { "nm": "email" }, { "nm": "numeric" }] },
+      { "nm": "poster", "what": "video tag cover" },
+      { "nm": "multiple", "what": "multiple attribute for input file and select tag" },
+      { "nm": "accesskey", "what": "shortcut keyboard key to focus on input tag" },
+      { "nm": "tabindex", "what": "order for input tag" },
+      { "nm": "download", "what": "anchor tag download attribute, can specify file name" }
     ]
   },
   {
