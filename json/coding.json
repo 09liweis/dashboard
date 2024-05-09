@@ -63,9 +63,6 @@
       {
         "nm": "The RESTful Pokémon API",
         "url": "https://pokeapi.co/"
-      },
-      {
-        "nm": "View Transition API"
       }
     ]
   },
@@ -259,6 +256,7 @@
   {
     "nm": "JavaScript",
     "items": [
+      { "nm": "View Transition API" },
       { "nm": "padStart/padEnd", "what": "add 0 to the left of a string" },
       { "nm": "using" },
       { "nm": "groupBy", "what": "return key value object of array of object", "how": "Array.groupBy((item)=>return item.field)" },
