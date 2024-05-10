@@ -99,6 +99,7 @@
       {
         "nm": "selectors",
         "items": [
+          { "nm": "box-decoration-break", "what": "if text got cut into lines with bg and border radius, use box-decoration-break:clone to keep style on cut position" },
           { "nm": "@media(hover)", "what": "style when hover" },
           { "nm": "accent-color" },
           { "nm": "caret-color" },
