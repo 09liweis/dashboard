@@ -257,6 +257,7 @@
   {
     "nm": "JavaScript",
     "items": [
+      { "nm": "beforeunload", "what": "window.addEventListner('beforeunload',function(){/*page refresh or close*/})" },
       { "nm": "View Transition API" },
       { "nm": "padStart/padEnd", "what": "add 0 to the left of a string" },
       { "nm": "using" },
