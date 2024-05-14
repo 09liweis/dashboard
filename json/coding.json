@@ -100,6 +100,8 @@
       {
         "nm": "selectors",
         "items": [
+          { "nm": ":first-letter", "what": "use to style first letter of a element" },
+          { "nm": ":selection", "what": "use to style selection content of a element" },
           { "nm": "box-decoration-break", "what": "if text got cut into lines with bg and border radius, use box-decoration-break:clone to keep style on cut position" },
           { "nm": "@media(hover)", "what": "style when hover" },
           { "nm": "accent-color" },
