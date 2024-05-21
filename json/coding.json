@@ -5,6 +5,7 @@
   {
     "nm": "Web Tools",
     "items": [
+      { "nm": "Javascript framework syntax compare", "url": "https://component-party.lainbo.com/" },
       { "nm": "Visulize codebase", "url": "https://vision.useadrenaline.com/" },
       { "nm": "Weppalyzer", "what": "Broswer plugin" },
       { "nm": "Clerk auth", "url": "https://clerk.com/" },
