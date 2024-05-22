@@ -620,7 +620,7 @@
       { "nm": "vercel" },
       { "nm": "netify" },
       { "nm": "onrender" },
-      { "nm": "cycle.sh" }
+      { "nm": "supabase" }
     ]
   },
   {
