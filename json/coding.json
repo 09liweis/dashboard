@@ -5,6 +5,8 @@
   {
     "nm": "Web Tools",
     "items": [
+      { "nm": "java全栈体系", "url": "https://pdai.tech/" },
+      { "nm": "冰冻大西瓜博客", "url": "https://bddxg.top/" },
       { "nm": "Javascript framework syntax compare", "url": "https://component-party.lainbo.com/" },
       { "nm": "Visulize codebase", "url": "https://vision.useadrenaline.com/" },
       { "nm": "Weppalyzer", "what": "Broswer plugin" },
