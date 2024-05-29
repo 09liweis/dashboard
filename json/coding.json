@@ -706,6 +706,12 @@
   },
   { "nm": "Python", "items": [{ "nm": "web server", "items": [{ "nm": "Uvicorn" }] }, { "nm": "web framework", "items": [{ "nm": "fastAPI" }] }] },
   {
+    "nm": "Golang", "items": [
+      { "nm": "Gin webframwork" },
+      { "nm": "Db connect error might be password special character" }
+    ]
+  },
+  {
     "nm": "Java",
     "items": [
       {
