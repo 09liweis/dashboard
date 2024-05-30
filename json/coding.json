@@ -39,7 +39,8 @@
       { "nm": "JWT" },
       { "nm": "Docker" },
       { "nm": "MQTT" },
-      { "nm": "Terraform" }
+      { "nm": "Terraform" },
+      { "nm": "Service Mesh", "what": "manages communication between microservices" }
     ]
   },
   {
