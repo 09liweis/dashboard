@@ -14,6 +14,8 @@
 
 ## TODO
 
+- [x] upgrade to nextjs 13
+- [ ] upgrade to nextjs 14
 - [ ] todo page, style todo form
 - [ ] update, delete todo
 - [x] user github sign up

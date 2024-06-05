@@ -4,7 +4,7 @@ const nextConfig = {
   swcMinify: true,
   env: {
     GRAPHQL_URI: 'http://localhost:3000/api/graphql',
-    CHATKITTY_API_KEY: process.env.CHATKITTY_API_KEY,
+    // CHATKITTY_API_KEY: process.env.CHATKITTY_API_KEY,
   },
   images: {
     remotePatterns: [
