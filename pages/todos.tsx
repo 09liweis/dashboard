@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import { useContext, useEffect, useState } from 'react';
 import AppContext from '../AppContext';
+import Icon from '../components/Icon';
 import { TODO_LIST_API } from '../constants';
 import { fetchAPI } from '../helpers';
 
@@ -35,20 +36,16 @@ const TodosPage: NextPage = () => {
   const todosHTML = todos.map((todo) => (
     <article
       key={todo._id}
-      className="relative shadow-lg bg-white/[30%] rounded-lg p-2 mb-2 flex justify-between"
+      className="relative shadow-lg bg-white/[30%] rounded-lg p-2 mb-2 flex justify-between items-center"
     >
-      <h2 className={`text-teal-600 ${todo.status === 'done' ? 'line-through' : ''}`}>{todo.name}</h2>
+      <div>
+        <Icon name='circle-check' classNames='cursor-pointer mr-3' handleClick={() => handleTodoFinish(todo._id)} />
+        <span className={`text-teal-600 ${todo.status === 'done' ? 'line-through' : ''}`}>{todo.name}</span>
+      </div>
       <span className="text-blue-500">{todo.date}</span>
       {user._id && (
         <section>
-          <span className='cursor-pointer' onClick={() => handleTodoFinish(todo._id)}>Finish
-          </span>
-          <span
-            className="cursor-pointer"
-            onClick={() => handleTodoDelete(todo._id)}
-          >
-            X
-          </span>
+          <Icon name='trash' handleClick={() => handleTodoDelete(todo._id)} classNames='cursor-pointer ml-3' />
         </section>
       )}
     </article>
