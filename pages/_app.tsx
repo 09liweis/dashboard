@@ -64,8 +64,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="description" content="samliweisen profolio" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
-
-        <script src="https://cdn.tailwindcss.com" async></script>
       </Head>
       <AppContext.Provider
         value={{
