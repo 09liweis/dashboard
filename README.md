@@ -18,6 +18,7 @@
 - [ ] upgrade to nextjs 14
 - [ ] todo page, style todo form
 - [ ] update, delete todo
+- [ ] add statistic card on home page
 - [x] user github sign up
 - [x] user resume page
 - [x] contact page list

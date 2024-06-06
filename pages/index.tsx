@@ -150,22 +150,22 @@ const Home: NextPage = () => {
   };
 
   const fetchDashBoardData = async () => {
-    const [newTodos, newComments, newWaifuPic, dogPics, catPics, quote, movie] = await Promise.all([
-      fetchTodos(),
-      fetchComments(),
+    const [newWaifuPic, dogPics, catPics, quote] = await Promise.all([
+      // fetchTodos(),
+      // fetchComments(),
       fetchWaifuPic(),
       fetchAnimalPic('dog'),
       fetchAnimalPic('cat'),
       fetchRandomQuote(),
-      fetchRandomMovie()
+      // fetchRandomMovie()
     ]);
-    setTodos(newTodos);
-    setComments(newComments);
+    // setTodos(newTodos);
+    // setComments(newComments);
     setWaifuPic(newWaifuPic.url);
     setDogPic(dogPics[0].url);
     setCatPic(catPics[0].url);
     setRandomQuote(quote);
-    setRandomMovie(movie);
+    // setRandomMovie(movie);
   };
 
   useEffect(() => {
