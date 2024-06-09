@@ -52,7 +52,7 @@ body {
 .nav-link {
   background: linear-gradient(to right, #f32170, #ff6b08, #cf23cf, #eedd44) no-repeat right bottom;
   background-size: 0px 2px;
-  transition: background-size 1s;
+  transition: background-size 0.5s;
 }
 
 .nav-link:hover {
