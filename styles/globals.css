@@ -59,3 +59,19 @@ body {
   background-position: left bottom;
   background-size: 100% 2px;
 }
+
+.todo-is-done {
+  animation: todoDone 0.6s ease-in-out;
+}
+
+@keyframes todoDone {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1)
+  }
+}

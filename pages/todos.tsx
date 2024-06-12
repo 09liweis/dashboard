@@ -33,20 +33,18 @@ const TodosPage: NextPage = () => {
     fetchTodos();
   }, []);
 
-  const todosHTML = todos.map((todo) => (
+  const todosHTML = todos.map((todo, todoIndex) => (
     <article
       key={todo._id}
       className="relative shadow-lg bg-white/[30%] rounded-lg p-2 mb-2 flex justify-between items-center"
     >
       <div>
-        <Icon name={todo.is_done ? 'circle-check' : 'circle'} classNames='cursor-pointer mr-3' handleClick={() => handleTodoFinish(todo._id)} />
-        <span className={`text-teal-600 ${todo.status === 'done' ? 'line-through' : ''}`}>{todo.name}</span>
+        {user._id && <Icon name={todo.is_done ? 'circle-check' : 'circle'} classNames={`transition cursor-pointer mr-3 ${todo.is_done ? 'todo-is-done' : ''}`} handleClick={() => handleTodoFinish(todo, todoIndex)} />}
+        <span className={`text-teal-600 ${todo.is_done ? 'line-through' : ''}`}>{todo.name}</span>
       </div>
       <span className="text-blue-500">{todo.date}</span>
       {user._id && (
-        <section>
-          <Icon name='trash' handleClick={() => handleTodoDelete(todo._id)} classNames='cursor-pointer ml-3' />
-        </section>
+        <Icon name='trash' handleClick={() => handleTodoDelete(todo._id)} classNames='cursor-pointer ml-3' />
       )}
     </article>
   ));
@@ -60,13 +58,16 @@ const TodosPage: NextPage = () => {
     fetchTodos();
   };
 
-  const handleTodoFinish = async (id: string) => {
+  const handleTodoFinish = async (todo: Todo, todoIndex: number) => {
     const todoResponse = await fetchAPI({
-      url: `${TODO_LIST_API}/${id}`,
+      url: `${TODO_LIST_API}/${todo._id}`,
       method: 'PUT',
       body: { status: 'done' },
     });
-    fetchTodos();
+    todo.is_done = 'done';
+    const newTodos = [...todos];
+    newTodos[todoIndex] = todo;
+    setTodos(newTodos);
   }
 
   const handleTodoChange = (field: string, value: string) => {
