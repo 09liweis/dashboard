@@ -39,7 +39,7 @@ const TodosPage: NextPage = () => {
       className="relative shadow-lg bg-white/[30%] rounded-lg p-2 mb-2 flex justify-between items-center"
     >
       <div>
-        <Icon name='circle-check' classNames='cursor-pointer mr-3' handleClick={() => handleTodoFinish(todo._id)} />
+        <Icon name={todo.is_done ? 'circle-check' : 'circle'} classNames='cursor-pointer mr-3' handleClick={() => handleTodoFinish(todo._id)} />
         <span className={`text-teal-600 ${todo.status === 'done' ? 'line-through' : ''}`}>{todo.name}</span>
       </div>
       <span className="text-blue-500">{todo.date}</span>
