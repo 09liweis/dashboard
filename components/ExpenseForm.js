@@ -114,9 +114,8 @@ export default function ExpenseForm({
             {categories.map((c) => (
               <span
                 key={c}
-                className={`inline-block mb-2 mr-2 border rounded-lg p-2 cursor-pointer ${
-                  curTransaction.category === c ? 'bg-red-400 text-white' : ''
-                }`}
+                className={`inline-block mb-2 mr-2 border rounded-lg p-2 cursor-pointer ${curTransaction.category === c ? 'bg-red-400 text-white' : ''
+                  }`}
                 onClick={() => updateCurTransaction(c, 'category')}
               >
                 {c}
@@ -137,15 +136,15 @@ export default function ExpenseForm({
         {user._id && (
           <section className="flex justify-between">
             <button className={buttonStyle}>
-              {loading ? <Loading /> : transaction._id ? 'Update' : 'Add'}
+              {loading ? <Loading /> : transaction.id ? 'Update' : 'Add'}
             </button>
-            {transaction._id && (
-              <span
-                onClick={() => handleTransactionDelete(transaction._id)}
+            {transaction.id && (
+              <button
+                onClick={() => handleTransactionDelete(transaction.id)}
                 className={`${buttonStyle}`}
               >
                 Delete
-              </span>
+              </button>
             )}
           </section>
         )}

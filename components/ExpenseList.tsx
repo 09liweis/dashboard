@@ -31,10 +31,10 @@ export default function ExpenseList({
           <span className="font-bold">{total}</span>
         </div>
         {items.map((transaction) => {
-          const { _id, price, date, place, title } = transaction;
+          const { id, price, date, place, title } = transaction;
           return (
             <article
-              key={_id}
+              key={id}
               title={place?.address}
               className="flex justify-between cursor-pointer text-red-400 hover:text-red-600 transition duration-300"
               onClick={() => openTransactionDetail(transaction)}
