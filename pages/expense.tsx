@@ -100,7 +100,7 @@ const Expense: NextPage = () => {
       )}
       <section className="flex justify-between items-center mb-3">
         <h2>{getTranslate(lang, 'expense')}</h2>
-        {user._id ? (
+        {user._id && (
           <a
             className={buttonStyle}
             onClick={() => {
@@ -110,7 +110,7 @@ const Expense: NextPage = () => {
           >
             {getTranslate(lang, 'addNew')}
           </a>
-        ) : null}
+        )}
       </section>
       <section className="flex mb-3 flex-col gap-x-3 md:flex-row">
         <ExpenseDates
