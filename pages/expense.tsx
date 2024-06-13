@@ -1,4 +1,5 @@
 import type { NextPage } from 'next';
+import { Router, useRouter } from 'next/router';
 import React, { useEffect, useState, useCallback, useContext } from 'react';
 import { fetchAPI, getTranslate } from '../helpers';
 import AppContext from '../AppContext';
@@ -15,6 +16,16 @@ import Loading from '../components/Loading';
 import Icon from '../components/Icon';
 
 const Expense: NextPage = () => {
+  const route = useRouter();
+  let defaultYear: string | string[] = '';
+  let defaultMonth: string | string[] = '';
+  if (route.query.date) {
+    const date = route.query.date.toString();
+    const [year, month] = date.split('-')
+    defaultYear = year;
+    defaultMonth = month;
+  }
+
   const { user, lang } = useContext(AppContext);
 
   const [showForm, setShowForm] = useState(false);
@@ -28,8 +39,8 @@ const Expense: NextPage = () => {
 
   const emptyCategoryTransactions: Array<CategoryTransaction> = [];
   const [loading, setLoading] = useState(false);
-  const [curYear, setYear] = useState('');
-  const [curMonth, setMonth] = useState('');
+  const [curYear, setYear] = useState(defaultYear);
+  const [curMonth, setMonth] = useState(defaultMonth);
   const [curTotal, setTotal] = useState(0);
   const [categoryTransactions, setCategoryTransactions] =
     useState(emptyCategoryTransactions);
