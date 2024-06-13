@@ -22,13 +22,13 @@ export default function Header({
   router,
   lang,
 }: HeaderProps) {
-  const asPath = router.asPath;
+  const pathname = router.pathname;
   return (
     <header className="top-3 left-3">
       <section className="flex justify-between mb-2">
         <section>
           {getLanguageKeys().map(({ k, v }: { [k: string]: string }) => (
-            <Link key={k} href={`${asPath}`} locale={k}>
+            <Link key={k} href={`${pathname}`} locale={k}>
               <span className={`mr-2 ${buttonStyle}`}>{v}</span>
             </Link>
           ))}
@@ -62,7 +62,7 @@ export default function Header({
         {NAV_LINKS.map((nav) => (
           <Link key={nav.url} href={nav.url}>
             <span
-              className={`nav-link mr-2 cursor-pointer text-red-500 hover:text-red-600 ${nav.url == asPath ? 'border-b-2 border-red-500' : ''
+              className={`nav-link mr-2 cursor-pointer text-red-500 hover:text-red-600 ${nav.url == pathname ? 'border-b-2 border-red-500' : ''
                 }`}
             >
               <Icon name={nav.icon} /> {getTranslate(lang, nav.tl)}

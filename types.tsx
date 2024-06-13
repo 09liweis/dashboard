@@ -26,7 +26,7 @@ export interface HeaderProps {
   user: UserType;
   setUser: Function;
   setShowLogin: Function;
-  router: { asPath: String };
+  router: { pathname: String };
   lang: String;
 }
 
