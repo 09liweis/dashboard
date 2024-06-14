@@ -66,9 +66,9 @@ export default function ExpenseForm({
     const body = { ...curTransaction, place: curPlace };
     setLoading(true);
     const response = await fetchAPI({
-      url: body._id ? EXPENSE_UPDATE_API(body._id) : EXPENSE_NEW_API,
+      url: body.id ? EXPENSE_UPDATE_API(body.id) : EXPENSE_NEW_API,
       body,
-      method: body._id ? 'PUT' : 'POST',
+      method: body.id ? 'PUT' : 'POST',
     });
     setLoading(false);
     getExpenseStatistics();
