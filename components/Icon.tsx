@@ -10,5 +10,5 @@ function getRandomColor() {
 }
 
 export default function Icon({ name, classNames = '', text = '', handleClick }: IconProps) {
-  return <i onClick={handleClick} style={{ color: getRandomColor() }} className={`fa-solid fa-${name} ${classNames}`}>{text}</i>;
+  return <i onClick={handleClick} style={{ color: getRandomColor() }} className={`transition fa-solid fa-${name} ${classNames}`}>{text}</i>;
 }

@@ -44,7 +44,7 @@ const TodosPage: NextPage = () => {
       </div>
       <span className="text-blue-500">{todo.date}</span>
       {user._id && (
-        <Icon name='trash' handleClick={() => handleTodoDelete(todo._id)} classNames='cursor-pointer ml-3' />
+        <Icon name='trash' handleClick={() => handleTodoDelete(todo._id)} classNames='hover:scale-110 cursor-pointer ml-3' />
       )}
     </article>
   ));
