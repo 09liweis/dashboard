@@ -35,7 +35,7 @@ export default function Header({
         </section>
         {user._id ? (
           <section>
-            <span className="mr-3 text-red-500 hover:text-red-600 transition duration-300">
+            <span className="mr-3 text-red-500">
               <Icon name={'user'} /> {user.nm}
             </span>
             <a
