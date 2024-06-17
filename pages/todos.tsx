@@ -44,18 +44,20 @@ const TodosPage: NextPage = () => {
       </div>
       <span className="text-blue-500">{todo.date}</span>
       {user._id && (
-        <Icon name='trash' handleClick={() => handleTodoDelete(todo._id)} classNames='hover:scale-110 cursor-pointer ml-3' />
+        <Icon name='trash' handleClick={() => handleTodoDelete(todo._id, todoIndex)} classNames='hover:scale-110 cursor-pointer ml-3' />
       )}
     </article>
   ));
 
-  const handleTodoDelete = async (id: string) => {
+  const handleTodoDelete = async (id: string, todoIndex: number) => {
     const todoResponse = await fetchAPI({
       url: `${TODO_LIST_API}/${id}`,
       method: 'DELETE',
       body: {},
     });
-    fetchTodos();
+    const newTodos = [...todos];
+    newTodos.splice(todoIndex, 1);
+    setTodos(newTodos);
   };
 
   const handleTodoFinish = async (todo: Todo, todoIndex: number) => {
