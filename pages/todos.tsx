@@ -88,7 +88,7 @@ const TodosPage: NextPage = () => {
   };
 
   return (
-    <section>
+    <>
       <h1 className='text-3xl mb-2 text-pink-600 font-bold'>My Todos </h1>
       {todosHTML}
       {user._id && (
@@ -111,7 +111,7 @@ const TodosPage: NextPage = () => {
           </div>
         </>
       )}
-    </section>
+    </>
   );
 };
 
