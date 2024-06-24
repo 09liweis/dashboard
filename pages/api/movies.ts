@@ -9,8 +9,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const { page } = req.query;
     const movies = await Movie.find().limit(limit).sort("-date_updated");
     const total = await Movie.countDocuments();
-    res.status(200).json({ total, page, movies })
+    return res.status(200).json({ total, page, movies })
   } catch (error: any) {
-    res.status(500).json({ error: error.toString() });
+    return res.status(500).json({ error: error.toString() });
   }
 }
