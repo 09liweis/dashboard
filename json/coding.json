@@ -347,7 +347,7 @@
         "how": "funnction* name() yield param, generatorObject.next(param) .return() .throw() (value:'',done:false)"
       },
       { "nm": "continue break" },
-      { "nm": "Object.freeze" },
+      { "nm": "Object.freeze", "what": "make object not able to be modified" },
       { "nm": "map for object", "pros": "key can be object or other type" },
       { "nm": "set for array", "pros": "no duplicate items" },
       { "nm": "float point number" },
