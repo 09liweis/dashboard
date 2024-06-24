@@ -29,4 +29,4 @@ const Movie = mongoose.Schema({
   },
 });
 
-export default mongoose.models.Movie || mongoose.model("Visual", Movie);
+export default mongoose.model("Visual", Movie);
