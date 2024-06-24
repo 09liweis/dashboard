@@ -263,6 +263,7 @@
   {
     "nm": "JavaScript",
     "items": [
+      { "nm": "Numeric Separators", "what": "1000000 -> 1_000_000", "why": "It makes our code more informative and readable." },
       { "nm": "beforeunload", "what": "window.addEventListner('beforeunload',function(){/*page refresh or close*/})" },
       { "nm": "View Transition API" },
       { "nm": "padStart/padEnd", "what": "add 0 to the left of a string" },
