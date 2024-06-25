@@ -7,15 +7,15 @@ import { COMMENT_LIST_API, TODO_LIST_API, MOVIE_RANGDOM_API } from '../constants
 import { fetchAPI, getTranslate } from '../helpers';
 
 const DASHBOARD_CARDS = [
-  { tl: 'waifu', icon: 'person-dress', bg: 'purple-400' },
-  { tl: 'dog', icon: 'dog', bg: 'purple-400' },
-  { tl: 'cat', icon: 'cat', bg: 'purple-400' },
-  { tl: 'quote', icon: 'blog', bg: 'purple-600' },
+  // { tl: 'waifu', icon: 'person-dress', bg: 'purple-400' },
+  // { tl: 'dog', icon: 'dog', bg: 'purple-400' },
+  // { tl: 'cat', icon: 'cat', bg: 'purple-400' },
+  { tl: 'quote', icon: 'blog', bg: 'green-600' },
   { tl: 'todos', icon: 'list', bg: 'blue-400' },
   { tl: 'comments', icon: 'comments', bg: 'red-400' },
   { tl: 'expense', icon: 'dollar-sign', bg: 'green-500' },
   { tl: 'places', icon: 'location-dot', bg: 'indigo-500' },
-  { tl: 'blogs', icon: 'blog', bg: 'purple-500' },
+  { tl: 'blogs', icon: 'blog', bg: 'sky-500' },
   { tl: 'movie', icon: 'film', bg: 'teal-600' },
 ] as const;
 
@@ -150,20 +150,20 @@ const Home: NextPage = () => {
   };
 
   const fetchDashBoardData = async () => {
-    const [newWaifuPic, dogPics, catPics, quote] = await Promise.all([
+    const [quote] = await Promise.all([
       // fetchTodos(),
       // fetchComments(),
-      fetchWaifuPic(),
-      fetchAnimalPic('dog'),
-      fetchAnimalPic('cat'),
+      // fetchWaifuPic(),
+      // fetchAnimalPic('dog'),
+      // fetchAnimalPic('cat'),
       fetchRandomQuote(),
       // fetchRandomMovie()
     ]);
     // setTodos(newTodos);
     // setComments(newComments);
-    setWaifuPic(newWaifuPic.url);
-    setDogPic(dogPics[0].url);
-    setCatPic(catPics[0].url);
+    // setWaifuPic(newWaifuPic.url);
+    // setDogPic(dogPics[0].url);
+    // setCatPic(catPics[0].url);
     setRandomQuote(quote);
     // setRandomMovie(movie);
   };
@@ -182,7 +182,7 @@ const Home: NextPage = () => {
     <section className="flex flex-wrap">
       {DASHBOARD_CARDS.map(({ tl, icon, bg }) => (
         <article key={tl} className="p-1 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5">
-          <div className={`p-2 drop-shadow-md shadow-lg bg-${bg}`}>
+          <div className={`p-2 drop-shadow-md shadow-lg bg-red-400 rounded`}>
             <h2 className="text-2xl text-white capitalize">
               <Icon name={icon} classNames={'mr-2'} />
               {getTranslate(lang, tl)}
