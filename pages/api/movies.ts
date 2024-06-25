@@ -6,8 +6,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   try {
     await connectDB()
     const limit = 10;
-    const { page } = req.query;
-    const movies = await Movie.find().limit(limit).sort("-date_updated");
+    let page: string = req.query.page ? req.query.page.toString() : "1";
+    const skip: number = (parseInt(page) - 1) * limit;
+    const movies = await Movie.find().skip(skip).limit(limit).sort("-date_updated");
     const total = await Movie.countDocuments();
     return res.status(200).json({ total, page, movies })
   } catch (error: any) {
