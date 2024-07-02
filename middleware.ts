@@ -1,8 +1,8 @@
-import { NextResponse } from "next/server";
+import { NextResponse } from 'next/server'
+import type { NextRequest } from 'next/server'
 
-export function middleware() {
+export function middleware(request: NextRequest) {
   // retrieve the current response
-  console.log(NextResponse);
   const res = NextResponse.next()
 
   // add the CORS headers to the response
