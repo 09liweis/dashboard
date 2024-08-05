@@ -48,6 +48,7 @@ export interface Transaction {
 export interface CategoryTransaction {
   total: string;
   category: string;
+  percentage:number;
   items: [Transaction];
 }
 

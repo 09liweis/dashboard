@@ -17,7 +17,7 @@ export default function ExpenseList({
   categoryTransactions,
   openTransactionDetail,
 }: ExpenseListProps) {
-  const expensesHTML = categoryTransactions.map(({ category, total, items }) => {
+  const expensesHTML = categoryTransactions.map(({ category, total, items, percentage }) => {
     return (
       <div key={category} className="mb-2">
         <div className="father bg-gradient-to-l from-red-200 border-dashed border-2 border-red-600 p-1 flex justify-between items-center mb-1 rounded text-red-600 transition duration-300">
@@ -28,6 +28,7 @@ export default function ExpenseList({
             name={ICON_CATEGORY[category]}
             text={category}
           />
+          <span>{percentage.toFixed(2)}%</span>
           <span className="font-bold">{total}</span>
         </div>
         {items.map((transaction) => {
