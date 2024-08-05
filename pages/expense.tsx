@@ -33,9 +33,8 @@ const Expense: NextPage = () => {
   const emptyCategories: Array<String> = [];
   const [categories, setCategories] = useState(emptyCategories);
 
-  const emptyTransaction: Transaction = {};
   const [selectedTransaction, setSelectTransaction] =
-    useState(emptyTransaction);
+    useState<Transaction>({});
 
   const emptyCategoryTransactions: Array<CategoryTransaction> = [];
   const [loading, setLoading] = useState(false);
