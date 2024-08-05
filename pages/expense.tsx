@@ -103,7 +103,7 @@ const Expense: NextPage = () => {
             className={buttonStyle}
             onClick={() => {
               setShowForm(true);
-              setSelectTransaction(emptyTransaction);
+              setSelectTransaction({});
             }}
           >
             {getTranslate(lang, 'addNew')}
