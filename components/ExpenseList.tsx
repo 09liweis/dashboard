@@ -1,17 +1,4 @@
-const ICON_CATEGORY: { [key: string]: string } = {
-  food: 'utensils',
-  gas: 'gas-pump',
-  computer: 'computer',
-  clothes: 'clothes-hanger',
-  grocery: 'cart-shopping',
-  phone: 'phone',
-  electricity: 'bolt',
-  internet: 'internet-explorer',
-  fuel: 'gas-pump'
-};
-
 import { ExpenseListProps } from '../types';
-import Icon from './Icon';
 
 export default function ExpenseList({
   categoryTransactions,
@@ -21,13 +8,7 @@ export default function ExpenseList({
     return (
       <div key={category} className="mb-2">
         <div className="father bg-gradient-to-l from-red-200 border-dashed border-2 border-red-600 p-1 flex justify-between items-center mb-1 rounded text-red-600 transition duration-300">
-          <Icon
-            classNames={
-              'flex gap-x-1 tracking-widest transition duration-300 hover:translate-y-0.5'
-            }
-            name={ICON_CATEGORY[category]}
-            text={category}
-          />
+          <span className='capitalize text-xl'>{category}</span>
           <span>{percentage.toFixed(2)}%</span>
           <span className="font-bold">{total}</span>
         </div>
