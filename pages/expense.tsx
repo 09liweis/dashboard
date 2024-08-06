@@ -5,7 +5,6 @@ import { fetchAPI, getTranslate } from '../helpers';
 import AppContext from '../AppContext';
 import ExpenseForm from '../components/ExpenseForm';
 import ExpenseList from '../components/ExpenseList';
-import ExpenseDates from '../components/ExpenseDates';
 import { Transaction, CategoryTransaction } from '../types';
 import {
   buttonStyle,
@@ -13,7 +12,6 @@ import {
   EXPENSE_CATEGORIES_API,
 } from '../constants';
 import Loading from '../components/Loading';
-import Icon from '../components/Icon';
 
 const Expense: NextPage = () => {
   const route = useRouter();
