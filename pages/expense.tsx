@@ -97,7 +97,6 @@ const Expense: NextPage = () => {
         />
       )}
       <section className="flex justify-between items-center mb-3">
-        <h2>{getTranslate(lang, 'expense')}</h2>
         {user._id && (
           <a
             className={buttonStyle}
@@ -119,8 +118,7 @@ const Expense: NextPage = () => {
         />
         <article className="rounded p-2 bg-card md:flex-1">
           <p className="text-right capitalize text-2xl font-bold text-red-600">
-            <Icon name={'sack-dollar'} />
-            {getTranslate(lang, 'total')}:{curTotal}
+            {curTotal}
           </p>
           {loading ? (
             <div className="flex justify-center">
