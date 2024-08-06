@@ -94,11 +94,11 @@ const Expense: NextPage = () => {
           </a>
         )}
       </section>
-      <section className="flex mb-3 flex-col gap-x-3 md:flex-row">
+      <section className="flex mb-3 flex-col gap-x-3">
 
-        <input type={"month"} value={curDate} onChange={(e) => setCurDate(e.target.value)} />
+        <input className='w-full p-2' type={"month"} value={curDate} onChange={(e) => setCurDate(e.target.value)} />
 
-        <article className="rounded p-2 bg-card md:flex-1">
+        <article className="rounded p-2 bg-card">
           <p className="text-right capitalize text-2xl font-bold text-red-600">
             {curTotal}
           </p>
