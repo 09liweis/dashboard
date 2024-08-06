@@ -17,14 +17,6 @@ import Icon from '../components/Icon';
 
 const Expense: NextPage = () => {
   const route = useRouter();
-  let defaultYear: string | string[] = '';
-  let defaultMonth: string | string[] = '';
-  if (route.query.date) {
-    const date = route.query.date.toString();
-    const [year, month] = date.split('-')
-    defaultYear = year;
-    defaultMonth = month;
-  }
 
   const { user, lang } = useContext(AppContext);
 
@@ -37,33 +29,28 @@ const Expense: NextPage = () => {
     useState<Transaction>({});
 
   const [loading, setLoading] = useState(false);
-  const [curYear, setYear] = useState(defaultYear);
-  const [curMonth, setMonth] = useState(defaultMonth);
+  const [curDate, setCurDate] = useState("");
   const [curTotal, setTotal] = useState(0);
   const [categoryTransactions, setCategoryTransactions] =
     useState<CategoryTransaction[]>([]);
 
   const getExpenseStatistics = useCallback(async () => {
     setLoading(true);
-    const body = { date: '' };
-    if (curYear || curMonth) {
-      body.date = `${curYear}`;
-      if (curMonth) {
-        body.date += `-${curMonth.padStart(2, '0')}`;
-      }
-    }
-    const { categoryPrice, total } = await fetchAPI({
+    const body = { date: curDate };
+
+    const { categoryPrice, total, date } = await fetchAPI({
       url: EXPENSE_LIST_API,
       body,
     });
     setLoading(false);
     setCategoryTransactions(categoryPrice);
     setTotal(total);
-  }, [curYear, curMonth]);
+    setCurDate(date);
+  }, [curDate]);
 
   useEffect(() => {
     getExpenseStatistics();
-  }, [curYear, curMonth, getExpenseStatistics]);
+  }, [curDate, getExpenseStatistics]);
 
   const getCategories = async () => {
     const response = await fetchAPI({
@@ -110,12 +97,9 @@ const Expense: NextPage = () => {
         )}
       </section>
       <section className="flex mb-3 flex-col gap-x-3 md:flex-row">
-        <ExpenseDates
-          curYear={curYear}
-          curMonth={curMonth}
-          setYear={setYear}
-          setMonth={setMonth}
-        />
+
+        <input type={"month"} value={curDate} onChange={(e) => setCurDate(e.target.value)} />
+
         <article className="rounded p-2 bg-card md:flex-1">
           <p className="text-right capitalize text-2xl font-bold text-red-600">
             {curTotal}
