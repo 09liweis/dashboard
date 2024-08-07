@@ -20,8 +20,7 @@ const Expense: NextPage = () => {
 
   const [showForm, setShowForm] = useState(false);
 
-  const emptyCategories: Array<String> = [];
-  const [categories, setCategories] = useState(emptyCategories);
+  const [categories, setCategories] = useState<String[]>([]);
 
   const [selectedTransaction, setSelectTransaction] =
     useState<Transaction>({});
