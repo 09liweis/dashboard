@@ -5,7 +5,7 @@ import { fetchAPI, getTranslate } from '../helpers';
 import AppContext from '../AppContext';
 import ExpenseForm from '../components/ExpenseForm';
 import ExpenseList from '../components/ExpenseList';
-import { Transaction, CategoryTransaction } from '../types';
+import { Transaction, CategoryTransaction, ExpenseResponse } from '../types';
 import {
   buttonStyle,
   EXPENSE_LIST_API,
@@ -26,28 +26,23 @@ const Expense: NextPage = () => {
     useState<Transaction>({});
 
   const [loading, setLoading] = useState(false);
-  const [curDate, setCurDate] = useState("");
-  const [curTotal, setTotal] = useState(0);
-  const [categoryTransactions, setCategoryTransactions] =
-    useState<CategoryTransaction[]>([]);
+  const [expenseResponse, setExpenseResponse] = useState<ExpenseResponse>({total:"",date:"",categoryPrice:[]});
 
   const getExpenseStatistics = useCallback(async () => {
     setLoading(true);
-    const body = { date: curDate };
+    const body = { date: expenseResponse.date };
 
-    const { categoryPrice, total, date } = await fetchAPI({
+    const expenseResp = await fetchAPI({
       url: EXPENSE_LIST_API,
       body,
     });
     setLoading(false);
-    setCategoryTransactions(categoryPrice);
-    setTotal(total);
-    setCurDate(date);
-  }, [curDate]);
+    setExpenseResponse(expenseResp);
+  }, [expenseResponse.date]);
 
   useEffect(() => {
     getExpenseStatistics();
-  }, [curDate, getExpenseStatistics]);
+  }, [expenseResponse.date, getExpenseStatistics]);
 
   const getCategories = async () => {
     const response = await fetchAPI({
@@ -95,11 +90,11 @@ const Expense: NextPage = () => {
       </section>
       <section className="flex mb-3 flex-col gap-x-3">
 
-        <input className='w-full p-2' type={"month"} value={curDate} onChange={(e) => setCurDate(e.target.value)} />
+        <input className='w-full p-2 mb-2 rounded bg-card' type={"month"} value={expenseResponse.date} onChange={(e) => setExpenseResponse({...expenseResponse,date:e.target.value})} />
 
         <article className="rounded p-2 bg-card">
           <p className="text-right capitalize text-2xl font-bold text-red-600">
-            {curTotal}
+            {expenseResponse.total}
           </p>
           {loading ? (
             <div className="flex justify-center">
@@ -107,7 +102,7 @@ const Expense: NextPage = () => {
             </div>
           ) : (
             <ExpenseList
-              categoryTransactions={categoryTransactions}
+              categoryTransactions={expenseResponse.categoryPrice}
               openTransactionDetail={openTransactionDetail}
             />
           )}
