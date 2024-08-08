@@ -42,7 +42,7 @@ const Expense: NextPage = () => {
 
   useEffect(() => {
     getExpenseStatistics();
-  }, [expenseResponse.date, getExpenseStatistics]);
+  }, [expenseResponse.date]);
 
   const getCategories = async () => {
     const response = await fetchAPI({
