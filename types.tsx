@@ -45,21 +45,20 @@ export interface Transaction {
   };
 }
 
+export interface ExpenseResponse {
+  total: string;
+  date:string;
+  categoryPrice:CategoryTransaction[]
+}
+
 export interface CategoryTransaction {
   total: string;
   category: string;
-  percentage:number;
+  percentage: number;
   items: [Transaction];
 }
 
 export interface ExpenseListProps {
   categoryTransactions: CategoryTransaction[];
   openTransactionDetail: Function;
-}
-
-export interface ExpenseDatesProps {
-  curMonth: string;
-  curYear: string;
-  setYear: Function;
-  setMonth: Function;
 }
