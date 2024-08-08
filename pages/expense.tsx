@@ -30,11 +30,10 @@ const Expense: NextPage = () => {
 
   const getExpenseStatistics = useCallback(async () => {
     setLoading(true);
-    const body = { date: expenseResponse.date };
 
     const expenseResp = await fetchAPI({
       url: EXPENSE_LIST_API,
-      body,
+      body:{ date: expenseResponse.date },
     });
     setLoading(false);
     setExpenseResponse(expenseResp);
