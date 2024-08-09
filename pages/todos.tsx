@@ -1,9 +1,9 @@
 import type { NextPage } from 'next';
 import { useContext, useEffect, useState } from 'react';
-import AppContext from '../AppContext';
-import Icon from '../components/Icon';
+import AppContext from 'AppContext';
+import Icon from '@/components/Icon';
 import { TODO_LIST_API } from '../constants';
-import { fetchAPI } from '../helpers';
+import { fetchAPI } from 'helpers';
 
 interface Todo {
   [key: string]: string;
