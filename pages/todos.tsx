@@ -10,11 +10,8 @@ interface Todo {
 }
 
 const TodosPage: NextPage = () => {
-  const emptyTodos: Array<Todo> = [];
-  const [todos, setTodos] = useState(emptyTodos);
-
-  const emptyTodo: Todo = { _id: '', name: '' };
-  const [todo, setTodo] = useState(emptyTodo);
+  const [todos, setTodos] = useState<Todo[]>([]);
+  const [todo, setTodo] = useState<Todo>({ _id: '', name: '' });
 
   const { user } = useContext(AppContext);
 
@@ -83,7 +80,7 @@ const TodosPage: NextPage = () => {
     const todoResponse = await fetchAPI({ url: TODO_LIST_API, body: todo });
     if (todoResponse) {
       fetchTodos();
-      setTodo(emptyTodo);
+      setTodo({});
     }
   };
 
