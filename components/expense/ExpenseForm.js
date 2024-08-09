@@ -1,13 +1,13 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { fetchAPI } from '../helpers';
-import { loadGoogleMapScript, GoogleMap } from '../helpers/googleMap';
+import { fetchAPI } from 'helpers';
+import { loadGoogleMapScript, GoogleMap } from 'helpers/googleMap';
 import {
   buttonStyle,
   EXPENSE_NEW_API,
   EXPENSE_UPDATE_API,
   EXPENSE_DELETE_API,
-} from '../constants';
-import Loading from './Loading';
+} from 'constants';
+import Loading from '@/components/Loading';
 
 const googleMap = new GoogleMap();
 

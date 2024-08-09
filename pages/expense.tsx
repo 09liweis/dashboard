@@ -1,17 +1,17 @@
 import type { NextPage } from 'next';
 import { Router, useRouter } from 'next/router';
 import React, { useEffect, useState, useCallback, useContext } from 'react';
-import { fetchAPI, getTranslate } from '../helpers';
-import AppContext from '../AppContext';
-import ExpenseForm from '../components/ExpenseForm';
-import ExpenseList from '../components/ExpenseList';
-import { Transaction, CategoryTransaction, ExpenseResponse } from '../types';
+import { fetchAPI, getTranslate } from 'helpers';
+import AppContext from 'AppContext';
+import ExpenseForm from '@/components/expense/ExpenseForm';
+import ExpenseList from '@/components/expense/ExpenseList';
+import { Transaction, CategoryTransaction, ExpenseResponse } from 'types';
 import {
   buttonStyle,
   EXPENSE_LIST_API,
   EXPENSE_CATEGORIES_API,
 } from '../constants';
-import Loading from '../components/Loading';
+import Loading from '@/components/Loading';
 
 const Expense: NextPage = () => {
   const route = useRouter();
@@ -26,14 +26,14 @@ const Expense: NextPage = () => {
     useState<Transaction>({});
 
   const [loading, setLoading] = useState(false);
-  const [expenseResponse, setExpenseResponse] = useState<ExpenseResponse>({total:"",date:"",categoryPrice:[]});
+  const [expenseResponse, setExpenseResponse] = useState<ExpenseResponse>({ total: "", date: "", categoryPrice: [] });
 
   const getExpenseStatistics = useCallback(async () => {
     setLoading(true);
 
     const expenseResp = await fetchAPI({
       url: EXPENSE_LIST_API,
-      body:{ date: expenseResponse.date },
+      body: { date: expenseResponse.date },
     });
     setLoading(false);
     setExpenseResponse(expenseResp);
@@ -89,7 +89,7 @@ const Expense: NextPage = () => {
       </section>
       <section className="flex mb-3 flex-col gap-x-3">
 
-        <input className='w-full p-2 mb-2 rounded bg-card' type={"month"} value={expenseResponse.date} onChange={(e) => setExpenseResponse({...expenseResponse,date:e.target.value})} />
+        <input className='w-full p-2 mb-2 rounded bg-card' type={"month"} value={expenseResponse.date} onChange={(e) => setExpenseResponse({ ...expenseResponse, date: e.target.value })} />
 
         <article className="rounded p-2 bg-card">
           <p className="text-right capitalize text-2xl font-bold text-red-600">

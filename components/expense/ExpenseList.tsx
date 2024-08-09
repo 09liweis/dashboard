@@ -1,4 +1,4 @@
-import { ExpenseListProps } from '../types';
+import { ExpenseListProps } from 'types';
 
 export default function ExpenseList({
   categoryTransactions,
