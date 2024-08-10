@@ -1,10 +1,10 @@
 import type { GetServerSideProps, GetStaticProps, NextPage } from 'next';
 import { useContext, useEffect, useState } from 'react';
 import Image from 'next/image';
-import AppContext from '../AppContext';
-import Icon from '../components/Icon';
+import AppContext from 'AppContext';
+import Icon from '@/components/Icon';
 import { COMMENT_LIST_API, TODO_LIST_API, MOVIE_RANGDOM_API } from '../constants';
-import { fetchAPI, getTranslate } from '../helpers';
+import { fetchAPI, getTranslate } from 'helpers';
 
 const DASHBOARD_CARDS = [
   // { tl: 'waifu', icon: 'person-dress', bg: 'purple-400' },
