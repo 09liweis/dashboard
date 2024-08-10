@@ -1,11 +1,11 @@
 import { useState, useEffect, useContext } from 'react';
 import type { NextPage } from 'next';
-import { fetchAPI, getTranslate } from '../../helpers';
+import { fetchAPI, getTranslate } from 'helpers';
 import { BLOG_LIST_API, buttonStyle } from '../../constants';
 import Link from 'next/link';
-import AppContext from '../../AppContext';
-import { BlogType } from '../../types';
-import Blog from '../../classes/blog';
+import AppContext from 'AppContext';
+import { BlogType } from 'types';
+import Blog from 'classes/blog';
 
 const Blogs: NextPage = () => {
   const { user, lang } = useContext(AppContext);
