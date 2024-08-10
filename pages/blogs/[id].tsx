@@ -1,11 +1,11 @@
 import { useState, useEffect, useContext } from 'react';
 import type { NextPage } from 'next';
-import { fetchAPI, getTranslate } from '../../helpers';
+import { fetchAPI, getTranslate } from 'helpers';
 import { BLOG_LIST_API, buttonStyle } from '../../constants';
 import { useRouter } from 'next/router';
-import AppContext from '../../AppContext';
-import useDebounce from '../../hooks/useDebounce';
-import { BlogType } from '../../types';
+import AppContext from 'AppContext';
+import useDebounce from 'hooks/useDebounce';
+import { BlogType } from 'types';
 
 const BlogDetail: NextPage = () => {
   const router = useRouter();
