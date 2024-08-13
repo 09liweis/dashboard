@@ -7,9 +7,9 @@ export default function ExpenseList({
   const expensesHTML = categoryTransactions.map(({ category, total, items, percentage }) => {
     return (
       <div key={category} className="mb-2">
-        <div className="father bg-gradient-to-l from-red-200 border-dashed border-2 border-red-600 p-1 flex justify-between items-center mb-1 rounded text-red-600 transition duration-300">
+        <div className="father relative bg-gradient-to-l from-red-300 border-dashed border-2 border-red-600 p-1 flex justify-between items-center mb-1 rounded text-red-600 transition duration-300">
           <span className='capitalize text-xl'>{category}</span>
-          <span>{percentage.toFixed(2)}%</span>
+          <span className='absolute' style={{left:percentage+'%'}}>{percentage.toFixed(2)}%</span>
           <span className="font-bold">{total}</span>
         </div>
         {items.map((transaction) => {
@@ -18,7 +18,7 @@ export default function ExpenseList({
             <article
               key={id}
               title={place?.address}
-              className="flex justify-between cursor-pointer text-red-400 hover:text-red-600 transition duration-300"
+              className="flex px-1 justify-between cursor-pointer text-red-400 hover:text-red-600 transition duration-300"
               onClick={() => openTransactionDetail(transaction)}
             >
               <span className="truncate w-1/2">{place?.name}</span>
