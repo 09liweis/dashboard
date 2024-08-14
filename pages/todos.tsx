@@ -6,7 +6,7 @@ import { TODO_LIST_API } from '../constants';
 import { fetchAPI } from 'helpers';
 
 interface Todo {
-  _id?:string;
+  _id:string;
   name: string;
   status:string;
   date:string;
@@ -16,6 +16,7 @@ interface Todo {
 const TodosPage: NextPage = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const emptyTodo = {
+    _id:'',
     name: '',
     status: 'pending',
     date: '',
