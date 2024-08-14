@@ -6,12 +6,22 @@ import { TODO_LIST_API } from '../constants';
 import { fetchAPI } from 'helpers';
 
 interface Todo {
-  [key: string]: string;
+  _id?:string;
+  name: string;
+  status:string;
+  date:string;
+  is_done: boolean;
 }
 
 const TodosPage: NextPage = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
-  const [todo, setTodo] = useState<Todo>({ _id: '', name: '' });
+  const emptyTodo = {
+    name: '',
+    status: 'pending',
+    date: '',
+    is_done: false,
+  }
+  const [todo, setTodo] = useState<Todo>(emptyTodo);
 
   const { user } = useContext(AppContext);
 
@@ -63,24 +73,18 @@ const TodosPage: NextPage = () => {
       method: 'PUT',
       body: { status: 'done' },
     });
-    todo.is_done = 'done';
+    todo.is_done = true;
     const newTodos = [...todos];
     newTodos[todoIndex] = todo;
     setTodos(newTodos);
   }
-
-  const handleTodoChange = (field: string, value: string) => {
-    const newTodo = { ...todo };
-    newTodo[field] = value;
-    setTodo(newTodo);
-  };
 
   const handleTodoSubmit = async (e: any) => {
     e.preventDefault();
     const todoResponse = await fetchAPI({ url: TODO_LIST_API, body: todo });
     if (todoResponse) {
       fetchTodos();
-      setTodo({ _id: '', name: '', status: '', date: '' });
+      setTodo(emptyTodo);
     }
   };
 
@@ -94,12 +98,12 @@ const TodosPage: NextPage = () => {
           <form onSubmit={handleTodoSubmit}>
             <input
               value={todo.name}
-              onChange={(e) => handleTodoChange('name', e.target.value)}
+              onChange={(e) => setTodo({...todo,'name':e.target.value})}
             />
             <input
               type="date"
               value={todo.date}
-              onChange={(e) => handleTodoChange('date', e.target.value)}
+              onChange={(e) => setTodo({...todo,'date':e.target.value})}
             />
             <button type="submit">Add</button>
           </form>
