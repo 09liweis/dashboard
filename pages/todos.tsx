@@ -80,7 +80,7 @@ const TodosPage: NextPage = () => {
     const todoResponse = await fetchAPI({ url: TODO_LIST_API, body: todo });
     if (todoResponse) {
       fetchTodos();
-      setTodo({});
+      setTodo({ _id: '', name: '', status: '', date: '' });
     }
   };
 
