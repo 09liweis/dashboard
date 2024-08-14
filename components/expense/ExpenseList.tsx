@@ -7,10 +7,12 @@ export default function ExpenseList({
   const expensesHTML = categoryTransactions.map(({ category, total, items, percentage }) => {
     return (
       <div key={category} className="mb-2">
-        <div className="father relative bg-gradient-to-l from-red-300 border-dashed border-2 border-red-600 p-1 flex justify-between items-center mb-1 rounded text-red-600 transition duration-300">
-          <span className='capitalize text-xl'>{category}</span>
-          <span className='absolute' style={{left:percentage+'%'}}>{percentage.toFixed(2)}%</span>
-          <span className="font-bold">{total}</span>
+        <div className="father relative bg-gradient-to-l from-red-300 border-dashed border-2 border-red-600 p-1 mb-1 rounded text-red-600 transition duration-300">
+          <div className='flex justify-between items-center'>
+            <span className='capitalize text-xl'>{category}</span>
+            <span className="font-bold">{total}</span>
+          </div>
+          <div className='bg-red-500 text-white text-right p-1 rounded' style={{width:percentage+'%'}}>{percentage.toFixed(2)}%</div>
         </div>
         {items.map((transaction) => {
           const { id, price, date, place, title } = transaction;
