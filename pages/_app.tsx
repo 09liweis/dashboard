@@ -67,6 +67,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <AppContext.Provider
         value={{
+          isUserLoggedIn: user?._id,
           user,
           lang,
           setUser,

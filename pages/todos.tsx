@@ -6,17 +6,17 @@ import { TODO_LIST_API } from '../constants';
 import { fetchAPI } from 'helpers';
 
 interface Todo {
-  _id:string;
+  _id: string;
   name: string;
-  status:string;
-  date:string;
+  status: string;
+  date: string;
   is_done: boolean;
 }
 
 const TodosPage: NextPage = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const emptyTodo = {
-    _id:'',
+    _id: '',
     name: '',
     status: 'pending',
     date: '',
@@ -24,7 +24,7 @@ const TodosPage: NextPage = () => {
   }
   const [todo, setTodo] = useState<Todo>(emptyTodo);
 
-  const { user } = useContext(AppContext);
+  const { isUserLoggedIn } = useContext(AppContext);
 
   const fetchTodos = async () => {
     const response = await fetchAPI({
@@ -47,11 +47,11 @@ const TodosPage: NextPage = () => {
       className="relative shadow-lg bg-white/[30%] rounded-lg p-2 mb-2 flex justify-between items-center"
     >
       <div>
-        {user._id && <Icon name={todo.is_done ? 'circle-check' : 'circle'} classNames={`transition cursor-pointer mr-3 ${todo.is_done ? 'todo-is-done' : ''}`} handleClick={() => handleTodoFinish(todo, todoIndex)} />}
+        {isUserLoggedIn && <Icon name={todo.is_done ? 'circle-check' : 'circle'} classNames={`transition cursor-pointer mr-3 ${todo.is_done ? 'todo-is-done' : ''}`} handleClick={() => handleTodoFinish(todo, todoIndex)} />}
         <span className={`text-teal-600 ${todo.is_done ? 'line-through' : ''}`}>{todo.name}</span>
       </div>
       <span className="text-blue-500">{todo.date}</span>
-      {user._id && (
+      {isUserLoggedIn && (
         <Icon name='trash' handleClick={() => handleTodoDelete(todo._id, todoIndex)} classNames='hover:scale-110 cursor-pointer ml-3' />
       )}
     </article>
@@ -93,18 +93,18 @@ const TodosPage: NextPage = () => {
     <>
       <h1 className='text-3xl mb-2 text-pink-600 font-bold'>My Todos </h1>
       {todosHTML}
-      {user._id && (
+      {isUserLoggedIn && (
         <>
 
           <form onSubmit={handleTodoSubmit}>
             <input
               value={todo.name}
-              onChange={(e) => setTodo({...todo,'name':e.target.value})}
+              onChange={(e) => setTodo({ ...todo, 'name': e.target.value })}
             />
             <input
               type="date"
               value={todo.date}
-              onChange={(e) => setTodo({...todo,'date':e.target.value})}
+              onChange={(e) => setTodo({ ...todo, 'date': e.target.value })}
             />
             <button type="submit">Add</button>
           </form>
