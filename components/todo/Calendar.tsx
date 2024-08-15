@@ -2,23 +2,23 @@ import { useEffect, useState } from "react";
 
 const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December"
 ];
 
 interface CalendarDay {
-  status:string,
-  date:number
+  status: string,
+  date: number
 }
 
 export default function Calendar() {
@@ -44,42 +44,38 @@ export default function Calendar() {
     // Get the last date of the previous month
     let monthlastdate = new Date(year, month, 0).getDate();
 
-    // Variable to store the generated calendar HTML
-    let lit = "";
-
     // Loop to add the last dates of the previous month
     for (let i = dayone; i > 0; i--) {
-      newDays.push({status:'inactive', date: monthlastdate - i + 1});
+      newDays.push({ status: 'inactive', date: monthlastdate - i + 1 });
     }
 
     // Loop to add the dates of the current month
     for (let i = 1; i <= lastdate; i++) {
       // Check if the current date is today
       let isToday = i === date.getDate()
-          && month === new Date().getMonth()
-          && year === new Date().getFullYear()
-          ? "active"
-          : "";
-      newDays.push({status:isToday,date:i});
+        && month === new Date().getMonth()
+        && year === new Date().getFullYear()
+        ? "active"
+        : "";
+      newDays.push({ status: isToday, date: i });
     }
 
     // Loop to add the first dates of the next month
     for (let i = dayend; i < 6; i++) {
-      newDays.push({status:'inactive',date:i-dayend+1})
+      newDays.push({ status: 'inactive', date: i - dayend + 1 })
     }
     // currdate.innerText = `${months[month]} ${year}`;
-    // day.innerHTML = lit;
     setDays(newDays);
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     setCalendarDays();
-  },[]);
-  
+  }, []);
+
   return (
     <section className="flex flex-wrap">
-      {WEEKDAYS.map((day)=><span className="w-[14%] text-center" key={day}>{day}</span>)}
-      {days.map((day)=><span className="w-[14%] text-center" key={day.date}>{day.date}</span>)}
+      {WEEKDAYS.map((day) => <span className="calendar-day" key={day}>{day}</span>)}
+      {days.map(({date,status}) => <span className={`calendar-day ${status}`} key={date}>{date}</span>)}
     </section>
   );
 }
