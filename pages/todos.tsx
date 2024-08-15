@@ -4,6 +4,7 @@ import AppContext from 'AppContext';
 import Icon from '@/components/Icon';
 import { TODO_LIST_API } from '../constants';
 import { fetchAPI } from 'helpers';
+import Calendar from '@/components/todo/Calendar';
 
 interface Todo {
   _id: string;
@@ -92,6 +93,7 @@ const TodosPage: NextPage = () => {
   return (
     <>
       <h1 className='text-3xl mb-2 text-pink-600 font-bold'>My Todos </h1>
+      <Calendar />
       {todosHTML}
       {isUserLoggedIn && (
         <>
