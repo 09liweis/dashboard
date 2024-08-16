@@ -28,6 +28,7 @@ export default function Calendar() {
   let month = date.getMonth();
 
   const [days, setDays] = useState<CalendarDay[]>([]);
+  const [curDate, setCurDate] = useState<String>("");
 
   // Function to generate the calendar
   const setCalendarDays = () => {
@@ -64,8 +65,8 @@ export default function Calendar() {
     for (let i = dayend; i < 6; i++) {
       newDays.push({ status: 'inactive', date: i - dayend + 1 })
     }
-    // currdate.innerText = `${months[month]} ${year}`;
     setDays(newDays);
+    setCurDate(`${months[month]} ${year}`);
   }
 
   useEffect(() => {
@@ -73,9 +74,16 @@ export default function Calendar() {
   }, []);
 
   return (
+    <>
+    <section className="flex justify-between p-4">
+      <span>Prev</span>
+      <span>{curDate}</span>
+      <span>Next</span>
+    </section>
     <section className="flex flex-wrap">
       {WEEKDAYS.map((day) => <span className="calendar-day" key={day}>{day}</span>)}
       {days.map(({date,status}) => <section className={`calendar-day ${status}`} key={date}><span className="bg-white p-2 rounded-lg transition duration-300 hover:scale-110">{date}</span></section>)}
     </section>
+    </>
   );
 }

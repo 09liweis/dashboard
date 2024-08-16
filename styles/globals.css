@@ -77,9 +77,13 @@ body {
 }
 
 .calendar-day {
-  @apply w-[14%] text-center p-4 border border-rose-500;
+  @apply w-[14%] text-center p-4 cursor-pointer;
 }
 
 .calendar-day.active {
   @apply text-red-800;
+}
+
+.calendar-day.inactive {
+  @apply text-gray-400;
 }
