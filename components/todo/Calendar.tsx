@@ -23,10 +23,9 @@ interface CalendarDay {
 
 export default function Calendar() {
 
-  let date = new Date();
-  let year = date.getFullYear();
-  let month = date.getMonth();
-
+  const [date, setDate] = useState(new Date());
+  const [year, setYear] = useState(date.getFullYear());
+  const [month, setMonth] = useState(date.getMonth());
   const [days, setDays] = useState<CalendarDay[]>([]);
   const [curDate, setCurDate] = useState<String>("");
 
@@ -69,16 +68,32 @@ export default function Calendar() {
     setCurDate(`${months[month]} ${year}`);
   }
 
+  const handleMonthChange = (change) => {
+    const newMonth = month + change;
+    if (newMonth < 0 || newMonth > 11) {
+      // Set the date to the first day of the 
+      // month with the new year
+      setDate(new Date(year, month, new Date().getDate()));
+      // Set the year to the new year
+      setYear(date.getFullYear());
+      // Set the month to the new month
+      setMonth(date.getMonth());
+    } else {
+      // Set the date to the current date
+      setDate(new Date());
+    }
+  }
+
   useEffect(() => {
     setCalendarDays();
-  }, []);
+  }, [month]);
 
   return (
     <>
     <section className="flex justify-between p-4">
-      <span>Prev</span>
+      <span onClick={()=>setMonth(month-1)}>Prev</span>
       <span>{curDate}</span>
-      <span>Next</span>
+      <span onClick={()=>setMonth(month+1)}>Next</span>
     </section>
     <section className="flex flex-wrap">
       {WEEKDAYS.map((day) => <span className="calendar-day" key={day}>{day}</span>)}
