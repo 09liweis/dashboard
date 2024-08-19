@@ -12,7 +12,7 @@ export default function ExpenseList({
             <span className='capitalize text-xl'>{category}</span>
             <span className="font-bold">{total}</span>
           </div>
-          <div className='bg-red-500 text-white text-right p-1 rounded' style={{width:percentage+'%'}}>{percentage.toFixed(2)}%</div>
+          <div className='bg-red-500 text-sm text-white text-right p-1 rounded' style={{width:percentage+'%'}}>{percentage.toFixed(2)}%</div>
         </div>
         {items.map((transaction) => {
           const { id, price, date, place, title } = transaction;
