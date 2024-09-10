@@ -65,11 +65,12 @@ export default function ExpenseForm({
       return;
     }
     const body = { ...curTransaction, place: curPlace };
+    const expenseId = body._id;
     setLoading(true);
     const response = await fetchAPI({
-      url: body.id ? EXPENSE_UPDATE_API(body.id) : EXPENSE_NEW_API,
+      url: expenseId ? EXPENSE_UPDATE_API(expenseId) : EXPENSE_NEW_API,
       body,
-      method: body.id ? 'PUT' : 'POST',
+      method: expenseId ? 'PUT' : 'POST',
     });
     setLoading(false);
     getExpenseStatistics();
@@ -137,11 +138,11 @@ export default function ExpenseForm({
         {user._id && (
           <section className="flex justify-between">
             <button className={buttonStyle}>
-              {loading ? <Loading /> : transaction.id ? 'Update' : 'Add'}
+              {loading ? <Loading /> : transaction._id ? 'Update' : 'Add'}
             </button>
-            {transaction.id && (
+            {transaction._id && (
               <button
-                onClick={() => handleTransactionDelete(transaction.id)}
+                onClick={() => handleTransactionDelete(transaction._id)}
                 className={`${buttonStyle}`}
               >
                 Delete
