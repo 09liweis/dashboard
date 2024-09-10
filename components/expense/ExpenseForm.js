@@ -14,6 +14,7 @@ const googleMap = new GoogleMap();
 const TRANSACTION_FIELDS = [
   { name: 'title' },
   { name: 'price' },
+  { name: 'category' },
   { name: 'date', type: 'date' },
 ];
 
