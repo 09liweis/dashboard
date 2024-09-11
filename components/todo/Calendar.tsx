@@ -68,7 +68,7 @@ export default function Calendar() {
     setCurDate(`${months[month]} ${year}`);
   }
 
-  const handleMonthChange = (change) => {
+  const handleMonthChange = (change:number) => {
     const newMonth = month + change;
     if (newMonth < 0 || newMonth > 11) {
       // Set the date to the first day of the 
