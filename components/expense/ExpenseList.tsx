@@ -33,19 +33,20 @@ export default function ExpenseList({
   categoryTransactions,
   openTransactionDetail,
 }: ExpenseListProps) {
-  const expensesHTML = categoryTransactions.map(({ category, total, items, percentage }) => {
-    return (
-      <div key={category} className="mb-2">
-        <div className="father relative bg-gradient-to-l from-red-300 border-dashed border-2 border-red-600 p-1 mb-1 rounded text-red-600 transition duration-300">
-          <div className='flex justify-between items-center'>
-            <span className='capitalize text-xl'>{category}</span>
-            <span className="font-bold">{total}</span>
+  return (<>
+    {categoryTransactions.map(({ category, total, items, percentage }) => {
+      return (
+        <div key={category} className="mb-2">
+          <div className="father relative bg-gradient-to-l from-red-300 border-dashed border-2 border-red-600 p-1 mb-1 rounded text-red-600 transition duration-300">
+            <div className='flex justify-between items-center'>
+              <span className='capitalize text-xl'>{category}</span>
+              <span className="font-bold">{total}</span>
+            </div>
+            <div className='bg-red-500 text-sm text-white text-right p-1 rounded' style={{ width: percentage + '%' }}>{percentage.toFixed(2)}%</div>
           </div>
-          <div className='bg-red-500 text-sm text-white text-right p-1 rounded' style={{ width: percentage + '%' }}>{percentage.toFixed(2)}%</div>
+          <Expenses expenses={items} openTransactionDetail={openTransactionDetail} />
         </div>
-        <Expenses expenses={items} openTransactionDetail={openTransactionDetail} />
-      </div>
-    );
-  });
-  return <>{expensesHTML}</>;
+      );
+    })}
+  </>);
 }
