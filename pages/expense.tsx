@@ -1,5 +1,4 @@
 import type { NextPage } from 'next';
-import { Router, useRouter } from 'next/router';
 import React, { useEffect, useState, useCallback, useContext } from 'react';
 import { fetchAPI, getTranslate } from 'helpers';
 import AppContext from 'AppContext';
@@ -14,7 +13,6 @@ import {
 import Loading from '@/components/Loading';
 
 const Expense: NextPage = () => {
-  const route = useRouter();
 
   const { user, lang } = useContext(AppContext);
 
