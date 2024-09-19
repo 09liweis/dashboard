@@ -41,10 +41,6 @@ body {
   background-color: #ffffffa6;
 }
 
-.father:hover {
-  background-color: burlywood;
-}
-
 .month p:hover {
   color: rgb(180, 77, 26);
 }
