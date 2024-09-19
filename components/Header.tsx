@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { getTranslate, getLanguageKeys, getLanguages } from '../helpers';
 import { HeaderProps, emptyUser } from '../types';
-import { buttonStyle } from '../constants';
 import Icon from './Icon';
 
 const NAV_LINKS = [
@@ -29,7 +28,7 @@ export default function Header({
         <section>
           {getLanguageKeys().map(({ k, v }: { [k: string]: string }) => (
             <Link key={k} href={`${pathname}`} locale={k}>
-              <span className={`mr-2 ${buttonStyle}`}>{v}</span>
+              <span className={`mr-2 button`}>{v}</span>
             </Link>
           ))}
         </section>
@@ -39,7 +38,7 @@ export default function Header({
               <Icon name={'user'} /> {user.nm}
             </span>
             <a
-              className={buttonStyle}
+              className='button'
               onClick={() => {
                 localStorage.removeItem('auth-token');
                 setUser(emptyUser);
@@ -50,7 +49,7 @@ export default function Header({
           </section>
         ) : (
           <a
-            className="p-1 text-center rounded-lg cursor-pointer text-white bg-red-400 transition duration-300 hover:rotate-12 hover:bg-red-600"
+            className="button"
             onClick={() => setShowLogin(true)}
           >
             Login

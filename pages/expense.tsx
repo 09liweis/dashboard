@@ -6,7 +6,6 @@ import ExpenseForm from '@/components/expense/ExpenseForm';
 import ExpenseList from '@/components/expense/ExpenseList';
 import { Transaction, CategoryTransaction, ExpenseResponse } from 'types';
 import {
-  buttonStyle,
   EXPENSE_LIST_API,
   EXPENSE_CATEGORIES_API,
 } from '../constants';
@@ -75,7 +74,7 @@ const Expense: NextPage = () => {
       <section className="flex justify-between items-center mb-3">
         {user._id && (
           <a
-            className={buttonStyle}
+            className="button"
             onClick={() => {
               setShowForm(true);
               setSelectTransaction({});

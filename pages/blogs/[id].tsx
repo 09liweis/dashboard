@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import type { NextPage } from 'next';
 import { fetchAPI, getTranslate } from 'helpers';
-import { BLOG_LIST_API, buttonStyle } from '../../constants';
+import { BLOG_LIST_API } from '../../constants';
 import { useRouter } from 'next/router';
 import AppContext from 'AppContext';
 import useDebounce from 'hooks/useDebounce';
@@ -107,7 +107,7 @@ const BlogDetail: NextPage = () => {
             onChange={(e) => handleBlogChange(e)}
           ></textarea>
 
-          <button type="submit" className={buttonStyle}>
+          <button type="submit" className="button">
             {getTranslate(lang, loading ? 'updating' : 'update')}
           </button>
         </form>

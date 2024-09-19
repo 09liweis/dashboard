@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from 'react';
-import { buttonStyle } from '../constants';
 import { fetchToken, fetchUser, setAuthToken } from '../helpers';
 import { LoginFormProps } from '../types';
 import Loading from './Loading';
@@ -46,10 +45,10 @@ export default function LoginForm({ setUser, setShowLogin }: LoginFormProps) {
           className="border w-full p-2 rounded mb-2"
           placeholder="Password"
         />
-        <button className={buttonStyle}>
+        <button className="button">
           {loginLoading ? <Loading /> : 'Login'}
         </button>
-        <a href="https://github.com/login/oauth/authorize?client_id=105591674a9b55dc8196" className={buttonStyle}><i className="fa-brands fa-github"></i> Github Login</a>
+        <a href="https://github.com/login/oauth/authorize?client_id=105591674a9b55dc8196" className="button"><i className="fa-brands fa-github"></i> Github Login</a>
       </form>
     </section>
   );

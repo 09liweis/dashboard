@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import type { NextPage } from 'next';
 import { fetchAPI, getTranslate } from 'helpers';
-import { BLOG_LIST_API, buttonStyle } from '../../constants';
+import { BLOG_LIST_API } from '../../constants';
 import Link from 'next/link';
 import AppContext from 'AppContext';
 import { BlogType } from 'types';
@@ -43,7 +43,7 @@ const Blogs: NextPage = () => {
     <>
       {user._id && (
         <Link href="/blogs/new">
-          <span className={`${buttonStyle} inline-block mb-2`}>
+          <span className="button inline-block mb-2">
             {getTranslate(lang, 'addNew')}
           </span>
         </Link>

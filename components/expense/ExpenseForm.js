@@ -2,7 +2,6 @@ import React, { useRef, useState, useEffect } from 'react';
 import { fetchAPI } from 'helpers';
 import { loadGoogleMapScript, GoogleMap } from 'helpers/googleMap';
 import {
-  buttonStyle,
   EXPENSE_NEW_API,
   EXPENSE_UPDATE_API,
   EXPENSE_DELETE_API,
@@ -137,13 +136,13 @@ export default function ExpenseForm({
         ></section>
         {user._id && (
           <section className="flex justify-between">
-            <button className={buttonStyle}>
+            <button className="button">
               {loading ? <Loading /> : transaction._id ? 'Update' : 'Add'}
             </button>
             {transaction._id && (
               <button
                 onClick={() => handleTransactionDelete(transaction._id)}
-                className={`${buttonStyle}`}
+                className="button"
               >
                 Delete
               </button>
