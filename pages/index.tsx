@@ -10,7 +10,6 @@ const DASHBOARD_CARDS = [
   // { tl: 'waifu', icon: 'person-dress', bg: 'purple-400' },
   // { tl: 'dog', icon: 'dog', bg: 'purple-400' },
   // { tl: 'cat', icon: 'cat', bg: 'purple-400' },
-  { tl: 'quote', icon: 'blog', bg: 'green-600' },
   { tl: 'todos', icon: 'list', bg: 'blue-400' },
   { tl: 'comments', icon: 'comments', bg: 'red-400' },
   { tl: 'expense', icon: 'dollar-sign', bg: 'green-500' },
@@ -87,22 +86,22 @@ async function fetchAnimalPic(animal: string): Promise<Array<Animal>> {
   });
 }
 
-type Quote = {
-  _id: string,
-  content: string,
-  author: string,
-  authorSlug: string
-  tags: Array<string>,
-  dateAdded: string,
-  dateModified: string
-}
+// type Quote = {
+//   _id: string,
+//   content: string,
+//   author: string,
+//   authorSlug: string
+//   tags: Array<string>,
+//   dateAdded: string,
+//   dateModified: string
+// }
 
-async function fetchRandomQuote(): Promise<Quote> {
-  return await fetchAPI({
-    url: `https://api.quotable.io/random`,
-    method: 'GET'
-  });
-}
+// async function fetchRandomQuote(): Promise<Quote> {
+//   return await fetchAPI({
+//     url: `https://api.quotable.io/random`,
+//     method: 'GET'
+//   });
+// }
 
 const Home: NextPage = () => {
   const { user, lang } = useContext(AppContext);
@@ -120,16 +119,16 @@ const Home: NextPage = () => {
   const emptyMovie: Movie = { poster: '', title: '' };
   const [randomMovie, setRandomMovie] = useState(emptyMovie);
 
-  const emptyQuote: Quote = {
-    _id: '',
-    content: '',
-    author: '',
-    authorSlug: '',
-    tags: [],
-    dateAdded: '',
-    dateModified: ''
-  }
-  const [randomQuote, setRandomQuote] = useState(emptyQuote);
+  // const emptyQuote: Quote = {
+  //   _id: '',
+  //   content: '',
+  //   author: '',
+  //   authorSlug: '',
+  //   tags: [],
+  //   dateAdded: '',
+  //   dateModified: ''
+  // }
+  // const [randomQuote, setRandomQuote] = useState(emptyQuote);
 
   const renderCards = (type: string) => {
     const cardMapping: { [key: string]: any } = {
@@ -141,22 +140,21 @@ const Home: NextPage = () => {
       waifu: <img src={waifuPic} className='w-full' />,
       dog: <img src={dogPic} className='w-full' />,
       cat: <img src={catPic} className='w-full' />,
-      quote: <article className='text-white'>
-        <h2 className='text-lg font-bold'>{randomQuote.author}</h2>
-        <p>{randomQuote.content}</p>
-      </article>
+      // quote: <article className='text-white'>
+      //   <h2 className='text-lg font-bold'>{randomQuote.author}</h2>
+      //   <p>{randomQuote.content}</p>
+      // </article>
     };
     return cardMapping[type];
   };
 
   const fetchDashBoardData = async () => {
-    const [quote] = await Promise.all([
+    const [] = await Promise.all([
       // fetchTodos(),
       // fetchComments(),
       // fetchWaifuPic(),
       // fetchAnimalPic('dog'),
       // fetchAnimalPic('cat'),
-      fetchRandomQuote(),
       // fetchRandomMovie()
     ]);
     // setTodos(newTodos);
@@ -164,18 +162,17 @@ const Home: NextPage = () => {
     // setWaifuPic(newWaifuPic.url);
     // setDogPic(dogPics[0].url);
     // setCatPic(catPics[0].url);
-    setRandomQuote(quote);
     // setRandomMovie(movie);
   };
 
   useEffect(() => {
-    fetchDashBoardData();
+    // fetchDashBoardData();
 
-    const fetchTimer = setInterval(() => {
-      fetchDashBoardData();
-    }, 30 * 1000);
+    // const fetchTimer = setInterval(() => {
+    //   fetchDashBoardData();
+    // }, 30 * 1000);
 
-    return (() => clearInterval(fetchTimer));
+    // return (() => clearInterval(fetchTimer));
 
   }, []);
   return (
