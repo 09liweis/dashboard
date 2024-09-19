@@ -37,7 +37,7 @@ export default function Header({
             <span className="mr-3 text-red-500">
               <Icon name={'user'} /> {user.nm}
             </span>
-            <a
+            <button
               className='button'
               onClick={() => {
                 localStorage.removeItem('auth-token');
@@ -45,15 +45,15 @@ export default function Header({
               }}
             >
               {getTranslate(lang, 'logout')}
-            </a>
+            </button>
           </section>
         ) : (
-          <a
+          <button
             className="button"
             onClick={() => setShowLogin(true)}
           >
             Login
-          </a>
+          </button>
         )}
       </section>
 
