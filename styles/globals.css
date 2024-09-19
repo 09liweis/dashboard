@@ -37,6 +37,18 @@ body {
   height: unset !important;
 }
 
+.home-card {
+  @apply p-1 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5;
+}
+
+.home-card-wrapper {
+  @apply p-2 drop-shadow-md shadow-lg bg-red-400 rounded;
+}
+
+.home-card-title {
+  @apply text-2xl text-white capitalize;
+}
+
 .bg-card {
   background-color: #ffffffa6;
 }

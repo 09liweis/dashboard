@@ -178,9 +178,9 @@ const Home: NextPage = () => {
   return (
     <section className="flex flex-wrap">
       {DASHBOARD_CARDS.map(({ tl, icon, bg }) => (
-        <article key={tl} className="p-1 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5">
-          <div className={`p-2 drop-shadow-md shadow-lg bg-red-400 rounded`}>
-            <h2 className="text-2xl text-white capitalize">
+        <article key={tl} className="home-card">
+          <div className={`home-card-wrapper`}>
+            <h2 className="home-card-title">
               <Icon name={icon} classNames={'mr-2'} />
               {getTranslate(lang, tl)}
             </h2>
