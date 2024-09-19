@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react"
 import '../styles/globals.css';
 import Head from 'next/head';
 import { Router, useRouter } from 'next/router';
@@ -89,6 +90,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           {!user?._id && showLogin ? (
             <LoginForm setShowLogin={setShowLogin} setUser={setUser} />
           ) : null}
+          <Analytics />
         </main>
       </AppContext.Provider>
     </>
