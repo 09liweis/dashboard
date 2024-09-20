@@ -10,7 +10,6 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  console.log(os.cpus()[0]);
   let currentOS = {
     name: os.type(),
     architecture: os.arch(),
