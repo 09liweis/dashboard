@@ -99,3 +99,7 @@ body {
 .calendar-day.inactive {
   @apply text-gray-400;
 }
+
+.category-price {
+  @apply relative bg-gradient-to-l from-red-300 border-dashed border-2 border-red-600 p-1 mb-1 rounded text-red-600 transition duration-300;
+}

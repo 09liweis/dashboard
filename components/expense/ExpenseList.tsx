@@ -37,7 +37,7 @@ export default function ExpenseList({
     {categoryTransactions.map(({ category, total, items, percentage }) => {
       return (
         <div key={category} className="mb-2">
-          <div className="relative bg-gradient-to-l from-red-300 border-dashed border-2 border-red-600 p-1 mb-1 rounded text-red-600 transition duration-300">
+          <div className="category-price">
             <div className='flex justify-between items-center'>
               <span className='capitalize text-xl'>{category}</span>
               <span className="font-bold">{total}</span>
