@@ -5,53 +5,140 @@
   {
     "nm": "Web Tools",
     "items": [
-      { "nm": "java全栈体系", "url": "https://pdai.tech/" },
-      { "nm": "冰冻大西瓜博客", "url": "https://bddxg.top/" },
-      { "nm": "Javascript framework syntax compare", "url": "https://component-party.lainbo.com/" },
-      { "nm": "Visulize codebase", "url": "https://vision.useadrenaline.com/" },
-      { "nm": "Weppalyzer", "what": "Broswer plugin" },
-      { "nm": "Clerk auth", "url": "https://clerk.com/" },
-      { "nm": "Web Monitor", "url": "https://www.datadoghq.com/" },
-      { "nm": "autofit.js", "what": "handle large screen" },
-      { "nm": "Patterns dev", "url": "https://www.patterns.dev/" },
+      {
+        "nm": "java全栈体系",
+        "url": "https://pdai.tech/"
+      },
+      {
+        "nm": "冰冻大西瓜博客",
+        "url": "https://bddxg.top/"
+      },
+      {
+        "nm": "Javascript framework syntax compare",
+        "url": "https://component-party.lainbo.com/"
+      },
+      {
+        "nm": "Visulize codebase",
+        "url": "https://vision.useadrenaline.com/"
+      },
+      {
+        "nm": "Weppalyzer",
+        "what": "Broswer plugin"
+      },
+      {
+        "nm": "Clerk auth",
+        "url": "https://clerk.com/"
+      },
+      {
+        "nm": "Web Monitor",
+        "url": "https://www.datadoghq.com/"
+      },
+      {
+        "nm": "autofit.js",
+        "what": "handle large screen"
+      },
+      {
+        "nm": "Patterns dev",
+        "url": "https://www.patterns.dev/"
+      },
       {
         "nm": "9 Senior Developer Mental Models Every Programmer Should Master",
         "url": "https://dev.to/dragosnedelcu/9-senior-developer-mental-models-every-programmer-should-master-1jlk"
       },
-      { "nm": "Dev Road Map", "url": "https://roadmap.sh/" },
-      { "nm": "Free for Dev", "url": "https://free-for.dev/#/" },
-      { "nm": "Carbon share code image", "url": "https://carbon.now.sh" },
-      { "nm": "Regulex", "url": "https://jex.im/regulex/" },
-      { "nm": "Ionic", "url": "https://ionic.io" },
-      { "nm": "Colorhunt", "url": "https://colorhunt.co" },
-      { "nm": "Removebg", "url": "https://www.remove.bg" },
-      { "nm": "Manypixels", "url": "https://www.manypixels.co" },
-      { "nm": "Visual algorithm", "url": "https://visualgo.net/en" },
-      { "nm": "API Fox", "url": "https://apifox.com/" },
-      { "nm": "Draw canvas", "url": "https://c.runoob.com/more/svgeditor/" }
+      {
+        "nm": "Dev Road Map",
+        "url": "https://roadmap.sh/"
+      },
+      {
+        "nm": "Free for Dev",
+        "url": "https://free-for.dev/#/"
+      },
+      {
+        "nm": "Carbon share code image",
+        "url": "https://carbon.now.sh"
+      },
+      {
+        "nm": "Regulex",
+        "url": "https://jex.im/regulex/"
+      },
+      {
+        "nm": "Ionic",
+        "url": "https://ionic.io"
+      },
+      {
+        "nm": "Colorhunt",
+        "url": "https://colorhunt.co"
+      },
+      {
+        "nm": "Removebg",
+        "url": "https://www.remove.bg"
+      },
+      {
+        "nm": "Manypixels",
+        "url": "https://www.manypixels.co"
+      },
+      {
+        "nm": "Visual algorithm",
+        "url": "https://visualgo.net/en"
+      },
+      {
+        "nm": "API Fox",
+        "url": "https://apifox.com/"
+      },
+      {
+        "nm": "Draw canvas",
+        "url": "https://c.runoob.com/more/svgeditor/"
+      }
     ]
   },
   {
     "nm": "Backend",
     "items": [
-      { "nm": "API Gateway" },
-      { "nm": "REST API" },
-      { "nm": "JWT" },
-      { "nm": "Docker" },
-      { "nm": "MQTT" },
-      { "nm": "Terraform" },
-      { "nm": "Service Mesh", "what": "manages communication between microservices" }
+      {
+        "nm": "API Gateway"
+      },
+      {
+        "nm": "REST API"
+      },
+      {
+        "nm": "JWT"
+      },
+      {
+        "nm": "Docker"
+      },
+      {
+        "nm": "MQTT"
+      },
+      {
+        "nm": "Terraform"
+      },
+      {
+        "nm": "Service Mesh",
+        "what": "manages communication between microservices"
+      }
     ]
   },
   {
     "nm": "Microservice patterns",
     "items": [
-      { "nm": "Aggregator Pattern" },
-      { "nm": "Proxy Pattern" },
-      { "nm": "Chain Pattern" },
-      { "nm": "Parallel Pattern" },
-      { "nm": "Branch Pattern" },
-      { "nm": "Asynchronous Message Pattern" }
+      {
+        "nm": "Aggregator Pattern"
+      },
+      {
+        "nm": "Proxy Pattern"
+      },
+      {
+        "nm": "Chain Pattern"
+      },
+      {
+        "nm": "Parallel Pattern"
+      },
+      {
+        "nm": "Branch Pattern"
+      },
+      {
+        "nm": "Asynchronous Message Pattern"
+      }
     ]
   },
   {
@@ -77,12 +164,24 @@
       {
         "nm": "plugins",
         "items": [
-          { "nm": "console ninjia" },
-          { "nm": "code runner" },
-          { "nm": "tabnine" },
-          { "nm": "live server" },
-          { "nm": "Excel Viewer" },
-          { "nm": "CodeTour" }
+          {
+            "nm": "console ninjia"
+          },
+          {
+            "nm": "code runner"
+          },
+          {
+            "nm": "tabnine"
+          },
+          {
+            "nm": "live server"
+          },
+          {
+            "nm": "Excel Viewer"
+          },
+          {
+            "nm": "CodeTour"
+          }
         ]
       }
     ]
@@ -90,12 +189,41 @@
   {
     "nm": "html",
     "items": [
-      { "nm": "inputmode", "what": "input tab attribute control for mobile device", "items": [{ "nm": "tel" }, { "nm": "email" }, { "nm": "numeric" }] },
-      { "nm": "poster", "what": "video tag cover" },
-      { "nm": "multiple", "what": "multiple attribute for input file and select tag" },
-      { "nm": "accesskey", "what": "shortcut keyboard key to focus on input tag" },
-      { "nm": "tabindex", "what": "order for input tag" },
-      { "nm": "download", "what": "anchor tag download attribute, can specify file name" }
+      {
+        "nm": "inputmode",
+        "what": "input tab attribute control for mobile device",
+        "items": [
+          {
+            "nm": "tel"
+          },
+          {
+            "nm": "email"
+          },
+          {
+            "nm": "numeric"
+          }
+        ]
+      },
+      {
+        "nm": "poster",
+        "what": "video tag cover"
+      },
+      {
+        "nm": "multiple",
+        "what": "multiple attribute for input file and select tag"
+      },
+      {
+        "nm": "accesskey",
+        "what": "shortcut keyboard key to focus on input tag"
+      },
+      {
+        "nm": "tabindex",
+        "what": "order for input tag"
+      },
+      {
+        "nm": "download",
+        "what": "anchor tag download attribute, can specify file name"
+      }
     ]
   },
   {
@@ -104,19 +232,51 @@
       {
         "nm": "selectors",
         "items": [
-          { "nm": ":first-letter", "what": "use to style first letter of a element" },
-          { "nm": ":selection", "what": "use to style selection content of a element" },
-          { "nm": "box-decoration-break", "what": "if text got cut into lines with bg and border radius, use box-decoration-break:clone to keep style on cut position" },
-          { "nm": "@media(hover)", "what": "style when hover" },
-          { "nm": "accent-color" },
-          { "nm": "caret-color" },
-          { "nm": "border-image" },
-          { "nm": "scroll-behavior: smooth;scroll-padding:10rem" },
-          { "nm": ":focus-visible", "what": "always take effect on tab action, click action only works on input" },
-          { "nm": ":focus-within", "what": "use on parent element, take effect on parent and children elements" },
-          { "nm": ":is" },
-          { "nm": ":has" },
-          { "nm": ":where" },
+          {
+            "nm": ":first-letter",
+            "what": "use to style first letter of a element"
+          },
+          {
+            "nm": ":selection",
+            "what": "use to style selection content of a element"
+          },
+          {
+            "nm": "box-decoration-break",
+            "what": "if text got cut into lines with bg and border radius, use box-decoration-break:clone to keep style on cut position"
+          },
+          {
+            "nm": "@media(hover)",
+            "what": "style when hover"
+          },
+          {
+            "nm": "accent-color"
+          },
+          {
+            "nm": "caret-color"
+          },
+          {
+            "nm": "border-image"
+          },
+          {
+            "nm": "scroll-behavior: smooth;scroll-padding:10rem"
+          },
+          {
+            "nm": ":focus-visible",
+            "what": "always take effect on tab action, click action only works on input"
+          },
+          {
+            "nm": ":focus-within",
+            "what": "use on parent element, take effect on parent and children elements"
+          },
+          {
+            "nm": ":is"
+          },
+          {
+            "nm": ":has"
+          },
+          {
+            "nm": ":where"
+          },
           {
             "nm": ":placeholder-shown",
             "what": "detect if input is empty and placeholder text is shown",
@@ -174,32 +334,67 @@
         ]
       },
       {
-        "nm": "margin", "items": [
-          { "nm": "margin collaps", "what": "child element margin top will render parent element margin top as well" },
-          { "nm": "margin merge" }
+        "nm": "margin",
+        "items": [
+          {
+            "nm": "margin collaps",
+            "what": "child element margin top will render parent element margin top as well"
+          },
+          {
+            "nm": "margin merge"
+          }
         ]
       },
       {
         "nm": "keep elements same width even thought different content width, but not full width",
         "how": "use display: inline-flex; flex-direction:column"
       },
-      { "nm": "Button element always vertical center child element" },
-      { "nm": "lightningcss" },
-      { "nm": "BFC" },
-      { "nm": "scale/translate/rotate without transform" },
-      { "nm": "scroll-snap" },
-      { "nm": "mix-blend-mode" },
-      { "nm": "text-stroke: 2px black;" },
-      { "nm": "nesting css", "how": "use &" },
-      { "nm": "writing-mode:vertical-lr/horizontal-lr" },
-      { "nm": "gap in flexbox" },
-      { "nm": "resize: auto/vertical" },
+      {
+        "nm": "Button element always vertical center child element"
+      },
+      {
+        "nm": "lightningcss"
+      },
+      {
+        "nm": "BFC"
+      },
+      {
+        "nm": "scale/translate/rotate without transform"
+      },
+      {
+        "nm": "scroll-snap"
+      },
+      {
+        "nm": "mix-blend-mode"
+      },
+      {
+        "nm": "text-stroke: 2px black;"
+      },
+      {
+        "nm": "nesting css",
+        "how": "use &"
+      },
+      {
+        "nm": "writing-mode:vertical-lr/horizontal-lr"
+      },
+      {
+        "nm": "gap in flexbox"
+      },
+      {
+        "nm": "resize: auto/vertical"
+      },
       {
         "nm": "Text Gradients",
         "how": "background:linear-gradient();-webkit-background-clip:text;-webkit-text-fill-color:transparent;"
       },
-      { "nm": "object-fit", "pros": "for image cover/contain", "how": "cover" },
-      { "nm": "translate does not trigger reflow or repaint" },
+      {
+        "nm": "object-fit",
+        "pros": "for image cover/contain",
+        "how": "cover"
+      },
+      {
+        "nm": "translate does not trigger reflow or repaint"
+      },
       {
         "nm": "optimize for print",
         "how": "print media create stylesheet for print"
@@ -208,41 +403,76 @@
         "nm": "float",
         "what": "position an image to the right or left including text wrapping around it"
       },
-      { "nm": "media", "what": "print, speech, screen" },
+      {
+        "nm": "media",
+        "what": "print, speech, screen"
+      },
       {
         "nm": "focus-within",
         "what": "update parent element style if focus input",
         "how": "parent:focus-within {/*css style*/}"
       },
-      { "nm": "aspect-ratio", "what": "set relative width/height" }
+      {
+        "nm": "aspect-ratio",
+        "what": "set relative width/height"
+      }
     ]
   },
   {
     "nm": "git",
     "items": [
-      { "nm": "git push sam HEAD:branch_name", "desc": "push remote branch" },
-      { "nm": "git reset --soft HEAD~1", "desc": "reset last commit local" }
+      {
+        "nm": "git push sam HEAD:branch_name",
+        "desc": "push remote branch"
+      },
+      {
+        "nm": "git reset --soft HEAD~1",
+        "desc": "reset last commit local"
+      }
     ]
   },
-  { "nm": "CI/CD" },
+  {
+    "nm": "CI/CD"
+  },
   {
     "nm": "skills",
     "items": [
-      { "nm": "Cyclomatic complexity 圈复杂度", "what": "a measurement developed by Thomas McCabe to determine the stability and level of confidence in a program" },
-      { "nm": "function signature", "what": "define a function name, parameter, return " },
+      {
+        "nm": "Cyclomatic complexity 圈复杂度",
+        "what": "a measurement developed by Thomas McCabe to determine the stability and level of confidence in a program"
+      },
+      {
+        "nm": "function signature",
+        "what": "define a function name, parameter, return "
+      },
       {
         "nm": "防抖: debounce, prevent the event trigger from being fired too often"
       },
       {
         "nm": "节流: throttle, delaying function execution, infinite scrolling, Ajax-based instant search"
       },
-      { "nm": "函数柯里化,currying" },
-      { "nm": "pure function" },
-      { "nm": "diff算法" },
-      { "nm": "two way data binding, webpack split chunks" },
-      { "nm": "cross framework component跨框架组件" },
-      { "nm": "GraphQL", "pros": "Data Typing, real-time, introspection" },
-      { "nm": "Linear Optimization" },
+      {
+        "nm": "函数柯里化,currying"
+      },
+      {
+        "nm": "pure function"
+      },
+      {
+        "nm": "diff算法"
+      },
+      {
+        "nm": "two way data binding, webpack split chunks"
+      },
+      {
+        "nm": "cross framework component跨框架组件"
+      },
+      {
+        "nm": "GraphQL",
+        "pros": "Data Typing, real-time, introspection"
+      },
+      {
+        "nm": "Linear Optimization"
+      },
       {
         "nm": "Cross-origin resources sharing, CORS 跨域资源共享",
         "pros": "浏览器保护机制",
@@ -252,27 +482,76 @@
           "nginx 中转服务器代理 http proxy middleware"
         ]
       },
-      { "nm": "web components" },
-      { "nm": "微前端micro front end", "pros": "", "how": "model frederation" }
+      {
+        "nm": "web components"
+      },
+      {
+        "nm": "微前端micro front end",
+        "pros": "",
+        "how": "model frederation"
+      }
     ]
   },
   {
     "nm": "optimization",
-    "items": [{ "nm": "cdn" }, { "nm": "web worker" }, { "nm": "Memorization" }, { "nm": "replace json with others", "url": "https://medium.com/data-science-community-srm/json-is-incredibly-slow-heres-what-s-faster-ca35d5aaf9e8" }]
+    "items": [
+      {
+        "nm": "cdn"
+      },
+      {
+        "nm": "web worker"
+      },
+      {
+        "nm": "Memorization"
+      },
+      {
+        "nm": "replace json with others",
+        "url": "https://medium.com/data-science-community-srm/json-is-incredibly-slow-heres-what-s-faster-ca35d5aaf9e8"
+      }
+    ]
   },
   {
     "nm": "JavaScript",
     "items": [
-      { "nm": "Numeric Separators", "what": "1000000 -> 1_000_000", "why": "It makes our code more informative and readable." },
-      { "nm": "beforeunload", "what": "window.addEventListner('beforeunload',function(){/*page refresh or close*/})" },
-      { "nm": "View Transition API" },
-      { "nm": "padStart/padEnd", "what": "add 0 to the left of a string" },
-      { "nm": "using" },
-      { "nm": "groupBy", "what": "return key value object of array of object", "how": "Array.groupBy((item)=>return item.field)" },
-      { "nm": "JS label", "what": "break out two for loop", "how": "outer: for ..... for.... break outer" },
-      { "nm": "event delegation", "what": "add event listener to parent node" },
-      { "nm": "Inheritance" },
-      { "nm": "prototype" },
+      {
+        "nm": "Numeric Separators",
+        "what": "1000000 -> 1_000_000",
+        "why": "It makes our code more informative and readable."
+      },
+      {
+        "nm": "beforeunload",
+        "what": "window.addEventListner('beforeunload',function(){/*page refresh or close*/})"
+      },
+      {
+        "nm": "View Transition API"
+      },
+      {
+        "nm": "padStart/padEnd",
+        "what": "add 0 to the left of a string"
+      },
+      {
+        "nm": "using"
+      },
+      {
+        "nm": "groupBy",
+        "what": "return key value object of array of object",
+        "how": "Array.groupBy((item)=>return item.field)"
+      },
+      {
+        "nm": "JS label",
+        "what": "break out two for loop",
+        "how": "outer: for ..... for.... break outer"
+      },
+      {
+        "nm": "event delegation",
+        "what": "add event listener to parent node"
+      },
+      {
+        "nm": "Inheritance"
+      },
+      {
+        "nm": "prototype"
+      },
       {
         "nm": "Primitive Types",
         "what": "String|Number|Boolean|Null|Undefined|Symbol|BitInt store directly in stack"
@@ -289,17 +568,32 @@
         "nm": "Hoisting",
         "what": "var:undefined function, assignment dont get hoisting"
       },
-      { "nm": "let const is block scope" },
-      { "nm": "variable shawdoning", "what": "let const, not var" },
-      { "nm": "check parentheses function" },
+      {
+        "nm": "let const is block scope"
+      },
+      {
+        "nm": "variable shawdoning",
+        "what": "let const, not var"
+      },
+      {
+        "nm": "check parentheses function"
+      },
       {
         "nm": "arrow function",
         "how": "should not use in class/object function, this point to global context"
       },
-      { "nm": "deconstruction" },
-      { "nm": "call" },
-      { "nm": "apply" },
-      { "nm": "ES class" },
+      {
+        "nm": "deconstruction"
+      },
+      {
+        "nm": "call"
+      },
+      {
+        "nm": "apply"
+      },
+      {
+        "nm": "ES class"
+      },
       {
         "nm": "spread operator",
         "why": "if object has property of object, new object will share a reference"
@@ -311,7 +605,9 @@
       {
         "nm": "high order function: accept functions as parameters or return a function as their output"
       },
-      { "nm": "event loops" },
+      {
+        "nm": "event loops"
+      },
       {
         "nm": "microtask queue",
         "what": "promiseJobs has high prioirty: fetch, browser observer"
@@ -320,14 +616,22 @@
         "nm": "task/callback queues",
         "what": "add cb function to queue first in first out"
       },
-      { "nm": "call stack", "what": "add execution function to stack" },
+      {
+        "nm": "call stack",
+        "what": "add execution function to stack"
+      },
       {
         "nm": "event bubbling",
         "why": "child to parent",
         "how": "use stoppropagation"
       },
-      { "nm": "event capturing", "why": "parent to child" },
-      { "nm": "asynchronous callbacks" },
+      {
+        "nm": "event capturing",
+        "why": "parent to child"
+      },
+      {
+        "nm": "asynchronous callbacks"
+      },
       {
         "nm": "Promises",
         "what": "get a promise to the future value",
@@ -339,19 +643,38 @@
           "Better Error Handling"
         ]
       },
-      { "nm": "same origin policy" },
-      { "nm": "strict keyword" },
-      { "nm": "throw error" },
+      {
+        "nm": "same origin policy"
+      },
+      {
+        "nm": "strict keyword"
+      },
+      {
+        "nm": "throw error"
+      },
       {
         "nm": "generator",
         "why": "create infinity loop",
         "how": "funnction* name() yield param, generatorObject.next(param) .return() .throw() (value:'',done:false)"
       },
-      { "nm": "continue break" },
-      { "nm": "Object.freeze", "what": "make object not able to be modified" },
-      { "nm": "map for object", "pros": "key can be object or other type" },
-      { "nm": "set for array", "pros": "no duplicate items" },
-      { "nm": "float point number" },
+      {
+        "nm": "continue break"
+      },
+      {
+        "nm": "Object.freeze",
+        "what": "make object not able to be modified"
+      },
+      {
+        "nm": "map for object",
+        "pros": "key can be object or other type"
+      },
+      {
+        "nm": "set for array",
+        "pros": "no duplicate items"
+      },
+      {
+        "nm": "float point number"
+      },
       {
         "nm": "console",
         "how": "console.log .time .error .info .assert .table .dir .count"
@@ -360,7 +683,9 @@
         "nm": "garbage collection",
         "what": " In contrast, JavaScript automatically allocates memory when objects are created and frees it when they are not used anymore"
       },
-      { "nm": "debugger" },
+      {
+        "nm": "debugger"
+      },
       {
         "nm": "closure",
         "what": "when you have a function defined inside of another function, that inner function has access to the variables and scope of the outer function even if the outer function finishes executing and those variables are no longer accessible outside of that function",
@@ -370,7 +695,10 @@
         "nm": "First Class Function",
         "what": "functions can be passed as variables, can be returned, can be assigned to variable"
       },
-      { "nm": "IIFE", "what": "define and call function" },
+      {
+        "nm": "IIFE",
+        "what": "define and call function"
+      },
       {
         "nm": "fetch",
         "how": "new AbortController(); fetch(url,{signal:controller.signal}); return () => {controller.abort}"
@@ -379,7 +707,10 @@
         "nm": "js engine",
         "how": "source code -> parser -> abstract syntax tree -> interpreter -> JIT compilation"
       },
-      { "nm": "array methods", "what": "filter map find forEach reduce" },
+      {
+        "nm": "array methods",
+        "what": "filter map find forEach reduce"
+      },
       {
         "nm": "implicit explicit binding",
         "what": "implicit call function with obj, explicity: call function bind/call/apply other params"
@@ -397,43 +728,92 @@
         "what": "calc.add(10),multiply(5),subtract(30).add(10) result.total",
         "how": "use object function, return this in function"
       },
-      { "nm": "jsonp" }
+      {
+        "nm": "jsonp"
+      }
     ]
   },
   {
     "nm": "Flutter",
     "items": [
-      { "nm": "flutLab", "url": "https://flutlab.io/" },
+      {
+        "nm": "flutLab",
+        "url": "https://flutlab.io/"
+      },
       {
         "nm": "widgets",
         "items": [
-          { "nm": "Hero" },
-          { "nm": "Container" },
-          { "nm": "AlertDialog/CupertinoAlertDialog" },
-          { "nm": "ToggleButtons" },
-          { "nm": "CallbackShortCuts" },
-          { "nm": "Expanded" },
-          { "nm": "Wrap" },
-          { "nm": "SafeArea" },
-          { "nm": "AnimatedContainer" },
-          { "nm": "AnimatedBuilder" },
-          { "nm": "FadeTransition" },
-          { "nm": "FutureBuilder" },
-          { "nm": "FloatingActionButton" },
-          { "nm": "PageView" },
-          { "nm": "SliverList & SliverGrid" },
-          { "nm": "FadeInImage" },
-          { "nm": "PageView" },
-          { "nm": "Table" },
-          { "nm": "StreamBuilder" },
-          { "nm": "SliverAppBar" }
+          {
+            "nm": "Hero"
+          },
+          {
+            "nm": "Container"
+          },
+          {
+            "nm": "AlertDialog/CupertinoAlertDialog"
+          },
+          {
+            "nm": "ToggleButtons"
+          },
+          {
+            "nm": "CallbackShortCuts"
+          },
+          {
+            "nm": "Expanded"
+          },
+          {
+            "nm": "Wrap"
+          },
+          {
+            "nm": "SafeArea"
+          },
+          {
+            "nm": "AnimatedContainer"
+          },
+          {
+            "nm": "AnimatedBuilder"
+          },
+          {
+            "nm": "FadeTransition"
+          },
+          {
+            "nm": "FutureBuilder"
+          },
+          {
+            "nm": "FloatingActionButton"
+          },
+          {
+            "nm": "PageView"
+          },
+          {
+            "nm": "SliverList & SliverGrid"
+          },
+          {
+            "nm": "FadeInImage"
+          },
+          {
+            "nm": "PageView"
+          },
+          {
+            "nm": "Table"
+          },
+          {
+            "nm": "StreamBuilder"
+          },
+          {
+            "nm": "SliverAppBar"
+          }
         ]
       }
     ]
   },
   {
     "nm": "react native",
-    "items": [{ "nm": "expo" }]
+    "items": [
+      {
+        "nm": "expo"
+      }
+    ]
   },
   {
     "nm": "react",
@@ -442,30 +822,63 @@
         "nm": "dangerouslySetInnerHTML",
         "how": "use DOMPurify.sanitize to prevent js"
       },
-      { "nm": "React Fiber" },
+      {
+        "nm": "React Fiber"
+      },
       {
         "nm": "library",
-        "items": [{ "nm": " React Hook Form" }, { "nm": "Framer Motion." }, { "nm": "react query" },
-        { "nm": "Zustand" },
-        { "nm": "@preact/signals", "what": "Signals are a way of expressing state that ensure apps stay fast regardless of how complex they get. Signals are based on reactive principles and provide excellent developer ergonomics, with a unique implementation optimized for Virtual DOM", "why": "global state will make all the child components re-rendder" }]
+        "items": [
+          {
+            "nm": " React Hook Form"
+          },
+          {
+            "nm": "Framer Motion."
+          },
+          {
+            "nm": "react query"
+          },
+          {
+            "nm": "Zustand"
+          },
+          {
+            "nm": "@preact/signals",
+            "what": "Signals are a way of expressing state that ensure apps stay fast regardless of how complex they get. Signals are based on reactive principles and provide excellent developer ergonomics, with a unique implementation optimized for Virtual DOM",
+            "why": "global state will make all the child components re-rendder"
+          }
+        ]
       },
-      { "nm": "issue prop drilling", "how": "composition component" },
-      { "nm": "server component" },
+      {
+        "nm": "issue prop drilling",
+        "how": "composition component"
+      },
+      {
+        "nm": "server component"
+      },
       {
         "nm": "A component is changing an uncontrolled input of type text to be controlled error in ReactJS",
         "what": "during render input value is undefined, value={undefined}",
         "why": "because '' is a valid string value. so when you change '' to 'xyz', input type is not changing means controlled to controlled. But in case of undefined to xyz type will change from uncontrolled to controlled",
         "how": "set default value to input value"
       },
-      { "nm": "Declarative声明式设计" },
-      { "nm": "virtual dom", "pros": "DOM不需要重排" },
-      { "nm": "state", "what": "" },
+      {
+        "nm": "Declarative声明式设计"
+      },
+      {
+        "nm": "virtual dom",
+        "pros": "DOM不需要重排"
+      },
+      {
+        "nm": "state",
+        "what": ""
+      },
       {
         "nm": "jsx: syntax extension to JavaScript",
         "pros": "babel compiler",
         "how": "convert jsx to react.createElement"
       },
-      { "nm": "single data flow" },
+      {
+        "nm": "single data flow"
+      },
       {
         "nm": "hooks",
         "from": "algebraic effects代数效应",
@@ -489,7 +902,10 @@
         "cons": "referencial equality for object",
         "how": "useMemo for object array"
       },
-      { "nm": "useLayoutEffect", "what": "not syncho, work before useEffect" },
+      {
+        "nm": "useLayoutEffect",
+        "what": "not syncho, work before useEffect"
+      },
       {
         "nm": "useTransition",
         "what": "two set state, but large calculate, priority",
@@ -505,7 +921,10 @@
         "nm": "pureComponent",
         "pros": "produce the same output given same input"
       },
-      { "nm": "error boundary", "how": "safe component" },
+      {
+        "nm": "error boundary",
+        "how": "safe component"
+      },
       {
         "nm": "Improve performance",
         "how": [
@@ -535,7 +954,10 @@
         "nm": "multipe set state",
         "how": "ReactDOM.unstable_batchedUpdates()"
       },
-      { "nm": "context", "how": "createContext, useContext" }
+      {
+        "nm": "context",
+        "how": "createContext, useContext"
+      }
     ]
   },
   {
@@ -548,15 +970,29 @@
             "nm": "vue-tree-color",
             "what": "use to render tree structure organization"
           },
-          { "nm": "vite-plugin-vue-devtools" }
+          {
+            "nm": "vite-plugin-vue-devtools"
+          }
         ]
       },
-      { "nm": "tree shaking", "what": " dead-code elimination" },
+      {
+        "nm": "tree shaking",
+        "what": " dead-code elimination"
+      },
       {
         "nm": "state management",
-        "items": [{ "nm": "Pinia" }, { "nm": "Vuex" }]
+        "items": [
+          {
+            "nm": "Pinia"
+          },
+          {
+            "nm": "Vuex"
+          }
+        ]
       },
-      { "nm": "Test: Cypress" },
+      {
+        "nm": "Test: Cypress"
+      },
       {
         "nm": "Provide / Inject",
         "what": "solve props drilling with provide and inject"
@@ -570,14 +1006,23 @@
         "nm": "$nexttick",
         "desc": "wait for the next DOM update cycle, then do callback"
       },
-      { "nm": "keep-alive" },
-      { "nm": "setup", "why": "automatically have expose, dont expose all attribute, keep one way data flow" }
+      {
+        "nm": "keep-alive"
+      },
+      {
+        "nm": "setup",
+        "why": "automatically have expose, dont expose all attribute, keep one way data flow"
+      }
     ]
   },
   {
     "nm": "TypeScript",
     "items": [
-      { "nm": "Never", "what": "indicate value never exists", "how": "for missing value error checking" }
+      {
+        "nm": "Never",
+        "what": "indicate value never exists",
+        "how": "for missing value error checking"
+      }
     ]
   },
   {
@@ -588,8 +1033,12 @@
         "pros": "more robust, easily spot bugs, predictability, readability",
         "cons": "more code to write,more to learn,required compilation,not true static typing"
       },
-      { "nm": "Svelte" },
-      { "nm": "Solid" },
+      {
+        "nm": "Svelte"
+      },
+      {
+        "nm": "Solid"
+      },
       {
         "nm": "NextJs",
         "items": [
@@ -608,32 +1057,70 @@
   {
     "nm": "cloud server",
     "items": [
-      { "nm": "Coolify" },
       {
-        "nm": "aws", "items": [
-          { "nm": "API Gateway", "what": "Amazon API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale." },
-          { "nm": "amplify", "what": "Front end application host" },
-          { "nm": "CloudFront", "what": "a content delivery network (CDN) service built for high performance, security, and developer convenience." }
+        "nm": "Coolify"
+      },
+      {
+        "nm": "aws",
+        "items": [
+          {
+            "nm": "API Gateway",
+            "what": "Amazon API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale."
+          },
+          {
+            "nm": "amplify",
+            "what": "Front end application host"
+          },
+          {
+            "nm": "CloudFront",
+            "what": "a content delivery network (CDN) service built for high performance, security, and developer convenience."
+          }
         ]
       },
-      { "nm": "google cloud" },
-      { "nm": "azure" },
-      { "nm": "aliyun" },
-      { "nm": "tencentyun" },
-      { "nm": "vercel" },
-      { "nm": "netify" },
-      { "nm": "onrender" },
-      { "nm": "supabase" }
+      {
+        "nm": "google cloud"
+      },
+      {
+        "nm": "azure"
+      },
+      {
+        "nm": "aliyun"
+      },
+      {
+        "nm": "tencentyun"
+      },
+      {
+        "nm": "vercel"
+      },
+      {
+        "nm": "netify"
+      },
+      {
+        "nm": "onrender"
+      },
+      {
+        "nm": "supabase"
+      }
     ]
   },
   {
     "nm": "data structure",
     "items": [
-      { "nm": "Array" },
-      { "nm": "String" },
-      { "nm": "stack" },
-      { "nm": "hash table" },
-      { "nm": "Graph" }
+      {
+        "nm": "Array"
+      },
+      {
+        "nm": "String"
+      },
+      {
+        "nm": "stack"
+      },
+      {
+        "nm": "hash table"
+      },
+      {
+        "nm": "Graph"
+      }
     ]
   },
   {
@@ -653,7 +1140,9 @@
         "how": "in js class each method return this with chaining way",
         "pros": "simplify constructor reduce params, set other attribute in builder function or pass attributes as object in option param"
       },
-      { "nm": "Null Object Pattern" }
+      {
+        "nm": "Null Object Pattern"
+      }
     ]
   },
   {
@@ -663,15 +1152,23 @@
         "nm": "youtube tutorial",
         "url": "https://www.youtube.com/watch?v=-B58GgsehKQ&t=517s"
       },
-      { "nm": "Make Good Content" },
-      { "nm": "clean HTML constructure" },
-      { "nm": "server side render, ISR" }
+      {
+        "nm": "Make Good Content"
+      },
+      {
+        "nm": "clean HTML constructure"
+      },
+      {
+        "nm": "server side render, ISR"
+      }
     ]
   },
   {
     "nm": "SOLID Design Principles",
     "items": [
-      { "nm": "Single Responsibility" },
+      {
+        "nm": "Single Responsibility"
+      },
       {
         "nm": "Open/Closed Principle",
         "pros": "define better data structures, "
@@ -680,7 +1177,9 @@
         "nm": "Liskov Substitution Principle",
         "pros": "Write better Object Oriented Code"
       },
-      { "nm": "Interface Segregation Principle接口隔离" },
+      {
+        "nm": "Interface Segregation Principle接口隔离"
+      },
       {
         "nm": "Dependency Inversion Principle依赖倒置原则",
         "desc": "",
@@ -705,11 +1204,40 @@
       }
     ]
   },
-  { "nm": "Python", "items": [{ "nm": "python-docx", "what": "parse docx file" }, { "nm": "web server", "items": [{ "nm": "Uvicorn" }] }, { "nm": "web framework", "items": [{ "nm": "fastAPI" }] }] },
   {
-    "nm": "Golang", "items": [
-      { "nm": "Gin webframwork" },
-      { "nm": "Db connect error might be password special character" }
+    "nm": "Python",
+    "items": [
+      {
+        "nm": "python-docx",
+        "what": "parse docx file"
+      },
+      {
+        "nm": "web server",
+        "items": [
+          {
+            "nm": "Uvicorn"
+          }
+        ]
+      },
+      {
+        "nm": "web framework",
+        "items": [
+          {
+            "nm": "fastAPI"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nm": "Golang",
+    "items": [
+      {
+        "nm": "Gin webframwork"
+      },
+      {
+        "nm": "Db connect error might be password special character"
+      }
     ]
   },
   {
@@ -718,24 +1246,57 @@
       {
         "nm": "Primitive Types",
         "items": [
-          { "nm": "byte", "what": "8 bits" },
-          { "nm": "short", "what": "16 bits" },
-          { "nm": "int", "what": "32 bits" },
-          { "nm": "long", "what": "64 bits" },
-          { "nm": "float", "what": "32 bits" },
-          { "nm": "double", "what": "64 bits" },
-          { "nm": "char", "what": "16 bits" },
-          { "nm": "boolean", "what": "1 bits" }
+          {
+            "nm": "byte",
+            "what": "8 bits"
+          },
+          {
+            "nm": "short",
+            "what": "16 bits"
+          },
+          {
+            "nm": "int",
+            "what": "32 bits"
+          },
+          {
+            "nm": "long",
+            "what": "64 bits"
+          },
+          {
+            "nm": "float",
+            "what": "32 bits"
+          },
+          {
+            "nm": "double",
+            "what": "64 bits"
+          },
+          {
+            "nm": "char",
+            "what": "16 bits"
+          },
+          {
+            "nm": "boolean",
+            "what": "1 bits"
+          }
         ]
       },
       {
         "nm": "overloading",
         "what": "allow class have different constructors with different params"
       },
-      { "nm": "Exceptions", "what": "Checked/Unchecked Exception" },
-      { "nm": "fail fast vs fail safe" },
-      { "nm": "Marker interface" },
-      { "nm": "thread" },
+      {
+        "nm": "Exceptions",
+        "what": "Checked/Unchecked Exception"
+      },
+      {
+        "nm": "fail fast vs fail safe"
+      },
+      {
+        "nm": "Marker interface"
+      },
+      {
+        "nm": "thread"
+      },
       {
         "nm": "runnable",
         "what": "A Runnable is basically a type of class (Runnable is an Interface) that can be put into a thread, describing what the thread is supposed to do.",
@@ -820,7 +1381,16 @@
   {
     "nm": "Testing",
     "items": [
-      { "nm": "unit test", "what": "test a single unit of code" },
+      {
+        "nm": "Artillery"
+      },
+      {
+        "nm": "k6"
+      },
+      {
+        "nm": "unit test",
+        "what": "test a single unit of code"
+      },
       {
         "nm": "Smoke Testing 烟雾测试",
         "what": "also called build verification testing or confidence testing, is a software testing method that is used to determine if a new software build is ready for the next testing phase. This testing method determines if the most crucial functions of a program work but does not delve into finer details."
@@ -831,7 +1401,9 @@
       }
     ]
   },
-  { "nm": "web scrap" },
+  {
+    "nm": "web scrap"
+  },
   {
     "nm": "payment",
     "items": [
@@ -859,7 +1431,14 @@
     "items": [
       {
         "nm": "technical interview",
-        "items": [{ "nm": "handle situation" }, { "nm": "analytical thinking" }]
+        "items": [
+          {
+            "nm": "handle situation"
+          },
+          {
+            "nm": "analytical thinking"
+          }
+        ]
       },
       {
         "nm": "Tell me about yourself",
