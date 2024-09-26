@@ -60,6 +60,7 @@ export const LANGUAGES = {
     home: 'Home',
     knowledges: 'KnowLedges',
     expense: 'Expense',
+    login: 'Login',
     logout: 'Log Out',
     addNew: 'Add New',
     subscription: 'Subscription',
@@ -86,6 +87,7 @@ export const LANGUAGES = {
     updating: '更新中',
     update: '更新',
     lost: '你迷路了吗?',
+    login: '登录'
   },
 };
 

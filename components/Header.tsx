@@ -51,7 +51,7 @@ export default function Header({
             className="button"
             onClick={() => setShowLogin(true)}
           >
-            Login
+            {getTranslate(lang, 'login')}
           </button>
         )}
       </section>
