@@ -86,23 +86,6 @@ async function fetchAnimalPic(animal: string): Promise<Array<Animal>> {
   });
 }
 
-// type Quote = {
-//   _id: string,
-//   content: string,
-//   author: string,
-//   authorSlug: string
-//   tags: Array<string>,
-//   dateAdded: string,
-//   dateModified: string
-// }
-
-// async function fetchRandomQuote(): Promise<Quote> {
-//   return await fetchAPI({
-//     url: `https://api.quotable.io/random`,
-//     method: 'GET'
-//   });
-// }
-
 const Home: NextPage = () => {
   const { user, lang } = useContext(AppContext);
 
@@ -118,17 +101,6 @@ const Home: NextPage = () => {
 
   const emptyMovie: Movie = { poster: '', title: '' };
   const [randomMovie, setRandomMovie] = useState(emptyMovie);
-
-  // const emptyQuote: Quote = {
-  //   _id: '',
-  //   content: '',
-  //   author: '',
-  //   authorSlug: '',
-  //   tags: [],
-  //   dateAdded: '',
-  //   dateModified: ''
-  // }
-  // const [randomQuote, setRandomQuote] = useState(emptyQuote);
 
   const renderCards = (type: string) => {
     const cardMapping: { [key: string]: any } = {
