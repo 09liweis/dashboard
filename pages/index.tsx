@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import Image from 'next/image';
 import AppContext from 'AppContext';
 import Icon from '@/components/Icon';
-import { COMMENT_LIST_API, TODO_LIST_API, MOVIE_RANGDOM_API } from '../constants';
+import { MOVIE_RANGDOM_API } from '../constants';
 import { fetchAPI, getTranslate } from 'helpers';
 
 const DASHBOARD_CARDS = [
@@ -18,18 +18,6 @@ const DASHBOARD_CARDS = [
   { tl: 'movie', icon: 'film', bg: 'teal-600' },
 ] as const;
 
-type Todo = {
-  _id: string;
-  name: string;
-  status: string;
-  date: string;
-};
-
-type Comment = {
-  _id: string;
-  content: string;
-};
-
 type WaiFu = {
   url: string
 };
@@ -39,22 +27,6 @@ type Animal = {
   id: string,
   width: number,
   height: number
-}
-
-async function fetchTodos(): Promise<Array<Todo>> {
-  return await fetchAPI({
-    url: TODO_LIST_API,
-    method: 'GET',
-    body: {},
-  });
-}
-
-async function fetchComments(): Promise<Array<Comment>> {
-  return await fetchAPI({
-    url: COMMENT_LIST_API,
-    method: 'GET',
-    body: {},
-  });
 }
 
 interface Movie {
@@ -89,12 +61,6 @@ async function fetchAnimalPic(animal: string): Promise<Array<Animal>> {
 const Home: NextPage = () => {
   const { user, lang } = useContext(AppContext);
 
-  const emptyTodos: Array<Todo> = [];
-  const [todos, setTodos] = useState(emptyTodos);
-
-  const emptyComments: Array<Comment> = [];
-  const [comments, setComments] = useState(emptyComments);
-
   const [waifuPic, setWaifuPic] = useState('');
   const [catPic, setCatPic] = useState('');
   const [dogPic, setDogPic] = useState('');
@@ -104,10 +70,6 @@ const Home: NextPage = () => {
 
   const renderCards = (type: string) => {
     const cardMapping: { [key: string]: any } = {
-      todos: todos.map((todo) => <article key={todo._id}>{todo.name}</article>),
-      comments: comments.map((comment) => (
-        <article key={comment._id}>{comment.content}</article>
-      )),
       movie: randomMovie.poster ? <Image src={randomMovie.poster} alt={randomMovie.title} className='w-full' width={300} height={500} /> : null,
       waifu: <img src={waifuPic} className='w-full' />,
       dog: <img src={dogPic} className='w-full' />,
@@ -122,15 +84,11 @@ const Home: NextPage = () => {
 
   const fetchDashBoardData = async () => {
     const [] = await Promise.all([
-      // fetchTodos(),
-      // fetchComments(),
       // fetchWaifuPic(),
       // fetchAnimalPic('dog'),
       // fetchAnimalPic('cat'),
       // fetchRandomMovie()
     ]);
-    // setTodos(newTodos);
-    // setComments(newComments);
     // setWaifuPic(newWaifuPic.url);
     // setDogPic(dogPics[0].url);
     // setCatPic(catPics[0].url);
