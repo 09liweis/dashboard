@@ -4,7 +4,7 @@ import { fetchAPI, getTranslate } from 'helpers';
 import AppContext from 'AppContext';
 import ExpenseForm from '@/components/expense/ExpenseForm';
 import ExpenseList from '@/components/expense/ExpenseList';
-import { Transaction, CategoryTransaction, ExpenseResponse } from 'types';
+import { Transaction, ExpenseResponse } from 'types';
 import {
   EXPENSE_LIST_API,
   EXPENSE_CATEGORIES_API,
