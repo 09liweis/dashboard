@@ -74,10 +74,6 @@ const Home: NextPage = () => {
       waifu: <img src={waifuPic} className='w-full' />,
       dog: <img src={dogPic} className='w-full' />,
       cat: <img src={catPic} className='w-full' />,
-      // quote: <article className='text-white'>
-      //   <h2 className='text-lg font-bold'>{randomQuote.author}</h2>
-      //   <p>{randomQuote.content}</p>
-      // </article>
     };
     return cardMapping[type];
   };
