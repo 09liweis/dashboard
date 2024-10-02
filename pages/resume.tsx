@@ -52,7 +52,8 @@ const RESUME = {
     },
     {
       "duty": [
-        "Convert product image to use Cloudinary"
+        "Convert product image to use Cloudinary",
+        "Resposible for bi-weekly website home page update"
       ],
       "title": "Front End Deveploer",
       "company": "Canada Goose",
@@ -124,6 +125,7 @@ const ResumePage: NextPage = () => {
   const [currentExperience, setCurrentExperience] = useState(emptyExperience);
 
   const handleExperience = (ex: any) => {
+    return;
     setShowExperienceForm(true);
     setCurrentExperience(ex);
   }
@@ -135,9 +137,11 @@ const ResumePage: NextPage = () => {
   }
 
   const experiencesHTML = resume.experiences.map((e) =>
-    <article className='my-3' key={e.company} onClick={() => handleExperience(e)}>
-      <h3 className='font-bold border-l-2 border-black pl-2'>{e.title} - {e.company}</h3>
-      <p className='text-gray-600'>{e.start_date} - {e.end_date || 'Present'}</p>
+    <article className='my-5' key={e.company} onClick={() => handleExperience(e)}>
+      <div className='flex justify-between'>
+        <h3 className='font-bold border-l-2 border-black pl-2'>{e.title} - {e.company}</h3>
+        <p className='text-gray-600'>{e.start_date} - {e.end_date || 'Present'}</p>
+      </div>
       {e.duty &&
         <ul className='list-disc list-inside text-slate-900 dark:text-slate-600'>
           {e.duty.map((duty) => <li key={duty}>{duty}</li>)}
