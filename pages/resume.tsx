@@ -24,7 +24,8 @@ const RESUME = {
   experiences: [
     {
       "duty": [
-        "Lead team members to rewrite MRIS portal from Jquery to React.js",
+        "Rewrite MRIS internal web portal from Jquery to React.js",
+        "Build automation tool with Python to generate HTML/JSON files from business content",
         "Lead team members to build reusable HTML components with tailwind style for lottery ticket design",
         "Conduct code reviews and provide constructive feedback to ensure code quality and adherence to best practices",
         "Created detailed design documentation, unit test plans, and well-documented Java code with Summerboot framework.",
@@ -173,20 +174,21 @@ const ResumePage: NextPage = () => {
       <h1 className='text-center font-bold text-2xl font-mono'>Sam Resume</h1>
       <section className='mt-4'>
         <p>Linkedin</p>
-        <p>weisen.li@mail.utoronto.ca</p>
+        <p>weisen.li@hotmail.com</p>
         <p>Toronto, ON</p>
       </section>
       <section className='mt-4'>
         <h2 className={btnStyleClassName}>Summary</h2>
-        <p className='font-sans'>Passionate front-end web developer with <span className='underline decoration-sky-700'>8 years</span> of experience using <span className='underline decoration-pink-500'>JavaScript, React, Vue, HTML5, and CSS3</span> to build all aspects of the user experience and user interface for client-facing web applications.
+        <p className='font-sans'>Passionate front-end web developer with <span className='underline decoration-sky-700'>10 years</span> of experience using <span className='underline decoration-pink-500'>JavaScript, React, Vue, HTML5, and CSS3</span> to build all aspects of the user experience and user interface for client-facing web applications.
           Able to provide technical solutions and work under pressure to achieve company goals</p>
       </section>
       <section className='mt-4'>
         <h2 className={btnStyleClassName}>Technical Skills</h2>
-        <p><b>Web Front End:</b> HTML5, CSS3, JavaScript, ReactJs, VueJs, Angular, JQuery, SASS, Bootstrap, Tailwind</p>
-        <p><b>Server Side:</b> NodeJs, Express, REST API, NextJs, Java, Python, PHP</p>
-        <p><b>Database:</b> MongoDB, MySQL</p>
+        <p><b>Web Front End:</b> HTML5, CSS3, JavaScript, ReactJs, VueJs, SASS, Bootstrap, Tailwind</p>
+        <p><b>Server Side:</b> NodeJs, Express, REST API, NextJs, NuxtJs, Java, Python, FastAPI, PHP, Laravel</p>
+        <p><b>Database:</b> MongoDB, MySQL, PostgreSQL</p>
         <p><b>Operating System and Tools:</b> MacOS, Window, VS Code, Jira, Github, Bitbucket, GitLab</p>
+        <p><b>Mobile: </b> React Native, Flutter</p>
       </section>
       <section className='mt-4'>
         <h2 className={btnStyleClassName}>Experience</h2>
