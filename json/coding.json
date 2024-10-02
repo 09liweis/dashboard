@@ -513,6 +513,7 @@
   {
     "nm": "JavaScript",
     "items": [
+      {"nm":"Prevent device sleep","how":"navigator.wakeLock.request('screen')"},
       {
         "nm": "Numeric Separators",
         "what": "1000000 -> 1_000_000",
