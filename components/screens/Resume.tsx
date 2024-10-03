@@ -119,7 +119,7 @@ const emptyExperience: Experience = {
 
 const EXPERIENCE_FORM_FIELDS = ['title', 'company', 'start_date', 'end_date'];
 
-const ResumePage: NextPage = () => {
+const Resume: NextPage = () => {
   const [resume, setResume] = useState(RESUME);
   const [showExperienceForm, setShowExperienceForm] = useState(false);
   const [currentExperience, setCurrentExperience] = useState(emptyExperience);
@@ -206,4 +206,4 @@ const ResumePage: NextPage = () => {
   );
 }
 
-export default ResumePage;
+export default Resume;
