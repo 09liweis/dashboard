@@ -103,3 +103,23 @@ body {
 .category-price {
   @apply relative bg-gradient-to-l from-red-300 border-dashed border-2 border-red-600 p-1 mb-1 rounded transition duration-300;
 }
+
+.category-price.income {
+  @apply text-green-600;
+}
+
+.category-price.expense {
+  @apply text-red-600;
+}
+
+.category-percentage {
+  @apply text-sm text-white text-right p-1 rounded;
+}
+
+.category-percentage.income {
+  @apply bg-green-600;
+}
+
+.category-percentage.expense {
+  @apply bg-red-600;
+}
