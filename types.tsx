@@ -48,12 +48,15 @@ export interface Transaction {
 
 export interface ExpenseResponse {
   total: string;
+  incomes:string;
+  expenses:string;
   date:string;
   categoryPrice:CategoryTransaction[]
 }
 
 export interface CategoryTransaction {
   total: string;
+  income: boolean;
   category: string;
   percentage: number;
   items: [Transaction];

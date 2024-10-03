@@ -101,5 +101,5 @@ body {
 }
 
 .category-price {
-  @apply relative bg-gradient-to-l from-red-300 border-dashed border-2 border-red-600 p-1 mb-1 rounded text-red-600 transition duration-300;
+  @apply relative bg-gradient-to-l from-red-300 border-dashed border-2 border-red-600 p-1 mb-1 rounded transition duration-300;
 }

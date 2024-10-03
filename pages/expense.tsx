@@ -23,7 +23,7 @@ const Expense: NextPage = () => {
     useState<Transaction>({});
 
   const [loading, setLoading] = useState(false);
-  const [expenseResponse, setExpenseResponse] = useState<ExpenseResponse>({ total: "", date: "", categoryPrice: [] });
+  const [expenseResponse, setExpenseResponse] = useState<ExpenseResponse>({ total: "", date: "", categoryPrice: [],incomes:"",expenses:"" });
 
   const getExpenseStatistics = useCallback(async () => {
     setLoading(true);
@@ -89,8 +89,10 @@ const Expense: NextPage = () => {
         <input className='w-full p-2 mb-2 rounded bg-card' type={"month"} value={expenseResponse.date} onChange={(e) => setExpenseResponse({ ...expenseResponse, date: e.target.value })} />
 
         <article className="rounded p-2 bg-card">
-          <p className="text-right capitalize text-2xl font-bold text-red-600">
-            {expenseResponse.total}
+          <p className="flex justify-between capitalize text-2xl font-bold text-red-600">
+            <span className='text-green-600'>{expenseResponse.incomes}</span>
+            <span>{expenseResponse.total}</span>
+            <span>{expenseResponse.expenses}</span>
           </p>
           {loading ? (
             <div className="flex justify-center">
