@@ -8,7 +8,7 @@ const Expenses = ({ expenses, openTransactionDetail }: ExpensesProps) => {
   return (
     <>
       {expenses.map((transaction) => {
-        const { id, price, date, place, title } = transaction;
+        const { id, price, date, place, title, income } = transaction;
         return (
           <article
             key={id}
@@ -20,7 +20,7 @@ const Expenses = ({ expenses, openTransactionDetail }: ExpensesProps) => {
             <span className="flex justify-between w-1/2 text-black">
               <span className="text-indigo-400">{date}</span>
               <span className="truncate hidden md:block">{title}</span>
-              {price && <span className='text-rose-600'>{price}</span>}
+              {price && <span className={income?'text-green-600':`text-rose-600`}>{price}</span>}
             </span>
           </article>
         );
