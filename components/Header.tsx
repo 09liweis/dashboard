@@ -23,7 +23,7 @@ export default function Header({
 }: HeaderProps) {
   const pathname = router.pathname;
   return (
-    <header className="top-3 left-3">
+    <header className="">
       <section className="flex justify-between mb-2">
         <section>
           {getLanguageKeys().map(({ k, v }: { [k: string]: string }) => (
