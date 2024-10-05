@@ -1127,6 +1127,7 @@
   {
     "nm": "design pattern",
     "items": [
+      {"nm":"Strangler pattern", "what":"cutting monolith to microservices"},
       {
         "nm": "factory design pattern",
         "what": "A factory is a method or function that creates an object, or a set of objects, without exposing the creation logic to the client."
