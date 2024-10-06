@@ -1043,6 +1043,7 @@
       {
         "nm": "NextJs",
         "items": [
+          {"nm":"update query url","how":"useEffect router.push with state change"},
           {
             "nm": "useEffect call twice",
             "how": "set reactStrictMode to false"
