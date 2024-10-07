@@ -515,6 +515,12 @@
     ]
   },
   {
+    "nm":"Web Browser API",
+    "items":[
+      {"nm":"EyeDropper", "what":"global color fetch api, can fetch color outside webpage"}
+    ]
+  },
+  {
     "nm": "JavaScript",
     "items": [
       {"nm":"Prevent device sleep","how":"navigator.wakeLock.request('screen')"},

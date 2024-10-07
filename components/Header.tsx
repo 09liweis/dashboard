@@ -5,7 +5,7 @@ import Icon from './Icon';
 
 const NAV_LINKS = [
   { tl: 'Resume', url: '/', icon: 'house-user' },
-  { tl: 'Dashboard', url: '/dashboard', icon: 'house-user' },
+  // { tl: 'Dashboard', url: '/dashboard', icon: 'house-user' },
   { tl: 'knowledges', url: '/knowledges', icon: 'book' },
   { tl: 'todos', url: '/todos', icon: 'list' },
   // { tl: 'videos', url: '/videos', icon: 'video' },
