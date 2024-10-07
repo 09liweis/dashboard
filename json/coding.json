@@ -223,6 +223,10 @@
       {
         "nm": "download",
         "what": "anchor tag download attribute, can specify file name"
+      },
+      {
+        "nm":"contenteditable='true'",
+        "what":"make html element editable"
       }
     ]
   },
