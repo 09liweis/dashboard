@@ -74,6 +74,7 @@ export const LANGUAGES = {
   },
   zh: {
     home: '页面',
+    Resume: '简历',
     knowledges: '芝士',
     videos: 'Vlog',
     expense: '消费',
