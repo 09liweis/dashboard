@@ -1139,6 +1139,7 @@
   {
     "nm": "design pattern",
     "items": [
+      {"nm":"Event Driven Architecture"},
       {"nm":"Strangler pattern", "what":"cutting monolith to microservices"},
       {
         "nm": "factory design pattern",
