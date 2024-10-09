@@ -127,3 +127,7 @@ body {
 .category-percentage.expense {
   @apply bg-red-600;
 }
+
+.expense-item {
+  @apply flex px-1 justify-between cursor-pointer text-red-400 hover:text-red-600 transition duration-300;
+}

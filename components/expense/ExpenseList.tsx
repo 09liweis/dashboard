@@ -13,7 +13,7 @@ const Expenses = ({ expenses, openTransactionDetail }: ExpensesProps) => {
           <article
             key={id}
             title={place?.address}
-            className="flex px-1 justify-between cursor-pointer text-red-400 hover:text-red-600 transition duration-300"
+            className="expense-item"
             onClick={() => openTransactionDetail(transaction)}
           >
             <span className="truncate w-1/2">{place?.name}</span>
