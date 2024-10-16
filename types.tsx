@@ -31,7 +31,7 @@ export interface HeaderProps {
 }
 
 export interface Transaction {
-  id?: string;
+  _id?: string;
   price?: string;
   income?:boolean;
   date?: string;
@@ -58,7 +58,7 @@ export interface CategoryTransaction {
   total: string;
   income: boolean;
   category: string;
-  percentage: number;
+  percentage: string;
   items: [Transaction];
 }
 

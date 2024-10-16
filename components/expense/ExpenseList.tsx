@@ -8,10 +8,10 @@ const Expenses = ({ expenses, openTransactionDetail }: ExpensesProps) => {
   return (
     <>
       {expenses.map((transaction) => {
-        const { id, price, date, place, title, income } = transaction;
+        const { _id, price, date, place, title, income } = transaction;
         return (
           <article
-            key={id}
+            key={_id}
             title={place?.address}
             className="expense-item"
             onClick={() => openTransactionDetail(transaction)}
@@ -37,7 +37,7 @@ const CategoryPrice = ({categoryPrice}:{categoryPrice:CategoryTransaction}) => {
         <span className='capitalize text-xl'>{category}</span>
         <span className="font-bold">{total}</span>
       </div>
-      <div className={`category-percentage ${income?'income':'expense'}`} style={{ width: percentage + '%' }}>{percentage.toFixed(2)}%</div>
+      <div className={`category-percentage ${income?'income':'expense'}`} style={{ width: percentage }}>{percentage}</div>
     </div>
   )
 }
