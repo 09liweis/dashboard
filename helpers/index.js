@@ -59,7 +59,7 @@ export const LANGUAGES = {
   en: {
     home: 'Home',
     knowledges: 'KnowLedges',
-    expense: 'Expense',
+    expenses: 'Expenses',
     login: 'Login',
     logout: 'Log Out',
     addNew: 'Add New',
@@ -77,7 +77,7 @@ export const LANGUAGES = {
     Resume: '简历',
     knowledges: '芝士',
     videos: 'Vlog',
-    expense: '消费',
+    expenses: '消费',
     logout: '登出',
     total: '总计',
     addNew: '添加',
