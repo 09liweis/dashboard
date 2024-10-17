@@ -59,7 +59,7 @@ export interface CategoryTransaction {
   income: boolean;
   category: string;
   percentage: string;
-  items: [Transaction];
+  items: Transaction[];
 }
 
 export interface ExpenseListProps {
