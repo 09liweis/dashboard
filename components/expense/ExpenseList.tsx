@@ -50,7 +50,7 @@ export default function ExpenseList({
     {categoryTransactions.map((categoryPrice) => {
       const {items, category} = categoryPrice;
       return (
-        <div key={category} className="mb-2">
+        <div key={category} className="mb-5">
           <CategoryPrice categoryPrice={categoryPrice} />
           <Expenses expenses={items} openTransactionDetail={openTransactionDetail} />
         </div>
