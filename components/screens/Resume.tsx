@@ -6,13 +6,26 @@ const RESUME = {
     {
       "name": "Nextjs project",
       "features": [
-        "Write my own Tailwind style CSS for project",
+        "Build UI with TailwindCSS",
         "Implement graphql server with mongoose",
         "Build expense tracking page with React and Chart.js"
       ]
     },
     {
-      "name": "Samliweisen Resume",
+      "name":"FastAPI statstic project",
+      "features":[
+        "Create RESTful endpoints to generate statistics of movies, expenses, todo data"
+      ]
+    },
+    {
+      "name":"What sam watched Nuxt3 project",
+      "features":[
+        "Show progress of the movies/TV shows I watched",
+        "Display movie list from other web sources such as IMDB"
+      ]
+    },
+    {
+      "name": "RESTful API services",
       "features": [
         "Design and implement with HTML5/CSS3 with mobile first design",
         "Created with React, React Router, React Redux",
