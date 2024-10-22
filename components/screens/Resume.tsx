@@ -177,7 +177,8 @@ const Resume: NextPage = () => {
       }
       <h1 className='text-center font-bold text-2xl font-mono'>Sam Resume</h1>
       <section className='mt-4'>
-        <p>Linkedin</p>
+        <a href='https://www.linkedin.com/in/samliweisen/' target='_blank' className='font-bold underline decoration-red-500 block'>Linkedin</a>
+        <a href='https://github.com/09liweis' target='_blank' className='font-bold underline decoration-red-500 block'>Github</a>
         <p>weisen.li@hotmail.com</p>
         <p>Toronto, ON</p>
       </section>
