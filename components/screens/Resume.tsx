@@ -21,7 +21,7 @@ const RESUME = {
       "name":"What sam watched Nuxt3 project",
       "features":[
         "Show progress of the movies/TV shows I watched",
-        "Display movie list from other web sources such as IMDB"
+        "Display movie list from other web sources such as IMDB, Cineplex"
       ]
     },
     {
