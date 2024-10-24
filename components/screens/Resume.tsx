@@ -37,7 +37,7 @@ const RESUME = {
   experiences: [
     {
       "duty": [
-        "Rewrite MRIS internal web portal from Jquery to React.js",
+        "Rewrite MRIS internal web portal from Jquery to React.js, replace other Jquery lib with pure React code",
         "Build automation tool with Python to generate HTML/JSON files from business content",
         "Lead team members to build reusable HTML components with tailwind style for lottery ticket design",
         "Conduct code reviews and provide constructive feedback to ensure code quality and adherence to best practices",
@@ -52,6 +52,7 @@ const RESUME = {
     {
       "duty": [
         "Write semantic well structure HTML5/CSS3, SASS, Bootstrap with responsive design",
+        "Integrate thiry parth services such as Mapbox, Oauth Google/Facebook/Apple Login",
         "Designs, develops scalable, reusable, innovative solutions with Vuejs,ReactJs,React Native",
         "Build and maintained Nodejs server APIs, implementing RESTful endpoints and handling database interactions",
         "Successfully implement basic elasticsearch engine for millions data search feature",
