@@ -237,6 +237,18 @@
         "nm": "selectors",
         "items": [
           {
+            "nm": "scale/translate/rotate without transform"
+          },
+          {
+            "nm": "scroll-snap"
+          },
+          {
+            "nm": "mix-blend-mode"
+          },
+          {
+            "nm": "text-stroke: 2px black;"
+          },
+          {
             "nm": ":first-letter",
             "what": "use to style first letter of a element"
           },
@@ -361,18 +373,6 @@
       },
       {
         "nm": "BFC"
-      },
-      {
-        "nm": "scale/translate/rotate without transform"
-      },
-      {
-        "nm": "scroll-snap"
-      },
-      {
-        "nm": "mix-blend-mode"
-      },
-      {
-        "nm": "text-stroke: 2px black;"
       },
       {
         "nm": "nesting css",
