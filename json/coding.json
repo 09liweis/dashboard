@@ -165,6 +165,10 @@
         "nm": "plugins",
         "items": [
           {
+            "nm": "Version Lens",
+            "what": "check package version if latest"
+          },
+          {
             "nm": "console ninjia"
           },
           {
