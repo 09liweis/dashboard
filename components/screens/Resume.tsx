@@ -193,7 +193,7 @@ const Resume: NextPage = () => {
       <section className='mt-4'>
         <a href='https://www.linkedin.com/in/samliweisen/' target='_blank' className='font-bold underline decoration-red-500 block'>Linkedin</a>
         <a href='https://github.com/09liweis' target='_blank' className='font-bold underline decoration-red-500 block'>Github</a>
-        <p>weisen.li@hotmail.com</p>
+        <a href='mailto:weisen.li@hotmail.com' className='font-bold underline decoration-red-500 block'>weisen.li@hotmail.com</a>
         <p>Toronto, ON</p>
       </section>
       <section className='mt-4'>
