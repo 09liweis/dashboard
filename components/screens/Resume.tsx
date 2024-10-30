@@ -175,8 +175,6 @@ const Resume: NextPage = () => {
     </article>
   );
 
-  const btnStyleClassName = 'p-1.5 text-white bg-black text-lg inline-block';
-
   return (
     <>
       {showExperienceForm &&
@@ -197,12 +195,12 @@ const Resume: NextPage = () => {
         <p>Toronto, ON</p>
       </section>
       <section className='mt-4'>
-        <h2 className={btnStyleClassName}>Summary</h2>
+        <h2 className='resume-section'>Summary</h2>
         <p className='font-sans'>Passionate front-end web developer with <span className='underline decoration-sky-700'>10 years</span> of experience using <span className='underline decoration-pink-500'>JavaScript, React, Vue, HTML5, and CSS3</span> to build all aspects of the user experience and user interface for client-facing web applications.
           Able to provide technical solutions and work under pressure to achieve company goals</p>
       </section>
       <section className='mt-4'>
-        <h2 className={btnStyleClassName}>Technical Skills</h2>
+        <h2 className='resume-section'>Technical Skills</h2>
         <p><b>Web Front End:</b> HTML5, CSS3, JavaScript, ReactJs, VueJs, SASS, Bootstrap, Tailwind</p>
         <p><b>Server Side:</b> NodeJs, Express, REST API, NextJs, NuxtJs, Java, Python, FastAPI, PHP, Laravel</p>
         <p><b>Database:</b> MongoDB, MySQL, PostgreSQL</p>
@@ -210,11 +208,11 @@ const Resume: NextPage = () => {
         <p><b>Mobile: </b> React Native, Flutter</p>
       </section>
       <section className='mt-4'>
-        <h2 className={btnStyleClassName}>Experience</h2>
+        <h2 className='resume-section'>Experience</h2>
         {experiencesHTML}
       </section>
       <section className='mt-4'>
-        <h2 className={btnStyleClassName}>Projects</h2>
+        <h2 className='resume-section'>Projects</h2>
         {projectsHTML}
       </section>
     </>

@@ -88,6 +88,10 @@ body {
   }
 }
 
+.resume-section {
+  @apply p-1.5 text-white bg-black text-lg inline-block;
+}
+
 .calendar-day {
   @apply w-[14%] text-center p-4 cursor-pointer;
 }
