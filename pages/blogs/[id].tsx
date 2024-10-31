@@ -78,7 +78,8 @@ const BlogDetail: NextPage = () => {
 
   const formatDisplayHTML = (html: string) => {
     let formatedHTML = html
-      .replaceAll('<h2>', '<h2 class="text-3xl mt-3">')
+      .replaceAll('<h2>', '<h2 class="text-3xl mt-3 font-bold">')
+      .replaceAll('<h3>', '<h3 class="text-2xl mt-3 font-semibold">')
       .replaceAll('<p>', '<p class="text-xl">');
     return formatedHTML;
   };
