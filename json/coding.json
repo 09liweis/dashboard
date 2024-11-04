@@ -576,6 +576,10 @@
         "what": "Arrays|Functions|Objects Stored in heap accessed by reference"
       },
       {
+        "nm":"weak set",
+        "what":"an object in WeakSet can be garbage collected if there is no other reference to it"
+      },
+      {
         "nm": "Execution Context",
         "what": "Global/Function memmory creation phase, execution phase"
       },
