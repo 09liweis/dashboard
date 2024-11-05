@@ -1160,6 +1160,10 @@
   {
     "nm": "design pattern",
     "items": [
+      {
+        "nm":"BFF Backend for Frontend",
+        "what":"for multiple clients"
+      },
       {"nm":"Event Driven Architecture"},
       {"nm":"Strangler pattern", "what":"cutting monolith to microservices"},
       {
