@@ -1244,6 +1244,9 @@
     "nm": "Python",
     "items": [
       {
+        "nm":"@dataclass"
+      },
+      {
         "nm": "python-docx",
         "what": "parse docx file"
       },
