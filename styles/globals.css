@@ -92,6 +92,10 @@ body {
   @apply p-1.5 text-white bg-black text-lg inline-block;
 }
 
+.knowledge-item {
+  @apply font-bold transition duration-300 hover:translate-x-1;
+}
+
 .calendar-day {
   @apply w-[14%] text-center p-4 cursor-pointer;
 }

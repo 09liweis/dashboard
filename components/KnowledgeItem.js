@@ -1,8 +1,5 @@
 import { useState } from 'react';
 
-const TEXT_STYLE =
-  'font-bold transition duration-300 hover:translate-x-1';
-
 function KnowledgeItem({ knowledgeItem }) {
   const [expand, setExpand] = useState(false);
   if (knowledgeItem.items?.length) {
@@ -18,7 +15,7 @@ function KnowledgeItem({ knowledgeItem }) {
       }
     });
     return (
-      <section className={`mb-2 ${TEXT_STYLE}`}>
+      <section className={`mb-2 knowledge-item`}>
         <h4 className="cursor-pointer" onClick={() => setExpand(!expand)}>
           {knowledgeItem.nm} ({knowledgeItem.items.length}) {expand ? '-' : '+'}
         </h4>
@@ -30,7 +27,7 @@ function KnowledgeItem({ knowledgeItem }) {
       <section className="mb-2 text-slate-800 text-sm border-b-2 pb-1">
         {knowledgeItem.url ? (
           <a
-            className={TEXT_STYLE}
+            className={`knowledge-item`}
             href={knowledgeItem.url}
             rel="noreferrer"
             target="_blank"
@@ -38,7 +35,7 @@ function KnowledgeItem({ knowledgeItem }) {
             {knowledgeItem.nm}
           </a>
         ) : (
-          <p className={TEXT_STYLE}>{knowledgeItem.nm}</p>
+          <p className={`knowledge-item`}>{knowledgeItem.nm}</p>
         )}
         {knowledgeItem.what && (
           <p>
