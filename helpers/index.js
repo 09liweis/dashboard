@@ -58,7 +58,7 @@ export async function checkUserToken() {
 export const LANGUAGES = {
   en: {
     home: 'Home',
-    knowledges: 'KnowLedges',
+    knowledges: 'Knowledges',
     expenses: 'Expenses',
     login: 'Login',
     logout: 'Log Out',
