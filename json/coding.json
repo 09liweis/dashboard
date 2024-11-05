@@ -1080,7 +1080,17 @@
     "items":[
       {
         "nm":"wordpress",
-        "items":[]
+        "items":[
+          {
+            "nm":"Plugins",
+            "items":[
+              {
+                "nm":"Accelerator",
+                "what":"Optimazation"
+              }
+            ]
+          }
+        ]
       },
       {
         "nm":"Shopify",
