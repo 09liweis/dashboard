@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 const TEXT_STYLE =
-  'font-bold transition duration-300 hover:translate-x-2';
+  'font-bold transition duration-300 hover:translate-x-1';
 
 function KnowledgeItem({ knowledgeItem }) {
   const [expand, setExpand] = useState(false);
@@ -22,7 +22,7 @@ function KnowledgeItem({ knowledgeItem }) {
         <h4 className="cursor-pointer" onClick={() => setExpand(!expand)}>
           {knowledgeItem.nm} ({knowledgeItem.items.length}) {expand ? '-' : '+'}
         </h4>
-        <div className={`pl-2 ${expand ? 'block' : 'hidden'}`}>{items}</div>
+        <div className={`pl-1 ${expand ? 'block' : 'hidden'}`}>{items}</div>
       </section>
     );
   } else {
