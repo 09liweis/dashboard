@@ -66,3 +66,13 @@ export interface ExpenseListProps {
   categoryTransactions: CategoryTransaction[];
   openTransactionDetail: Function;
 }
+
+export interface Knowledge {
+  nm: string,
+  items?: Array<Knowledge> | Array<string>,
+  pros?: string | Array<string>,
+  what?: string,
+  how?: string | Array<string>,
+  why?: string,
+  url?: string
+}

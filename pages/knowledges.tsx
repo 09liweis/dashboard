@@ -4,15 +4,7 @@ import { useEffect, useState } from 'react';
 
 import CodingknowledgeJSON from '../json/coding.json';
 import KnowledgeItem from '../components/KnowledgeItem';
-
-interface Knowledge {
-  nm: string,
-  items?: Array<Knowledge> | Array<string>,
-  pros?: string | Array<string>,
-  what?: string,
-  how?: string | Array<string>,
-  why?: string
-}
+import { Knowledge } from 'types';
 
 const KnowledgesPage: NextPage = () => {
   const emptyKnowledges: Array<Knowledge> = [];

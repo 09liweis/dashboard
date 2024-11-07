@@ -1,17 +1,8 @@
 import { useState } from 'react';
-
-interface KnowledgeItem {
-  nm: string;
-  what?: string;
-  url?: string;
-  how?: string;
-  pros?: string;
-  why?: string;
-  items:KnowledgeItem[]
-}
+import { Knowledge } from 'types';
 
 interface KnowledgeItemProps {
-  knowledgeItem: KnowledgeItem
+  knowledgeItem: Knowledge
 }
 
 function KnowledgeItem({ knowledgeItem }: KnowledgeItemProps) {
