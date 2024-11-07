@@ -1,6 +1,20 @@
 import { useState } from 'react';
 
-function KnowledgeItem({ knowledgeItem }) {
+interface KnowledgeItem {
+  nm: string;
+  what?: string;
+  url?: string;
+  how?: string;
+  pros?: string;
+  why?: string;
+  items:KnowledgeItem[]
+}
+
+interface KnowledgeItemProps {
+  knowledgeItem: KnowledgeItem
+}
+
+function KnowledgeItem({ knowledgeItem }: KnowledgeItemProps) {
   const [expand, setExpand] = useState(false);
   if (knowledgeItem.items?.length) {
     const items = knowledgeItem.items.map((k) => {
