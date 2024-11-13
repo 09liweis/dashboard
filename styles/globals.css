@@ -38,7 +38,7 @@ body {
 }
 
 .button {
-  @apply p-1 text-center rounded cursor-pointer text-white bg-red-400 transition duration-300 hover:rotate-2 hover:bg-red-600/75;
+  @apply p-1 text-center rounded cursor-pointer text-white bg-black transition duration-300 hover:rotate-2 hover:bg-gray-600;
 }
 
 .home-card {
