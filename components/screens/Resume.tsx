@@ -6,9 +6,9 @@ const RESUME = {
     {
       "name": "Nextjs project",
       "features": [
-        "Build UI with TailwindCSS",
+        "Built UI with TailwindCSS",
         "Implement graphql server with mongoose",
-        "Build expense tracking page with React and Chart.js"
+        "Built expense tracking page with React and Chart.js"
       ]
     },
     {
