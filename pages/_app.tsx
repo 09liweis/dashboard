@@ -14,7 +14,7 @@ import Chat from '../components/Chat';
 
 const getPageTitle = (pageProps: any) => {
   const pageMeta = pageProps.pageMeta;
-  return pageMeta?.title || 'Sam - Web Developer';
+  return pageMeta?.title || 'Sam - Full Stack Developer';
 };
 
 function MyApp({ Component, pageProps }: AppProps) {
