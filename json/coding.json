@@ -1368,6 +1368,25 @@
     ]
   },
   {
+    "nm":"Web Server",
+    "items":[
+      {
+        "nm":"nginx",
+        "items":[
+          {
+            "nm":"reverse proxy"
+          },
+          {
+            "nm":"load balance"
+          },
+          {
+            "nm":"cache"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "nm": "database",
     "items": [
       {
