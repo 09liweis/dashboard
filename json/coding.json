@@ -1065,6 +1065,10 @@
         "nm": "Solid"
       },
       {
+        "nm":"飞冰ICE",
+        "url":"https://v3.ice.work/"
+      },
+      {
         "nm": "NextJs",
         "items": [
           {"nm":"client component","what":"browser react component","how":"put 'use client' on top of the component"},
