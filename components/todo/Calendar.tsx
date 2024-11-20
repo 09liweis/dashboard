@@ -91,9 +91,9 @@ export default function Calendar() {
   return (
     <>
     <section className="flex justify-between p-4">
-      <span onClick={()=>setMonth(month-1)}>Prev</span>
+      <span className="cursor-pointer font-bold" onClick={()=>setMonth(month-1)}>Prev</span>
       <span>{curDate}</span>
-      <span onClick={()=>setMonth(month+1)}>Next</span>
+      <span className="cursor-pointer font-bold" onClick={()=>setMonth(month+1)}>Next</span>
     </section>
     <section className="flex flex-wrap">
       {WEEKDAYS.map((day) => <span className="calendar-day" key={day}>{day}</span>)}
