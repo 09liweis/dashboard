@@ -46,8 +46,8 @@ class GoogleMap {
       { types: ['establishment'] } // 'establishment' / 'address' / 'geocode'
     );
     google.maps.event.addListener(autocomplete, 'place_changed', () => {
-      const { place_id, formatted_address, name, geometry } =
-        autocomplete.getPlace();
+      const place = autocomplete.getPlace();
+      const { place_id, formatted_address, name, geometry } = place;
       cb({
         place_id,
         name,
