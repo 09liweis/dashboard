@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { motion } from "motion/react"
 import { fetchToken, fetchUser, setAuthToken } from '../helpers';
 import { LoginFormProps } from '../types';
 import Loading from './Loading';
@@ -25,12 +26,13 @@ export default function LoginForm({ setUser, setShowLogin }: LoginFormProps) {
     }
   };
   return (
-    <section className="fixed w-full h-full flex justify-center items-center top-0 left-0">
+    <motion.section className="fixed w-full h-full flex justify-center items-center top-0 left-0">
       <section
         onClick={() => setShowLogin(false)}
         className="fixed bg-black/75 w-full h-full top-0 left-0"
       ></section>
-      <form
+      <motion.form
+        initial={{scale:0.8,opacity:0}} animate={{scale:1,opacity:1}} exit={{scale:0,opacity:0}}
         className="rounded bg-white p-3 mx-auto w-96 relative z-1"
         onSubmit={handleLogin}
       >
@@ -49,7 +51,7 @@ export default function LoginForm({ setUser, setShowLogin }: LoginFormProps) {
           {loginLoading ? <Loading /> : 'Login'}
         </button>
         <a href="https://github.com/login/oauth/authorize?client_id=105591674a9b55dc8196" className="button"><i className="fa-brands fa-github"></i> Github Login</a>
-      </form>
-    </section>
+      </motion.form>
+    </motion.section>
   );
 }
