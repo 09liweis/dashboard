@@ -7,6 +7,7 @@ import {
   EXPENSE_DELETE_API,
 } from 'constants';
 import Loading from '@/components/Loading';
+import { motion } from "motion/react"
 
 const googleMap = new GoogleMap();
 
@@ -94,7 +95,8 @@ export default function ExpenseForm({
       >
         X
       </a>
-      <form
+      <motion.form
+        initial={{scale:0.8,opacity:0}} animate={{scale:1,opacity:1}}
         onSubmit={handleFormSubmit}
         className="w-96 p-2 border rounded-lg bg-white"
       >
@@ -149,7 +151,7 @@ export default function ExpenseForm({
             )}
           </section>
         )}
-      </form>
+      </motion.form>
     </section>
   );
 
