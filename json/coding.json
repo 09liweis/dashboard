@@ -1086,6 +1086,17 @@
     ]
   },
   {
+    "nm":"AI code editor",
+    "items":[
+      {
+        "nm":"Cursor"
+      },
+      {
+        "nm":"Windsurf Editor"
+      }
+    ]
+  },
+  {
     "nm":"CMS",
     "items":[
       {
