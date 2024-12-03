@@ -20,29 +20,29 @@ const KnowledgesPage: NextPage = () => {
       return;
     }
 
-    const searchTermLower = searchTerm.toLowerCase();
-    const filterKnowledge = (items: Knowledge[]): Knowledge[] => {
-      return items.filter(item => {
-        const matchesName = item.nm.toLowerCase().includes(searchTermLower);
-        const matchesWhat = item.what?.toLowerCase().includes(searchTermLower);
-        const matchesHow = typeof item.how === 'string' && item.how.toLowerCase().includes(searchTermLower);
+    // const searchTermLower = searchTerm.toLowerCase();
+    // const filterKnowledge = (items: Knowledge[]): Knowledge[] => {
+    //   return items.filter(item => {
+    //     const matchesName = item.nm.toLowerCase().includes(searchTermLower);
+    //     const matchesWhat = item.what?.toLowerCase().includes(searchTermLower);
+    //     const matchesHow = typeof item.how === 'string' && item.how.toLowerCase().includes(searchTermLower);
         
-        let hasMatchingChildren = false;
-        if (Array.isArray(item.items)) {
-          const filteredItems = filterKnowledge(
-            item.items.filter((i): i is Knowledge => typeof i === 'object')
-          );
-          hasMatchingChildren = filteredItems.length > 0;
-          if (hasMatchingChildren) {
-            item.items = filteredItems;
-          }
-        }
+    //     let hasMatchingChildren = false;
+    //     if (Array.isArray(item.items)) {
+    //       const filteredItems = filterKnowledge(
+    //         item.items.filter((i): i is Knowledge => typeof i === 'object')
+    //       );
+    //       hasMatchingChildren = filteredItems.length > 0;
+    //       if (hasMatchingChildren) {
+    //         item.items = filteredItems;
+    //       }
+    //     }
 
-        return matchesName || matchesWhat || matchesHow || hasMatchingChildren;
-      });
-    };
+    //     return matchesName || matchesWhat || matchesHow || hasMatchingChildren;
+    //   });
+    // };
 
-    setFilteredKnowledges(filterKnowledge(knowledges));
+    // setFilteredKnowledges(filterKnowledge(knowledges));
   }, [searchTerm, knowledges]);
 
   return (
@@ -50,7 +50,7 @@ const KnowledgesPage: NextPage = () => {
       <h1 className="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">
         Knowledge Base
       </h1>
-      <SearchBar searchTerm={searchTerm} onSearch={setSearchTerm} />
+      {/* <SearchBar searchTerm={searchTerm} onSearch={setSearchTerm} /> */}
       <div className="space-y-4">
         {filteredKnowledges.map((knowledge) => (
           <KnowledgeCard key={knowledge.nm} knowledge={knowledge} />
