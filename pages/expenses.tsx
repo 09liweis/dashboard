@@ -4,6 +4,7 @@ import { fetchAPI, getTranslate } from 'helpers';
 import AppContext from 'AppContext';
 import ExpenseForm from '@/components/expense/ExpenseForm';
 import ExpenseList from '@/components/expense/ExpenseList';
+import ExpenseHeader from '@/components/expense/ExpenseHeader';
 import { Transaction, ExpenseResponse } from 'types';
 import {
   EXPENSE_LIST_API,
@@ -12,22 +13,21 @@ import {
 import Loading from '@/components/Loading';
 
 const Expense: NextPage = () => {
-
   const { user, lang } = useContext(AppContext);
-
   const [showForm, setShowForm] = useState(false);
-
   const [categories, setCategories] = useState<String[]>([]);
-
-  const [selectedTransaction, setSelectTransaction] =
-    useState<Transaction>({});
-
+  const [selectedTransaction, setSelectTransaction] = useState<Transaction>({});
   const [loading, setLoading] = useState(false);
-  const [expenseResponse, setExpenseResponse] = useState<ExpenseResponse>({ total: "", date: "", categoryPrice: [],incomes:"",expenses:"" });
+  const [expenseResponse, setExpenseResponse] = useState<ExpenseResponse>({ 
+    total: "", 
+    date: "", 
+    categoryPrice: [],
+    incomes: "",
+    expenses: "" 
+  });
 
   const getExpenseStatistics = useCallback(async () => {
     setLoading(true);
-
     const expenseResp = await fetchAPI({
       url: EXPENSE_LIST_API,
       body: { date: expenseResponse.date },
@@ -61,7 +61,7 @@ const Expense: NextPage = () => {
   };
 
   return (
-    <>
+    <div className="max-w-4xl mx-auto">
       {showForm && (
         <ExpenseForm
           getExpenseStatistics={getExpenseStatistics}
@@ -71,42 +71,38 @@ const Expense: NextPage = () => {
           user={user}
         />
       )}
-      <section className="flex justify-between items-center mb-3">
+      
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-2xl font-bold">Expense Tracker</h1>
         {user._id && (
-          <a
-            className="button"
+          <button
+            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
             onClick={() => {
               setShowForm(true);
               setSelectTransaction({});
             }}
           >
             {getTranslate(lang, 'addNew')}
-          </a>
+          </button>
         )}
-      </section>
-      <section className="flex mb-3 flex-col gap-x-3">
+      </div>
 
-        <input className='w-full p-2 mb-2 rounded bg-card' type={"month"} value={expenseResponse.date} onChange={(e) => setExpenseResponse({ ...expenseResponse, date: e.target.value })} />
+      <ExpenseHeader 
+        expenseResponse={expenseResponse}
+        onDateChange={(date) => setExpenseResponse({ ...expenseResponse, date })}
+      />
 
-        <article className="rounded p-2 bg-card">
-          <p className="flex justify-between capitalize text-2xl font-bold text-red-600">
-            <span className='text-green-600'>{expenseResponse.incomes}</span>
-            <span>{expenseResponse.total}</span>
-            <span>{expenseResponse.expenses}</span>
-          </p>
-          {loading ? (
-            <div className="flex justify-center">
-              <Loading />
-            </div>
-          ) : (
-            <ExpenseList
-              categoryTransactions={expenseResponse.categoryPrice}
-              openTransactionDetail={openTransactionDetail}
-            />
-          )}
-        </article>
-      </section>
-    </>
+      {loading ? (
+        <div className="flex justify-center py-8">
+          <Loading />
+        </div>
+      ) : (
+        <ExpenseList
+          categoryTransactions={expenseResponse.categoryPrice}
+          openTransactionDetail={openTransactionDetail}
+        />
+      )}
+    </div>
   );
 };
 
