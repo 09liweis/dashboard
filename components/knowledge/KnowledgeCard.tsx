@@ -9,7 +9,7 @@ interface KnowledgeCardProps {
 export default function KnowledgeCard({ knowledge, depth = 0 }: KnowledgeCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const hasChildren = Array.isArray(knowledge.items) && knowledge.items.length > 0;
-  const itemCount = hasChildren ? knowledge.items.length : 0;
+  const itemCount = hasChildren ? knowledge.items?.length : 0;
 
   const renderContent = () => {
     if (typeof knowledge.items === 'string') {
@@ -131,7 +131,7 @@ export default function KnowledgeCard({ knowledge, depth = 0 }: KnowledgeCardPro
           ) : (
             <h3 className="font-medium text-gray-900">{knowledge.nm}</h3>
           )}
-          {itemCount > 0 && (
+          {(itemCount && itemCount > 0) && (
             <span className="text-sm text-gray-500">({itemCount})</span>
           )}
         </div>
