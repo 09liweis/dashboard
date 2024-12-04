@@ -1,10 +1,11 @@
 import type { NextPage } from 'next';
 import { useContext, useEffect, useState } from 'react';
 import AppContext from 'AppContext';
-import Icon from '@/components/Icon';
 import { TODO_LIST_API } from '../constants';
 import { fetchAPI } from 'helpers';
 import Calendar from '@/components/todo/Calendar';
+import TodoList from '@/components/todo/TodoList';
+import TodoForm from '@/components/todo/TodoForm';
 
 interface Todo {
   _id: string;
@@ -16,15 +17,7 @@ interface Todo {
 
 const TodosPage: NextPage = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
-  const emptyTodo = {
-    _id: '',
-    name: '',
-    status: 'pending',
-    date: '',
-    is_done: false,
-  }
-  const [todo, setTodo] = useState<Todo>(emptyTodo);
-
+  const [showForm, setShowForm] = useState(false);
   const { isUserLoggedIn } = useContext(AppContext);
 
   const fetchTodos = async () => {
@@ -41,22 +34,6 @@ const TodosPage: NextPage = () => {
   useEffect(() => {
     fetchTodos();
   }, []);
-
-  const todosHTML = todos.map((todo, todoIndex) => (
-    <article
-      key={todo._id}
-      className="relative shadow-lg bg-white/[30%] rounded-lg p-2 mb-2 flex justify-between items-center"
-    >
-      <div>
-        {isUserLoggedIn && <Icon name={todo.is_done ? 'circle-check' : 'circle'} classNames={`transition cursor-pointer mr-3 ${todo.is_done ? 'todo-is-done' : ''}`} handleClick={() => handleTodoFinish(todo, todoIndex)} />}
-        <span className={`text-teal-600 ${todo.is_done ? 'line-through' : ''}`}>{todo.name}</span>
-      </div>
-      <span className="text-blue-500">{todo.date}</span>
-      {isUserLoggedIn && (
-        <Icon name='trash' handleClick={() => handleTodoDelete(todo._id, todoIndex)} classNames='hover:scale-110 cursor-pointer ml-3' />
-      )}
-    </article>
-  ));
 
   const handleTodoDelete = async (id: string, todoIndex: number) => {
     const todoResponse = await fetchAPI({
@@ -79,43 +56,52 @@ const TodosPage: NextPage = () => {
     const newTodos = [...todos];
     newTodos[todoIndex] = todo;
     setTodos(newTodos);
-  }
+  };
 
-  const handleTodoSubmit = async (e: any) => {
-    e.preventDefault();
-    const todoResponse = await fetchAPI({ url: TODO_LIST_API, body: todo });
+  const handleTodoSubmit = async (todo: { name: string; date: string }) => {
+    const todoResponse = await fetchAPI({ 
+      url: TODO_LIST_API, 
+      body: { ...todo, status: 'pending' }
+    });
     if (todoResponse) {
-      fetchTodos();
-      setTodo(emptyTodo);
+      await fetchTodos();
+      setShowForm(false);
     }
   };
 
   return (
-    <>
-      <h1 className='text-3xl mb-2 text-pink-600 font-bold'>My Todos </h1>
-      <Calendar />
-      {todosHTML}
-      {isUserLoggedIn && (
-        <>
+    <div className="max-w-4xl mx-auto">
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-3xl font-bold text-gray-800">My Todos</h1>
+        {isUserLoggedIn && (
+          <button
+            onClick={() => setShowForm(true)}
+            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-2"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
+            </svg>
+            <span>Add Todo</span>
+          </button>
+        )}
+      </div>
 
-          <form onSubmit={handleTodoSubmit}>
-            <input
-              value={todo.name}
-              onChange={(e) => setTodo({ ...todo, 'name': e.target.value })}
-            />
-            <input
-              type="date"
-              value={todo.date}
-              onChange={(e) => setTodo({ ...todo, 'date': e.target.value })}
-            />
-            <button type="submit">Add</button>
-          </form>
-          <div className="fixed right-3 bottom-3 p-2 rounded-full font-bold text-lg shadow-lg bg-white leading-3 cursor-pointer">
-            +
-          </div>
-        </>
+      <Calendar />
+
+      <TodoList
+        todos={todos}
+        isUserLoggedIn={isUserLoggedIn}
+        onToggleTodo={handleTodoFinish}
+        onDeleteTodo={handleTodoDelete}
+      />
+
+      {showForm && (
+        <TodoForm
+          onSubmit={handleTodoSubmit}
+          onClose={() => setShowForm(false)}
+        />
       )}
-    </>
+    </div>
   );
 };
 
