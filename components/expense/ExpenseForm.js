@@ -88,7 +88,7 @@ export default function ExpenseForm({
   };
 
   const formHTML = (
-    <section className="bg-black z-10 fixed w-full h-full flex justify-center items-center top-0 left-0">
+    <section className="bg-black/50 z-10 fixed w-full h-full flex justify-center items-center top-0 left-0">
       <a
         className="transition duration-300 rotate-0 hover:rotate-45 absolute top-2 right-2 rounded-full bg-white p-1 flex justify-center items-center w-5 h-5 cursor-pointer"
         onClick={() => setShowForm(false)}
@@ -98,7 +98,7 @@ export default function ExpenseForm({
       <motion.form
         initial={{scale:0.8,opacity:0}} animate={{scale:1,opacity:1}}
         onSubmit={handleFormSubmit}
-        className="w-96 p-2 border rounded-lg bg-white"
+        className="w-96 p-4 border rounded-lg bg-white"
       >
         {TRANSACTION_FIELDS.map(({ name, type }) => (
           <input
@@ -106,7 +106,7 @@ export default function ExpenseForm({
             type={type || 'text'}
             name={name}
             value={curTransaction[name] || ''}
-            className="w-full border p-2 mb-2"
+            className="w-full border p-2 mb-2 rounded"
             placeholder={name}
             onChange={(e) => updateCurTransaction(e.target.value, name)}
           />
@@ -129,7 +129,7 @@ export default function ExpenseForm({
         <input
           id="address"
           ref={placeInput}
-          className="w-full border p-2 mb-2"
+          className="w-full border p-2 mb-2 rounded"
           placeholder="Place"
         />
         <section
