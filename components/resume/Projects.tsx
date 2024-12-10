@@ -28,6 +28,15 @@ export default function Projects() {
         "Implemented user authentication and watchlist management",
         "Created detailed analytics dashboard"
       ]
+    },
+    {
+      name: "Cheap Foodcourt Finder",
+      description: "Application to find affordable food options in the area",
+      technologies: ["Nuxtjs", "Google Maps API", "Node.js", "Express", "MongoDB"],
+      features: [
+        "Search for nearby foodcourts based on budget",
+        "View ratings and reviews of food options"
+      ]
     }
   ];
 
