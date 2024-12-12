@@ -1168,6 +1168,9 @@
       },
       {
         "nm": "supabase"
+      },
+      {
+        "nm": "Clickhouse"
       }
     ]
   },
