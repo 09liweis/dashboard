@@ -6,6 +6,11 @@
     "nm": "Web Tools",
     "items": [
       {
+        "nm": "Sentry",
+        "url": "https://sentry.io/",
+        "what":"Application monitoring software considered 'not bad' by 4 million developers."
+      },
+      {
         "nm":"ngrok",
         "url":"https://ngrok.com/",
         "what":"内网穿透小工具，有了它轻松让别人访问你的项目"
