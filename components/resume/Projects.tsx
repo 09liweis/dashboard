@@ -21,6 +21,18 @@ export default function Projects() {
       url: "https://samliweisen.vercel.app"
     },
     {
+      name: "Rick and Morty Explorer",
+      description: "Interactive web application to explore Rick and Morty universe characters and episodes",
+      technologies: ["SvelteKit", "GraphQL", "TailwindCSS", "Rick and Morty API"],
+      features: [
+        "Implemented GraphQL queries for efficient data fetching",
+        "Built responsive and interactive UI with SvelteKit",
+        "Created dynamic character search and filtering",
+        "Integrated pagination for large datasets"
+      ],
+      url: "https://ricksammorty.vercel.app"
+    },
+    {
       name: "Movie Progress Tracker",
       description: "Web application to track and analyze movie watching progress",
       technologies: ["Nuxt 3", "Vue.js", "FastAPI", "PostgreSQL"],
@@ -30,7 +42,7 @@ export default function Projects() {
         "Implemented user authentication and watchlist management",
         "Created detailed analytics dashboard"
       ],
-      url: "https://what-sam-watched.vercel.app"
+      url: "https://samliweisen-movie.vercel.app"
     },
     {
       name: "Cheap Foodcourt Finder",
@@ -40,7 +52,7 @@ export default function Projects() {
         "Search for nearby foodcourts based on budget",
         "View ratings and reviews of food options"
       ],
-      url: "https://cheap-foodcourt-finder.vercel.app/"
+      url: "https://samliweisen-restaurant.vercel.app"
     }
   ];
 
