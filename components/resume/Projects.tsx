@@ -3,6 +3,7 @@ interface Project {
   description: string;
   technologies: string[];
   features: string[];
+  url?: string;
 }
 
 export default function Projects() {
@@ -16,7 +17,8 @@ export default function Projects() {
         "Implemented GraphQL server with Mongoose",
         "Created expense tracking with Chart.js visualization",
         "Integrated real-time updates with WebSocket"
-      ]
+      ],
+      url: "https://samliweisen.vercel.app"
     },
     {
       name: "Movie Progress Tracker",
@@ -27,7 +29,8 @@ export default function Projects() {
         "Integrated with IMDB and Cineplex APIs",
         "Implemented user authentication and watchlist management",
         "Created detailed analytics dashboard"
-      ]
+      ],
+      url: "https://what-sam-watched.vercel.app"
     },
     {
       name: "Cheap Foodcourt Finder",
@@ -36,7 +39,8 @@ export default function Projects() {
       features: [
         "Search for nearby foodcourts based on budget",
         "View ratings and reviews of food options"
-      ]
+      ],
+      url: "https://cheap-foodcourt-finder.vercel.app/"
     }
   ];
 
@@ -46,7 +50,21 @@ export default function Projects() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {projects.map((project, index) => (
           <div key={index} className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:border-blue-500 transition-all">
-            <h3 className="text-xl font-semibold mb-2 text-gray-800">{project.name}</h3>
+            <div className="flex items-center justify-between mb-2">
+              <h3 className="text-xl font-semibold text-gray-800">{project.name}</h3>
+              {project.url && (
+                <a 
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800 transition-colors"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              )}
+            </div>
             <p className="text-gray-600 mb-3">{project.description}</p>
             <div className="mb-4">
               <div className="flex flex-wrap gap-2">
