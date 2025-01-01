@@ -9,6 +9,17 @@ interface Project {
 export default function Projects() {
   const projects: Project[] = [
     {
+      name: "Express API Server",
+      description: "RESTful API server with authentication, rate limiting, and comprehensive documentation",
+      technologies: ["Express.js", "MongoDB", "JWT", "Node.js", "TypeScript"],
+      features: [
+        "Implemented JWT-based authentication and role-based access control",
+        "Built RESTful endpoints with input validation and error handling",
+        "Integrated MongoDB with Mongoose for data modeling and validation",
+        "Added rate limiting and security middleware for API protection"
+      ]
+    },
+    {
       name: "Next.js Portfolio & Dashboard",
       description: "Full-stack web application for personal portfolio and expense tracking",
       technologies: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB"],
