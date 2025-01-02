@@ -64,7 +64,17 @@ export default function Projects() {
         "View ratings and reviews of food options"
       ],
       url: "https://samliweisen-restaurant.vercel.app"
-    }
+    },
+    {
+      name: "Note 2 Study",
+      description: "Mobile application for efficient note-taking and spaced repetition learning",
+      technologies: ["React Native", "Supabase", "TypeScript"],
+      features: [
+        "Implemented spaced repetition algorithm for optimized learning",
+        "Built real-time note synchronization with Supabase",
+        "Created offline-first architecture with local storage",
+      ]
+    },
   ];
 
   return (
