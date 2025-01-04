@@ -7,7 +7,7 @@ export default function Header() {
         Sam Li
       </h1>
       <h2 className="text-xl text-gray-600 mb-4">Full Stack Developer</h2>
-      <div className="flex justify-center gap-4 text-gray-600">
+      <div className="flex justify-center flex-wrap gap-4 text-gray-600">
         <a 
           href="https://www.linkedin.com/in/samliweisen/" 
           target="_blank" 
