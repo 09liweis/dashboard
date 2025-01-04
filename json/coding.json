@@ -1076,6 +1076,7 @@
       {
         "nm": "NextJs",
         "items": [
+          {"nm":"image return 400", "how":"update middleware config matcher"},
           {"nm":"client component","what":"browser react component","how":"put 'use client' on top of the component"},
           {"nm":"update query url","how":"useEffect router.push with state change"},
           {
