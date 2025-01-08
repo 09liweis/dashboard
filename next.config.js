@@ -2,9 +2,9 @@
 const nextConfig = {
   reactStrictMode: false,
   swcMinify: true,
+  output: 'standalone', // Enable standalone output
   env: {
     GRAPHQL_URI: 'http://localhost:3000/api/graphql',
-    // CHATKITTY_API_KEY: process.env.CHATKITTY_API_KEY,
   },
   images: {
     remotePatterns: [

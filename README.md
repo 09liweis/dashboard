@@ -16,9 +16,9 @@
 
 - [x] upgrade to nextjs 13
 - [ ] upgrade to nextjs 14
-- [ ] todo page, style todo form
-- [ ] update, delete todo with animation
-- [ ] delete transaction
+- [x] todo page, style todo form
+- [x] update, delete todo with animation
+- [x] delete transaction
 - [ ] add statistic card on home page
 - [x] user github sign up
 - [x] user resume page
@@ -28,8 +28,10 @@
 - [ ] experience dashboard page
 - [ ] resume public url
 - [ ] background image change randomly
-- [x] implement https://waifu.pics/docs
-- [ ] todo statistic with fastapi
-- [ ] movie statistic with something
-- [ ] blog statistic with go
-- [ ] expense statistic with something
+
+
+# Build the image
+docker build -t nextjs-app .
+
+# Run the container
+docker run -p 3000:3000 nextjs-app
