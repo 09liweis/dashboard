@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion } from "motion/react"
 import { fetchToken, fetchUser, setAuthToken } from '../helpers';
 import { LoginFormProps } from '../types';
@@ -8,6 +8,10 @@ export default function LoginForm({ setUser, setShowLogin }: LoginFormProps) {
   const [loginLoading, setLoginLoading] = useState(false);
   const emailInput = useRef<HTMLInputElement>(null);
   const passwordInput = useRef<HTMLInputElement>(null);
+
+  useEffect(()=>{
+    emailInput.current?.focus();
+  },[]);
 
   const handleLogin = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
