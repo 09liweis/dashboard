@@ -6,13 +6,13 @@ import Loading from './Loading';
 
 export default function LoginForm({ setUser, setShowLogin }: LoginFormProps) {
   const [loginLoading, setLoginLoading] = useState(false);
-  const usernameInput = useRef<HTMLInputElement>(null);
+  const emailInput = useRef<HTMLInputElement>(null);
   const passwordInput = useRef<HTMLInputElement>(null);
 
   const handleLogin = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     const body = {
-      eml: usernameInput?.current?.value,
+      eml: emailInput?.current?.value,
       pwd: passwordInput?.current?.value,
     };
     setLoginLoading(true);
@@ -53,15 +53,15 @@ export default function LoginForm({ setUser, setShowLogin }: LoginFormProps) {
         {/* Form Content */}
         <div className="p-6 space-y-4">
           <div className="space-y-2">
-            <label htmlFor="username" className="block text-sm font-medium text-gray-700">
-              Username
+            <label htmlFor="emal" className="block text-sm font-medium text-gray-700">
+              Email
             </label>
             <div className="relative">
               <input
-                id="username"
-                ref={usernameInput}
+                id="emal"
+                ref={emailInput}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                placeholder="Enter your username"
+                placeholder="Enter your email"
                 required
               />
               <svg className="w-5 h-5 text-gray-400 absolute right-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
