@@ -1,3 +1,4 @@
+import { motion } from 'motion/react';
 import { CategoryTransaction, ExpenseListProps, Transaction } from 'types';
 import ExpenseTransaction from '@/components/expense/ExpenseTransaction';
 
@@ -33,7 +34,11 @@ export default function ExpenseList({
   return (
     <div className="space-y-6">
       {categoryTransactions.map((categoryPrice) => (
-        <div key={categoryPrice.category}>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          key={categoryPrice.category}>
           <CategoryPrice categoryPrice={categoryPrice} />
           <div className="space-y-2">
             {categoryPrice.items.map((transaction) => (
@@ -44,7 +49,7 @@ export default function ExpenseList({
               />
             ))}
           </div>
-        </div>
+        </motion.div>
       ))}
     </div>
   );
