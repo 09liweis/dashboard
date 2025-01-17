@@ -1,3 +1,5 @@
+import { motion } from 'motion/react';
+
 export default function Skills() {
   const skillCategories = [
     {
@@ -19,7 +21,12 @@ export default function Skills() {
   ];
 
   return (
-    <section className="mb-8">
+    <motion.section
+      className="mb-8"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+    >
       <h2 className="text-2xl font-bold mb-4 pb-2 border-b-2 border-gray-200">Technical Skills</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {skillCategories.map(category => (
@@ -38,6 +45,6 @@ export default function Skills() {
           </div>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }
