@@ -8,7 +8,7 @@ interface ExperienceItem {
 export default function Experience() {
   const experiences: ExperienceItem[] = [
     {
-      title: "Front End Developer",
+      title: "Senior Application Development Specialist",
       company: "OLG",
       period: "2022 - Present",
       duties: [
