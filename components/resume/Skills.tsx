@@ -16,7 +16,7 @@ export default function Skills() {
     },
     {
       title: "DevOps & Tools",
-      skills: ["Git", "Docker", "AWS", "CI/CD", "Jira", "VS Code"]
+      skills: ["Git", "Github Action", "Docker", "AWS", "CI/CD", "Jira", "VS Code"]
     }
   ];
 
