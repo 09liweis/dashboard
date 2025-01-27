@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { CategoryTransaction, ExpenseListProps, Transaction } from 'types';
+import { CategoryTransaction, ExpenseListProps } from 'types';
 import ExpenseTransaction from '@/components/expense/ExpenseTransaction';
 
 interface CategoryPriceProps {
