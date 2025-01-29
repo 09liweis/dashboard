@@ -12,6 +12,12 @@ import {
 } from '../constants';
 import Loading from '@/components/Loading';
 
+function getCurrentMonth() {
+  const now = new Date();
+  const month = (now.getMonth() + 1).toString().padStart(2, "0");
+  return `${now.getFullYear()}-${month}`;
+}
+
 const Expense: NextPage = () => {
   const { user, lang } = useContext(AppContext);
   const [showForm, setShowForm] = useState(false);
@@ -21,7 +27,7 @@ const Expense: NextPage = () => {
   const [loading, setLoading] = useState(false);
   const [expenseResponse, setExpenseResponse] = useState<ExpenseResponse>({ 
     total: "$0.00", 
-    date: "", 
+    date: getCurrentMonth(), 
     categoryPrice: [],
     incomes: "$0.00",
     expenses: "$0.00" 
