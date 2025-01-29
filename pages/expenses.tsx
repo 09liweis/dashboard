@@ -20,11 +20,11 @@ const Expense: NextPage = () => {
   const [selectedTransaction, setSelectTransaction] = useState<Transaction>({});
   const [loading, setLoading] = useState(false);
   const [expenseResponse, setExpenseResponse] = useState<ExpenseResponse>({ 
-    total: "", 
+    total: "$0.00", 
     date: "", 
     categoryPrice: [],
-    incomes: "",
-    expenses: "" 
+    incomes: "$0.00",
+    expenses: "$0.00" 
   });
 
   const getExpenseStatistics = useCallback(async () => {
@@ -37,7 +37,9 @@ const Expense: NextPage = () => {
       },
     });
     setLoading(false);
-    setExpenseResponse(expenseResp);
+    if (expenseResp.status == 200) {
+      setExpenseResponse(expenseResp);
+    }
   }, [expenseResponse.date, selectedCategories]);
 
   useEffect(() => {

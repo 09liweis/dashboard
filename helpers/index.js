@@ -24,7 +24,7 @@ export async function fetchAPI({ method = 'POST', url, body = {}, headers = {} }
   try {
     const response = await fetch(url, opt);
     const data = await response.json();
-    return data;
+    return {...data, status: response.status};
   } catch (error) {
     return { error };
   }
