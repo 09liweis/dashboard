@@ -7,7 +7,7 @@ interface Project {
 }
 
 export default function Projects() {
-  const projects: Project[] = [
+  const PROJECTS: Project[] = [
     {
       name: "Express API Server",
       description: "RESTful API server with authentication, rate limiting, and comprehensive documentation",
@@ -81,7 +81,7 @@ export default function Projects() {
     <section className="mb-8">
       <h2 className="text-2xl font-bold mb-4 pb-2 border-b-2 border-gray-200">Featured Projects</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {projects.map((project, index) => (
+        {PROJECTS.map((project, index) => (
           <div key={index} className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:border-blue-500 transition-all">
             <div className="flex items-center justify-between mb-2">
               <h3 className="text-xl font-semibold text-gray-800">{project.name}</h3>

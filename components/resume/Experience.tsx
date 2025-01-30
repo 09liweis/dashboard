@@ -6,7 +6,7 @@ interface ExperienceItem {
 }
 
 export default function Experience() {
-  const experiences: ExperienceItem[] = [
+  const EXPERIENCES: ExperienceItem[] = [
     {
       title: "Senior Application Development Specialist",
       company: "OLG",
@@ -35,7 +35,7 @@ export default function Experience() {
     <section className="mb-8">
       <h2 className="text-2xl font-bold mb-4 pb-2 border-b-2 border-gray-200">Professional Experience</h2>
       <div className="space-y-6">
-        {experiences.map((exp, index) => (
+        {EXPERIENCES.map((exp, index) => (
           <div key={index} className="relative pl-4 border-l-2 border-gray-200 hover:border-blue-500 transition-colors">
             <div className="absolute -left-2 top-0 w-4 h-4 bg-white border-2 border-gray-200 rounded-full"></div>
             <h3 className="text-xl font-semibold text-gray-800">{exp.title}</h3>
@@ -45,7 +45,7 @@ export default function Experience() {
             </div>
             <ul className="list-disc list-inside space-y-2 text-gray-700">
               {exp.duties.map((duty, idx) => (
-                <li key={idx} className="leading-relaxed">{duty}</li>
+                <li key={idx} className="leading-5">{duty}</li>
               ))}
             </ul>
           </div>
