@@ -53,7 +53,7 @@ export default function Projects() {
         "Implemented user authentication and watchlist management",
         "Created detailed analytics dashboard"
       ],
-      url: "https://samliweisen-movie.vercel.app"
+      url: "https://what-sam-watched.vercel.app"
     },
     {
       name: "Cheap Foodcourt Finder",
@@ -63,7 +63,7 @@ export default function Projects() {
         "Search for nearby foodcourts based on budget",
         "View ratings and reviews of food options"
       ],
-      url: "https://samliweisen-restaurant.vercel.app"
+      url: "https://cheap-foodcourt-finder.vercel.app/"
     },
     {
       name: "Note 2 Study",
