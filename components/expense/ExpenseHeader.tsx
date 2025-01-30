@@ -22,14 +22,15 @@ export default function ExpenseHeader({ expenseResponse, onDateChange }: Expense
         </div>
         
         <div className="bg-white text-center p-1 sm:p-4 rounded-lg shadow-sm border border-gray-100">
+          <h3 className="text-sm font-medium text-gray-500 mb-1">Balance</h3>
+          <p className="text-xl font-bold text-blue-600">{expenseResponse.total}</p>
+        </div>
+        
+        <div className="bg-white text-center p-1 sm:p-4 rounded-lg shadow-sm border border-gray-100">
           <h3 className="text-sm font-medium text-gray-500 mb-1">Expenses</h3>
           <p className="text-xl font-bold text-red-600">{expenseResponse.expenses}</p>
         </div>
         
-        <div className="bg-white text-center p-1 sm:p-4 rounded-lg shadow-sm border border-gray-100">
-          <h3 className="text-sm font-medium text-gray-500 mb-1">Balance</h3>
-          <p className="text-xl font-bold text-blue-600">{expenseResponse.total}</p>
-        </div>
       </div>
     </div>
   );
