@@ -29,7 +29,7 @@ export default function Projects() {
         "Created expense tracking with Chart.js visualization",
         "Integrated real-time updates with WebSocket"
       ],
-      url: "https://samliweisen.vercel.app"
+      url: "https://samliweisen.dev"
     },
     {
       name: "Rick and Morty Explorer",
