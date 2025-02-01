@@ -1,3 +1,5 @@
+import { motion } from 'motion/react';
+
 interface ExperienceItem {
   title: string;
   company: string;
@@ -32,7 +34,12 @@ export default function Experience() {
   ];
 
   return (
-    <section className="mb-8">
+    <motion.section
+      className="mb-8"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+    >
       <h2 className="text-2xl font-bold mb-4 pb-2 border-b-2 border-gray-200">Professional Experience</h2>
       <div className="space-y-6">
         {EXPERIENCES.map((exp, index) => (
@@ -51,6 +58,6 @@ export default function Experience() {
           </div>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }
