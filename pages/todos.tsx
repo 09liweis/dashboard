@@ -24,10 +24,9 @@ const TodosPage: NextPage = () => {
     const response = await fetchAPI({
       method: 'GET',
       url: TODO_LIST_API,
-      body: {},
     });
-    if (Array.isArray(response)) {
-      setTodos(response);
+    if (Array.isArray(response.todos)) {
+      setTodos(response.todos);
     }
   };
 
