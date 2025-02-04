@@ -21,7 +21,11 @@ interface CalendarDay {
   date: number
 }
 
-export default function Calendar() {
+interface CalendarProps {
+  items?: any;
+}
+
+export default function Calendar({items}:CalendarProps) {
 
   const [date, setDate] = useState(new Date());
   const [year, setYear] = useState(date.getFullYear());
@@ -97,7 +101,11 @@ export default function Calendar() {
     </section>
     <section className="flex flex-wrap">
       {WEEKDAYS.map((day) => <span className="calendar-day" key={day}>{day}</span>)}
-      {days.map(({date,status},idx) => <section className={`calendar-day ${status}`} key={idx}><span className="bg-white w-10 h-10 leading-10 block rounded-lg transition duration-300 hover:scale-110">{date}</span></section>)}
+      {days.map(({date,status},idx) => 
+        <section className={`calendar-day ${status}`} key={idx}>
+          <span className="bg-white w-10 h-10 leading-10 inline-block rounded-lg transition duration-300 hover:scale-110">{date}</span>
+        </section>
+      )}
     </section>
     </>
   );
