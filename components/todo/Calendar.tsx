@@ -97,7 +97,7 @@ export default function Calendar() {
     </section>
     <section className="flex flex-wrap">
       {WEEKDAYS.map((day) => <span className="calendar-day" key={day}>{day}</span>)}
-      {days.map(({date,status},idx) => <section className={`calendar-day ${status}`} key={idx}><span className="bg-white p-2 rounded-lg transition duration-300 hover:scale-110">{date}</span></section>)}
+      {days.map(({date,status},idx) => <section className={`calendar-day ${status}`} key={idx}><span className="bg-white w-10 h-10 leading-10 block rounded-lg transition duration-300 hover:scale-110">{date}</span></section>)}
     </section>
     </>
   );
