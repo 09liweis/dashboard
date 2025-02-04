@@ -14,7 +14,7 @@ export async function fetchAPI({ method = 'POST', url, body = {}, headers = {} }
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      'auth-token': getAuthToken(),
+      'Authorization': `Bear ${getAuthToken()}`,
     },
   };
   opt.headers = { ...opt.headers, ...headers };
