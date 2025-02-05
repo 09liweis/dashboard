@@ -9,8 +9,7 @@ import { emptyUser } from '../types';
 import { useState, useEffect } from 'react';
 import { checkUserToken, getLanguages } from '../helpers';
 import LoginForm from '../components/LoginForm';
-
-import Chat from '../components/Chat';
+import LoadingSkeleton from '@/components/LoadingSkeleton';
 
 const getPageTitle = (pageProps: any) => {
   const pageMeta = pageProps.pageMeta;
@@ -21,13 +20,17 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [user, setUser] = useState(emptyUser);
   const [lang, setLang] = useState(getLanguages('en'));
   const [showLogin, setShowLogin] = useState(false);
-
   const [loading, setLoading] = useState(false);
+  
   Router.events.on('routeChangeStart', () => {
     setLoading(true);
   });
 
   Router.events.on('routeChangeComplete', () => {
+    setLoading(false);
+  });
+
+  Router.events.on('routeChangeError', () => {
     setLoading(false);
   });
 
@@ -50,7 +53,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         console.info("remove copy event listener");
       })
     }
-
   }, []);
 
   useEffect(() => {
@@ -74,7 +76,6 @@ function MyApp({ Component, pageProps }: AppProps) {
           setUser,
         }}
       >
-        {/* <Chat /> */}
         <main className="p-3">
           <Header
             setShowLogin={setShowLogin}
@@ -84,8 +85,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             router={router}
           />
           <section className="bg-card mt-2 p-2 rounded">
-            {loading && <div>I am Changing...</div>}
-            <Component {...pageProps} />
+            {loading ? <LoadingSkeleton /> : <Component {...pageProps} />}
           </section>
           {!user?._id && showLogin ? (
             <LoginForm setShowLogin={setShowLogin} setUser={setUser} />
