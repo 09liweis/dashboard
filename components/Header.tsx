@@ -5,13 +5,10 @@ import Icon from './Icon';
 
 const NAV_LINKS = [
   { tl: 'Resume', url: '/', icon: 'house-user' },
-  // { tl: 'Dashboard', url: '/dashboard', icon: 'house-user' },
   { tl: 'knowledges', url: '/knowledges', icon: 'book' },
   { tl: 'todos', url: '/todos', icon: 'list' },
-  // { tl: 'videos', url: '/videos', icon: 'video' },
   { tl: 'expenses', url: '/expenses', icon: 'piggy-bank' },
   { tl: 'blogs', url: '/blogs', icon: 'piggy-bank' },
-  // { tl: 'subscription', url: '/newsletter', icon: 'envelope' },
 ];
 
 export default function Header({
@@ -23,52 +20,56 @@ export default function Header({
 }: HeaderProps) {
   const pathname = router.pathname;
   return (
-    <header className="">
-      <section className="flex justify-between mb-2">
-        <section>
-          {getLanguageKeys().map(({ k, v }: { [k: string]: string }) => (
-            <Link key={k} href={`${pathname}`} locale={k}>
-              <span className={`mr-2 button`}>{v}</span>
+    <header className="sticky top-0 z-50">
+      <div className="backdrop-blur-md bg-white/70 rounded-lg shadow-lg border border-white/20">
+        <section className="flex justify-between p-4">
+          <section>
+            {getLanguageKeys().map(({ k, v }: { [k: string]: string }) => (
+              <Link key={k} href={`${pathname}`} locale={k}>
+                <span className="mr-2 button">{v}</span>
+              </Link>
+            ))}
+          </section>
+          {user._id ? (
+            <section className="flex items-center">
+              <span className="mr-3 text-gray-700">
+                <Icon name={'user'} /> {user.nm}
+              </span>
+              <button
+                className="button"
+                onClick={() => {
+                  localStorage.removeItem('auth-token');
+                  setUser(emptyUser);
+                }}
+              >
+                {getTranslate(lang, 'logout')}
+              </button>
+            </section>
+          ) : (
+            <button
+              className="button"
+              onClick={() => setShowLogin(true)}
+            >
+              {getTranslate(lang, 'login')}
+            </button>
+          )}
+        </section>
+
+        <nav className="flex items-center p-4">
+          {NAV_LINKS.map((nav) => (
+            <Link key={nav.url} href={nav.url}>
+              <span
+                className={`nav-link mr-4 cursor-pointer text-gray-700 hover:text-blue-600 transition-all flex items-center ${
+                  nav.url === pathname ? 'border-b-2 border-blue-500' : ''
+                }`}
+              >
+                <Icon name={nav.icon} /> 
+                <span className="ml-1">{getTranslate(lang, nav.tl)}</span>
+              </span>
             </Link>
           ))}
-        </section>
-        {user._id ? (
-          <section>
-            <span className="mr-3 text-red-500">
-              <Icon name={'user'} /> {user.nm}
-            </span>
-            <button
-              className='button'
-              onClick={() => {
-                localStorage.removeItem('auth-token');
-                setUser(emptyUser);
-              }}
-            >
-              {getTranslate(lang, 'logout')}
-            </button>
-          </section>
-        ) : (
-          <button
-            className="button"
-            onClick={() => setShowLogin(true)}
-          >
-            {getTranslate(lang, 'login')}
-          </button>
-        )}
-      </section>
-
-      <nav className="flex items-center p-2 bg-card rounded shadow">
-        {NAV_LINKS.map((nav) => (
-          <Link key={nav.url} href={nav.url}>
-            <span
-              className={`nav-link mr-2 cursor-pointer text-red-500 hover:text-red-600 ${nav.url == pathname ? 'border-b-2 border-red-500' : ''
-                }`}
-            >
-              <Icon name={nav.icon} /> {getTranslate(lang, nav.tl)}
-            </span>
-          </Link>
-        ))}
-      </nav>
+        </nav>
+      </div>
     </header>
   );
 }
