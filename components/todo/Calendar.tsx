@@ -1,112 +1,145 @@
 import { useEffect, useState } from "react";
+import { motion } from "motion/react";
 
 const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December"
+const MONTHS = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
 ];
 
 interface CalendarDay {
-  status: string,
-  date: number
+  status: string;
+  date: number;
+  isToday?: boolean;
 }
 
 interface CalendarProps {
   items?: any;
 }
 
-export default function Calendar({items}:CalendarProps) {
-
+export default function Calendar({ items }: CalendarProps) {
   const [date, setDate] = useState(new Date());
   const [year, setYear] = useState(date.getFullYear());
   const [month, setMonth] = useState(date.getMonth());
   const [days, setDays] = useState<CalendarDay[]>([]);
   const [curDate, setCurDate] = useState<String>("");
 
-  // Function to generate the calendar
   const setCalendarDays = () => {
     const newDays = [];
-    // Get the first day of the month
-    let dayone = new Date(year, month, 1).getDay();
+    const firstDay = new Date(year, month, 1).getDay();
+    const lastDate = new Date(year, month + 1, 0).getDate();
+    const lastDay = new Date(year, month, lastDate).getDay();
+    const prevMonthLastDate = new Date(year, month, 0).getDate();
+    const today = new Date();
 
-    // Get the last date of the month
-    let lastdate = new Date(year, month + 1, 0).getDate();
-
-    // Get the day of the last date of the month
-    let dayend = new Date(year, month, lastdate).getDay();
-
-    // Get the last date of the previous month
-    let monthlastdate = new Date(year, month, 0).getDate();
-
-    // Loop to add the last dates of the previous month
-    for (let i = dayone; i > 0; i--) {
-      newDays.push({ status: 'inactive', date: monthlastdate - i + 1 });
+    // Previous month days
+    for (let i = firstDay; i > 0; i--) {
+      newDays.push({ 
+        status: 'inactive', 
+        date: prevMonthLastDate - i + 1 
+      });
     }
 
-    // Loop to add the dates of the current month
-    for (let i = 1; i <= lastdate; i++) {
-      // Check if the current date is today
-      let isToday = i === date.getDate()
-        && month === new Date().getMonth()
-        && year === new Date().getFullYear()
-        ? "active"
-        : "";
-      newDays.push({ status: isToday, date: i });
+    // Current month days
+    for (let i = 1; i <= lastDate; i++) {
+      const isToday = i === today.getDate() && 
+                     month === today.getMonth() && 
+                     year === today.getFullYear();
+      
+      newDays.push({ 
+        status: isToday ? 'active' : '', 
+        date: i,
+        isToday 
+      });
     }
 
-    // Loop to add the first dates of the next month
-    for (let i = dayend; i < 6; i++) {
-      newDays.push({ status: 'inactive', date: i - dayend + 1 })
+    // Next month days
+    for (let i = lastDay; i < 6; i++) {
+      newDays.push({ 
+        status: 'inactive', 
+        date: i - lastDay + 1 
+      });
     }
+
     setDays(newDays);
-    setCurDate(`${months[month]} ${year}`);
-  }
+    setCurDate(`${MONTHS[month]} ${year}`);
+  };
 
-  const handleMonthChange = (change:number) => {
-    const newMonth = month + change;
-    if (newMonth < 0 || newMonth > 11) {
-      // Set the date to the first day of the 
-      // month with the new year
-      setDate(new Date(year, month, new Date().getDate()));
-      // Set the year to the new year
-      setYear(date.getFullYear());
-      // Set the month to the new month
-      setMonth(date.getMonth());
-    } else {
-      // Set the date to the current date
-      setDate(new Date());
+  const handleMonthChange = (change: number) => {
+    let newMonth = month + change;
+    let newYear = year;
+
+    if (newMonth > 11) {
+      newMonth = 0;
+      newYear++;
+    } else if (newMonth < 0) {
+      newMonth = 11;
+      newYear--;
     }
-  }
+
+    setMonth(newMonth);
+    setYear(newYear);
+  };
 
   useEffect(() => {
     setCalendarDays();
-  }, [month]);
+  }, [month, year]);
 
   return (
-    <>
-    <section className="flex justify-between p-4">
-      <span className="cursor-pointer font-bold" onClick={()=>setMonth(month-1)}>Prev</span>
-      <span>{curDate}</span>
-      <span className="cursor-pointer font-bold" onClick={()=>setMonth(month+1)}>Next</span>
-    </section>
-    <section className="flex flex-wrap">
-      {WEEKDAYS.map((day) => <span className="calendar-day" key={day}>{day}</span>)}
-      {days.map(({date,status},idx) => 
-        <section className={`calendar-day ${status}`} key={idx}>
-          <span className="bg-white w-10 h-10 leading-10 inline-block rounded-lg transition duration-300 hover:scale-110">{date}</span>
-        </section>
-      )}
-    </section>
-    </>
+    <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden mb-8">
+      {/* Calendar Header */}
+      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4">
+        <div className="flex items-center justify-between">
+          <button 
+            onClick={() => handleMonthChange(-1)}
+            className="p-2 hover:bg-white/20 rounded-lg transition-colors"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <h2 className="text-xl font-semibold">{curDate}</h2>
+          <button 
+            onClick={() => handleMonthChange(1)}
+            className="p-2 hover:bg-white/20 rounded-lg transition-colors"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      {/* Calendar Grid */}
+      <div className="p-4">
+        {/* Weekday Headers */}
+        <div className="grid grid-cols-7 mb-2">
+          {WEEKDAYS.map((day) => (
+            <div key={day} className="text-center text-sm font-medium text-gray-500">
+              {day}
+            </div>
+          ))}
+        </div>
+
+        {/* Calendar Days */}
+        <div className="grid grid-cols-7 gap-2">
+          {days.map(({ date, status, isToday }, idx) => (
+            <motion.button
+              key={idx}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className={`
+                aspect-square rounded-lg flex items-center justify-center text-sm
+                transition-colors relative
+                ${status === 'inactive' ? 'text-gray-400' : 'text-gray-700'}
+                ${isToday ? 'bg-blue-600 text-white' : 'hover:bg-gray-100'}
+              `}
+            >
+              <span>{date}</span>
+            </motion.button>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
