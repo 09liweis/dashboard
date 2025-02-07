@@ -8,7 +8,7 @@ export default function Skills() {
     },
     {
       title: "Backend",
-      skills: ["Node.js", "Express", "Python", "FastAPI", "Java", "RESTful APIs"]
+      skills: ["Node.js", "Express", "Python", "FastAPI", "Java",, "Laravel", "RESTful APIs"]
     },
     {
       title: "Database",
