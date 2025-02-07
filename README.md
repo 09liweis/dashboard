@@ -15,7 +15,7 @@
 ## TODO
 
 - [x] upgrade to nextjs 13
-- [ ] upgrade to nextjs 14
+- [x] upgrade to nextjs 14
 - [x] todo page, style todo form
 - [x] update, delete todo with animation
 - [x] delete transaction
