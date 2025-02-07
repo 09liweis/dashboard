@@ -20,7 +20,7 @@ export default function Header({
 }: HeaderProps) {
   const pathname = router.pathname;
   return (
-    <header className="sticky top-0 z-50">
+    <header className="">
       <div className="backdrop-blur-md bg-white/70 rounded-lg shadow-lg border border-white/20">
         <section className="flex justify-between p-4">
           <section>
