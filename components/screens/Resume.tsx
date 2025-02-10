@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import Header from '../resume/Header';
 import Summary from '../resume/Summary';
+import Education from '../resume/Education';
 import Skills from '../resume/Skills';
 import Experience from '../resume/Experience';
 import Projects from '../resume/Projects';
@@ -13,6 +14,7 @@ const Resume: NextPage = () => {
       <Skills />
       <Experience />
       <Projects />
+      <Education />
     </div>
   );
 }
