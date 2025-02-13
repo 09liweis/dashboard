@@ -21,8 +21,8 @@ export default function Header({
   const pathname = router.pathname;
   return (
     <header className="">
-      <div className="backdrop-blur-md bg-white/70 rounded-lg shadow-lg border border-white/20">
-        <section className="flex justify-between p-4">
+      <div className="p-4 backdrop-blur-md bg-white/70 rounded-lg shadow-lg border border-white/20">
+        <section className="flex justify-between mb-4">
           <section>
             {getLanguageKeys().map(({ k, v }: { [k: string]: string }) => (
               <Link key={k} href={`${pathname}`} locale={k}>
@@ -55,7 +55,7 @@ export default function Header({
           )}
         </section>
 
-        <nav className="flex items-center p-4">
+        <nav className="flex items-center">
           {NAV_LINKS.map((nav) => (
             <Link key={nav.url} href={nav.url}>
               <span
