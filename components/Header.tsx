@@ -55,16 +55,16 @@ export default function Header({
           )}
         </section>
 
-        <nav className="flex items-center">
+        <nav className="flex items-center gap-1 md:gap-3">
           {NAV_LINKS.map((nav) => (
             <Link key={nav.url} href={nav.url}>
               <span
-                className={`nav-link mr-4 cursor-pointer text-gray-700 hover:text-blue-600 transition-all flex items-center ${
+                className={`nav-link cursor-pointer text-gray-700 hover:text-blue-600 transition-all flex items-center ${
                   nav.url === pathname ? 'border-b-2 border-blue-500' : ''
                 }`}
               >
                 <Icon name={nav.icon} /> 
-                <span className="ml-1">{getTranslate(lang, nav.tl)}</span>
+                <span className="">{getTranslate(lang, nav.tl)}</span>
               </span>
             </Link>
           ))}
