@@ -1,5 +1,4 @@
 import type { NextPage } from 'next';
-import { useEffect } from 'react';
 import { motion, useScroll, useSpring } from 'motion/react';
 import Header from '../resume/Header';
 import Summary from '../resume/Summary';
@@ -7,6 +6,7 @@ import Education from '../resume/Education';
 import Skills from '../resume/Skills';
 import Experience from '../resume/Experience';
 import Projects from '../resume/Projects';
+import ScrollReveal from '../ScrollReveal';
 
 const Resume: NextPage = () => {
   const { scrollYProgress } = useScroll();
@@ -54,26 +54,38 @@ const Resume: NextPage = () => {
       </nav>
 
       <div className="max-w-5xl mx-auto px-4 py-8">
-        <Header />
+        <ScrollReveal>
+          <Header />
+        </ScrollReveal>
         
         <section id="summary">
-          <Summary />
+          <ScrollReveal>
+            <Summary />
+          </ScrollReveal>
         </section>
         
         <section id="skills">
-          <Skills />
+          <ScrollReveal>
+            <Skills />
+          </ScrollReveal>
         </section>
         
         <section id="experience">
-          <Experience />
+          <ScrollReveal>
+            <Experience />
+          </ScrollReveal>
         </section>
         
         <section id="projects">
-          <Projects />
+          <ScrollReveal>
+            <Projects />
+          </ScrollReveal>
         </section>
         
         <section id="education">
-          <Education />
+          <ScrollReveal>
+            <Education />
+          </ScrollReveal>
         </section>
       </div>
     </>
