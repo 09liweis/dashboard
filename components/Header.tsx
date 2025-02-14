@@ -55,7 +55,7 @@ export default function Header({
           )}
         </section>
 
-        <nav className="flex items-center gap-1 md:gap-3">
+        <nav className="flex items-center gap-2 md:gap-3">
           {NAV_LINKS.map((nav) => (
             <Link key={nav.url} href={nav.url}>
               <span
