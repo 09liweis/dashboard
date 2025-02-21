@@ -19,7 +19,9 @@ export default function Experience() {
         "Led the modernization of MRIS internal web portal from jQuery to React.js, improving performance and maintainability",
         "Developed automation tools with Python to streamline HTML/JSON file generation from business content",
         "Led team in creating reusable HTML components with Tailwind CSS for lottery ticket design system",
-        "Conducted code reviews and provided mentorship to ensure code quality and best practices"
+        "Conducted code reviews and provided mentorship to ensure code quality and best practices",
+        "Implemented CI/CD pipelines using GitHub Actions to automate testing and deployment processes",
+        "Optimized database queries and implemented caching strategies, reducing load times by 40%"
       ]
     },
     {
@@ -29,9 +31,38 @@ export default function Experience() {
       icon: "🏢",
       duties: [
         "Built scalable solutions with Vue.js, React.js, and React Native for web and mobile applications",
-        "Implemented RESTful APIs and database interactions using Node.js",
+        "Implemented RESTful APIs and database interactions using Node.js and MongoDB",
         "Integrated third-party services including Mapbox and OAuth authentication",
-        "Optimized Elasticsearch implementation for efficient searching of millions of records"
+        "Optimized Elasticsearch implementation for efficient searching of millions of records",
+        "Developed and maintained microservices architecture using Docker and Kubernetes",
+        "Led migration from monolithic to microservices architecture, improving system scalability",
+        "Implemented real-time features using WebSocket and Socket.io for live updates"
+      ]
+    },
+    {
+      title: "Full Stack Developer",
+      company: "Freelance",
+      period: "2016 - 2018",
+      icon: "💻",
+      duties: [
+        "Developed custom e-commerce solutions using MERN stack (MongoDB, Express.js, React, Node.js)",
+        "Created responsive web applications with focus on mobile-first design principles",
+        "Implemented payment processing integration with Stripe and PayPal APIs",
+        "Built content management systems (CMS) for small businesses using WordPress and custom plugins",
+        "Optimized website performance achieving 90+ scores on Google Lighthouse metrics"
+      ]
+    },
+    {
+      title: "Junior Web Developer",
+      company: "Tech Solutions Ltd",
+      period: "2014 - 2016",
+      icon: "🚀",
+      duties: [
+        "Developed and maintained client websites using PHP, MySQL, and JavaScript",
+        "Collaborated with design team to implement pixel-perfect UI/UX designs",
+        "Created custom WordPress themes and plugins for client requirements",
+        "Implemented responsive design principles and cross-browser compatibility",
+        "Participated in daily stand-ups and sprint planning using Agile methodology"
       ]
     }
   ];
