@@ -13,7 +13,7 @@ export default function Experience() {
     {
       title: "Senior Application Development Specialist",
       company: "OLG",
-      period: "2022 - Present",
+      period: "2022 Nov - Present",
       icon: "🎮",
       duties: [
         "Led the modernization of MRIS internal web portal from jQuery to React.js, improving performance and maintainability",
@@ -25,9 +25,9 @@ export default function Experience() {
       ]
     },
     {
-      title: "Front End Developer",
+      title: "Full Stack Developer",
       company: "Real Master Inc",
-      period: "2018 - 2022",
+      period: "2018 Oct - 2022 Oct",
       icon: "🏢",
       duties: [
         "Built scalable solutions with Vue.js, React.js, and React Native for web and mobile applications",
@@ -40,9 +40,9 @@ export default function Experience() {
       ]
     },
     {
-      title: "Full Stack Developer",
-      company: "Freelance",
-      period: "2016 - 2018",
+      title: "Canada Goose",
+      company: "Front End Developer",
+      period: "2018 May - 2018 Oct",
       icon: "💻",
       duties: [
         "Developed custom e-commerce solutions using MERN stack (MongoDB, Express.js, React, Node.js)",
@@ -53,9 +53,9 @@ export default function Experience() {
       ]
     },
     {
-      title: "Junior Web Developer",
-      company: "Tech Solutions Ltd",
-      period: "2014 - 2016",
+      title: "Web Developer",
+      company: "JMIR",
+      period: "2017 - 2018 Apr",
       icon: "🚀",
       duties: [
         "Developed and maintained client websites using PHP, MySQL, and JavaScript",
