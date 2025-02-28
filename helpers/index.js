@@ -1,7 +1,7 @@
 import { LOGIN_API, USER_API } from '../constants';
 
 export function getAuthToken() {
-  return localStorage.getItem('auth-token');
+  return localStorage.getItem('auth-token') || '';
 }
 
 export function setAuthToken(token) {
