@@ -8,6 +8,7 @@ export default function LoginForm({ setUser, setShowLogin }: LoginFormProps) {
   const [loginLoading, setLoginLoading] = useState(false);
   const emailInput = useRef<HTMLInputElement>(null);
   const passwordInput = useRef<HTMLInputElement>(null);
+  const [msg, setMsg] = useState('');
 
   useEffect(()=>{
     emailInput.current?.focus();
@@ -20,6 +21,7 @@ export default function LoginForm({ setUser, setShowLogin }: LoginFormProps) {
       pwd: passwordInput?.current?.value,
     };
     setLoginLoading(true);
+    setMsg('');
     const response = await fetchToken(body);
     if (response.token) {
       setAuthToken(response.token);
@@ -28,6 +30,9 @@ export default function LoginForm({ setUser, setShowLogin }: LoginFormProps) {
       if (userResponse?.user) {
         setUser(userResponse.user);
       }
+    } else {
+      setLoginLoading(false);
+      setMsg(response.msg);
     }
   };
 
@@ -92,6 +97,8 @@ export default function LoginForm({ setUser, setShowLogin }: LoginFormProps) {
               </svg>
             </div>
           </div>
+
+          {msg && <div className='text-red-600 p-1 text-center'>{msg}</div>}
 
           <button
             type="submit"
