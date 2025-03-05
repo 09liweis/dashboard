@@ -9,12 +9,13 @@ interface CategoryPriceProps {
 const CategoryPrice = ({ categoryPrice }: CategoryPriceProps) => {
   const { category, income, total, percentage } = categoryPrice;
   const colorClass = income ? 'bg-green-600' : 'bg-red-600';
+  const priceColor = income ? 'text-green-600' : 'text-red-600';
 
   return (
     <div className="bg-white rounded-lg p-4 mb-1 border border-gray-100 shadow-sm">
       <div className="flex justify-between items-center mb-2">
         <h3 className="text-lg font-medium capitalize">{category}</h3>
-        <span className="font-bold text-lg">{total}</span>
+        <span className={`font-bold text-lg ${priceColor}`}>{total}</span>
       </div>
       <div className="relative h-2 bg-gray-100 rounded-full overflow-hidden">
         <div 
