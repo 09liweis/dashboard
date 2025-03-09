@@ -34,7 +34,7 @@ export default function ExpenseHeader({ expenseResponse, onDateChange }: Expense
       
       <div className="grid grid-cols-3 gap-4 text-center text-gray-500">
       {stats.map(({tl,value,color})=>
-        <div className="bg-white p-1 sm:p-4 rounded-lg shadow-sm border border-gray-100">
+        <div key={tl} className="bg-white p-1 sm:p-4 rounded-lg shadow-sm border border-gray-100">
           <h3 className="text-sm font-medium mb-1">{tl}</h3>
           <p className={`text-xl font-bold ${color}`}>{value}</p>
         </div>
