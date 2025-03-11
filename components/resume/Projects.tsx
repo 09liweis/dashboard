@@ -82,65 +82,61 @@ export default function Projects() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
-            className="bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-sm border border-gray-100 hover:border-blue-500 transition-all overflow-hidden"
+            className="p-6 bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-sm border border-gray-100 hover:border-blue-500 transition-all overflow-hidden"
           >
-            <div className="p-6">
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center gap-3">
-                  <span className="text-2xl">{project.icon}</span>
-                  <h3 className="text-xl font-bold text-gray-900">{project.name}</h3>
-                </div>
-                {project.url && (
-                  <motion.a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1, rotate: 15 }}
-                    className="text-blue-600 hover:text-blue-800 transition-colors"
-                  >
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </motion.a>
-                )}
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-3">
+                <span className="text-2xl">{project.icon}</span>
+                <h3 className="text-xl font-bold text-gray-900">{project.name}</h3>
               </div>
-
-              <p className="text-gray-600 mb-4">{project.description}</p>
-
-              <div className="mb-4">
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map(tech => (
-                    <motion.span
-                      key={tech}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="px-3 py-1 bg-white rounded-lg border border-gray-200 text-sm font-medium text-gray-700 hover:text-blue-600 hover:border-blue-500 hover:shadow-sm transition-all cursor-default"
-                    >
-                      {tech}
-                    </motion.span>
-                  ))}
-                </div>
-              </div>
-
-              <ul className="space-y-2">
-                {project.features.map((feature, idx) => (
-                  <motion.li
-                    key={idx}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 + 0.2 + (idx * 0.1) }}
-                    className="flex items-start gap-2 text-gray-700 text-sm"
-                  >
-                    <span className="text-blue-600 mt-1">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    <span>{feature}</span>
-                  </motion.li>
-                ))}
-              </ul>
+              {project.url && (
+                <motion.a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1, rotate: 15 }}
+                  className="text-blue-600 hover:text-blue-800 transition-colors"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </motion.a>
+              )}
             </div>
+
+            <p className="text-gray-600 mb-4">{project.description}</p>
+
+            <div className="flex flex-wrap gap-2 mb-4">
+              {project.technologies.map(tech => (
+                <motion.span
+                  key={tech}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-3 py-1 bg-white rounded-lg border border-gray-200 text-sm font-medium text-gray-700 hover:text-blue-600 hover:border-blue-500 hover:shadow-sm transition-all cursor-default"
+                >
+                  {tech}
+                </motion.span>
+              ))}
+            </div>
+
+            <ul className="space-y-2">
+              {project.features.map((feature, idx) => (
+                <motion.li
+                  key={idx}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 + 0.2 + (idx * 0.1) }}
+                  className="flex items-start gap-2 text-gray-700 text-sm"
+                >
+                  <span className="text-blue-600 mt-1">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </span>
+                  <span>{feature}</span>
+                </motion.li>
+              ))}
+            </ul>
           </motion.article>
         ))}
       </div>
