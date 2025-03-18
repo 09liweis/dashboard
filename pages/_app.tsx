@@ -76,7 +76,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           setUser,
         }}
       >
-        <main className="p-3">
+        <main className="p-2">
           <Header
             setShowLogin={setShowLogin}
             lang={lang}
