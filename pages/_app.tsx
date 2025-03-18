@@ -65,7 +65,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>{getPageTitle(pageProps)}</title>
         <meta name="keywords" content="samliweisen, samli" />
         <meta name="description" content="samliweisen profolio" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <AppContext.Provider
