@@ -844,7 +844,10 @@
     "nm": "react native",
     "items": [
       {
-        "nm": "expo"
+        "nm": "expo",
+        "items": [
+          {"nm":"Catch all Segments", "why": "route has more parameters", "how":"file name [...rest].tsx"}
+        ]
       }
     ]
   },
