@@ -846,7 +846,8 @@
       {
         "nm": "expo",
         "items": [
-          {"nm":"Catch all Segments", "why": "route has more parameters", "how":"file name [...rest].tsx"}
+          {"nm":"Catch all Segments", "why": "route has more parameters", "how":"file name [...rest].tsx"},
+          {"nm":"Not found route", "how":"+not-found.tsx"}
         ]
       }
     ]
