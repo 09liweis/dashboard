@@ -846,8 +846,9 @@
       {
         "nm": "expo",
         "items": [
+          {"nm":"Layout File", "what": "global/scope layout", "how":"_layout.tsx put <Slot/> as page content"},
           {"nm":"Catch all Segments", "why": "route has more parameters", "how":"file name [...rest].tsx"},
-          {"nm":"Not found route", "how":"+not-found.tsx"}
+          {"nm":"Not found route", "what": "global/scope not found page", "how":"+not-found.tsx"}
         ]
       }
     ]
