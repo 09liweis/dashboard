@@ -12,7 +12,7 @@ const CategoryPrice = ({ categoryPrice }: CategoryPriceProps) => {
   const priceColor = income ? 'text-green-600' : 'text-red-600';
 
   return (
-    <div className="bg-white rounded-lg p-3 border border-gray-100 shadow">
+    <div className="bg-white rounded-lg p-3 border border-gray-100 shadow mb-1">
       <div className="flex justify-between items-center mb-2 text-lg">
         <h3 className="font-medium capitalize">{category}</h3>
         <span className={`font-bold ${priceColor}`}>{total}</span>
@@ -33,7 +33,7 @@ export default function ExpenseList({
   openTransactionDetail,
 }: ExpenseListProps) {
   return (
-    <div className="space-y-6">
+    <div className="space-y-3">
       {categoryTransactions.map((categoryPrice) => (
         <motion.div
           initial={{ opacity: 0, y: 20 }}

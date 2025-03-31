@@ -14,14 +14,14 @@ export default function ExpenseTransaction({ transaction, onClick }: ExpenseTran
       className="bg-white rounded-lg p-3 border border-gray-100 shadow-sm hover:border-blue-500 transition-all cursor-pointer"
     >
       <div className="flex items-center justify-between">
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col">
           <span className="text-gray-900 font-medium truncate">
             {place?.name || title}
           </span>
           <span className="text-sm text-gray-500">{date}</span>
         </div>
         <span className={`font-medium ${income ? 'text-green-600' : 'text-red-600'}`}>
-          {income ? '+' : '-'}{price}
+          {price}
         </span>
       </div>
     </div>
