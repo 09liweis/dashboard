@@ -17,11 +17,11 @@ const CategoryPrice = ({ categoryPrice }: CategoryPriceProps) => {
         <h3 className="font-medium capitalize">{category}</h3>
         <span className={`font-bold ${priceColor}`}>{total}</span>
       </div>
-      <div className="relative h-2 bg-gray-100 rounded-full overflow-hidden">
-        <div 
+      <div className="relative h-2 bg-gray-200 rounded-sm overflow-hidden">
+        <motion.div
+          animate={{width: percentage}}
           className={`absolute top-0 left-0 h-full ${colorClass} transition-all duration-500 ease-out`}
-          style={{ width: percentage }}
-        ></div>
+        ></motion.div>
       </div>
       <span className="text-sm text-gray-500 mt-1 inline-block">{percentage}</span>
     </div>
