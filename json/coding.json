@@ -255,6 +255,10 @@
         "nm": "selectors",
         "items": [
           {
+            "nm": "field-sizing: content",
+            "what": "show input width, height base on content size"
+          },
+          {
             "nm": "scale/translate/rotate without transform"
           },
           {
