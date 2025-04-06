@@ -1180,7 +1180,10 @@
         "nm": "vercel"
       },
       {
-        "nm": "netify"
+        "nm": "netlify",
+        "items":[
+          {"nm":"DNS config", "what":"if use netlify dns, need to update servename, will affect domain email, need to config DNS on netlify"}
+        ]
       },
       {
         "nm": "onrender"
