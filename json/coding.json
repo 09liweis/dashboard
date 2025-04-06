@@ -1536,6 +1536,9 @@
     "nm": "payment",
     "items": [
       {
+        "nm":"zpay"
+      },
+      {
         "nm": "stripe",
         "items": [
           {
