@@ -46,7 +46,7 @@ export default function Projects() {
         "Created dynamic character search and filtering",
         "Integrated pagination for large datasets"
       ],
-      url: "https://ricksammorty.vercel.app",
+      url: "https://ricksammorty.netlify.app",
       icon: "🌌"
     },
     {
