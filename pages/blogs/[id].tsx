@@ -95,14 +95,14 @@ const BlogDetail: NextPage = () => {
         <form className="mt-3" onSubmit={handleBlogSubmit}>
           <label htmlFor="title">Title</label>
           <input
-            className="mb-3 w-full p-2 rounded"
+            className="mb-3 w-full p-2 rounded-sm"
             name="title"
             id="title"
             onChange={(e) => handleBlogChange(e)}
             value={blog.title}
           />
           <textarea
-            className="w-full p-2 h-96 rounded"
+            className="w-full p-2 h-96 rounded-sm"
             name="content"
             value={blog.content}
             onChange={(e) => handleBlogChange(e)}

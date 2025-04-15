@@ -12,12 +12,12 @@ const CategoryPrice = ({ categoryPrice }: CategoryPriceProps) => {
   const priceColor = income ? 'text-green-600' : 'text-red-600';
 
   return (
-    <div className="bg-white rounded-lg p-3 border border-gray-100 shadow mb-1">
+    <div className="bg-white rounded-lg p-3 border border-gray-100 shadow-sm mb-1">
       <div className="flex justify-between items-center mb-2 text-lg">
         <h3 className="font-medium capitalize">{category}</h3>
         <span className={`font-bold ${priceColor}`}>{total}</span>
       </div>
-      <div className="relative h-2 bg-gray-200 rounded-sm overflow-hidden">
+      <div className="relative h-2 bg-gray-200 rounded-xs overflow-hidden">
         <motion.div
           animate={{width: percentage}}
           className={`absolute top-0 left-0 h-full ${colorClass} transition-all duration-500 ease-out`}

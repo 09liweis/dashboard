@@ -84,7 +84,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             setUser={setUser}
             router={router}
           />
-          <section className="bg-card mt-2 p-2 rounded">
+          <section className="bg-card mt-2 p-2 rounded-sm">
             {loading ? <LoadingSkeleton /> : <Component {...pageProps} />}
           </section>
           {!user?._id && showLogin ? (

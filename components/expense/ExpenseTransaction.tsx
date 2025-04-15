@@ -11,7 +11,7 @@ export default function ExpenseTransaction({ transaction, onClick }: ExpenseTran
   return (
     <div 
       onClick={onClick}
-      className="bg-white rounded-lg p-3 border border-gray-100 shadow-sm hover:border-blue-500 transition-all cursor-pointer"
+      className="bg-white rounded-lg p-3 border border-gray-100 shadow-xs hover:border-blue-500 transition-all cursor-pointer"
     >
       <div className="flex items-center justify-between">
         <div className="flex flex-col">

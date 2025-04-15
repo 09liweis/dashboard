@@ -52,7 +52,7 @@ const ContactsPage: NextPage = () => {
         <span className="text-blue-500">{contact.groups}</span>
         {user._id && (
           <span
-            className="group-hover:opacity-100 hover:scale-105 rounded duration-300 transition cursor-pointer bg-red-800 text-white p-1 opacity-0"
+            className="group-hover:opacity-100 hover:scale-105 rounded-sm duration-300 transition cursor-pointer bg-red-800 text-white p-1 opacity-0"
             onClick={() => handleContactDelete(contact._id)}
           >
             X
@@ -112,21 +112,21 @@ const ContactsPage: NextPage = () => {
       }
       {user._id && showForm && (
         <section className='fixed w-full h-full left-0 top-0 bg-gray-600 flex justify-center items-center'>
-          <a className='cursor-pointer transition duration-300 hover:scale-105 absolute top-5 right-5 text-white bg-red-800 p-2 rounded' onClick={()=>setShowForm(false)}>Close</a>
-          <form onSubmit={handleContactSubmit} className='w-96 bg-white p-2 rounded'>
+          <a className='cursor-pointer transition duration-300 hover:scale-105 absolute top-5 right-5 text-white bg-red-800 p-2 rounded-sm' onClick={()=>setShowForm(false)}>Close</a>
+          <form onSubmit={handleContactSubmit} className='w-96 bg-white p-2 rounded-sm'>
             <input
-              className='w-full mb-2 p-2 border rounded'
+              className='w-full mb-2 p-2 border rounded-sm'
               placeholder='name'
               value={contact.name}
               onChange={(e) => handleContactChange('name', e.target.value)}
             />
             <input
-              className='w-full mb-2 p-2 border rounded'
+              className='w-full mb-2 p-2 border rounded-sm'
               placeholder='group'
               value={contact.group}
               onChange={(e) => handleContactChange('group', e.target.value)}
             />
-            <button className='duration-300 transition hover:scale-105 bg-green-800 text-white p-2 border rounded' type="submit">{loading && <Loading/>}{contact._id?'Update':'Add'}</button>
+            <button className='duration-300 transition hover:scale-105 bg-green-800 text-white p-2 border rounded-sm' type="submit">{loading && <Loading/>}{contact._id?'Update':'Add'}</button>
           </form>
         </section>
       )}

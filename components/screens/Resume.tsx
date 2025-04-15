@@ -30,7 +30,7 @@ const Resume: NextPage = () => {
         style={{ scaleX }}
       />
       
-      <nav className="sticky top-0 bg-white/80 backdrop-blur-md shadow-sm z-40 mb-8">
+      <nav className="sticky top-0 bg-white/80 backdrop-blur-md shadow-xs z-40 mb-8">
         <div className="max-w-5xl mx-auto px-4">
           <ul className="flex space-x-6 py-4 text-sm">
             {[

@@ -88,7 +88,7 @@ export default function Calendar({ items }: CalendarProps) {
   return (
     <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden mb-8">
       {/* Calendar Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4">
+      <div className="bg-linear-to-r from-blue-600 to-purple-600 text-white p-4">
         <div className="flex items-center justify-between">
           <button 
             onClick={() => handleMonthChange(-1)}

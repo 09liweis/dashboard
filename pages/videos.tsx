@@ -47,7 +47,7 @@ const VideosPage: NextPage = () => {
       <section className='p-1 shadow-lg bg-white/[30%] rounded-lg transition duraion-500 hover:scale-110'>
         <Image
           src={v.pic || v.item.pictures[0].img_src}
-          className="rounded"
+          className="rounded-sm"
           alt={v.title}
           width={500}
           height={300}

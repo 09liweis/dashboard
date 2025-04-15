@@ -48,7 +48,7 @@ export default function Education() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: eduIndex * 0.2 }}
-            className="bg-gradient-to-br from-white to-gray-50 p-6 rounded-xl shadow-sm border border-gray-100 hover:border-blue-500 transition-all"
+            className="bg-linear-to-br from-white to-gray-50 p-6 rounded-xl shadow-xs border border-gray-100 hover:border-blue-500 transition-all"
           >
             <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
               <div>

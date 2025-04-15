@@ -47,7 +47,7 @@ const KnowledgesPage: NextPage = () => {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">
+      <h1 className="text-3xl font-bold mb-6 bg-linear-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">
         Knowledge Base
       </h1>
       {/* <SearchBar searchTerm={searchTerm} onSearch={setSearchTerm} /> */}

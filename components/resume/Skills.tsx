@@ -41,7 +41,7 @@ export default function Skills() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             whileHover={{ scale: 1.02 }}
-            className="bg-gradient-to-br from-white to-gray-50 p-6 rounded-xl shadow-sm border border-gray-100 hover:border-blue-500 transition-all"
+            className="bg-linear-to-br from-white to-gray-50 p-6 rounded-xl shadow-xs border border-gray-100 hover:border-blue-500 transition-all"
           >
             <div className="flex items-center gap-3 mb-4">
               <span className="text-2xl">{category.icon}</span>

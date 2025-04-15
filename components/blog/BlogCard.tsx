@@ -11,7 +11,7 @@ export default function BlogCard({ blog }: BlogCardProps) {
     <motion.article
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-white rounded-lg shadow-sm border border-gray-100 p-6 mb-4 hover:border-blue-500 transition-all"
+      className="bg-white rounded-lg shadow-xs border border-gray-100 p-6 mb-4 hover:border-blue-500 transition-all"
     >
       <Link href={`/blogs/${blog.getId()}`}>
         <div className="space-y-3">

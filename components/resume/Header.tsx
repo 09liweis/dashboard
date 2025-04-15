@@ -8,7 +8,7 @@ export default function Header() {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
     >
-      <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-green-600 text-transparent bg-clip-text">
+      <h1 className="text-6xl font-bold mb-4 bg-linear-to-r from-blue-600 to-green-600 text-transparent bg-clip-text">
         Sam Li
       </h1>
       <h2 className="text-xl text-gray-600 mb-4">Full Stack Developer</h2>

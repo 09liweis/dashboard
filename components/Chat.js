@@ -176,9 +176,9 @@ function Chat() {
         <input
           ref={inputRef}
           placeholder="Type Your Message"
-          className="flex-1 border rounded p-2"
+          className="flex-1 border rounded-sm p-2"
         />
-        <button className="flex-none border rounded p-2">Send</button>
+        <button className="flex-none border rounded-sm p-2">Send</button>
       </form>
     </section>
   );

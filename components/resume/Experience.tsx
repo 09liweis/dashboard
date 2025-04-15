@@ -85,7 +85,7 @@ export default function Experience() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: index * 0.2 }}
-            className="relative pl-8 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-0.5 before:bg-gradient-to-b before:from-blue-600 before:to-purple-600"
+            className="relative pl-8 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-0.5 before:bg-linear-to-b before:from-blue-600 before:to-purple-600"
           >
             <motion.div 
               className="absolute -left-3 top-0 w-6 h-6 bg-white rounded-full border-2 border-blue-600 flex items-center justify-center"
@@ -96,7 +96,7 @@ export default function Experience() {
               <span className="text-sm">{exp.icon}</span>
             </motion.div>
 
-            <div className="bg-gradient-to-br from-white to-gray-50 p-6 rounded-xl shadow-sm border border-gray-100 hover:border-blue-500 transition-all">
+            <div className="bg-linear-to-br from-white to-gray-50 p-6 rounded-xl shadow-xs border border-gray-100 hover:border-blue-500 transition-all">
               <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
                 <div>
                   <h3 className="text-xl font-bold text-gray-900">{exp.title}</h3>

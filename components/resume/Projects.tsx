@@ -82,7 +82,7 @@ export default function Projects() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
-            className="p-6 bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-sm border border-gray-100 hover:border-blue-500 transition-all overflow-hidden"
+            className="p-6 bg-linear-to-br from-white to-gray-50 rounded-xl shadow-xs border border-gray-100 hover:border-blue-500 transition-all overflow-hidden"
           >
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
@@ -112,7 +112,7 @@ export default function Projects() {
                   key={tech}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-3 py-1 bg-white rounded-lg border border-gray-200 text-sm font-medium text-gray-700 hover:text-blue-600 hover:border-blue-500 hover:shadow-sm transition-all cursor-default"
+                  className="px-3 py-1 bg-white rounded-lg border border-gray-200 text-sm font-medium text-gray-700 hover:text-blue-600 hover:border-blue-500 hover:shadow-xs transition-all cursor-default"
                 >
                   {tech}
                 </motion.span>

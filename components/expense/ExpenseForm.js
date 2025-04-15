@@ -106,7 +106,7 @@ export default function ExpenseForm({
             type={type || 'text'}
             name={name}
             value={curTransaction[name] || ''}
-            className="w-full border p-2 mb-2 rounded"
+            className="w-full border p-2 mb-2 rounded-sm"
             placeholder={name}
             onChange={(e) => updateCurTransaction(e.target.value, name)}
           />
@@ -129,7 +129,7 @@ export default function ExpenseForm({
         <input
           id="address"
           ref={placeInput}
-          className="w-full border p-2 mb-2 rounded"
+          className="w-full border p-2 mb-2 rounded-sm"
           placeholder="Place"
         />
         <section

@@ -1,6 +1,22 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 
 html,
 body {
@@ -28,7 +44,7 @@ body {
 }
 
 .button {
-  @apply inline-flex items-center justify-center px-2 py-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg shadow-md hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transform hover:scale-105 active:scale-95 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  @apply inline-flex items-center justify-center px-2 py-1 bg-linear-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg shadow-md hover:from-blue-700 hover:to-purple-700 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transform hover:scale-105 active:scale-95 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
 }
 
 .home-card {
@@ -36,7 +52,7 @@ body {
 }
 
 .home-card-wrapper {
-  @apply p-2 drop-shadow-md shadow-lg bg-red-400 rounded;
+  @apply p-2 drop-shadow-md shadow-lg bg-red-400 rounded-sm;
 }
 
 .home-card-title {
@@ -99,7 +115,7 @@ body {
 }
 
 .category-price {
-  @apply relative bg-gradient-to-l from-red-300 border-dashed border-2 border-red-600 p-1 mb-1 rounded transition duration-300;
+  @apply relative bg-linear-to-l from-red-300 border-dashed border-2 border-red-600 p-1 mb-1 rounded-sm transition duration-300;
 }
 
 .category-price.income {
@@ -110,12 +126,8 @@ body {
   @apply text-red-600;
 }
 
-.text-shadow {
-  text-shadow: 1px 1px 1px black;
-}
-
 .category-percentage {
-  @apply text-sm text-white text-right p-1 rounded text-shadow;
+  @apply text-sm text-white text-right p-1 rounded-sm text-shadow-xs;
 }
 
 .category-percentage.income {

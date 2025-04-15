@@ -15,9 +15,9 @@ export default function LoadingSkeleton() {
         <div className="space-y-3">
           {[...Array(3)].map((_, i) => (
             <div key={i} className="space-y-2">
-              <div className="h-4 bg-gray-200 rounded w-3/4 animate-pulse"></div>
-              <div className="h-4 bg-gray-200 rounded animate-pulse"></div>
-              <div className="h-4 bg-gray-200 rounded w-5/6 animate-pulse"></div>
+              <div className="h-4 bg-gray-200 rounded-sm w-3/4 animate-pulse"></div>
+              <div className="h-4 bg-gray-200 rounded-sm animate-pulse"></div>
+              <div className="h-4 bg-gray-200 rounded-sm w-5/6 animate-pulse"></div>
             </div>
           ))}
         </div>
