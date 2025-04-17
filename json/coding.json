@@ -1149,6 +1149,23 @@
     ]
   },
   {
+    "nm":"Backend as a service",
+    "items":[
+      {
+        "nm":"Supabase"
+      },
+      {
+        "nm":"Appwrite"
+      },
+      {
+        "nm":"Firebase"
+      },
+      {
+        "nm": "Backendless"
+      }
+    ]
+  },
+  {
     "nm": "cloud server",
     "items": [
       {
