@@ -7,8 +7,12 @@ interface KnowledgeItemProps {
 
 function KnowledgeItem({ knowledgeItem }: KnowledgeItemProps) {
   const [expand, setExpand] = useState(false);
-  if (knowledgeItem.items?.length) {
-    const items = knowledgeItem.items.map((k) => {
+
+  const {items,nm} = knowledgeItem;
+  const itemsLength = items?.length;
+  
+  if (itemsLength) {
+    const knowledgeItems = items.map((k) => {
       if (typeof k == 'string') {
         return (
           <section className="mb-2" key={k}>
@@ -22,9 +26,9 @@ function KnowledgeItem({ knowledgeItem }: KnowledgeItemProps) {
     return (
       <section className={`mb-2 knowledge-item`}>
         <h4 className="cursor-pointer" onClick={() => setExpand(!expand)}>
-          {knowledgeItem.nm} ({knowledgeItem.items.length}) {expand ? '-' : '+'}
+          {nm} ({itemsLength}) {expand ? '-' : '+'}
         </h4>
-        <div className={`pl-1 ${expand ? 'block' : 'hidden'}`}>{items}</div>
+        <div className={`pl-1 ${expand ? 'block' : 'hidden'}`}>{knowledgeItems}</div>
       </section>
     );
   } else {
