@@ -11,18 +11,18 @@ import { motion } from 'motion/react';
 
 const Blogs: NextPage = () => {
   const { user, lang } = useContext(AppContext);
-  const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [curBlogs, setBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState(true);
 
   const fetchBlogList = async () => {
     try {
-      const response = await fetchAPI({
+      const {blogs, status} = await fetchAPI({
         url: BLOG_LIST_API,
         method: 'GET',
         body: {},
       });
-      if (response) {
-        const bs = response.map((b: BlogType) => new Blog(b));
+      if (blogs) {
+        const bs = blogs.map((b: BlogType) => new Blog(b));
         setBlogs(bs);
       }
     } catch (error) {
@@ -63,7 +63,7 @@ const Blogs: NextPage = () => {
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
         </div>
       ) : (
-        <BlogList blogs={blogs} />
+        <BlogList blogs={curBlogs} />
       )}
     </div>
   );
