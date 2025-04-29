@@ -50,6 +50,21 @@ export default function Projects() {
       icon: "🌌"
     },
     {
+      "name": "RentalFlow Manager",
+      "description": "Web-based platform for managing rental properties, listings, tenant relationships, and payment processing",
+      "technologies": ["Next.js", "Vercel", "Mongodb", "Stripe API"],
+      "features": [
+        "Developed property listing management with photo uploads",
+        "Implemented tenant screening and lease agreement automation",
+        "Integrated Stripe API for secure payment processing",
+        "Created owner/tenant dashboards with analytics",
+        "Built role-based access control system",
+        "Added maintenance request tracking system"
+      ],
+      "url": "https://rental-management-platform.vercel.app",
+      "icon": "🏘️"
+    },
+    {
       name: "Movie Progress Tracker",
       description: "Web application to track and analyze movie watching progress",
       technologies: ["Nuxt 3", "Vue.js", "FastAPI", "PostgreSQL"],
