@@ -1152,7 +1152,12 @@
     "nm":"Backend as a service",
     "items":[
       {
-        "nm":"Supabase"
+        "nm":"Supabase",
+        "items":[
+          {"nm":"DB policy", "what":"policy for read, write"},
+          {"nm":"db join", "how":"need to connect foreigner key between tables"},
+          {"nm":"auth users", "what":"can't use to join with other table"}
+        ]
       },
       {
         "nm":"Appwrite"
