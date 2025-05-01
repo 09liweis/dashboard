@@ -14,12 +14,7 @@ const nextConfig = {
       },
     ],
     domains: [
-      'img9.doubanio.com',
       'api.chatkitty.com',
-      'archive.biliimg.com',
-      'i1.hdslb.com',
-      'i2.hdslb.com',
-      'i0.hdslb.com',
     ],
   },
   i18n: {
