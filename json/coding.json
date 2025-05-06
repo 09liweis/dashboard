@@ -1571,6 +1571,12 @@
     "nm": "payment",
     "items": [
       {
+        "nm": "square"
+      },
+      {
+        "nm": "Plaid"
+      },
+      {
         "nm":"zpay"
       },
       {
