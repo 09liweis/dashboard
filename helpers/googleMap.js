@@ -63,9 +63,10 @@ function loadGoogleMapScript(cb) {
   if (document.getElementById('googlemap')) {
     return cb();
   }
+  const API_KEY = 'AIzaSyDMi_pAnwNY6HwnTHf_rQxUcEXywsFvKpQ';
   var script = document.createElement('script');
   script.src =
-    'https://maps.googleapis.com/maps/api/js?key=AIzaSyA74jvNet0DufU8aoTe39dELLy2rVMeuos&libraries=places&v=weekly&callback=initMap';
+    `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=places&v=weekly&callback=initMap`;
   script.async = true;
   script.id = 'googlemap';
 
