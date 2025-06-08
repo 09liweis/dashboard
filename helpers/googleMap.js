@@ -5,6 +5,7 @@ class GoogleMap {
     }
     this.mapObj = null;
   }
+  
   initMap(containerId, pos) {
     if (typeof google == 'undefined') {
       return;
@@ -31,6 +32,7 @@ class GoogleMap {
       );
     }
   }
+  
   setCenter(pos) {
     if (!(pos.lat && pos.lng)) return;
     if (this.mapObj) {
@@ -40,21 +42,68 @@ class GoogleMap {
       });
     }
   }
+  
   getPlaceAutocomplete = (cb) => {
+    // Check if the new PlaceAutocompleteElement is available
+    if (google.maps.places && google.maps.places.PlaceAutocompleteElement) {
+      try {
+        // Use the new PlaceAutocompleteElement
+        const inputElement = document.getElementById('address');
+        
+        // Create the autocomplete element with only supported properties
+        const autocompleteElement = new google.maps.places.PlaceAutocompleteElement({
+          componentRestrictions: { country: ['us', 'ca'] }, // Optional: restrict to specific countries
+          types: ['establishment'] // 'establishment' / 'address' / 'geocode'
+        });
+        
+        // Replace the input with the autocomplete element
+        inputElement.parentNode.replaceChild(autocompleteElement, inputElement);
+        autocompleteElement.id = 'address';
+        
+        // Listen for place selection
+        autocompleteElement.addEventListener('gmp-placeselect', (event) => {
+          const place = event.place;
+          if (place && place.geometry && place.geometry.location) {
+            cb({
+              place_id: place.place_id,
+              name: place.name || place.formatted_address,
+              address: place.formatted_address,
+              lat: place.geometry.location.lat(),
+              lng: place.geometry.location.lng(),
+            });
+          }
+        });
+      } catch (error) {
+        console.warn('PlaceAutocompleteElement failed, falling back to legacy Autocomplete:', error);
+        this.useLegacyAutocomplete(cb);
+      }
+    } else {
+      // Fallback to the legacy Autocomplete class
+      this.useLegacyAutocomplete(cb);
+    }
+  };
+
+  useLegacyAutocomplete = (cb) => {
     const autocomplete = new google.maps.places.Autocomplete(
       document.getElementById('address'),
-      { types: ['establishment'] } // 'establishment' / 'address' / 'geocode'
+      { 
+        types: ['establishment'],
+        fields: ['place_id', 'formatted_address', 'name', 'geometry']
+      }
     );
+    
     google.maps.event.addListener(autocomplete, 'place_changed', () => {
       const place = autocomplete.getPlace();
-      const { place_id, formatted_address, name, geometry } = place;
-      cb({
-        place_id,
-        name,
-        address: formatted_address,
-        lat: geometry.location.lat(),
-        lng: geometry.location.lng(),
-      });
+      if (place && place.geometry && place.geometry.location) {
+        const { place_id, formatted_address, name, geometry } = place;
+        cb({
+          place_id,
+          name,
+          address: formatted_address,
+          lat: geometry.location.lat(),
+          lng: geometry.location.lng(),
+        });
+      }
     });
   };
 }
@@ -65,8 +114,7 @@ function loadGoogleMapScript(cb) {
   }
   const API_KEY = 'AIzaSyDMi_pAnwNY6HwnTHf_rQxUcEXywsFvKpQ';
   var script = document.createElement('script');
-  script.src =
-    `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=places&v=weekly&callback=initMap`;
+  script.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=places&v=weekly&callback=initMap`;
   script.async = true;
   script.id = 'googlemap';
 
