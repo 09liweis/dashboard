@@ -50,7 +50,7 @@ export default function Projects() {
       icon: "🌌"
     },
     {
-      "name": "RentalFlow Manager",
+      "name": "Landlord Master",
       "description": "Web-based platform for managing rental properties, listings, tenant relationships, and payment processing",
       "technologies": ["Next.js", "Vercel", "Mongodb", "Stripe API"],
       "features": [
@@ -61,7 +61,7 @@ export default function Projects() {
         "Built role-based access control system",
         "Added maintenance request tracking system"
       ],
-      "url": "https://rental-management-platform.vercel.app",
+      "url": "https://landlordmaster.vercel.app",
       "icon": "🏘️"
     },
     {
