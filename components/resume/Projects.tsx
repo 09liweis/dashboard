@@ -61,7 +61,7 @@ export default function Projects() {
         "Built role-based access control system",
         "Added maintenance request tracking system"
       ],
-      "url": "https://landlordmaster.vercel.app",
+      "url": "https://landlordmaster.com",
       "icon": "🏘️"
     },
     {
