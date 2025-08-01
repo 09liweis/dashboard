@@ -1106,6 +1106,9 @@
     "nm":"AI code editor",
     "items":[
       {
+        "nm":  "Lumi.new"
+      },
+      {
         "nm":"Bolt.new"
       },
       {
