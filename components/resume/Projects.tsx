@@ -37,6 +37,19 @@ export default function Projects() {
       icon: "💼"
     },
     {
+      name: "Canadian Mobile Welding",
+      description: "Professional welding services website with service showcase and contact integration",
+      technologies: ["Next.js", "shadcn/ui", "Netlify"],
+      features: [
+        "Designed and built modern service website with professional aesthetic",
+        "Implemented responsive service showcase and portfolio sections",
+        "Integrated contact forms with automated notifications",
+        "Optimized for mobile and desktop viewing"
+      ],
+      url: "https://canadian-mobile-welding.netlify.app",
+      icon: "🔧"
+    },
+    {
       name: "Realtor Service Platform",
       description: "Full-stack real estate service platform with payment processing and property management",
       technologies: ["SvelteKit", "Tailwind CSS", "Stripe", "Supabase"],
