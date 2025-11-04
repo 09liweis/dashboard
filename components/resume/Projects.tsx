@@ -37,6 +37,19 @@ export default function Projects() {
       icon: "💼"
     },
     {
+      name: "Realtor Service Platform",
+      description: "Full-stack real estate service platform with payment processing and property management",
+      technologies: ["SvelteKit", "Tailwind CSS", "Stripe", "Supabase"],
+      features: [
+        "Implemented secure payment processing with Stripe integration",
+        "Built real estate service marketplace with property listings",
+        "Developed user authentication and profile management with Supabase",
+        "Created service booking system with automated notifications"
+      ],
+      url: "https://realtorservice.ca",
+      icon: "🏠"
+    },
+    {
       name: "Hans Steel Canada",
       description: "Corporate rebranding website for steel manufacturing company",
       technologies: ["Next.js", "Tailwind CSS", "Netlify"],
