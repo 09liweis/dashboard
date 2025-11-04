@@ -37,6 +37,19 @@ export default function Projects() {
       icon: "💼"
     },
     {
+      name: "Hans Steel Canada",
+      description: "Corporate rebranding website for steel manufacturing company",
+      technologies: ["Next.js", "Tailwind CSS", "Netlify"],
+      features: [
+        "Developed modern corporate website with responsive design",
+        "Implemented complete rebranding with updated visual identity",
+        "Built product showcase and company information sections",
+        "Optimized for performance and SEO"
+      ],
+      url: "https://hanssteelcanada.netlify.app",
+      icon: "🏭"
+    },
+    {
       name: "Rick and Morty Explorer",
       description: "Interactive web application to explore Rick and Morty universe characters and episodes",
       technologies: ["SvelteKit", "GraphQL", "TailwindCSS", "Rick and Morty API"],
