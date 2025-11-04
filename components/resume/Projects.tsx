@@ -12,31 +12,6 @@ interface Project {
 export default function Projects() {
   const PROJECTS: Project[] = [
     {
-      name: "Express API Server",
-      description: "RESTful API server with authentication, rate limiting, and comprehensive documentation",
-      technologies: ["Express.js", "MongoDB", "JWT", "Node.js", "TypeScript"],
-      features: [
-        "Implemented JWT-based authentication and role-based access control",
-        "Built RESTful endpoints with input validation and error handling",
-        "Integrated MongoDB with Mongoose for data modeling and validation",
-        "Added rate limiting and security middleware for API protection"
-      ],
-      icon: "🚀"
-    },
-    {
-      name: "Next.js Portfolio & Dashboard",
-      description: "Full-stack web application for personal portfolio and expense tracking",
-      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB"],
-      features: [
-        "Built responsive UI with Tailwind CSS",
-        "Implemented GraphQL server with Mongoose",
-        "Created expense tracking with Chart.js visualization",
-        "Integrated real-time updates with WebSocket"
-      ],
-      url: "https://samliweisen.dev",
-      icon: "💼"
-    },
-    {
       name: "Canadian Mobile Welding",
       description: "Professional welding services website with service showcase and contact integration",
       technologies: ["Next.js", "shadcn/ui", "Netlify"],
@@ -115,6 +90,31 @@ export default function Projects() {
       ],
       url: "https://what-sam-watched.vercel.app",
       icon: "🎬"
+    },
+    {
+      name: "Express API Server",
+      description: "RESTful API server with authentication, rate limiting, and comprehensive documentation",
+      technologies: ["Express.js", "MongoDB", "JWT", "Node.js", "TypeScript"],
+      features: [
+        "Implemented JWT-based authentication and role-based access control",
+        "Built RESTful endpoints with input validation and error handling",
+        "Integrated MongoDB with Mongoose for data modeling and validation",
+        "Added rate limiting and security middleware for API protection"
+      ],
+      icon: "🚀"
+    },
+    {
+      name: "Next.js Portfolio & Dashboard",
+      description: "Full-stack web application for personal portfolio and expense tracking",
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB"],
+      features: [
+        "Built responsive UI with Tailwind CSS",
+        "Implemented GraphQL server with Mongoose",
+        "Created expense tracking with Chart.js visualization",
+        "Integrated real-time updates with WebSocket"
+      ],
+      url: "https://samliweisen.dev",
+      icon: "💼"
     }
   ];
 
