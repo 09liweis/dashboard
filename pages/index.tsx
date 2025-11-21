@@ -1,8 +1,8 @@
 import type { NextPage } from 'next';
-import Resume from "@/components/screens/Resume";
+import Home from "@/components/screens/Home";
 
-const ResumePage: NextPage = () => {
-  return <Resume />
+const HomePage: NextPage = () => {
+  return <Home />
 }
 
-export default ResumePage;
+export default HomePage;

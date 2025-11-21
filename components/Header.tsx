@@ -5,7 +5,8 @@ import { HeaderProps, emptyUser } from '../types';
 import Icon from './Icon';
 
 const NAV_LINKS = [
-  { tl: 'Resume', url: '/', icon: 'house-user' },
+  { tl: 'home', url: '/', icon: 'house-user' },
+  { tl: 'Resume', url: '/resume', icon: 'user' },
   { tl: 'knowledges', url: '/knowledges', icon: 'book' },
   { tl: 'todos', url: '/todos', icon: 'list' },
   { tl: 'expenses', url: '/expenses', icon: 'piggy-bank' },
