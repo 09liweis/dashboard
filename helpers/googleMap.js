@@ -61,15 +61,17 @@ class GoogleMap {
         autocompleteElement.id = 'address';
         
         // Listen for place selection
-        autocompleteElement.addEventListener('gmp-placeselect', (event) => {
-          const place = event.place;
-          if (place && place.geometry && place.geometry.location) {
+        autocompleteElement.addEventListener('gmp-select', async ({placePrediction}) => {
+          let place = placePrediction.toPlace();
+          await place.fetchFields({ fields: ['displayName', 'formattedAddress', 'location'] });
+          place = place.toJSON();
+          if (place && place.location) {
             cb({
-              place_id: place.place_id,
-              name: place.name || place.formatted_address,
-              address: place.formatted_address,
-              lat: place.geometry.location.lat(),
-              lng: place.geometry.location.lng(),
+              place_id: place.id,
+              name: place.displayName,
+              address: place.formattedAddress,
+              lat: place.location.lat,
+              lng: place.location.lng,
             });
           }
         });
