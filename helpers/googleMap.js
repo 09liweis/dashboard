@@ -112,7 +112,7 @@ function loadGoogleMapScript(cb) {
   if (document.getElementById('googlemap')) {
     return cb();
   }
-  const API_KEY = 'AIzaSyDMi_pAnwNY6HwnTHf_rQxUcEXywsFvKpQ';
+  const API_KEY = 'AIzaSyDdoiew4R5CHQOJMkB_hLtpcxOspmccXcQ';
   var script = document.createElement('script');
   script.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=places&v=weekly&callback=initMap`;
   script.async = true;
