@@ -6,6 +6,8 @@ import { useRouter } from 'next/router';
 import AppContext from 'AppContext';
 import useDebounce from 'hooks/useDebounce';
 import { BlogType } from 'types';
+import SEO from '@/components/SEO';
+import { getBlogPostingSchema, getBreadcrumbSchema } from '../../config/seo';
 
 const BlogDetail: NextPage = () => {
   const router = useRouter();
@@ -84,8 +86,49 @@ const BlogDetail: NextPage = () => {
     return formatedHTML;
   };
 
+  // Extract plain text for meta description
+  const getPlainText = (html: string) => {
+    return html
+      .replace(/<[^>]*>/g, '')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .substring(0, 160);
+  };
+
+  const breadcrumbs = [
+    { name: 'Home', url: '/' },
+    { name: 'Blog', url: '/blogs' },
+    { name: blog.title || 'Blog Post', url: `/blogs/${blogId}` },
+  ];
+
+  const jsonLd = blogId !== 'new' && blog.title ? [
+    getBlogPostingSchema({
+      title: blog.title,
+      content: blog.content,
+      createdAt: blog.created_at || new Date().toISOString(),
+      url: `/blogs/${blogId}`,
+    }),
+    getBreadcrumbSchema(breadcrumbs),
+  ] : [];
+
   return (
     <>
+      {blogId !== 'new' && blog.title && (
+        <SEO
+          title={`${blog.title} | Blog - Sam Li`}
+          description={getPlainText(blog.content) || 'Technical article by Sam Li'}
+          keywords={[
+            'blog post',
+            'technical article',
+            'web development',
+            'programming',
+          ]}
+          url={`/blogs/${blogId}`}
+          type="article"
+          jsonLd={jsonLd}
+          canonical={`https://samliweisen.dev/blogs/${blogId}`}
+        />
+      )}
       <h1 className="text-4xl font-bold">{blog.title}</h1>
       <section
         dangerouslySetInnerHTML={{ __html: formatDisplayHTML(blog.content) }}
