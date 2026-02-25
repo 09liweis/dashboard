@@ -12,10 +12,10 @@ const CategoryPrice = ({ categoryPrice }: CategoryPriceProps) => {
   const priceColor = income ? 'text-green-600' : 'text-red-600';
 
   return (
-    <div className="bg-white rounded-lg p-3 border border-gray-100 shadow-sm mb-1">
+    <div className={`${priceColor} bg-white rounded p-3 shadow mb-1`}>
       <div className="flex justify-between items-center mb-2 text-lg">
-        <h3 className="font-medium capitalize">{category}</h3>
-        <span className={`font-bold ${priceColor}`}>{total}</span>
+        <h3 className={`font-medium capitalize`}>{category}</h3>
+        <span className={`font-bold`}>{total}</span>
       </div>
       <div className="relative h-2 bg-gray-200 rounded-xs overflow-hidden">
         <motion.div
@@ -23,7 +23,7 @@ const CategoryPrice = ({ categoryPrice }: CategoryPriceProps) => {
           className={`absolute top-0 left-0 h-full ${colorClass} transition-all duration-500 ease-out`}
         ></motion.div>
       </div>
-      <span className="text-sm text-gray-500 mt-1 inline-block">{percentage}</span>
+      <span className="text-sm font-semibold mt-1 inline-block">{percentage}</span>
     </div>
   );
 };
