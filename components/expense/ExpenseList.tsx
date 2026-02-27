@@ -23,7 +23,7 @@ const CategoryPrice = ({ categoryPrice }: CategoryPriceProps) => {
           className={`absolute top-0 left-0 h-full ${colorClass} transition-all duration-500 ease-out`}
         ></motion.div>
       </div>
-      <span className="text-sm font-semibold mt-1 inline-block">{percentage}</span>
+      <span className="text-sm font-semibold mt-1">{percentage}</span>
     </div>
   );
 };
