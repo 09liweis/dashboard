@@ -14,8 +14,8 @@ const CategoryPrice = ({ categoryPrice }: CategoryPriceProps) => {
   return (
     <div className={`${priceColor} bg-white rounded p-3 shadow mb-1`}>
       <div className="flex justify-between items-center mb-2 text-lg">
-        <h3 className={`font-medium capitalize`}>{category}</h3>
-        <span className={`font-bold`}>{total}</span>
+        <h3 className="font-medium capitalize">{category}</h3>
+        <span className="font-bold">{total}</span>
       </div>
       <div className="relative h-2 bg-gray-200 rounded-xs overflow-hidden">
         <motion.div
