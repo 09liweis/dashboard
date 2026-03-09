@@ -44,8 +44,9 @@ class GoogleMap {
   }
   
   getPlaceAutocomplete = (cb) => {
+    if (typeof google == 'undefined') return;
     // Check if the new PlaceAutocompleteElement is available
-    if (google.maps.places && google.maps.places.PlaceAutocompleteElement) {
+    if (google?.maps?.places?.PlaceAutocompleteElement) {
       try {
         // Use the new PlaceAutocompleteElement
         const inputElement = document.getElementById('address');
