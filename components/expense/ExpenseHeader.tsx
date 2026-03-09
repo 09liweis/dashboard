@@ -29,7 +29,7 @@ export default function ExpenseHeader({ expenseResponse, onDateChange }: Expense
         type="month" 
         value={expenseResponse.date} 
         onChange={(e) => onDateChange(e.target.value)}
-        className="w-full p-3 rounded bg-white border border-gray-200 shadow focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all mb-4"
+        className="p-3 rounded bg-white border border-gray-200 shadow focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all mb-4"
       />
       
       <div className="grid grid-cols-3 gap-4 text-center text-gray-500">
