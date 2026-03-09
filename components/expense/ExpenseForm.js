@@ -141,17 +141,17 @@ export default function ExpenseForm({
             <button className="button">
               {loading ? <Loading /> : transaction._id ? 'Update' : 'Add'}
             </button>
-            {transaction._id && (
-              <button
-                onClick={() => handleTransactionDelete(transaction._id)}
-                className="button"
-              >
-                Delete
-              </button>
-            )}
           </section>
         )}
       </motion.form>
+      {transaction._id && (
+        <button
+          onClick={() => handleTransactionDelete(transaction._id)}
+          className="button absolute bottom-0 right-0"
+        >
+          Delete
+        </button>
+      )}
     </section>
   );
 

@@ -58,7 +58,6 @@ const Expense: NextPage = () => {
       method: 'GET',
       body: {},
     });
-    console.log(response);
     if (Array.isArray(response.categories)) {
       setCategories(response.categories);
     }
