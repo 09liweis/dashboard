@@ -58,8 +58,9 @@ const Expense: NextPage = () => {
       method: 'GET',
       body: {},
     });
-    if (Array.isArray(response)) {
-      setCategories(response);
+    console.log(response);
+    if (Array.isArray(response.categories)) {
+      setCategories(response.categories);
     }
   };
 
