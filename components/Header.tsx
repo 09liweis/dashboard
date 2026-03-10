@@ -33,7 +33,7 @@ export default function Header({
       <div className="absolute inset-0 bg-white/60 backdrop-blur-sm"></div>
       
       {/* Content */}
-      <div className="relative z-10 p-6">
+      <div className="relative z-10 p-3">
         {/* Top Section */}
         <div className="flex justify-between items-center mb-6">
           {/* Language Switcher */}
@@ -80,7 +80,7 @@ export default function Header({
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 py-2 bg-linear-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg font-medium"
+              className="px-6 py-2 cursor-pointer bg-linear-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg font-medium"
               onClick={() => setShowLogin(true)}
             >
               {getTranslate(lang, 'login')}
