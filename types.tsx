@@ -51,6 +51,7 @@ export interface ExpenseResponse {
   incomes:string;
   expenses:string;
   date:string;
+  endDate?:string;
   categoryPrice:CategoryTransaction[]
 }
 

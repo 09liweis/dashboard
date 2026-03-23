@@ -28,6 +28,7 @@ const Expense: NextPage = () => {
   const [expenseResponse, setExpenseResponse] = useState<ExpenseResponse>({ 
     total: "$0.00", 
     date: getCurrentMonth(), 
+    endDate: '',
     categoryPrice: [],
     incomes: "$0.00",
     expenses: "$0.00" 
@@ -39,6 +40,7 @@ const Expense: NextPage = () => {
       url: EXPENSE_LIST_API,
       body: { 
         date: expenseResponse.date,
+        endDate: expenseResponse.endDate,
         categories: selectedCategories
       },
     });
@@ -46,11 +48,11 @@ const Expense: NextPage = () => {
     if (expenseResp.status == 200) {
       setExpenseResponse(expenseResp);
     }
-  }, [expenseResponse.date, selectedCategories]);
+  }, [expenseResponse.date, expenseResponse.endDate, selectedCategories]);
 
   useEffect(() => {
     getExpenseStatistics();
-  }, [expenseResponse.date, selectedCategories]);
+  }, [expenseResponse.date, expenseResponse.endDate, selectedCategories]);
 
   const getCategories = async () => {
     const response = await fetchAPI({
@@ -134,6 +136,7 @@ const Expense: NextPage = () => {
       <ExpenseHeader 
         expenseResponse={expenseResponse}
         onDateChange={(date) => setExpenseResponse({ ...expenseResponse, date })}
+        onEndDateChange={(endDate) => setExpenseResponse({ ...expenseResponse, endDate })}
       />
 
       {loading ? (
