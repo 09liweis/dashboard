@@ -27,6 +27,7 @@ const Expense: NextPage = () => {
   const [selectedCategories, setSelectedCategories] = useState<String[]>([]);
   const [selectedTransaction, setSelectTransaction] = useState<Transaction>({});
   const [loading, setLoading] = useState(false);
+  const [downloading, setDownloading] = useState(false);
   const [expenseResponse, setExpenseResponse] = useState<ExpenseResponse>({ 
     total: "$0.00", 
     date: getCurrentMonth(), 
@@ -131,6 +132,55 @@ const Expense: NextPage = () => {
     updateQueryParams(expenseResponse.date, endDate);
   };
 
+  const downloadCSV = async () => {
+    setDownloading(true);
+    try {
+      const response = await fetchAPI({
+        url: EXPENSE_LIST_API,
+        body: {
+          date: expenseResponse.date,
+          endDate: expenseResponse.endDate,
+          categories: selectedCategories,
+          downloadCsv: true
+        },
+        responseType: 'text',
+      });
+      
+      console.log('CSV Response:', response);
+      
+      if (response.status === 200 && response.data) {
+        // Add BOM for proper UTF-8 encoding in Excel
+        const bom = '\uFEFF';
+        const csvData = bom + response.data;
+        
+        const blob = new Blob([csvData], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        const filename = `expenses-${expenseResponse.date}${expenseResponse.endDate ? `-${expenseResponse.endDate}` : ''}.csv`;
+        link.download = filename;
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        
+        console.log('Triggering download:', filename);
+        link.click();
+        
+        setTimeout(() => {
+          document.body.removeChild(link);
+          URL.revokeObjectURL(url);
+        }, 100);
+      } else {
+        console.error('Download failed with status:', response.status);
+        alert('Failed to download CSV. Status: ' + response.status);
+      }
+    } catch (error:any) {
+      console.error('Failed to download CSV:', error);
+      alert('Error downloading CSV: ' + error.message);
+    } finally {
+      setDownloading(false);
+    }
+  };
+
   return (
     <div className="max-w-4xl mx-auto">
       {showForm && (
@@ -145,17 +195,28 @@ const Expense: NextPage = () => {
       
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">Expense Tracker</h1>
-        {user._id && (
-          <button
-            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-            onClick={() => {
-              setShowForm(true);
-              setSelectTransaction({});
-            }}
-          >
-            {getTranslate(lang, 'addNew')}
-          </button>
-        )}
+        <div className="flex gap-2">
+          {user._id && (
+            <>
+              <button
+                className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
+                onClick={downloadCSV}
+                disabled={downloading}
+              >
+                {downloading ? 'Downloading...' : 'Download CSV'}
+              </button>
+              <button
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                onClick={() => {
+                  setShowForm(true);
+                  setSelectTransaction({});
+                }}
+              >
+                {getTranslate(lang, 'addNew')}
+              </button>
+            </>
+          )}
+        </div>
       </div>
 
       <div className="mb-6">

@@ -8,11 +8,11 @@ export function setAuthToken(token) {
   localStorage.setItem('auth-token',token);
 }
 
-export async function fetchAPI({ method = 'POST', url, body = {}, headers = {} }) {
+export async function fetchAPI({ method = 'POST', url, body = {}, headers = {}, responseType = 'json' }) {
   const opt = {
     method,
     headers: {
-      Accept: 'application/json',
+      Accept: responseType === 'blob' ? 'text/csv' : 'application/json',
       'Content-Type': 'application/json',
       'Authorization': `Bear ${getAuthToken()}`,
     },
@@ -23,8 +23,16 @@ export async function fetchAPI({ method = 'POST', url, body = {}, headers = {} }
   }
   try {
     const response = await fetch(url, opt);
-    const data = await response.json();
-    return {...data, status: response.status};
+    
+    if (responseType === 'blob' || responseType === 'text') {
+      const data = responseType === 'blob' 
+        ? await response.blob() 
+        : await response.text();
+      return { data, status: response.status };
+    } else {
+      const data = await response.json();
+      return {...data, status: response.status};
+    }
   } catch (error) {
     return { error };
   }
