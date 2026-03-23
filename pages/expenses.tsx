@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import React, { useEffect, useState, useCallback, useContext } from 'react';
+import { useRouter } from 'next/router';
 import { fetchAPI, getTranslate } from 'helpers';
 import AppContext from 'AppContext';
 import ExpenseForm from '@/components/expense/ExpenseForm';
@@ -19,6 +20,7 @@ function getCurrentMonth() {
 }
 
 const Expense: NextPage = () => {
+  const router = useRouter();
   const { user, lang } = useContext(AppContext);
   const [showForm, setShowForm] = useState(false);
   const [categories, setCategories] = useState<String[]>([]);
@@ -75,6 +77,18 @@ const Expense: NextPage = () => {
     getCategories();
   }, []);
 
+  useEffect(() => {
+    if (router.isReady) {
+      const { date, endDate } = router.query;
+      if (date && typeof date === 'string') {
+        setExpenseResponse(prev => ({ ...prev, date }));
+      }
+      if (endDate && typeof endDate === 'string') {
+        setExpenseResponse(prev => ({ ...prev, endDate }));
+      }
+    }
+  }, [router.isReady, router.query]);
+
   const openTransactionDetail = (t: Transaction) => {
     setShowForm(true);
     t.price = t.price?.replace('$','');
@@ -91,6 +105,30 @@ const Expense: NextPage = () => {
       }
       return [...prev, category];
     });
+  };
+
+  const updateQueryParams = (date?: string, endDate?: string) => {
+    const query: any = {};
+    if (date) query.date = date;
+    if (endDate) query.endDate = endDate;
+    router.push(
+      {
+        pathname: router.pathname,
+        query,
+      },
+      undefined,
+      { shallow: true }
+    );
+  };
+
+  const handleDateChange = (date: string) => {
+    setExpenseResponse({ ...expenseResponse, date });
+    updateQueryParams(date, expenseResponse.endDate);
+  };
+
+  const handleEndDateChange = (endDate: string) => {
+    setExpenseResponse({ ...expenseResponse, endDate });
+    updateQueryParams(expenseResponse.date, endDate);
   };
 
   return (
@@ -141,8 +179,8 @@ const Expense: NextPage = () => {
 
       <ExpenseHeader 
         expenseResponse={expenseResponse}
-        onDateChange={(date) => setExpenseResponse({ ...expenseResponse, date })}
-        onEndDateChange={(endDate) => setExpenseResponse({ ...expenseResponse, endDate })}
+        onDateChange={handleDateChange}
+        onEndDateChange={handleEndDateChange}
       />
 
       {loading ? (
