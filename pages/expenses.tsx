@@ -80,12 +80,18 @@ const Expense: NextPage = () => {
 
   useEffect(() => {
     if (router.isReady) {
-      const { date, endDate } = router.query;
+      const { date, endDate, categories } = router.query;
       if (date && typeof date === 'string') {
         setExpenseResponse(prev => ({ ...prev, date }));
       }
       if (endDate && typeof endDate === 'string') {
         setExpenseResponse(prev => ({ ...prev, endDate }));
+      }
+      if (categories) {
+        const categoryArray = Array.isArray(categories) 
+          ? categories 
+          : [categories];
+        setSelectedCategories(categoryArray as string[]);
       }
     }
   }, [router.isReady, router.query]);
@@ -100,18 +106,18 @@ const Expense: NextPage = () => {
   };
 
   const toggleCategory = (category: String) => {
-    setSelectedCategories(prev => {
-      if (prev.includes(category)) {
-        return prev.filter(c => c !== category);
-      }
-      return [...prev, category];
-    });
+    const newSelectedCategories = selectedCategories.includes(category)
+      ? selectedCategories.filter(c => c !== category)
+      : [...selectedCategories, category];
+    setSelectedCategories(newSelectedCategories);
+    updateQueryParams(expenseResponse.date, expenseResponse.endDate, newSelectedCategories);
   };
 
-  const updateQueryParams = (date?: string, endDate?: string) => {
+  const updateQueryParams = (date?: string, endDate?: string, categories?: String[]) => {
     const query: any = {};
     if (date) query.date = date;
     if (endDate) query.endDate = endDate;
+    if (categories && categories.length > 0) query.categories = categories;
     router.push(
       {
         pathname: router.pathname,
