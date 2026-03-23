@@ -34,7 +34,7 @@ const Expense: NextPage = () => {
     expenses: "$0.00" 
   });
 
-  const getExpenseStatistics = useCallback(async () => {
+  const getExpenseStatistics = async () => {
     setLoading(true);
     const expenseResp = await fetchAPI({
       url: EXPENSE_LIST_API,
@@ -46,9 +46,15 @@ const Expense: NextPage = () => {
     });
     setLoading(false);
     if (expenseResp.status == 200) {
-      setExpenseResponse(expenseResp);
+      setExpenseResponse(prev => ({
+        ...prev,
+        total: expenseResp.total,
+        incomes: expenseResp.incomes,
+        expenses: expenseResp.expenses,
+        categoryPrice: expenseResp.categoryPrice
+      }));
     }
-  }, [expenseResponse.date, expenseResponse.endDate, selectedCategories]);
+  };
 
   useEffect(() => {
     getExpenseStatistics();
