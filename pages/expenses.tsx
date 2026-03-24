@@ -166,7 +166,6 @@ const Expense: NextPage = () => {
         link.style.display = 'none';
         document.body.appendChild(link);
         
-        console.log('Triggering download:', filename);
         link.click();
         
         setTimeout(() => {
@@ -227,9 +226,9 @@ const Expense: NextPage = () => {
         <div className="flex flex-wrap gap-2">
           {categories.map((category) => (
             <button
-              key={category.toString()}
+              key={category}
               onClick={() => toggleCategory(category)}
-              className={`px-3 py-1 cursor-pointer rounded-full text-sm font-medium transition-colors ${
+              className={`px-3 py-1 cursor-pointer rounded-full text-sm font-medium transition-colors capitalize ${
                 selectedCategories.includes(category)
                   ? 'bg-blue-600 text-white'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
