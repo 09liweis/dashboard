@@ -151,9 +151,7 @@ const Expense: NextPage = () => {
         },
         responseType: 'text',
       });
-      
-      console.log('CSV Response:', response);
-      
+            
       if (response.status === 200 && response.data) {
         // Add BOM for proper UTF-8 encoding in Excel
         const bom = '\uFEFF';
@@ -176,7 +174,6 @@ const Expense: NextPage = () => {
           URL.revokeObjectURL(url);
         }, 100);
       } else {
-        console.error('Download failed with status:', response.status);
         alert('Failed to download CSV. Status: ' + response.status);
       }
     } catch (error:any) {
