@@ -226,7 +226,7 @@ const Expense: NextPage = () => {
         <div className="flex flex-wrap gap-1">
           {categories.map((category) => (
             <button
-              key={category}
+              key={category.toString()}
               onClick={() => toggleCategory(category)}
               className={`px-2 py-1 cursor-pointer rounded-full text-sm font-medium transition-colors capitalize ${
                 selectedCategories.includes(category)
