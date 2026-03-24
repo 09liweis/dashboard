@@ -228,10 +228,10 @@ const Expense: NextPage = () => {
             <button
               key={category.toString()}
               onClick={() => toggleCategory(category)}
-              className={`px-2 py-1 cursor-pointer rounded-full text-sm font-medium transition-colors capitalize ${
+              className={`px-2 py-1 cursor-pointer rounded text-sm font-medium border transition-colors capitalize ${
                 selectedCategories.includes(category)
                   ? 'bg-blue-600 text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  : 'bg-gray-200 text-gray-700 hover:bg-gray-200'
               }`}
             >
               {category}
