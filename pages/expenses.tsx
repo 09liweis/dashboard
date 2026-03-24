@@ -81,12 +81,14 @@ const Expense: NextPage = () => {
   useEffect(() => {
     if (router.isReady) {
       const { date, endDate, categories } = router.query;
+      const expenseResponse = {};
       if (date && typeof date === 'string') {
-        setExpenseResponse(prev => ({ ...prev, date }));
+        expenseResponse.date = date;
       }
       if (endDate && typeof endDate === 'string') {
-        setExpenseResponse(prev => ({ ...prev, endDate }));
+        expenseResponse.endDate = endDate;
       }
+      setExpenseResponse(expenseResponse);
       if (categories) {
         const categoryArray = Array.isArray(categories) 
           ? categories 
