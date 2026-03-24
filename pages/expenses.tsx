@@ -223,12 +223,12 @@ const Expense: NextPage = () => {
 
       <div className="mb-6">
         <h2 className="text-sm font-medium text-gray-700 mb-2">Filter by Categories:</h2>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-1">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => toggleCategory(category)}
-              className={`px-3 py-1 cursor-pointer rounded-full text-sm font-medium transition-colors capitalize ${
+              className={`px-2 py-1 cursor-pointer rounded-full text-sm font-medium transition-colors capitalize ${
                 selectedCategories.includes(category)
                   ? 'bg-blue-600 text-white'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
