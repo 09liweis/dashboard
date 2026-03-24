@@ -128,14 +128,13 @@ const Expense: NextPage = () => {
     );
   };
 
-  const handleDateChange = (date: string) => {
-    setExpenseResponse({ ...expenseResponse, date });
-    updateQueryParams(date, expenseResponse.endDate);
-  };
-
-  const handleEndDateChange = (endDate: string) => {
-    setExpenseResponse({ ...expenseResponse, endDate });
-    updateQueryParams(expenseResponse.date, endDate);
+  const handleDateChange = (date: string, field: string) => {
+    setExpenseResponse({ ...expenseResponse, [field]:date });
+    if (field === 'date') {
+      updateQueryParams(date, expenseResponse.endDate);
+    } else {
+      updateQueryParams(expenseResponse.date, date);
+    }
   };
 
   const downloadCSV = async () => {
@@ -243,7 +242,6 @@ const Expense: NextPage = () => {
       <ExpenseHeader 
         expenseResponse={expenseResponse}
         onDateChange={handleDateChange}
-        onEndDateChange={handleEndDateChange}
       />
 
       {loading ? (

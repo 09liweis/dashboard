@@ -2,11 +2,10 @@ import { ExpenseResponse } from 'types';
 
 interface ExpenseHeaderProps {
   expenseResponse: ExpenseResponse;
-  onDateChange: (date: string) => void;
-  onEndDateChange: (endDate: string) => void;
+  onDateChange: (date: string, field:string) => void;
 }
 
-export default function ExpenseHeader({ expenseResponse, onDateChange, onEndDateChange }: ExpenseHeaderProps) {
+export default function ExpenseHeader({ expenseResponse, onDateChange }: ExpenseHeaderProps) {
   const stats = [
     {
       tl: 'Incomes',
@@ -32,7 +31,7 @@ export default function ExpenseHeader({ expenseResponse, onDateChange, onEndDate
           <input 
             type="month" 
             value={expenseResponse.date} 
-            onChange={(e) => onDateChange(e.target.value)}
+            onChange={(e) => onDateChange(e.target.value, 'date')}
             className="w-full p-3 rounded bg-white border border-gray-200 shadow focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
           />
         </div>
@@ -41,7 +40,7 @@ export default function ExpenseHeader({ expenseResponse, onDateChange, onEndDate
           <input 
             type="date" 
             value={expenseResponse.endDate || ''} 
-            onChange={(e) => onEndDateChange(e.target.value)}
+            onChange={(e) => onDateChange(e.target.value, 'endDate')}
             className="w-full p-3 rounded bg-white border border-gray-200 shadow focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
           />
         </div>
