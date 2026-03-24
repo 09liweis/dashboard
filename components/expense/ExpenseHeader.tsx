@@ -39,7 +39,7 @@ export default function ExpenseHeader({ expenseResponse, onDateChange, onEndDate
         <div className="flex-1">
           <label className="block text-sm font-medium text-gray-700 mb-1">End Date</label>
           <input 
-            type="month" 
+            type="date" 
             value={expenseResponse.endDate || ''} 
             onChange={(e) => onEndDateChange(e.target.value)}
             className="w-full p-3 rounded bg-white border border-gray-200 shadow focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
