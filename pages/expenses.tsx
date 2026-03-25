@@ -105,6 +105,7 @@ const Expense: NextPage = () => {
   }, [router.query]);
 
   const getCategories = async () => {
+    if (categories.length > 0) return;
     const response = await fetchAPI({
       url: EXPENSE_CATEGORIES_API,
       method: "GET",
