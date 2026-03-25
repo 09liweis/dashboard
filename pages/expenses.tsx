@@ -1,23 +1,29 @@
-import type { NextPage } from 'next';
-import React, { useEffect, useState, useCallback, useContext } from 'react';
-import { useRouter } from 'next/router';
-import { fetchAPI, getTranslate } from 'helpers';
-import AppContext from 'AppContext';
-import ExpenseForm from '@/components/expense/ExpenseForm';
-import ExpenseList from '@/components/expense/ExpenseList';
-import ExpenseHeader from '@/components/expense/ExpenseHeader';
-import { Transaction, ExpenseResponse } from 'types';
-import {
-  EXPENSE_LIST_API,
-  EXPENSE_CATEGORIES_API,
-} from '../constants';
-import Loading from '@/components/Loading';
+import type { NextPage } from "next";
+import React, { useEffect, useState, useCallback, useContext } from "react";
+import { useRouter } from "next/router";
+import { fetchAPI, getTranslate } from "helpers";
+import AppContext from "AppContext";
+import ExpenseForm from "@/components/expense/ExpenseForm";
+import ExpenseList from "@/components/expense/ExpenseList";
+import ExpenseHeader from "@/components/expense/ExpenseHeader";
+import { Transaction, ExpenseResponse } from "types";
+import { EXPENSE_LIST_API, EXPENSE_CATEGORIES_API } from "../constants";
+import Loading from "@/components/Loading";
 
 function getCurrentMonth() {
   const now = new Date();
   const month = (now.getMonth() + 1).toString().padStart(2, "0");
   return `${now.getFullYear()}-${month}`;
 }
+
+const EMPTY_EXPENSE_RESPONSE: ExpenseResponse = {
+  total: "$0.00",
+  date: getCurrentMonth(),
+  endDate: "",
+  categoryPrice: [],
+  incomes: "$0.00",
+  expenses: "$0.00",
+};
 
 const Expense: NextPage = () => {
   const router = useRouter();
@@ -28,33 +34,28 @@ const Expense: NextPage = () => {
   const [selectedTransaction, setSelectTransaction] = useState<Transaction>({});
   const [loading, setLoading] = useState(false);
   const [downloading, setDownloading] = useState(false);
-  const [expenseResponse, setExpenseResponse] = useState<ExpenseResponse>({ 
-    total: "$0.00", 
-    date: getCurrentMonth(), 
-    endDate: '',
-    categoryPrice: [],
-    incomes: "$0.00",
-    expenses: "$0.00" 
-  });
+  const [expenseResponse, setExpenseResponse] = useState<ExpenseResponse>(
+    EMPTY_EXPENSE_RESPONSE
+  );
 
   const getExpenseStatistics = async () => {
     setLoading(true);
     const expenseResp = await fetchAPI({
       url: EXPENSE_LIST_API,
-      body: { 
+      body: {
         date: expenseResponse.date,
         endDate: expenseResponse.endDate,
-        categories: selectedCategories
+        categories: selectedCategories,
       },
     });
     setLoading(false);
     if (expenseResp.status == 200) {
-      setExpenseResponse(prev => ({
+      setExpenseResponse((prev) => ({
         ...prev,
         total: expenseResp.total,
         incomes: expenseResp.incomes,
         expenses: expenseResp.expenses,
-        categoryPrice: expenseResp.categoryPrice
+        categoryPrice: expenseResp.categoryPrice,
       }));
     }
   };
@@ -66,7 +67,7 @@ const Expense: NextPage = () => {
   const getCategories = async () => {
     const response = await fetchAPI({
       url: EXPENSE_CATEGORIES_API,
-      method: 'GET',
+      method: "GET",
       body: {},
     });
     if (Array.isArray(response.categories)) {
@@ -81,17 +82,17 @@ const Expense: NextPage = () => {
   useEffect(() => {
     if (router.isReady) {
       const { date, endDate, categories } = router.query;
-      const expenseResponse = {};
-      if (date && typeof date === 'string') {
+      const expenseResponse: ExpenseResponse = EMPTY_EXPENSE_RESPONSE;
+      if (date && typeof date === "string") {
         expenseResponse.date = date;
       }
-      if (endDate && typeof endDate === 'string') {
+      if (endDate && typeof endDate === "string") {
         expenseResponse.endDate = endDate;
       }
       setExpenseResponse(expenseResponse);
       if (categories) {
-        const categoryArray = Array.isArray(categories) 
-          ? categories 
+        const categoryArray = Array.isArray(categories)
+          ? categories
           : [categories];
         setSelectedCategories(categoryArray as string[]);
       }
@@ -100,7 +101,7 @@ const Expense: NextPage = () => {
 
   const openTransactionDetail = (t: Transaction) => {
     setShowForm(true);
-    t.price = t.price?.replace('$','');
+    t.price = t.price?.replace("$", "");
     if (!t.income) {
       t.price = `-${t.price}`;
     }
@@ -109,13 +110,21 @@ const Expense: NextPage = () => {
 
   const toggleCategory = (category: String) => {
     const newSelectedCategories = selectedCategories.includes(category)
-      ? selectedCategories.filter(c => c !== category)
+      ? selectedCategories.filter((c) => c !== category)
       : [...selectedCategories, category];
     setSelectedCategories(newSelectedCategories);
-    updateQueryParams(expenseResponse.date, expenseResponse.endDate, newSelectedCategories);
+    updateQueryParams(
+      expenseResponse.date,
+      expenseResponse.endDate,
+      newSelectedCategories
+    );
   };
 
-  const updateQueryParams = (date?: string, endDate?: string, categories?: String[]) => {
+  const updateQueryParams = (
+    date?: string,
+    endDate?: string,
+    categories?: String[]
+  ) => {
     const query: any = {};
     if (date) query.date = date;
     if (endDate) query.endDate = endDate;
@@ -131,8 +140,8 @@ const Expense: NextPage = () => {
   };
 
   const handleDateChange = (date: string, field: string) => {
-    setExpenseResponse({ ...expenseResponse, [field]:date });
-    if (field === 'date') {
+    setExpenseResponse({ ...expenseResponse, [field]: date });
+    if (field === "date") {
       updateQueryParams(date, expenseResponse.endDate);
     } else {
       updateQueryParams(expenseResponse.date, date);
@@ -148,37 +157,39 @@ const Expense: NextPage = () => {
           date: expenseResponse.date,
           endDate: expenseResponse.endDate,
           categories: selectedCategories,
-          downloadCsv: true
+          downloadCsv: true,
         },
-        responseType: 'text',
+        responseType: "text",
       });
-            
+
       if (response.status === 200 && response.data) {
         // Add BOM for proper UTF-8 encoding in Excel
-        const bom = '\uFEFF';
+        const bom = "\uFEFF";
         const csvData = bom + response.data;
-        
-        const blob = new Blob([csvData], { type: 'text/csv;charset=utf-8;' });
+
+        const blob = new Blob([csvData], { type: "text/csv;charset=utf-8;" });
         const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
+        const link = document.createElement("a");
         link.href = url;
-        const filename = `expenses-${expenseResponse.date}${expenseResponse.endDate ? `-${expenseResponse.endDate}` : ''}.csv`;
+        const filename = `expenses-${expenseResponse.date}${
+          expenseResponse.endDate ? `-${expenseResponse.endDate}` : ""
+        }.csv`;
         link.download = filename;
-        link.style.display = 'none';
+        link.style.display = "none";
         document.body.appendChild(link);
-        
+
         link.click();
-        
+
         setTimeout(() => {
           document.body.removeChild(link);
           URL.revokeObjectURL(url);
         }, 100);
       } else {
-        alert('Failed to download CSV. Status: ' + response.status);
+        alert("Failed to download CSV. Status: " + response.status);
       }
-    } catch (error:any) {
-      console.error('Failed to download CSV:', error);
-      alert('Error downloading CSV: ' + error.message);
+    } catch (error: any) {
+      console.error("Failed to download CSV:", error);
+      alert("Error downloading CSV: " + error.message);
     } finally {
       setDownloading(false);
     }
@@ -195,7 +206,7 @@ const Expense: NextPage = () => {
           user={user}
         />
       )}
-      
+
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">Expense Tracker</h1>
         <div className="flex gap-2">
@@ -206,7 +217,7 @@ const Expense: NextPage = () => {
                 onClick={downloadCSV}
                 disabled={downloading}
               >
-                {downloading ? 'Downloading...' : 'Download CSV'}
+                {downloading ? "Downloading..." : "Download CSV"}
               </button>
               <button
                 className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
@@ -215,7 +226,7 @@ const Expense: NextPage = () => {
                   setSelectTransaction({});
                 }}
               >
-                {getTranslate(lang, 'addNew')}
+                {getTranslate(lang, "addNew")}
               </button>
             </>
           )}
@@ -223,7 +234,9 @@ const Expense: NextPage = () => {
       </div>
 
       <div className="mb-6">
-        <h2 className="text-sm font-medium text-gray-700 mb-2">Filter by Categories:</h2>
+        <h2 className="text-sm font-medium text-gray-700 mb-2">
+          Filter by Categories:
+        </h2>
         <div className="flex flex-wrap gap-1">
           {categories.map((category) => (
             <button
@@ -231,8 +244,8 @@ const Expense: NextPage = () => {
               onClick={() => toggleCategory(category)}
               className={`px-2 py-1 cursor-pointer rounded text-sm font-medium border transition-colors capitalize ${
                 selectedCategories.includes(category)
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-200 text-gray-700 hover:bg-gray-200'
+                  ? "bg-blue-600 text-white"
+                  : "bg-gray-200 text-gray-700 hover:bg-gray-200"
               }`}
             >
               {category}
@@ -241,7 +254,7 @@ const Expense: NextPage = () => {
         </div>
       </div>
 
-      <ExpenseHeader 
+      <ExpenseHeader
         expenseResponse={expenseResponse}
         onDateChange={handleDateChange}
       />
