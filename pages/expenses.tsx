@@ -25,6 +25,12 @@ const EMPTY_EXPENSE_RESPONSE: ExpenseResponse = {
   expenses: "$0.00",
 };
 
+interface STATISTICS_BODY {
+  date: string;
+  endDate?: string;
+  categories?: string[];
+}
+
 const Expense: NextPage = () => {
   const router = useRouter();
   const { user, lang } = useContext(AppContext);
@@ -38,14 +44,18 @@ const Expense: NextPage = () => {
     EMPTY_EXPENSE_RESPONSE
   );
 
-  const getExpenseStatistics = async () => {
+  const getExpenseStatistics = async ({
+    date,
+    endDate,
+    categories = [],
+  }: STATISTICS_BODY) => {
     setLoading(true);
     const expenseResp = await fetchAPI({
       url: EXPENSE_LIST_API,
       body: {
-        date: expenseResponse.date,
-        endDate: expenseResponse.endDate,
-        categories: selectedCategories,
+        date,
+        endDate,
+        categories,
       },
     });
     setLoading(false);
@@ -60,9 +70,39 @@ const Expense: NextPage = () => {
     }
   };
 
+  // useEffect(() => {
+  //   getExpenseStatistics();
+  // }, [expenseResponse.date, expenseResponse.endDate, selectedCategories]);
+  const init = () => {
+    const expenseResponse: ExpenseResponse = EMPTY_EXPENSE_RESPONSE;
+    const options: STATISTICS_BODY = { date: "" };
+    if (router.isReady) {
+      const { date, endDate, categories } = router.query;
+
+      if (date && typeof date === "string") {
+        expenseResponse.date = date;
+        options.date = date;
+      }
+      if (endDate && typeof endDate === "string") {
+        expenseResponse.endDate = endDate;
+        options.endDate = endDate;
+      }
+      setExpenseResponse(expenseResponse);
+      if (categories) {
+        const categoryArray = Array.isArray(categories)
+          ? categories
+          : [categories];
+        setSelectedCategories(categoryArray as string[]);
+        options.categories = categoryArray;
+      }
+    }
+    getExpenseStatistics(options);
+  };
+
   useEffect(() => {
-    getExpenseStatistics();
-  }, [expenseResponse.date, expenseResponse.endDate, selectedCategories]);
+    init();
+    getCategories();
+  }, [router.query]);
 
   const getCategories = async () => {
     const response = await fetchAPI({
@@ -74,30 +114,6 @@ const Expense: NextPage = () => {
       setCategories(response.categories);
     }
   };
-
-  useEffect(() => {
-    getCategories();
-  }, []);
-
-  useEffect(() => {
-    if (router.isReady) {
-      const { date, endDate, categories } = router.query;
-      const expenseResponse: ExpenseResponse = EMPTY_EXPENSE_RESPONSE;
-      if (date && typeof date === "string") {
-        expenseResponse.date = date;
-      }
-      if (endDate && typeof endDate === "string") {
-        expenseResponse.endDate = endDate;
-      }
-      setExpenseResponse(expenseResponse);
-      if (categories) {
-        const categoryArray = Array.isArray(categories)
-          ? categories
-          : [categories];
-        setSelectedCategories(categoryArray as string[]);
-      }
-    }
-  }, [router.isReady, router.query]);
 
   const openTransactionDetail = (t: Transaction) => {
     setShowForm(true);
