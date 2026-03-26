@@ -62,7 +62,7 @@ export default function ExpenseChart({ categoryTransactions }: ExpenseChartProps
         </div>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+      <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-3">
         {categoryTransactions.map((category, index) => {
           const amount = parseFloat(category.total.replace(/[$,]/g, ''));
           const percentage = total > 0 ? (amount / total) * 100 : 0;
