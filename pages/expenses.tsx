@@ -230,7 +230,6 @@ const Expense: NextPage = () => {
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-3">
         <h1 className="text-2xl font-bold">Expense Tracker</h1>
         <div className="flex flex-wrap items-center gap-2">
-          <ViewToggle currentView={currentView} onViewChange={setCurrentView} />
           {user._id && (
             <>
               <button
@@ -279,6 +278,8 @@ const Expense: NextPage = () => {
         expenseResponse={expenseResponse}
         onDateChange={handleDateChange}
       />
+
+      <ViewToggle currentView={currentView} onViewChange={setCurrentView} />
 
       {loading ? (
         <div className="flex justify-center py-8">
