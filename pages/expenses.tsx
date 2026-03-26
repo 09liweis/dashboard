@@ -44,19 +44,16 @@ const Expense: NextPage = () => {
     EMPTY_EXPENSE_RESPONSE
   );
 
-  const getExpenseStatistics = async ({
-    date,
-    endDate,
-    categories = [],
-  }: STATISTICS_BODY) => {
+  const getExpenseStatistics = async (params: STATISTICS_BODY) => {
+    const body = {
+      date: params?.date || expenseResponse.date,
+      endDate: params?.endDate || expenseResponse.endDate,
+      categories: params?.categories || selectedCategories
+    }
     setLoading(true);
     const expenseResp = await fetchAPI({
       url: EXPENSE_LIST_API,
-      body: {
-        date,
-        endDate,
-        categories,
-      },
+      body
     });
     setLoading(false);
     if (expenseResp.status == 200) {
