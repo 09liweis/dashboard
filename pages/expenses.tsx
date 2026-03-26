@@ -6,6 +6,8 @@ import AppContext from "AppContext";
 import ExpenseForm from "@/components/expense/ExpenseForm";
 import ExpenseList from "@/components/expense/ExpenseList";
 import ExpenseHeader from "@/components/expense/ExpenseHeader";
+import ExpenseChart from "@/components/expense/ExpenseChart";
+import ViewToggle from "@/components/expense/ViewToggle";
 import { Transaction, ExpenseResponse } from "types";
 import { EXPENSE_LIST_API, EXPENSE_CATEGORIES_API } from "../constants";
 import Loading from "@/components/Loading";
@@ -40,6 +42,7 @@ const Expense: NextPage = () => {
   const [selectedTransaction, setSelectTransaction] = useState<Transaction>({});
   const [loading, setLoading] = useState(false);
   const [downloading, setDownloading] = useState(false);
+  const [currentView, setCurrentView] = useState<'overview' | 'detail'>('detail');
   const [expenseResponse, setExpenseResponse] = useState<ExpenseResponse>(
     EMPTY_EXPENSE_RESPONSE
   );
@@ -224,9 +227,10 @@ const Expense: NextPage = () => {
         />
       )}
 
-      <div className="flex justify-between items-center mb-3">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-3">
         <h1 className="text-2xl font-bold">Expense Tracker</h1>
-        <div className="flex gap-2">
+        <div className="flex flex-wrap items-center gap-2">
+          <ViewToggle currentView={currentView} onViewChange={setCurrentView} />
           {user._id && (
             <>
               <button
@@ -280,6 +284,8 @@ const Expense: NextPage = () => {
         <div className="flex justify-center py-8">
           <Loading />
         </div>
+      ) : currentView === 'overview' ? (
+        <ExpenseChart categoryTransactions={expenseResponse.categoryPrice} />
       ) : (
         <ExpenseList
           categoryTransactions={expenseResponse.categoryPrice}
