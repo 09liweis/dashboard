@@ -83,6 +83,9 @@ const Expense: NextPage = () => {
       if (endDate && typeof endDate === "string") {
         expenseResponse.endDate = endDate;
         options.endDate = endDate;
+      } else {
+        delete expenseResponse.endDate;
+        delete options.endDate;
       }
       setExpenseResponse(expenseResponse);
       if (categories) {
