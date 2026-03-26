@@ -224,7 +224,7 @@ const Expense: NextPage = () => {
         />
       )}
 
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex justify-between items-center mb-3">
         <h1 className="text-2xl font-bold">Expense Tracker</h1>
         <div className="flex gap-2">
           {user._id && (
