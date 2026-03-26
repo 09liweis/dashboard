@@ -10,7 +10,7 @@ export default function ViewToggle({ currentView, onViewChange }: ViewToggleProp
     <div className="flex items-center gap-2 bg-white rounded-lg p-1 shadow-xs border border-gray-200">
       <button
         onClick={() => onViewChange('overview')}
-        className={`relative px-4 py-2 rounded-md text-sm font-medium transition-all ${
+        className={`relative px-4 py-2 rounded-md text-sm cursor-pointer font-medium transition-all ${
           currentView === 'overview'
             ? 'text-white'
             : 'text-gray-600 hover:text-gray-900'
@@ -33,7 +33,7 @@ export default function ViewToggle({ currentView, onViewChange }: ViewToggleProp
 
       <button
         onClick={() => onViewChange('detail')}
-        className={`relative px-4 py-2 rounded-md text-sm font-medium transition-all ${
+        className={`relative px-4 py-2 rounded-md text-sm cursor-pointer font-medium transition-all ${
           currentView === 'detail'
             ? 'text-white'
             : 'text-gray-600 hover:text-gray-900'
