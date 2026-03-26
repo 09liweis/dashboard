@@ -87,7 +87,7 @@ export default function Header({
 
         {/* Navigation */}
         <nav className="flex items-center justify-center">
-          <div className="flex items-center gap-1 p-2 bg-white/80 rounded-xl border border-gray-200 shadow-lg backdrop-blur-sm">
+          <div className="flex items-center gap-1 p-2 bg-white/80 rounded-lg border border-gray-200 shadow-lg backdrop-blur-sm">
             {NAV_LINKS.map((nav, index) => (
               <Link key={nav.url} href={nav.url}>
                 <motion.div
