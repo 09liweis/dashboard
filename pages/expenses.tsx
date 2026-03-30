@@ -6,6 +6,7 @@ import AppContext from "AppContext";
 import ExpenseForm from "@/components/expense/ExpenseForm";
 import ExpenseList from "@/components/expense/ExpenseList";
 import ExpenseHeader from "@/components/expense/ExpenseHeader";
+import ExpenseDatePicker from "@/components/expense/ExpenseDatePicker";
 import ExpenseChart from "@/components/expense/ExpenseChart";
 import ViewToggle from "@/components/expense/ViewToggle";
 import { Transaction, ExpenseResponse } from "types";
@@ -256,6 +257,12 @@ const Expense: NextPage = () => {
       <div className="lg:grid lg:grid-cols-3 gap-4">
 
         <div className="mb-6 bg-white rounded-xl shadow-lg border border-gray-100 p-6 col-span-1">
+
+          <ExpenseDatePicker
+            expenseResponse={expenseResponse}
+            onDateChange={handleDateChange}
+          />
+
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
               <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -301,7 +308,6 @@ const Expense: NextPage = () => {
       <div className="col-span-2">
         <ExpenseHeader
           expenseResponse={expenseResponse}
-          onDateChange={handleDateChange}
         />
 
         <ViewToggle currentView={currentView} onViewChange={setCurrentView} />
