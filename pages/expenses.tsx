@@ -43,7 +43,7 @@ const Expense: NextPage = () => {
   const [selectedTransaction, setSelectTransaction] = useState<Transaction>({});
   const [loading, setLoading] = useState(false);
   const [downloading, setDownloading] = useState(false);
-  const [currentView, setCurrentView] = useState<'overview' | 'detail'>('overview');
+  const [currentView, setCurrentView] = useState<string>('overview');
   const [expenseResponse, setExpenseResponse] = useState<ExpenseResponse>(
     EMPTY_EXPENSE_RESPONSE
   );

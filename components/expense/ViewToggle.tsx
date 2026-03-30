@@ -1,8 +1,8 @@
 import { motion } from 'motion/react';
 
 interface ViewToggleProps {
-  currentView: 'overview' | 'detail';
-  onViewChange: (view: 'overview' | 'detail') => void;
+  currentView: string;
+  onViewChange: (view: string) => void;
 }
 
 export default function ViewToggle({ currentView, onViewChange }: ViewToggleProps) {
