@@ -6,7 +6,7 @@ interface ExpenseTransactionProps {
 }
 
 export default function ExpenseTransaction({ transaction, onClick }: ExpenseTransactionProps) {
-  const { price, date, place, title, income } = transaction;
+  const { formatedPrice, date, place, title, income } = transaction;
   
   return (
     <div 
@@ -20,7 +20,7 @@ export default function ExpenseTransaction({ transaction, onClick }: ExpenseTran
         <span className="text-sm text-gray-500">{date}</span>
       </div>
       <span className={`font-medium ${income ? 'text-green-600' : 'text-red-600'}`}>
-        {price}
+        {formatedPrice}
       </span>
     </div>
   );
