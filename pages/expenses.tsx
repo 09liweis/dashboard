@@ -216,7 +216,7 @@ const Expense: NextPage = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-7xl mx-auto">
       {showForm && (
         <ExpenseForm
           getExpenseStatistics={getExpenseStatistics}
@@ -289,14 +289,7 @@ const Expense: NextPage = () => {
                     : "bg-white text-gray-700 border-gray-200 hover:border-blue-400 hover:bg-blue-50"
                 }`}
               >
-                <span className="flex items-center gap-2">
-                  {isSelected && (
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                  )}
-                  {category}
-                </span>
+                {category}
               </button>
             );
           })}
