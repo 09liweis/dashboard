@@ -122,10 +122,6 @@ const Expense: NextPage = () => {
 
   const openTransactionDetail = (t: Transaction) => {
     setShowForm(true);
-    t.price = t.price?.replace("$", "");
-    if (!t.income) {
-      t.price = `-${t.price}`;
-    }
     setSelectTransaction(t);
   };
 

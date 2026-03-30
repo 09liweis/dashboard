@@ -33,6 +33,7 @@ export interface HeaderProps {
 export interface Transaction {
   _id?: string;
   price?: string;
+  formatedPrice?: string;
   income?:boolean;
   date?: string;
   title?: string;
