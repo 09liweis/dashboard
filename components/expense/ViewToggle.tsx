@@ -10,6 +10,7 @@ export default function ViewToggle({ currentView, onViewChange }: ViewToggleProp
     <div className="flex items-center justify-end gap-2 w-auto mb-3">
       {['overview','detail'].map((view)=>
       <button
+        key={view}
         onClick={() => onViewChange(view)}
         className={`relative px-4 py-2 rounded-md text-sm cursor-pointer font-medium transition-all ${
           currentView === view
