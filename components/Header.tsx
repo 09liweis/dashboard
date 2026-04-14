@@ -36,7 +36,7 @@ export default function Header({
       
       {/* Content */}
       <div className="relative z-10 p-3">
-        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between mb-6">
+        <div className="flex flex-col gap-4 flex-row items-center justify-between mb-6">
           <div className="flex flex-wrap items-center gap-2">
             {getLanguageKeys().map(({ k, v }: { [k: string]: string }) => (
               <Link key={k} href={pathname.toString()} locale={k}>
