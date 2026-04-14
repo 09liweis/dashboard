@@ -39,6 +39,8 @@ export default function Icon({ name, classNames = '', text = '', handleClick }: 
       onClick={handleClick}
       className={classNames}
       viewBox="0 0 24 24"
+      width="1em"
+      height="1em"
       fill="none"
       stroke="currentColor"
       strokeWidth="2"
@@ -46,9 +48,7 @@ export default function Icon({ name, classNames = '', text = '', handleClick }: 
       strokeLinejoin="round"
       aria-hidden="true"
     >
-      {path.split('M').filter(Boolean).map((segment, index) => (
-        <path key={index} d={`M${segment}`} />
-      ))}
+      <path d={path} />
     </svg>
   );
 }
