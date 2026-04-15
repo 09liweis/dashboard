@@ -260,7 +260,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-24 px-4 bg-gray-50">
+      <section className="py-10 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -287,7 +287,7 @@ export default function Home() {
                 onMouseEnter={() => setHoveredSkill(skill.name)}
                 onMouseLeave={() => setHoveredSkill(null)}
                 whileHover={{ scale: 1.02 }}
-                className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-2xl transition-all"
+                className="bg-white rounded-2xl p-4 md:p-8 shadow border border-gray-100 hover:shadow-2xl transition-all"
               >
                 <div className="flex justify-between items-center mb-4">
                   <div>
