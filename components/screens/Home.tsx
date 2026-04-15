@@ -185,7 +185,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <section className="py-20 px-4 bg-white">
+      <section className="py-10 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
@@ -200,7 +200,7 @@ export default function Home() {
               >
                 <div className={`absolute inset-0 bg-linear-to-br ${stat.gradient} opacity-0 group-hover:opacity-10 transition-opacity rounded-2xl`}></div>
                 <div className="relative bg-white rounded-2xl p-8 shadow-lg border border-gray-100 group-hover:border-transparent group-hover:shadow-2xl transition-all">
-                  <div className="text-5xl font-bold bg-linear-to-br from-gray-900 to-gray-600 text-transparent bg-clip-text mb-2">
+                  <div className="text-3xl md:text-5xl font-bold bg-linear-to-br from-gray-900 to-gray-600 text-transparent bg-clip-text mb-2">
                     {stat.value}
                   </div>
                   <div className="text-gray-600 font-medium">{stat.label}</div>
@@ -211,7 +211,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-24 px-4 bg-linear-to-b from-white to-gray-50">
+      <section className="py-10 px-4 bg-linear-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -241,7 +241,7 @@ export default function Home() {
               >
                 <div className={`absolute inset-0 bg-linear-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity rounded-3xl`}></div>
                 <motion.div
-                  className="relative bg-white rounded-3xl p-10 shadow-lg border border-gray-100 h-full transition-all group-hover:shadow-2xl group-hover:border-transparent"
+                  className="relative bg-white rounded-3xl p-5 md:p-10 shadow-lg border border-gray-100 h-full transition-all group-hover:shadow-2xl group-hover:border-transparent"
                   whileHover={{ y: -8 }}
                 >
                   <div className={`w-16 h-16 bg-linear-to-br ${service.gradient} rounded-2xl flex items-center justify-center mb-6 text-white shadow-lg transform group-hover:scale-110 group-hover:rotate-3 transition-all`}>
