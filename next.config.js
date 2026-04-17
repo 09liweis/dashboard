@@ -6,9 +6,6 @@ const nextConfig = {
   // Image optimization
   images: {
     domains: [
-      "api.waifu.pics",
-      "api.thecatapi.com",
-      "api.thedogapi.com",
       // Add other image domains as needed
     ],
     formats: ["image/avif", "image/webp"],
@@ -48,18 +45,6 @@ const nextConfig = {
           },
         ],
       },
-    ];
-  },
-
-  // Redirects for SEO
-  async redirects() {
-    return [
-      // Add any redirects for old URLs
-      // {
-      //   source: '/old-path',
-      //   destination: '/new-path',
-      //   permanent: true,
-      // },
     ];
   },
 
