@@ -86,7 +86,7 @@ export default function Home() {
         </div>
 
         <motion.div
-          style={{ opacity, scale }}
+          // style={{ opacity, scale }}
           className="relative max-w-7xl mx-auto px-4 py-10 text-center z-10"
         >
           <motion.div
