@@ -70,11 +70,10 @@ export interface ExpenseListProps {
 }
 
 export interface Knowledge {
-  nm: string,
-  items?: Array<Knowledge> | Array<string>,
-  pros?: string | Array<string>,
-  what?: string,
-  how?: string | Array<string>,
-  why?: string,
-  url?: string
+  _id?: string;
+  title: string;
+  definition: string;
+  categories: string[];
+  createdAt?: string;
+  updatedAt?: string;
 }
