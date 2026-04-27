@@ -1,12 +1,18 @@
 import type { NextPage } from 'next';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import KnowledgeCard from '../components/knowledge/KnowledgeCard';
 import { Knowledge } from 'types';
+import AppContext from '../AppContext';
 
 const KnowledgesPage: NextPage = () => {
+  const { user } = useContext(AppContext) as { user: { _id: string } | null };
+  const isLoggedIn = !!user?._id;
+  
   const [knowledges, setKnowledges] = useState<Knowledge[]>([]);
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
+  const [showViewModal, setShowViewModal] = useState(false);
+  const [viewingKnowledge, setViewingKnowledge] = useState<Knowledge | null>(null);
   const [editingKnowledge, setEditingKnowledge] = useState<Knowledge | null>(null);
   const [formData, setFormData] = useState({
     title: '',
@@ -83,6 +89,11 @@ const KnowledgesPage: NextPage = () => {
     }
   };
 
+  const handleCardClick = (knowledge: Knowledge) => {
+    setViewingKnowledge(knowledge);
+    setShowViewModal(true);
+  };
+
   const openModal = () => {
     resetForm();
     setShowModal(true);
@@ -91,6 +102,11 @@ const KnowledgesPage: NextPage = () => {
   const closeModal = () => {
     setShowModal(false);
     resetForm();
+  };
+
+  const closeViewModal = () => {
+    setShowViewModal(false);
+    setViewingKnowledge(null);
   };
 
   const resetForm = () => {
@@ -108,13 +124,15 @@ const KnowledgesPage: NextPage = () => {
         <h1 className="text-3xl font-bold bg-linear-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">
           Knowledge Base
         </h1>
-        <button
-          type="button"
-          onClick={openModal}
-          className="inline-flex cursor-pointer items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        >
-          Add Knowledge
-        </button>
+        {isLoggedIn && (
+          <button
+            type="button"
+            onClick={openModal}
+            className="inline-flex cursor-pointer items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            Add Knowledge
+          </button>
+        )}
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
@@ -122,12 +140,15 @@ const KnowledgesPage: NextPage = () => {
           <KnowledgeCard
             key={knowledge._id}
             knowledge={knowledge}
+            isLoggedIn={isLoggedIn}
             onEdit={handleEdit}
             onDelete={handleDelete}
+            onClick={handleCardClick}
           />
         ))}
       </div>
 
+      {/* Add/Edit Modal */}
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4 py-6">
           <div className="w-full max-w-2xl rounded-xl bg-white p-6 shadow-xl ring-1 ring-black/10">
@@ -201,6 +222,62 @@ const KnowledgesPage: NextPage = () => {
                 </button>
               </div>
             </form>
+          </div>
+        </div>
+      )}
+
+      {/* View Modal */}
+      {showViewModal && viewingKnowledge && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4 py-6">
+          <div className="w-full max-w-2xl rounded-xl bg-white p-6 shadow-xl ring-1 ring-black/10">
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <h2 className="text-xl font-semibold text-gray-900">
+                  {viewingKnowledge.title}
+                </h2>
+              </div>
+              <button
+                type="button"
+                onClick={closeViewModal}
+                className="rounded-full cursor-pointer bg-gray-100 p-2 text-gray-600 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                aria-label="Close modal"
+              >
+                ×
+              </button>
+            </div>
+            
+            <div className="mt-6 space-y-4">
+              <div>
+                <h3 className="text-sm font-medium text-gray-700 mb-2">Definition</h3>
+                <p className="text-gray-600 whitespace-pre-wrap">{viewingKnowledge.definition}</p>
+              </div>
+
+              {viewingKnowledge.categories && viewingKnowledge.categories.length > 0 && (
+                <div>
+                  <h3 className="text-sm font-medium text-gray-700 mb-2">Categories</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {viewingKnowledge.categories.map((category, index) => (
+                      <span
+                        key={index}
+                        className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full"
+                      >
+                        {category}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-end gap-3 pt-4">
+                <button
+                  type="button"
+                  onClick={closeViewModal}
+                  className="rounded-md cursor-pointer border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       )}
