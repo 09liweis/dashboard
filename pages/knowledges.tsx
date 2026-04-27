@@ -161,7 +161,7 @@ const KnowledgesPage: NextPage = () => {
       </form>
 
       {/* Knowledge List */}
-      <div className="space-y-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
         {knowledges.map((knowledge) => (
           <KnowledgeCard
             key={knowledge._id}
