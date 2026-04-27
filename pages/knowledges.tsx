@@ -10,6 +10,7 @@ const KnowledgesPage: NextPage = () => {
   
   const [knowledges, setKnowledges] = useState<Knowledge[]>([]);
   const [randomKnowledge, setRandomKnowledge] = useState<Knowledge | null>(null);
+  const [viewMode, setViewMode] = useState<'random' | 'list'>('random');
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [showViewModal, setShowViewModal] = useState(false);
@@ -23,10 +24,8 @@ const KnowledgesPage: NextPage = () => {
 
   useEffect(() => {
     fetchRandomKnowledge();
-    if (isLoggedIn) {
-      fetchKnowledges();
-    }
-  }, [isLoggedIn]);
+    fetchKnowledges();
+  }, []);
 
   const fetchKnowledges = async () => {
     try {
@@ -141,19 +140,46 @@ const KnowledgesPage: NextPage = () => {
         <h1 className="text-3xl font-bold bg-linear-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">
           Knowledge Base
         </h1>
-        {isLoggedIn && (
-          <button
-            type="button"
-            onClick={openModal}
-            className="inline-flex cursor-pointer items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            Add Knowledge
-          </button>
-        )}
+        <div className="flex items-center gap-3">
+          {/* View Mode Switch */}
+          <div className="flex bg-gray-100 rounded-lg p-1">
+            <button
+              type="button"
+              onClick={() => setViewMode('random')}
+              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                viewMode === 'random'
+                  ? 'bg-white text-blue-600 shadow-sm'
+                  : 'text-gray-600 hover:text-gray-800'
+              }`}
+            >
+              Random
+            </button>
+            <button
+              type="button"
+              onClick={() => setViewMode('list')}
+              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                viewMode === 'list'
+                  ? 'bg-white text-blue-600 shadow-sm'
+                  : 'text-gray-600 hover:text-gray-800'
+              }`}
+            >
+              List
+            </button>
+          </div>
+          {isLoggedIn && (
+            <button
+              type="button"
+              onClick={openModal}
+              className="inline-flex cursor-pointer items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              Add Knowledge
+            </button>
+          )}
+        </div>
       </div>
 
-      {/* Random Knowledge Card */}
-      {randomKnowledge && (
+      {/* Random Knowledge View */}
+      {viewMode === 'random' && randomKnowledge && (
         <div className="mb-8">
           <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl shadow-lg p-8 border border-blue-100">
             <div className="flex justify-between items-start mb-4">
@@ -202,8 +228,8 @@ const KnowledgesPage: NextPage = () => {
         </div>
       )}
 
-      {/* All Knowledge Grid - Only show when logged in */}
-      {isLoggedIn && (
+      {/* List View */}
+      {viewMode === 'list' && (
         <>
           <h2 className="text-xl font-semibold text-gray-800 mb-4">All Knowledges</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
