@@ -1,6 +1,6 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose from 'mongoose';
 
-export interface IKnowledge extends Document {
+export interface IKnowledge {
   title: string;
   definition: string;
   categories: string[];
@@ -8,7 +8,7 @@ export interface IKnowledge extends Document {
   updatedAt: Date;
 }
 
-const KnowledgeSchema: Schema = new Schema({
+const KnowledgeSchema = new mongoose.Schema({
   title: { type: String, required: true },
   definition: { type: String, required: true },
   categories: { type: [String], required: true },
@@ -16,4 +16,6 @@ const KnowledgeSchema: Schema = new Schema({
   timestamps: true,
 });
 
-export default mongoose.models.Knowledge || mongoose.model<IKnowledge>('Knowledge', KnowledgeSchema);
+const Knowledge = (mongoose.models as any).Knowledge || (mongoose as any).model('Knowledge', KnowledgeSchema);
+
+export default Knowledge;
