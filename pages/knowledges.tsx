@@ -9,6 +9,7 @@ const KnowledgesPage: NextPage = () => {
   const isLoggedIn = !!user?._id;
   
   const [knowledges, setKnowledges] = useState<Knowledge[]>([]);
+  const [randomKnowledge, setRandomKnowledge] = useState<Knowledge | null>(null);
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [showViewModal, setShowViewModal] = useState(false);
@@ -21,8 +22,11 @@ const KnowledgesPage: NextPage = () => {
   });
 
   useEffect(() => {
-    fetchKnowledges();
-  }, []);
+    fetchRandomKnowledge();
+    if (isLoggedIn) {
+      fetchKnowledges();
+    }
+  }, [isLoggedIn]);
 
   const fetchKnowledges = async () => {
     try {
@@ -31,6 +35,19 @@ const KnowledgesPage: NextPage = () => {
       setKnowledges(data);
     } catch (error) {
       console.error('Failed to fetch knowledges:', error);
+    }
+  };
+
+  const fetchRandomKnowledge = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch('/api/knowledges/random');
+      if (response.ok) {
+        const data = await response.json();
+        setRandomKnowledge(data);
+      }
+    } catch (error) {
+      console.error('Failed to fetch random knowledge:', error);
     } finally {
       setLoading(false);
     }
@@ -135,18 +152,74 @@ const KnowledgesPage: NextPage = () => {
         )}
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-        {knowledges.map((knowledge) => (
-          <KnowledgeCard
-            key={knowledge._id}
-            knowledge={knowledge}
-            isLoggedIn={isLoggedIn}
-            onEdit={handleEdit}
-            onDelete={handleDelete}
-            onClick={handleCardClick}
-          />
-        ))}
-      </div>
+      {/* Random Knowledge Card */}
+      {randomKnowledge && (
+        <div className="mb-8">
+          <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl shadow-lg p-8 border border-blue-100">
+            <div className="flex justify-between items-start mb-4">
+              <h2 className="text-2xl font-bold text-gray-900">{randomKnowledge.title}</h2>
+              {isLoggedIn && (
+                <div className="flex space-x-2">
+                  <button
+                    onClick={() => handleEdit(randomKnowledge)}
+                    className="text-blue-600 hover:text-blue-800 text-sm"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    onClick={() => randomKnowledge._id && handleDelete(randomKnowledge._id)}
+                    className="text-red-600 hover:text-red-800 text-sm"
+                  >
+                    Delete
+                  </button>
+                </div>
+              )}
+            </div>
+            
+            <p className="text-gray-700 mb-6 whitespace-pre-wrap">{randomKnowledge.definition}</p>
+            
+            {randomKnowledge.categories && randomKnowledge.categories.length > 0 && (
+              <div className="flex flex-wrap gap-2 mb-6">
+                {randomKnowledge.categories.map((category, index) => (
+                  <span
+                    key={index}
+                    className="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full"
+                  >
+                    {category}
+                  </span>
+                ))}
+              </div>
+            )}
+            
+            <button
+              type="button"
+              onClick={fetchRandomKnowledge}
+              className="inline-flex cursor-pointer items-center justify-center rounded-md bg-blue-600 px-6 py-3 text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              Next Knowledge →
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* All Knowledge Grid - Only show when logged in */}
+      {isLoggedIn && (
+        <>
+          <h2 className="text-xl font-semibold text-gray-800 mb-4">All Knowledges</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+            {knowledges.map((knowledge) => (
+              <KnowledgeCard
+                key={knowledge._id}
+                knowledge={knowledge}
+                isLoggedIn={isLoggedIn}
+                onEdit={handleEdit}
+                onDelete={handleDelete}
+                onClick={handleCardClick}
+              />
+            ))}
+          </div>
+        </>
+      )}
 
       {/* Add/Edit Modal */}
       {showModal && (
