@@ -135,7 +135,7 @@ const KnowledgesPage: NextPage = () => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
+    <div className="max-w-7xl mx-auto p-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
         <h1 className="text-3xl font-bold bg-linear-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">
           Knowledge Base
