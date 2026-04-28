@@ -21,7 +21,7 @@ export default function KnowledgeCard({ knowledge, isLoggedIn, onEdit, onDelete,
             {onEdit && (
               <button
                 onClick={() => onEdit(knowledge)}
-                className="text-blue-600 hover:text-blue-800 text-sm"
+                className="text-blue-600 cursor-pointer hover:text-blue-800 text-sm"
               >
                 Edit
               </button>
@@ -29,7 +29,7 @@ export default function KnowledgeCard({ knowledge, isLoggedIn, onEdit, onDelete,
             {onDelete && knowledge && knowledge?._id && (
               <button
                 onClick={() => onDelete(knowledge._id!)}
-                className="text-red-600 hover:text-red-800 text-sm"
+                className="text-red-600 cursor-pointer hover:text-red-800 text-sm"
               >
                 Delete
               </button>
