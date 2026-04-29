@@ -1,3 +1,4 @@
+import { motion } from 'motion/react';
 import { Transaction } from 'types';
 
 interface ExpenseTransactionProps {
@@ -7,21 +8,33 @@ interface ExpenseTransactionProps {
 
 export default function ExpenseTransaction({ transaction, onClick }: ExpenseTransactionProps) {
   const { formatedPrice, date, place, title, income } = transaction;
-  
+  const label = place?.name || title || 'Untitled';
+
   return (
-    <div 
+    <motion.div
       onClick={onClick}
-      className="bg-white rounded-lg p-3 border border-gray-100 shadow-xs hover:border-blue-500 transition-all cursor-pointer flex items-center justify-between"
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="group bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-gray-200 transition-all cursor-pointer p-3 flex items-center gap-3"
     >
-      <div className="flex flex-col">
-        <span className="text-gray-900 font-medium truncate">
-          {place?.name || title}
-        </span>
-        <span className="text-sm text-gray-500">{date}</span>
+      <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${income ? 'bg-green-50' : 'bg-red-50'}`}>
+        <svg className={`w-5 h-5 ${income ? 'text-green-500' : 'text-red-500'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          {income ? (
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m0-16l-4 4m4-4l4 4" />
+          ) : (
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 20V4m0 16l4-4m-4 4l-4-4" />
+          )}
+        </svg>
       </div>
-      <span className={`font-medium ${income ? 'text-green-600' : 'text-red-600'}`}>
+
+      <div className="flex-1 min-w-0">
+        <p className="text-sm font-semibold text-gray-900 truncate capitalize">{label}</p>
+        <p className="text-xs text-gray-400 mt-0.5">{date}</p>
+      </div>
+
+      <span className={`text-sm font-bold tabular-nums ${income ? 'text-green-600' : 'text-red-600'}`}>
         {formatedPrice}
       </span>
-    </div>
+    </motion.div>
   );
 }
