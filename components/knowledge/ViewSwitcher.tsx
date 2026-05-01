@@ -25,7 +25,7 @@ function Tab({ tabKey, label, path, isActive, onClick }: {
     <button
       type="button"
       onClick={onClick}
-      className={`relative px-5 py-2.5 cursor-pointer rounded-lg font-medium text-sm transition-all flex items-center gap-2 ${
+      className={`relative px-5 py-2.5 cursor-pointer rounded font-medium text-sm transition-all flex items-center gap-2 ${
         isActive ? 'text-gray-900' : 'text-gray-500 hover:text-gray-700'
       }`}
     >
