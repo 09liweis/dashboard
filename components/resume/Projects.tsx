@@ -18,15 +18,15 @@ export default function Projects() {
 
   const PROJECTS: Project[] = [
     {
-      name: "Canadian Mobile Welding",
-      description: "Professional welding services website with service showcase and contact integration",
-      technologies: ["Next.js", "shadcn/ui", "Netlify"],
+      name: "Aivio Digital redesign",
+      description: "Redesign website from wordpress to astro with fast render and better seo",
+      technologies: ["Astro", "tailwindcss", "Vercel", "Resend"],
       highlights: [
-        "Modern service website with professional aesthetic",
-        "Responsive showcase and portfolio sections",
-        "Automated contact form notifications"
+        "Remove heavy wordpress support",
+        "Fast static site render from astro framework",
+        "Host in vercel for free in limit bandwidth"
       ],
-      url: "https://canadian-mobile-welding.netlify.app",
+      url: "https://aivio-digital.com",
       category: "client",
       gradient: "from-gray-600 to-gray-800",
       bgGradient: "from-gray-50 to-gray-100"
