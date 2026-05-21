@@ -5,6 +5,7 @@ export const BLOG_POSTS: BlogType[] = [
     _id: 'build-a-website-for-500-to-crm-scale',
     url: 'build-a-website-for-500-to-crm-scale',
     title: 'How I Built a Website from $500 to CRM-Ready',
+    className: 'bg-slate-50',
     created_at: '2026-05-15T09:00:00.000Z',
     content: `
       <h2>From a Lean Static Start</h2>
@@ -21,6 +22,7 @@ export const BLOG_POSTS: BlogType[] = [
     _id: 'build-a-website-with-minimal-cost',
     url: 'build-a-website-with-minimal-cost',
     title: 'Build a Website with Minimal Cost Using Free Hosting and Storage',
+    className: 'bg-white',
     created_at: '2026-05-18T09:00:00.000Z',
     content: `
       <h2>Minimal Cost, Maximum Impact</h2>
@@ -37,6 +39,7 @@ export const BLOG_POSTS: BlogType[] = [
     _id: 'static-websites-power-small-business-growth',
     url: 'static-websites-power-small-business-growth',
     title: 'Static Websites Can Power Small Business Growth',
+    className: 'bg-slate-50',
     created_at: '2026-05-20T09:00:00.000Z',
     content: `
       <h2>Why Static Websites Still Work</h2>
@@ -48,5 +51,5 @@ export const BLOG_POSTS: BlogType[] = [
       <h2>Practical Results</h2>
       <p>The smartest websites are the ones that balance cost, speed, and business value. A static website can be the first step in a growth plan that eventually includes CRM features, analytics, and customer support tools.</p>
     `,
-  },
+  }
 ];

@@ -69,9 +69,13 @@ const BlogDetail: NextPage<BlogDetailPageProps> = ({ blog: initialBlog, blogId, 
 
   const formatDisplayHTML = (html: string) => {
     let formatedHTML = html
-      .replaceAll('<h2>', '<h2 class="text-3xl mt-3 font-bold">')
-      .replaceAll('<h3>', '<h3 class="text-2xl mt-3 font-semibold">')
-      .replaceAll('<p>', '<p class="text-xl">');
+      .replaceAll('<h2>', '<h2 class="text-3xl mt-10 font-bold text-slate-900">')
+      .replaceAll('<h3>', '<h3 class="text-2xl mt-8 font-semibold text-slate-900">')
+      .replaceAll('<p>', '<p class="text-lg leading-8 text-slate-700">')
+      .replaceAll('<ul>', '<ul class="mt-4 ml-6 list-disc text-slate-700">')
+      .replaceAll('<ol>', '<ol class="mt-4 ml-6 list-decimal text-slate-700">')
+      .replaceAll('<li>', '<li class="mb-2">')
+      .replaceAll('<blockquote>', '<blockquote class="border-l-4 border-slate-300 pl-4 italic text-slate-600">');
     return formatedHTML;
   };
 
@@ -112,33 +116,57 @@ const BlogDetail: NextPage<BlogDetailPageProps> = ({ blog: initialBlog, blogId, 
           canonical={`https://samliweisen.dev/blogs/${blogId}`}
         />
       )}
-      <h1 className="text-4xl font-bold">{blog.title}</h1>
-      <section
-        dangerouslySetInnerHTML={{ __html: formatDisplayHTML(blog.content) }}
-      ></section>
+      <div className={`max-w-4xl mx-auto px-4 py-10 ${blog.className || ''}`}>
+        <article className="rounded-3xl border border-slate-200 bg-white p-8 shadow-xl shadow-slate-100/50">
+          <header className="space-y-4">
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="text-sm uppercase tracking-[0.25em] text-slate-500">Blog Post</p>
+                <h1 className="text-4xl font-extrabold tracking-tight text-slate-900">{blog.title}</h1>
+              </div>
+              {blog.created_at && (
+                <p className="text-sm text-slate-500">Published {new Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(new Date(blog.created_at))}</p>
+              )}
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700">Web Development</span>
+              <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700">Cost Optimization</span>
+              <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700">Static Hosting</span>
+            </div>
+          </header>
 
-      {user._id && (
-        <form className="mt-3" onSubmit={handleBlogSubmit}>
-          <label htmlFor="title">Title</label>
-          <input
-            className="mb-3 w-full p-2 rounded-sm"
-            name="title"
-            id="title"
-            onChange={handleBlogChange}
-            value={blog.title}
-          />
-          <textarea
-            className="w-full p-2 h-96 rounded-sm"
-            name="content"
-            value={blog.content}
-            onChange={handleBlogChange}
-          ></textarea>
+          <section className="mt-10 space-y-8 text-slate-700 leading-8">
+            <div dangerouslySetInnerHTML={{ __html: formatDisplayHTML(blog.content) }} />
+          </section>
+        </article>
 
-          <button type="submit" className="button">
-            {getTranslate(lang, loading ? 'updating' : 'update')}
-          </button>
-        </form>
-      )}
+        {user._id && (
+          <form className="mt-10 space-y-4 rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm" onSubmit={handleBlogSubmit}>
+            <div>
+              <label htmlFor="title" className="block text-sm font-semibold text-slate-700">Title</label>
+              <input
+                className="mt-2 w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-slate-900 shadow-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                name="title"
+                id="title"
+                onChange={handleBlogChange}
+                value={blog.title}
+              />
+            </div>
+            <div>
+              <label htmlFor="content" className="block text-sm font-semibold text-slate-700">Content</label>
+              <textarea
+                className="mt-2 h-80 w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-slate-900 shadow-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                name="content"
+                value={blog.content}
+                onChange={handleBlogChange}
+              ></textarea>
+            </div>
+            <button type="submit" className="inline-flex items-center justify-center rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-700">
+              {getTranslate(lang, loading ? 'updating' : 'update')}
+            </button>
+          </form>
+        )}
+      </div>
     </>
   );
 };
