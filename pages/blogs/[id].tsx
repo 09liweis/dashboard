@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import type { NextPage } from 'next';
+import type { NextPage, GetServerSideProps } from 'next';
 import { fetchAPI, getTranslate } from 'helpers';
 import { BLOG_LIST_API } from '../../constants';
 import { useRouter } from 'next/router';
@@ -8,22 +8,27 @@ import useDebounce from 'hooks/useDebounce';
 import { BlogType } from 'types';
 import SEO from '@/components/SEO';
 import { getBlogPostingSchema, getBreadcrumbSchema } from '../../config/seo';
+import { BLOG_POSTS } from '../../data/blogs';
 
-const BlogDetail: NextPage = () => {
+interface BlogDetailPageProps {
+  blog: BlogType;
+  blogId: string;
+  isNew: boolean;
+}
+
+const emptyBlog: BlogType = {
+  _id: 'new',
+  title: '',
+  content: '',
+  url: '',
+  initialLoad: '1',
+};
+
+const BlogDetail: NextPage<BlogDetailPageProps> = ({ blog: initialBlog, blogId, isNew }) => {
   const router = useRouter();
-  const blogId = router.query.id;
-
   const { user, lang } = useContext(AppContext);
-
   const [loading, setLoading] = useState(false);
-
-  const emptyBlog: BlogType = {
-    title: '',
-    content: '',
-    url: '',
-    initialLoad: '1',
-  };
-  const [blog, setBlog] = useState(emptyBlog);
+  const [blog, setBlog] = useState(initialBlog || emptyBlog);
 
   const debounceUpdateContent = useDebounce(blog.content, 1000);
 
@@ -32,22 +37,6 @@ const BlogDetail: NextPage = () => {
       updateBlog();
     }
   }, [debounceUpdateContent]);
-
-  const fetchBlogDetail = async () => {
-    if (!blogId || blogId === 'new') return;
-    const response = await fetchAPI({
-      url: `${BLOG_LIST_API}/${blogId}`,
-      method: 'GET',
-      body: {},
-    });
-    if (response) {
-      setBlog(response);
-    }
-  };
-
-  useEffect(() => {
-    fetchBlogDetail();
-  }, [blogId]);
 
   const handleBlogChange = (e: any) => {
     const { name, value } = e.target;
@@ -58,7 +47,7 @@ const BlogDetail: NextPage = () => {
     setLoading(true);
     let url = `${BLOG_LIST_API}/`;
     let method = 'POST';
-    if (blogId !== 'new') {
+    if (!isNew) {
       url += blogId;
       method = 'PUT';
     }
@@ -68,7 +57,7 @@ const BlogDetail: NextPage = () => {
       method,
     });
     setLoading(false);
-    if (blogId === 'new') {
+    if (isNew) {
       router.replace(`/blogs/${response._id}`);
     }
   };
@@ -86,7 +75,6 @@ const BlogDetail: NextPage = () => {
     return formatedHTML;
   };
 
-  // Extract plain text for meta description
   const getPlainText = (html: string) => {
     return html
       .replace(/<[^>]*>/g, '')
@@ -101,7 +89,7 @@ const BlogDetail: NextPage = () => {
     { name: blog.title || 'Blog Post', url: `/blogs/${blogId}` },
   ];
 
-  const jsonLd = blogId !== 'new' && blog.title ? [
+  const jsonLd = !isNew && blog.title ? [
     getBlogPostingSchema({
       title: blog.title,
       content: blog.content,
@@ -113,16 +101,11 @@ const BlogDetail: NextPage = () => {
 
   return (
     <>
-      {blogId !== 'new' && blog.title && (
+      {!isNew && blog.title && (
         <SEO
           title={`${blog.title} | Blog - Sam Li`}
           description={getPlainText(blog.content) || 'Technical article by Sam Li'}
-          keywords={[
-            'blog post',
-            'technical article',
-            'web development',
-            'programming',
-          ]}
+          keywords={['blog post', 'technical article', 'web development', 'programming']}
           url={`/blogs/${blogId}`}
           type="article"
           jsonLd={jsonLd}
@@ -141,14 +124,14 @@ const BlogDetail: NextPage = () => {
             className="mb-3 w-full p-2 rounded-sm"
             name="title"
             id="title"
-            onChange={(e) => handleBlogChange(e)}
+            onChange={handleBlogChange}
             value={blog.title}
           />
           <textarea
             className="w-full p-2 h-96 rounded-sm"
             name="content"
             value={blog.content}
-            onChange={(e) => handleBlogChange(e)}
+            onChange={handleBlogChange}
           ></textarea>
 
           <button type="submit" className="button">
@@ -158,6 +141,37 @@ const BlogDetail: NextPage = () => {
       )}
     </>
   );
+};
+
+export const getServerSideProps: GetServerSideProps<BlogDetailPageProps> = async ({ params }) => {
+  const rawId = params?.id;
+  const blogId = typeof rawId === 'string' ? rawId : Array.isArray(rawId) ? rawId[0] : '';
+
+  if (blogId === 'new') {
+    return {
+      props: {
+        blog: emptyBlog,
+        blogId,
+        isNew: true,
+      },
+    };
+  }
+
+  const blog = BLOG_POSTS.find((post) => post._id === blogId || post.url === blogId);
+
+  if (!blog) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      blog,
+      blogId,
+      isNew: false,
+    },
+  };
 };
 
 export default BlogDetail;

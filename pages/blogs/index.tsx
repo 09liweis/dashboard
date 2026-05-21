@@ -1,7 +1,6 @@
-import { useState, useEffect, useContext } from 'react';
-import type { NextPage } from 'next';
-import { fetchAPI, getTranslate } from 'helpers';
-import { BLOG_LIST_API } from '../../constants';
+import { useContext } from 'react';
+import type { NextPage, GetServerSideProps } from 'next';
+import { getTranslate } from 'helpers';
 import Link from 'next/link';
 import AppContext from 'AppContext';
 import { BlogType } from 'types';
@@ -10,33 +9,15 @@ import BlogList from '@/components/blog/BlogList';
 import SEO from '@/components/SEO';
 import { getBreadcrumbSchema } from '../../config/seo';
 import { motion } from 'motion/react';
+import { BLOG_POSTS } from '../../data/blogs';
 
-const Blogs: NextPage = () => {
+interface BlogsPageProps {
+  blogs: BlogType[];
+}
+
+const Blogs: NextPage<BlogsPageProps> = ({ blogs }) => {
   const { user, lang } = useContext(AppContext);
-  const [curBlogs, setBlogs] = useState<Blog[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  const fetchBlogList = async () => {
-    try {
-      const {blogs, status} = await fetchAPI({
-        url: BLOG_LIST_API,
-        method: 'GET',
-        body: {},
-      });
-      if (blogs) {
-        const bs = blogs.map((b: BlogType) => new Blog(b));
-        setBlogs(bs);
-      }
-    } catch (error) {
-      console.error('Error fetching blogs:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchBlogList();
-  }, []);
+  const curBlogs = blogs.map((b) => new Blog(b));
 
   const breadcrumbs = [
     { name: 'Home', url: '/' },
@@ -97,17 +78,18 @@ const Blogs: NextPage = () => {
             </Link>
           )}
         </div>
-
-        {loading ? (
-          <div className="flex justify-center items-center py-12">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-          </div>
-        ) : (
-          <BlogList blogs={curBlogs} />
-        )}
+        <BlogList blogs={curBlogs} />
       </div>
     </>
   );
+};
+
+export const getServerSideProps: GetServerSideProps<BlogsPageProps> = async () => {
+  return {
+    props: {
+      blogs: BLOG_POSTS,
+    },
+  };
 };
 
 export default Blogs;
