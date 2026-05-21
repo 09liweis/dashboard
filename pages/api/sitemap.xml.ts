@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { BLOG_POSTS } from '../../data/blogs';
 
 const SITE_URL = 'https://samliweisen.dev';
 
@@ -12,7 +13,7 @@ const STATIC_PAGES = [
   { url: '/expenses', changefreq: 'daily', priority: 0.6 },
 ];
 
-function generateSiteMap(dynamicPaths: string[] = []) {
+function generateSiteMap(dynamicPaths: { path: string; lastmod: string }[] = []) {
   const staticPages = STATIC_PAGES.map(
     (page) => `
     <url>
@@ -26,10 +27,10 @@ function generateSiteMap(dynamicPaths: string[] = []) {
 
   const dynamicPages = dynamicPaths
     .map(
-      (path) => `
+      ({ path, lastmod }) => `
     <url>
       <loc>${SITE_URL}${path}</loc>
-      <lastmod>${new Date().toISOString()}</lastmod>
+      <lastmod>${lastmod}</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
     </url>
@@ -49,12 +50,12 @@ export default async function handler(
   res: NextApiResponse
 ) {
   try {
-    // Fetch dynamic blog posts (optional - if you have an API endpoint)
-    // const blogResponse = await fetch(`${process.env.API_URL}/blogs`);
-    // const blogs = await blogResponse.json();
-    // const blogPaths = blogs.map((blog: any) => `/blogs/${blog._id}`);
+    const blogPaths = BLOG_POSTS.map((blog) => ({
+      path: `/blogs/${blog.url || blog._id}`,
+      lastmod: new Date(blog.created_at || new Date().toISOString()).toISOString(),
+    }));
 
-    const sitemap = generateSiteMap(/* blogPaths */);
+    const sitemap = generateSiteMap(blogPaths);
 
     res.setHeader('Content-Type', 'text/xml');
     res.setHeader('Cache-Control', 'public, s-maxage=86400, stale-while-revalidate');
