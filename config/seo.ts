@@ -24,6 +24,12 @@ export const SITE_CONFIG = {
   ],
 };
 
+export const GEO_META = {
+  placeName: 'Toronto',
+  region: 'CA-ON',
+  position: '43.6532;-79.3832',
+};
+
 // JSON-LD Schema for Person (Professional Profile)
 export const getPersonSchema = () => ({
   '@context': 'https://schema.org',
