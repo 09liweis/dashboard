@@ -7,7 +7,7 @@ import AppContext from 'AppContext';
 import useDebounce from 'hooks/useDebounce';
 import { BlogType } from 'types';
 import SEO from '@/components/SEO';
-import { getBlogPostingSchema, getBreadcrumbSchema, GEO_META } from '../../config/seo';
+import { getBlogPostingSchema, getBreadcrumbSchema, getFAQSchema, getSpeakableSchema, GEO_META, extractSections, stripHtml } from '../../config/seo';
 import { BLOG_POSTS } from '../../data/blogs';
 
 interface BlogDetailPageProps {
@@ -79,12 +79,12 @@ const BlogDetail: NextPage<BlogDetailPageProps> = ({ blog: initialBlog, blogId, 
     return formatedHTML;
   };
 
-  const getPlainText = (html: string) => {
+  const getPlainText = (html: string, maxLength = 160) => {
     return html
       .replace(/<[^>]*>/g, '')
       .replace(/\s+/g, ' ')
       .trim()
-      .substring(0, 160);
+      .substring(0, maxLength);
   };
 
   const breadcrumbs = [
@@ -93,14 +93,41 @@ const BlogDetail: NextPage<BlogDetailPageProps> = ({ blog: initialBlog, blogId, 
     { name: blog.title || 'Blog Post', url: `/blogs/${blogId}` },
   ];
 
+  // GEO: extract sections and generate AI-friendly summary
+  const sections = blog.content ? extractSections(blog.content) : [];
+  const aiSummary = blog.content ? stripHtml(blog.content, 320) : '';
+  const blogAbstract = blog.content ? getPlainText(blog.content, 300) : '';
+  const geoAbout = [
+    'Web Development',
+    'Software Engineering',
+    'Frontend Development',
+    'Static Site Hosting',
+    'Cost Optimization',
+  ];
+
   const jsonLd = !isNew && blog.title ? [
     getBlogPostingSchema({
       title: blog.title,
       content: blog.content,
       createdAt: blog.created_at || new Date().toISOString(),
       url: `/blogs/${blogId}`,
+      abstract: blogAbstract,
+      about: geoAbout.map((t) => ({ '@type': 'Thing', name: t })),
+      keywords: [
+        'web development',
+        'programming',
+        'software engineering',
+        'static hosting',
+        ...sections,
+      ],
     }),
     getBreadcrumbSchema(breadcrumbs),
+    ...(sections.length > 0 ? [getFAQSchema(sections)] : []),
+    getSpeakableSchema(
+      `/blogs/${blogId}`,
+      blog.title,
+      blogAbstract
+    ),
   ] : [];
 
   return (
@@ -109,7 +136,14 @@ const BlogDetail: NextPage<BlogDetailPageProps> = ({ blog: initialBlog, blogId, 
         <SEO
           title={`${blog.title} | Blog - Sam Li`}
           description={getPlainText(blog.content) || 'Technical article by Sam Li'}
-          keywords={['blog post', 'technical article', 'web development', 'programming']}
+          keywords={[
+            'blog post',
+            'technical article',
+            'web development',
+            'programming',
+            'static hosting',
+            'cost optimization',
+          ]}
           url={`/blogs/${blogId}`}
           type="article"
           jsonLd={jsonLd}
@@ -117,6 +151,10 @@ const BlogDetail: NextPage<BlogDetailPageProps> = ({ blog: initialBlog, blogId, 
           geoPlaceName={GEO_META.placeName}
           geoRegion={GEO_META.region}
           geoPosition={GEO_META.position}
+          aiSummary={aiSummary}
+          sections={sections}
+          abstract={blogAbstract}
+          about={geoAbout}
         />
       )}
       <div className={`max-w-4xl mx-auto px-4 py-10 ${blog.className || ''}`}>

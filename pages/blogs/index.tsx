@@ -7,7 +7,7 @@ import { BlogType } from 'types';
 import Blog from 'classes/blog';
 import BlogList from '@/components/blog/BlogList';
 import SEO from '@/components/SEO';
-import { getBreadcrumbSchema, GEO_META } from '../../config/seo';
+import { getBreadcrumbSchema, GEO_META, SITE_CONFIG } from '../../config/seo';
 import { motion } from 'motion/react';
 import { BLOG_POSTS } from '../../data/blogs';
 
@@ -32,10 +32,29 @@ const Blogs: NextPage<BlogsPageProps> = ({ blogs }) => {
       name: 'Sam Li Blog',
       description: 'Technical articles and insights about web development, programming, and software engineering',
       url: 'https://samliweisen.dev/blogs',
+      isAccessibleForFree: true,
+      license: 'https://creativecommons.org/licenses/by/4.0/',
+      inLanguage: 'en-US',
       author: {
         '@type': 'Person',
-        name: 'Sam Li',
+        name: SITE_CONFIG.author,
+        url: SITE_CONFIG.siteUrl,
       },
+      publisher: {
+        '@type': 'Person',
+        name: SITE_CONFIG.author,
+      },
+      // GEO: blog post list signals to AI that this is a regularly updated resource
+      blogPost: blogs.map((b) => ({
+        '@type': 'BlogPosting',
+        headline: b.title,
+        url: `${SITE_CONFIG.siteUrl}/blogs/${b.url || b._id}`,
+        datePublished: b.created_at,
+        author: {
+          '@type': 'Person',
+          name: SITE_CONFIG.author,
+        },
+      })),
     },
   ];
 
@@ -52,6 +71,9 @@ const Blogs: NextPage<BlogsPageProps> = ({ blogs }) => {
           'React tutorials',
           'Vue.js tutorials',
           'Node.js tutorials',
+          'static site hosting',
+          'budget web development',
+          'CRM integration',
         ]}
         url="/blogs"
         type="blog"
@@ -60,6 +82,22 @@ const Blogs: NextPage<BlogsPageProps> = ({ blogs }) => {
         geoPlaceName={GEO_META.placeName}
         geoRegion={GEO_META.region}
         geoPosition={GEO_META.position}
+        aiSummary="Technical blog covering web development, static hosting strategies, budget-friendly website building, and CRM integration. Written by Sam Li, a Full Stack Developer with 10+ years of experience."
+        sections={[
+          'Static Website Hosting',
+          'Budget Development',
+          'CRM Integration',
+          'Web Development Best Practices',
+          'Cost Optimization',
+        ]}
+        abstract="A regularly updated technical blog by Sam Li, sharing practical insights on web development, from budget-friendly static site deployment to full-scale CRM integration and application scaling strategies."
+        about={[
+          'Web Development',
+          'Static Hosting',
+          'Software Engineering',
+          'Cost Optimization',
+          'CRM Systems',
+        ]}
       />
       <div className="max-w-4xl mx-auto">
         <div className="flex justify-between items-center mb-8">
