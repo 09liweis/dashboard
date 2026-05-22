@@ -7,7 +7,7 @@ import AppContext from 'AppContext';
 import useDebounce from 'hooks/useDebounce';
 import { BlogType } from 'types';
 import SEO from '@/components/SEO';
-import { getBlogPostingSchema, getBreadcrumbSchema } from '../../config/seo';
+import { getBlogPostingSchema, getBreadcrumbSchema, GEO_META } from '../../config/seo';
 import { BLOG_POSTS } from '../../data/blogs';
 
 interface BlogDetailPageProps {
@@ -114,6 +114,9 @@ const BlogDetail: NextPage<BlogDetailPageProps> = ({ blog: initialBlog, blogId, 
           type="article"
           jsonLd={jsonLd}
           canonical={`https://samliweisen.dev/blogs/${blogId}`}
+          geoPlaceName={GEO_META.placeName}
+          geoRegion={GEO_META.region}
+          geoPosition={GEO_META.position}
         />
       )}
       <div className={`max-w-4xl mx-auto px-4 py-10 ${blog.className || ''}`}>

@@ -7,7 +7,7 @@ import { BlogType } from 'types';
 import Blog from 'classes/blog';
 import BlogList from '@/components/blog/BlogList';
 import SEO from '@/components/SEO';
-import { getBreadcrumbSchema } from '../../config/seo';
+import { getBreadcrumbSchema, GEO_META } from '../../config/seo';
 import { motion } from 'motion/react';
 import { BLOG_POSTS } from '../../data/blogs';
 
@@ -57,6 +57,9 @@ const Blogs: NextPage<BlogsPageProps> = ({ blogs }) => {
         type="blog"
         jsonLd={jsonLd}
         canonical="https://samliweisen.dev/blogs"
+        geoPlaceName={GEO_META.placeName}
+        geoRegion={GEO_META.region}
+        geoPosition={GEO_META.position}
       />
       <div className="max-w-4xl mx-auto">
         <div className="flex justify-between items-center mb-8">
