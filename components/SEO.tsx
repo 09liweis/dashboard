@@ -10,6 +10,9 @@ interface SEOProps {
   jsonLd?: object | object[];
   noindex?: boolean;
   canonical?: string;
+  geoPlaceName?: string;
+  geoRegion?: string;
+  geoPosition?: string;
 }
 
 export default function SEO({
@@ -22,6 +25,9 @@ export default function SEO({
   jsonLd,
   noindex = false,
   canonical,
+  geoPlaceName,
+  geoRegion,
+  geoPosition,
 }: SEOProps) {
   const keywordsString = [
     'Full Stack Developer',
@@ -53,6 +59,14 @@ export default function SEO({
       ) : (
         <meta name="robots" content="index, follow" />
       )}
+
+      {/* Geo Tags */}
+      {geoPlaceName && <meta name="geo.placename" content={geoPlaceName} />}
+      {geoRegion && <meta name="geo.region" content={geoRegion} />}
+      {geoPosition && <>
+        <meta name="geo.position" content={geoPosition} />
+        <meta name="ICBM" content={geoPosition} />
+      </>}
 
       {/* Open Graph */}
       <meta property="og:type" content={type} />
