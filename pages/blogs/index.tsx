@@ -44,7 +44,6 @@ const Blogs: NextPage<BlogsPageProps> = ({ blogs }) => {
         '@type': 'Person',
         name: SITE_CONFIG.author,
       },
-      // GEO: blog post list signals to AI that this is a regularly updated resource
       blogPost: blogs.map((b) => ({
         '@type': 'BlogPosting',
         headline: b.title,
@@ -99,26 +98,75 @@ const Blogs: NextPage<BlogsPageProps> = ({ blogs }) => {
           'CRM Systems',
         ]}
       />
-      <div className="max-w-4xl mx-auto">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">
-            Blog Posts
-          </h1>
-          {user._id && (
-            <Link href="/blogs/new">
-              <motion.span
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-              >
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
-                </svg>
-                {getTranslate(lang, 'addNew')}
-              </motion.span>
-            </Link>
-          )}
-        </div>
+
+      <div className="mx-auto max-w-4xl px-4 py-12 sm:py-16">
+        {/* ─── Hero Section ───────────────────────────────────────────── */}
+        <motion.header
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mb-12 space-y-4 sm:mb-16"
+        >
+          <span className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-blue-600">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-blue-500" />
+            </span>
+            Technical Blog
+          </span>
+
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <div className="max-w-2xl space-y-3">
+              <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-5xl">
+                Articles &amp; Insights
+              </h1>
+              <p className="text-lg leading-relaxed text-slate-600">
+                Practical guides on web development, cost-effective architecture, and scaling strategies — drawn from real project experience.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3 sm:flex-shrink-0 sm:self-end">
+              {user._id ? (
+                <Link href="/blogs/new">
+                  <motion.span
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                    className="inline-flex cursor-pointer items-center gap-2 rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-700"
+                  >
+                    <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                    {getTranslate(lang, 'addNew')}
+                  </motion.span>
+                </Link>
+              ) : (
+                <div className="flex flex-wrap gap-2">
+                  {['Web Dev', 'Performance', 'Architecture', 'Tutorials'].map((t) => (
+                    <span
+                      key={t}
+                      className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-500 shadow-sm"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              )}
+
+              <span className="text-sm text-slate-400">
+                {curBlogs.length} article{curBlogs.length !== 1 ? 's' : ''}
+              </span>
+            </div>
+          </div>
+
+          {/* Decorative separator */}
+          <div className="flex items-center gap-3 pt-2">
+            <span className="h-px flex-1 bg-gradient-to-r from-slate-200 to-transparent" />
+            <span className="h-1 w-1 rounded-full bg-slate-300" />
+            <span className="h-px flex-1 bg-gradient-to-l from-slate-200 to-transparent" />
+          </div>
+        </motion.header>
+
+        {/* ─── Blog List ──────────────────────────────────────────────── */}
         <BlogList blogs={curBlogs} />
       </div>
     </>

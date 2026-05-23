@@ -12,31 +12,35 @@ export default function BlogList({ blogs }: BlogListProps) {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="text-center py-12"
+        className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-slate-300 bg-slate-50 px-6 py-20 text-center"
       >
-        <svg 
-          className="w-16 h-16 mx-auto text-gray-400 mb-4"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path 
-            strokeLinecap="round" 
-            strokeLinejoin="round" 
-            strokeWidth="2" 
-            d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2.5 2.5 0 00-2.5-2.5H15" 
-          />
-        </svg>
-        <h3 className="text-xl font-medium text-gray-900">No blogs found</h3>
-        <p className="text-gray-500">Start writing your first blog post!</p>
+        <div className="inline-flex items-center justify-center rounded-full bg-slate-100 p-4 ring-1 ring-slate-200">
+          <svg
+            className="h-8 w-8 text-slate-400"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="1.5"
+              d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2.5 2.5 0 00-2.5-2.5H15"
+            />
+          </svg>
+        </div>
+        <h3 className="mt-5 text-xl font-semibold text-slate-900">No blog posts yet</h3>
+        <p className="mt-2 max-w-sm text-sm leading-relaxed text-slate-500">
+          Check back soon for technical articles and insights on web development and software engineering.
+        </p>
       </motion.div>
     );
   }
 
   return (
-    <div className="space-y-6">
-      {blogs.map((blog) => (
-        <BlogCard key={blog.getId()} blog={blog} />
+    <div className="grid gap-6">
+      {blogs.map((blog, index) => (
+        <BlogCard key={blog.getId()} blog={blog} index={index} />
       ))}
     </div>
   );
