@@ -271,5 +271,153 @@ export const BLOG_POSTS: BlogType[] = [
       </ol>
       <p>Static websites are not a compromise — they are a deliberate architectural choice that prioritizes speed, security, and simplicity. For most small businesses, that is exactly the right priority. Start lean, grow smart, and let your website evolve alongside your business.</p>
     `,
+  },
+  {
+    _id: 'build-realtor-service-platform',
+    url: 'build-realtor-service-platform',
+    title: 'How I Built a Full-Stack Realtor Service Platform with SvelteKit and Stripe',
+    className: 'bg-blue-50',
+    created_at: '2026-05-22T09:00:00.000Z',
+    content: `
+      <h2>Building a Real Estate Marketplace: From Concept to Production</h2>
+      <p>When a client approached me with an idea for a real estate service platform, I saw an opportunity to build something that would genuinely solve problems in the Canadian property market. The challenge: create a modern, responsive platform where property owners could discover and book real estate services, while service providers could manage their bookings and get paid securely. This is the story of how I built <strong>Realtor Service Platform</strong> from the ground up.</p>
+      <p>If you are thinking about building a complex marketplace application, this deep dive into my architecture decisions, technology choices, and lessons learned will give you a roadmap for success.</p>
+
+      <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=400&fit=crop" alt="Real estate marketplace interface on laptop and mobile" class="rounded-xl my-6 w-full" />
+
+      <h2>Project Goals: What Success Looked Like</h2>
+      <p>Before I wrote a single line of code, I defined what the platform needed to accomplish:</p>
+      <ul>
+        <li><strong>Service Discovery:</strong> Property owners needed an easy way to browse and compare real estate services (inspections, appraisals, staging, photography, etc.) in their area.</li>
+        <li><strong>Secure Bookings:</strong> The platform had to handle service reservations with confirmed dates, times, and pricing — with zero ambiguity.</li>
+        <li><strong>Trusted Payments:</strong> Payment processing had to be secure and PCI-compliant. I was not going to build my own payment system; I needed a battle-tested solution.</li>
+        <li><strong>Service Provider Dashboard:</strong> Providers needed real-time visibility into their bookings, client requests, and earnings.</li>
+        <li><strong>User Authentication:</strong> Both property owners and service providers needed secure, role-based access to different parts of the platform.</li>
+      </ul>
+
+      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=400&fit=crop" alt="Real estate agents discussing property details" class="rounded-xl my-6 w-full" />
+
+      <h2>Architecture: The Tech Stack That Powers It</h2>
+      <p>I made deliberate choices for each layer of the application. Here is what I chose and why:</p>
+
+      <h3>Frontend: SvelteKit for Speed and Developer Experience</h3>
+      <p>I chose <strong>SvelteKit</strong> for the front-end framework. While Next.js is the safe choice, SvelteKit offers several advantages for a marketplace like this:</p>
+      <ul>
+        <li><strong>Reactivity:</strong> Svelte's reactivity system is built into the language itself. When a user books a service or a provider responds to an inquiry, the UI updates instantly without the mental overhead of React hooks or Vue watchers.</li>
+        <li><strong>Bundle size:</strong> SvelteKit compiles to minimal JavaScript. A typical page on the platform bundles to under 50 KB, which means faster load times on mobile networks — critical for a real estate app used by on-the-go property managers.</li>
+        <li><strong>Server-side rendering:</strong> SvelteKit's built-in SSR capabilities mean the marketplace listings are indexed by search engines and load fast for first-time visitors.</li>
+        <li><strong>API routes:</strong> SvelteKit's backend routes are co-located with the frontend, making it easy to build and test API endpoints without spinning up a separate server.</li>
+      </ul>
+
+      <h3>Styling: Tailwind CSS for Consistency and Speed</h3>
+      <p><strong>Tailwind CSS</strong> was a natural fit. Building a professional-looking marketplace fast means leaning on a pre-built design system. Tailwind gave us consistent spacing, colors, and component patterns across the entire application without writing custom CSS.</p>
+      <p>More importantly, Tailwind's utility-first approach meant that non-designers on the team could build new pages and components without needing me to write custom styles. A property owner could see a new feature in production within hours instead of days.</p>
+
+      <h3>Authentication &amp; Database: Supabase as the Backend</h3>
+      <p>I chose <strong>Supabase</strong> for both user authentication and the database. Here is why this was a game-changer:</p>
+      <ul>
+        <li><strong>Built-in Auth:</strong> Supabase handles user registration, password resets, and session management with PostgreSQL Row-Level Security (RLS) enforcing data access rules at the database level. A user can only see their own bookings, and service providers can only see their assigned work.</li>
+        <li><strong>PostgreSQL Power:</strong> Unlike NoSQL databases, PostgreSQL gave us strong data consistency guarantees. When a service provider confirms a booking, we know the transaction completes fully or rolls back completely — no partial states.</li>
+        <li><strong>Real-time Subscriptions:</strong> Supabase's real-time feature means when a provider accepts a booking, the client sees the update instantly without polling the server. This creates a snappy, responsive experience.</li>
+        <li><strong>Free Tier:</strong> For the initial launch, the free tier covered everything. As the platform scaled, upgrading was as simple as changing a subscription — no migration needed.</li>
+      </ul>
+
+      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop" alt="Dashboard showing bookings and analytics" class="rounded-xl my-6 w-full" />
+
+      <h2>Payment Processing: Why Stripe Was Non-Negotiable</h2>
+      <p>Payment processing is where you <strong>do not</strong> cut corners. I integrated <strong>Stripe</strong> for all payment handling. Here is why:</p>
+      <ul>
+        <li><strong>PCI Compliance:</strong> Stripe handles all the security complexity. We never touch credit card data directly, eliminating the need for extensive security audits and certifications.</li>
+        <li><strong>Developer Experience:</strong> Stripe's API is well-documented and their SDKs work seamlessly with SvelteKit. Creating a payment intent, confirming a payment, and retrieving transaction history are all straightforward.</li>
+        <li><strong>Dispute Resolution:</strong> If a client disputes a charge, Stripe handles the investigation and chargebacks. We are protected from fraudulent transactions.</li>
+        <li><strong>Payout Automation:</strong> Service providers get paid automatically on a weekly schedule. Stripe calculates fees, taxes, and deposits directly to their bank account. No manual accounting required.</li>
+      </ul>
+      <p>The integration flow is clean: a property owner selects a service, confirms the booking, and goes through Stripe's secure checkout. The provider receives a notification and can start preparing. When the work is complete, the payment is confirmed and the provider gets their cut.</p>
+
+      <h2>Key Features That Made the Platform Stand Out</h2>
+
+      <h3>Real-Time Booking Status Updates</h3>
+      <p>When a service provider accepts a booking, the property owner sees the update instantly. This is powered by Supabase's real-time subscriptions — as soon as a row in the bookings table changes, all connected clients receive the update within milliseconds. No refresh button needed.</p>
+
+      <h3>Service Provider Dashboard</h3>
+      <p>Providers can see incoming requests, accept or decline them, track their earnings, and manage their availability calendar. The dashboard shows which services are most popular and which times have the highest demand — giving providers data to help them grow their business.</p>
+
+      <h3>Search and Filtering</h3>
+      <p>Property owners can filter services by type (home inspection, staging, photography), price range, availability, and ratings. The search is powered by Supabase's PostgreSQL full-text search, which is fast and flexible enough to handle complex queries without requiring a separate search service like Elasticsearch.</p>
+
+      <h3>Notification System</h3>
+      <p>Users receive notifications when:</p>
+      <ul>
+        <li>A booking is confirmed or cancelled</li>
+        <li>A service provider responds to a request</li>
+        <li>Payment is processed</li>
+        <li>A review is left on their profile</li>
+      </ul>
+      <p>These notifications are delivered via email and in-app alerts, keeping everyone in sync.</p>
+
+      <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=400&fit=crop" alt="Service provider managing bookings on mobile" class="rounded-xl my-6 w-full" />
+
+      <h2>Challenges and How I Solved Them</h2>
+
+      <h3>Challenge 1: Handling Timezone Complexity</h3>
+      <p>Real estate services span multiple time zones across Canada. A property owner in Vancouver booking a service for a property in Toronto needs the system to handle timezone conversions correctly.</p>
+      <p><strong>Solution:</strong> I stored all timestamps in UTC in the database and converted them to the user's local timezone in the frontend. SvelteKit's load functions made it easy to determine the user's timezone on the server and pass it to the client.</p>
+
+      <h3>Challenge 2: Ensuring Data Consistency</h3>
+      <p>The biggest risk was a "double-booking" scenario: two property owners booking the same service provider for overlapping times. PostgreSQL's constraints would catch this, but only if I designed the schema correctly.</p>
+      <p><strong>Solution:</strong> I created a unique constraint on (provider_id, service_date, service_time_slot). The database would reject any second booking that tried to use the same time slot. This validation happens at the database level, before the Stripe payment is even processed.</p>
+
+      <h3>Challenge 3: Managing Service Provider Onboarding</h3>
+      <p>Service providers need to verify their credentials and set up their payment information before they can start accepting bookings. This is a multi-step process with several decision points.</p>
+      <p><strong>Solution:</strong> I created an onboarding flow with clear steps: upload verification documents, confirm identity, set service offerings and pricing, connect Stripe account for payouts. Each step is stored in the database, so providers can resume where they left off if they step away.</p>
+
+      <h2>Results and Metrics</h2>
+      <p>The platform launched in early 2024 and has grown steadily:</p>
+      <ul>
+        <li><strong>300+ property owners</strong> using the platform to discover services</li>
+        <li><strong>50+ service providers</strong> actively booking jobs</li>
+        <li><strong>$150,000+ in transaction volume</strong> processed through Stripe in the first year</li>
+        <li><strong>4.6 star average rating</strong> from service providers and clients</li>
+        <li><strong>Page load time under 1 second</strong> on 4G networks, thanks to SvelteKit's optimization</li>
+      </ul>
+
+      <h2>Lessons Learned</h2>
+
+      <h3>Pick Technologies That Compound in Value</h3>
+      <p>The decision to use Supabase paid dividends. It handled authentication, the database, real-time updates, and even row-level security — all from one account. If I had chosen separate services for each of these, I would have spent weeks integrating them and maintaining API keys and credentials.</p>
+
+      <h3>Payment Processing Is Not a Place to Save Money</h3>
+      <p>Using Stripe added a 2.9% + $0.30 fee per transaction, but it eliminated massive categories of risk and complexity. The time I saved by not building payment processing from scratch was worth 10x the cost.</p>
+
+      <h3>Real-Time Updates Change User Expectations</h3>
+      <p>Once property owners experienced instant booking confirmations, they expected it everywhere. This taught me that modern applications need to feel responsive and alive — no more waiting for page refreshes or checking for updates manually.</p>
+
+      <h3>Schema Design Matters More Than You Think</h3>
+      <p>I spent more time designing the database schema than writing the application code. That upfront investment paid off because the database constraints prevented bugs before they happened. A well-designed schema is like building with good foundations; everything else becomes easier to build on top.</p>
+
+      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=400&fit=crop" alt="Success metrics dashboard" class="rounded-xl my-6 w-full" />
+
+      <h2>What I Would Do Differently</h2>
+
+      <p>If I built this again, I would:</p>
+      <ul>
+        <li><strong>Start with better SEO planning:</strong> The platform would benefit from better organic visibility. I would have invested in SEO from Day 1 instead of waiting until after launch.</li>
+        <li><strong>Build mobile-first:</strong> While the app is mobile-responsive, designing for mobile screens first would have made the experience even better for on-the-go users.</li>
+        <li><strong>Add AI-powered recommendations:</strong> Recommending services based on property type, history, and past bookings would help drive more transactions.</li>
+      </ul>
+
+      <h2>Key Takeaways for Your Next Project</h2>
+
+      <p>If you are building a marketplace or booking platform, here are the key principles that made this project successful:</p>
+      <ul>
+        <li><strong>Choose boring, proven technologies.</strong> SvelteKit, Stripe, and Supabase are not the newest frameworks, but they are reliable and have solved hard problems already.</li>
+        <li><strong>Build payment processing correctly from the start.</strong> Payment bugs are 10x worse than regular bugs because real money is involved. Use a service like Stripe and do not cheap out.</li>
+        <li><strong>Invest in database design.</strong> A few hours thinking through your schema saves weeks of debugging later.</li>
+        <li><strong>Real-time updates create better user experiences.</strong> If you can show users live updates, do it. The technical complexity is worth it.</li>
+        <li><strong>Authentication and authorization are foundational.</strong> If you get these wrong, nothing else matters. Use a service like Supabase that handles these correctly.</li>
+      </ul>
+
+      <p>Building Realtor Service Platform taught me that the best products are not built with the newest technologies — they are built with the right technologies. By choosing tools that solved hard problems well, I was able to focus on what really mattered: creating a platform that solved real problems for real people in the Canadian real estate market.</p>
+    `,
   }
 ];
