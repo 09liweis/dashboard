@@ -12,7 +12,7 @@ export const BLOG_POSTS: BlogType[] = [
       <p>When most people think about building a business website, they imagine spending thousands of dollars on developers, designers, and expensive monthly subscriptions. But what if I told you that $500 is enough to launch a fully functional, professional-looking website — and then grow it into a system that manages your customer relationships?</p>
       <p>This is not a theory. This is exactly what I did, and in this article I'll walk you through every decision, every tool, and every lesson learned along the way.</p>
 
-      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop" alt="Website cost optimization concept with charts and laptop" class="rounded-xl my-6 w-full" />
+      <img src="https://images.pexels.com/photos/285814/pexels-photo-285814.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Website development code on computer screen" class="rounded-xl my-6 w-full" />
 
       <h2>Phase 1: Laying the Foundation (Budget: ~$200)</h2>
       <p>The first phase is all about getting something live as quickly as possible. Here is exactly how I spent the initial budget:</p>
@@ -26,7 +26,7 @@ export const BLOG_POSTS: BlogType[] = [
 
       <blockquote>Tip: The biggest mistake beginners make is picking expensive tools they don't need yet. Start with free options — you can always upgrade later.</blockquote>
 
-      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop" alt="Dashboard analytics showing website growth metrics" class="rounded-xl my-6 w-full" />
+      <img src="https://images.pexels.com/photos/3861957/pexels-photo-3861957.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Analytics graph on laptop screen showing growth metrics" class="rounded-xl my-6 w-full" />
 
       <h2>Phase 2: Making It Work for Business (Budget: ~$150)</h2>
       <p>Having a pretty website is nice. But a website that actually helps you run your business? That is where the real value lives. In this phase, I added practical features that turn visitors into leads:</p>
@@ -48,7 +48,7 @@ export const BLOG_POSTS: BlogType[] = [
       </ul>
       <p>The remaining $150 went toward setting up the database and a few small API services that power the dashboard.</p>
 
-      <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&h=400&fit=crop" alt="CRM dashboard interface on laptop screen" class="rounded-xl my-6 w-full" />
+      <img src="https://images.pexels.com/photos/39559/pexels-photo-39559.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="CRM dashboard interface on screen" class="rounded-xl my-6 w-full" />
 
       <h2>What This System Looks Like Today</h2>
       <p>Fast forward a few months, and I now have a website that does far more than just look good:</p>
@@ -84,7 +84,7 @@ export const BLOG_POSTS: BlogType[] = [
       <p>There is a common belief that building a professional website requires a monthly budget of at least $30–$50. Between hosting, a domain, storage for images and files, and a database for saving data, the costs seem to add up quickly. But here is the truth: you can launch a fully functional, fast, and secure website for <strong>almost $0 per month</strong> — and this is not a limited trial. This is sustainable for real projects.</p>
       <p>In this guide, I will show you exactly which free services to use, how to combine them into a working system, and what the trade-offs really look like.</p>
 
-      <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop" alt="Server racks and cloud hosting infrastructure" class="rounded-xl my-6 w-full" />
+      <img src="https://images.pexels.com/photos/577210/pexels-photo-577210.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Cloud computing and hosting infrastructure" class="rounded-xl my-6 w-full" />
 
       <h2>The Free Stack: Every Piece of the Puzzle</h2>
       <p>Think of your website as four components working together. Here is how to get each one for free:</p>
@@ -103,7 +103,7 @@ export const BLOG_POSTS: BlogType[] = [
 
       <blockquote>Both Vercel and Netlify automatically provide free HTTPS certificates through Let's Encrypt. Your site will have the green lock icon in the browser, which is essential for trust and SEO.</blockquote>
 
-      <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop" alt="Code editor with deployment pipeline visualization" class="rounded-xl my-6 w-full" />
+      <img src="https://images.pexels.com/photos/574069/pexels-photo-574069.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Laptop with code editor and deployment pipeline" class="rounded-xl my-6 w-full" />
 
       <h3>3. File Storage — Cloudinary or Uploadthing (Free)</h3>
       <p>Your website will need to display images, PDFs, or other media files. Storing these alongside your code is not ideal — it bloats your repository and slows down deploys. Instead, use a dedicated file storage service:</p>
@@ -122,7 +122,7 @@ export const BLOG_POSTS: BlogType[] = [
         <li><strong>Neon (Free Tier):</strong> 500 MB database, 100 hours of compute per month. Serverless PostgreSQL with a unique "branching" feature that lets you create instant copies of your database for testing — incredibly useful during development.</li>
       </ul>
 
-      <img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=800&h=400&fit=crop" alt="Database architecture diagram on a whiteboard" class="rounded-xl my-6 w-full" />
+      <img src="https://images.pexels.com/photos/97080/pexels-photo-97080.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Server technology and database infrastructure" class="rounded-xl my-6 w-full" />
 
       <h2>Putting It All Together: A Real-World Example</h2>
       <p>Let me show you how to connect all these free services into one working system. Here is a step-by-step walkthrough for building a portfolio site with a contact form:</p>
@@ -179,7 +179,7 @@ export const BLOG_POSTS: BlogType[] = [
       <p>When you hear "static website," what comes to mind? A one-page HTML file from 1999 with a Comic Sans heading and a "Under Construction" gif? If so, you are in for a surprise. Modern static websites are fast, dynamic, secure, and capable of powering real business growth. In fact, for most small businesses, a well-built static website delivers better results than a bloated WordPress site — at a fraction of the cost.</p>
       <p>Let me explain why "static" might be the smartest choice you make for your business.</p>
 
-      <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop" alt="Team collaborating on website design around a table" class="rounded-xl my-6 w-full" />
+      <img src="https://images.pexels.com/photos/1181341/pexels-photo-1181341.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Team collaborating on web development project" class="rounded-xl my-6 w-full" />
 
       <h2>What "Static" Really Means in 2025</h2>
       <p>In the modern web development world, "static" means the files your visitors receive — HTML, CSS, and JavaScript — are pre-built ahead of time and served as-is. A static website today does not mean the site itself is unchanging or boring. It means the heavy lifting happens during the build process, not when a visitor requests a page.</p>
@@ -192,7 +192,7 @@ export const BLOG_POSTS: BlogType[] = [
       <h3>The Security Bonus</h3>
       <p>WordPress sites get hacked. A lot. According to security firm Sucuri, WordPress accounted for over 90% of all hacked CMS websites in recent years. The most common attack vectors — plugin vulnerabilities, outdated themes, SQL injection — simply do not exist on a static site. There is no database to inject into, no admin panel to brute-force, and no server-side code to exploit. Your attack surface is reduced to almost zero.</p>
 
-      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop" alt="Website speed test results showing fast load times" class="rounded-xl my-6 w-full" />
+      <img src="https://images.pexels.com/photos/12899121/pexels-photo-12899121.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Website performance analytics and speed metrics" class="rounded-xl my-6 w-full" />
 
       <h2>The Business Growth Playbook: From Static to Sophisticated</h2>
       <p>Here is a practical, step-by-step growth path that I have used with multiple small business clients. Each phase builds on the previous one, and you only move forward when your business is ready.</p>
@@ -209,7 +209,7 @@ export const BLOG_POSTS: BlogType[] = [
 
       <blockquote>Pro Tip: Use a tool like Google PageSpeed Insights or GTmetrix to measure your site's speed. A well-built static site should score 95+ on desktop and 80+ on mobile out of the box.</blockquote>
 
-      <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=400&fit=crop" alt="Business person analyzing website analytics on tablet" class="rounded-xl my-6 w-full" />
+      <img src="https://images.pexels.com/photos/6476251/pexels-photo-6476251.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Business professional analyzing website analytics on laptop" class="rounded-xl my-6 w-full" />
 
       <h3>Phase 2: Lead Generation (Month 2-3)</h3>
       <p>Once your foundation is solid, add features that actively generate and capture business leads:</p>
@@ -229,7 +229,7 @@ export const BLOG_POSTS: BlogType[] = [
         <li><strong>Payment Integration:</strong> If you sell services or digital products, add payment capabilities. Even a simple Stripe integration can handle one-time payments and subscriptions.</li>
       </ul>
 
-      <img src="https://images.unsplash.com/photo-1563986768609-322da13575f2?w=800&h=400&fit=crop" alt="Multiple connected digital devices showing business growth" class="rounded-xl my-6 w-full" />
+      <img src="https://images.pexels.com/photos/17489153/pexels-photo-17489153.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Business technology and digital growth strategy" class="rounded-xl my-6 w-full" />
 
       <h2>Real Business Results: What to Expect</h2>
       <p>Based on the projects I have worked on, here is what a typical small business can expect after implementing this growth playbook:</p>
@@ -283,7 +283,7 @@ export const BLOG_POSTS: BlogType[] = [
       <p>When a client approached me with an idea for a real estate service platform, I saw an opportunity to build something that would genuinely solve problems in the Canadian property market. The challenge: create a modern, responsive platform where property owners could discover and book real estate services, while service providers could manage their bookings and get paid securely. This is the story of how I built <strong>Realtor Service Platform</strong> from the ground up.</p>
       <p>If you are thinking about building a complex marketplace application, this deep dive into my architecture decisions, technology choices, and lessons learned will give you a roadmap for success.</p>
 
-      <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=400&fit=crop" alt="Real estate marketplace interface on laptop and mobile" class="rounded-xl my-6 w-full" />
+      <img src="https://images.pexels.com/photos/8730040/pexels-photo-8730040.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Real estate professional using technology for property showcase" class="rounded-xl my-6 w-full" />
 
       <h2>Project Goals: What Success Looked Like</h2>
       <p>Before I wrote a single line of code, I defined what the platform needed to accomplish:</p>
@@ -295,7 +295,7 @@ export const BLOG_POSTS: BlogType[] = [
         <li><strong>User Authentication:</strong> Both property owners and service providers needed secure, role-based access to different parts of the platform.</li>
       </ul>
 
-      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=400&fit=crop" alt="Real estate agents discussing property details" class="rounded-xl my-6 w-full" />
+      <img src="https://images.pexels.com/photos/8815905/pexels-photo-8815905.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Real estate professional using tablet for property management" class="rounded-xl my-6 w-full" />
 
       <h2>Architecture: The Tech Stack That Powers It</h2>
       <p>I made deliberate choices for each layer of the application. Here is what I chose and why:</p>
@@ -322,7 +322,7 @@ export const BLOG_POSTS: BlogType[] = [
         <li><strong>Free Tier:</strong> For the initial launch, the free tier covered everything. As the platform scaled, upgrading was as simple as changing a subscription — no migration needed.</li>
       </ul>
 
-      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop" alt="Dashboard showing bookings and analytics" class="rounded-xl my-6 w-full" />
+      <img src="https://images.pexels.com/photos/7661628/pexels-photo-7661628.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Dashboard showing bookings and analytics data" class="rounded-xl my-6 w-full" />
 
       <h2>Payment Processing: Why Stripe Was Non-Negotiable</h2>
       <p>Payment processing is where you <strong>do not</strong> cut corners. I integrated <strong>Stripe</strong> for all payment handling. Here is why:</p>
@@ -355,7 +355,7 @@ export const BLOG_POSTS: BlogType[] = [
       </ul>
       <p>These notifications are delivered via email and in-app alerts, keeping everyone in sync.</p>
 
-      <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=400&fit=crop" alt="Service provider managing bookings on mobile" class="rounded-xl my-6 w-full" />
+      <img src="https://images.pexels.com/photos/5239804/pexels-photo-5239804.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Online payment processing and checkout interface" class="rounded-xl my-6 w-full" />
 
       <h2>Challenges and How I Solved Them</h2>
 
@@ -395,7 +395,7 @@ export const BLOG_POSTS: BlogType[] = [
       <h3>Schema Design Matters More Than You Think</h3>
       <p>I spent more time designing the database schema than writing the application code. That upfront investment paid off because the database constraints prevented bugs before they happened. A well-designed schema is like building with good foundations; everything else becomes easier to build on top.</p>
 
-      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=400&fit=crop" alt="Success metrics dashboard" class="rounded-xl my-6 w-full" />
+      <img src="https://images.pexels.com/photos/5849594/pexels-photo-5849594.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Successful project completion and team collaboration" class="rounded-xl my-6 w-full" />
 
       <h2>What I Would Do Differently</h2>
 

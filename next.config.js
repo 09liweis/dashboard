@@ -6,7 +6,7 @@ const nextConfig = {
   // Image optimization
   images: {
     domains: [
-      // Add other image domains as needed
+      'images.pexels.com',
     ],
     formats: ["image/avif", "image/webp"],
   },
