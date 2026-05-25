@@ -37,7 +37,7 @@ export default function BlogCard({ blog, index = 0, featured = false }: BlogCard
                   {blog.getTitle()}
                 </h2>
                 <p className="mx-auto max-w-md text-sm leading-relaxed text-slate-300 line-clamp-2">
-                  {blog.getDescription()}
+                  {blog.getExcerpt()}
                 </p>
               </div>
             </div>
@@ -60,7 +60,7 @@ export default function BlogCard({ blog, index = 0, featured = false }: BlogCard
               </div>
 
               <p className="text-base leading-relaxed text-slate-600 line-clamp-4 lg:line-clamp-5">
-                {blog.getDescription()}
+                {blog.getExcerpt()}
               </p>
             </div>
 
@@ -109,7 +109,7 @@ export default function BlogCard({ blog, index = 0, featured = false }: BlogCard
 
         {/* Description */}
         <p className="mt-3 text-sm leading-relaxed text-slate-500 line-clamp-2">
-          {blog.getDescription()}
+          {blog.getExcerpt()}
         </p>
 
         {/* Bottom row */}

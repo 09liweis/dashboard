@@ -5,6 +5,7 @@ export const BLOG_POSTS: BlogType[] = [
     _id: 'build-a-website-for-500-to-crm-scale',
     url: 'build-a-website-for-500-to-crm-scale',
     title: 'How I Built a Website from $500 to CRM-Ready',
+    excerpt: 'A step-by-step account of launching a professional website and lightweight CRM system for just $500 — covering domain setup, free hosting on Vercel, lead capture, email automation, and building a custom dashboard that costs under $20/month to maintain.',
     className: 'bg-slate-50',
     created_at: '2026-05-15T09:00:00.000Z',
     content: `
@@ -77,6 +78,7 @@ export const BLOG_POSTS: BlogType[] = [
     _id: 'build-a-website-with-minimal-cost',
     url: 'build-a-website-with-minimal-cost',
     title: 'Build a Website with Minimal Cost Using Free Hosting and Storage',
+    excerpt: 'A complete guide to launching a fast, secure website for nearly $0 per month using free tiers from GitHub, Vercel, Cloudinary, and Supabase — with practical advice on when and how to upgrade incrementally as your project grows.',
     className: 'bg-white',
     created_at: '2026-05-18T09:00:00.000Z',
     content: `
@@ -172,6 +174,7 @@ export const BLOG_POSTS: BlogType[] = [
     _id: 'static-websites-power-small-business-growth',
     url: 'static-websites-power-small-business-growth',
     title: 'Static Websites Can Power Small Business Growth',
+    excerpt: 'Modern static websites are fast, secure, and capable of driving real business growth — often outperforming bloated WordPress sites at a fraction of the cost. A practical playbook from foundation to automated CRM integration.',
     className: 'bg-slate-50',
     created_at: '2026-05-20T09:00:00.000Z',
     content: `
@@ -276,6 +279,7 @@ export const BLOG_POSTS: BlogType[] = [
     _id: 'build-realtor-service-platform',
     url: 'build-realtor-service-platform',
     title: 'How I Built a Full-Stack Realtor Service Platform with SvelteKit and Stripe',
+    excerpt: 'A deep dive into building a real estate service marketplace with SvelteKit, Supabase, and Stripe — covering architecture decisions, real-time booking updates, secure payment processing, and the lessons learned from launching a production platform.',
     className: 'bg-blue-50',
     created_at: '2026-05-22T09:00:00.000Z',
     content: `
@@ -424,6 +428,7 @@ export const BLOG_POSTS: BlogType[] = [
     _id: 'migrating-aivio-digital-from-wordpress-to-astro',
     url: 'migrating-aivio-digital-from-wordpress-to-astro',
     title: 'How I Migrated Aivio Digital from WordPress to Astro to Reduce Cost and Increase Code Quality',
+    excerpt: 'The full story of migrating a digital agency site from WordPress to the Astro framework — cutting hosting costs from $78/month to $0, boosting PageSpeed from 58 to 97, eliminating 7 plugins, and gaining type-safe content validation with Zod schemas.',
     className: 'bg-emerald-50',
     created_at: '2026-05-24T09:00:00.000Z',
     content: `

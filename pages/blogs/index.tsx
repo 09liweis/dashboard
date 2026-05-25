@@ -47,6 +47,7 @@ const Blogs: NextPage<BlogsPageProps> = ({ blogs }) => {
       blogPost: blogs.map((b) => ({
         '@type': 'BlogPosting',
         headline: b.title,
+        description: b.excerpt || '',
         url: `${SITE_CONFIG.siteUrl}/blogs/${b.url || b._id}`,
         datePublished: b.created_at,
         author: {

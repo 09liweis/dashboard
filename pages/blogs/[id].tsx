@@ -135,7 +135,7 @@ const BlogDetail: NextPage<BlogDetailPageProps> = ({ blog: initialBlog, blogId, 
       {!isNew && blog.title && (
         <SEO
           title={`${blog.title} | Blog - Sam Li`}
-          description={getPlainText(blog.content) || 'Technical article by Sam Li'}
+          description={blog.excerpt || getPlainText(blog.content) || 'Technical article by Sam Li'}
           keywords={[
             'blog post',
             'technical article',
@@ -174,6 +174,11 @@ const BlogDetail: NextPage<BlogDetailPageProps> = ({ blog: initialBlog, blogId, 
               <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700">Cost Optimization</span>
               <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700">Static Hosting</span>
             </div>
+            {blog.excerpt && (
+              <p className="text-lg leading-relaxed text-slate-600 border-l-4 border-slate-200 pl-4 italic">
+                {blog.excerpt}
+              </p>
+            )}
           </header>
 
           <section className="mt-10 space-y-8 text-slate-700 leading-8">
