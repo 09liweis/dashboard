@@ -12,11 +12,11 @@ export default function BlogList({ blogs }: BlogListProps) {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-slate-300 bg-slate-50 px-6 py-20 text-center"
+        className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-slate-300 bg-slate-50/50 px-6 py-20 text-center"
       >
-        <div className="inline-flex items-center justify-center rounded-full bg-slate-100 p-4 ring-1 ring-slate-200">
+        <div className="inline-flex items-center justify-center rounded-2xl bg-slate-100 p-5 ring-1 ring-slate-200/60">
           <svg
-            className="h-8 w-8 text-slate-400"
+            className="h-10 w-10 text-slate-400"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -29,7 +29,7 @@ export default function BlogList({ blogs }: BlogListProps) {
             />
           </svg>
         </div>
-        <h3 className="mt-5 text-xl font-semibold text-slate-900">No blog posts yet</h3>
+        <h3 className="mt-6 text-xl font-semibold text-slate-900">No blog posts yet</h3>
         <p className="mt-2 max-w-sm text-sm leading-relaxed text-slate-500">
           Check back soon for technical articles and insights on web development and software engineering.
         </p>
@@ -37,11 +37,21 @@ export default function BlogList({ blogs }: BlogListProps) {
     );
   }
 
+  const [featured, ...rest] = blogs;
+
   return (
-    <div className="grid gap-6">
-      {blogs.map((blog, index) => (
-        <BlogCard key={blog.getId()} blog={blog} index={index} />
-      ))}
+    <div className="space-y-8">
+      {/* Featured post — full width */}
+      <BlogCard blog={featured} index={0} featured />
+
+      {/* Remaining posts — 2-column grid */}
+      {rest.length > 0 && (
+        <div className="grid gap-6 sm:grid-cols-2">
+          {rest.map((blog, index) => (
+            <BlogCard key={blog.getId()} blog={blog} index={index + 1} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

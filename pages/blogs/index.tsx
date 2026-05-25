@@ -99,41 +99,46 @@ const Blogs: NextPage<BlogsPageProps> = ({ blogs }) => {
         ]}
       />
 
-      <div className="mx-auto max-w-4xl px-4 py-12 sm:py-16">
+      <div className="mx-auto max-w-5xl px-4 py-12 sm:py-16 lg:py-20">
         {/* ─── Hero Section ───────────────────────────────────────────── */}
         <motion.header
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-12 space-y-4 sm:mb-16"
+          className="mb-12 sm:mb-16"
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-blue-600">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-blue-500" />
-            </span>
-            Technical Blog
-          </span>
+          <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
+            <div className="max-w-2xl space-y-4">
+              <div className="flex items-center gap-3">
+                <span className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-white">
+                  <span className="relative flex h-1.5 w-1.5">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                  </span>
+                  Blog
+                </span>
+                <span className="text-sm text-slate-400">
+                  {curBlogs.length} article{curBlogs.length !== 1 ? 's' : ''}
+                </span>
+              </div>
 
-          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-            <div className="max-w-2xl space-y-3">
-              <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-5xl">
+              <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
                 Articles &amp; Insights
               </h1>
-              <p className="text-lg leading-relaxed text-slate-600">
+              <p className="text-base leading-relaxed text-slate-500 sm:text-lg">
                 Practical guides on web development, cost-effective architecture, and scaling strategies — drawn from real project experience.
               </p>
             </div>
 
-            <div className="flex flex-wrap items-center gap-3 sm:flex-shrink-0 sm:self-end">
+            <div className="flex flex-wrap items-center gap-3 sm:flex-shrink-0">
               {user._id ? (
                 <Link href="/blogs/new">
                   <motion.span
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}
-                    className="inline-flex cursor-pointer items-center gap-2 rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-700"
+                    className="inline-flex cursor-pointer items-center gap-2 rounded-xl bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-slate-800"
                   >
-                    <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
                     </svg>
                     {getTranslate(lang, 'addNew')}
@@ -144,26 +149,18 @@ const Blogs: NextPage<BlogsPageProps> = ({ blogs }) => {
                   {['Web Dev', 'Performance', 'Architecture', 'Tutorials'].map((t) => (
                     <span
                       key={t}
-                      className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-500 shadow-sm"
+                      className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-500"
                     >
                       {t}
                     </span>
                   ))}
                 </div>
               )}
-
-              <span className="text-sm text-slate-400">
-                {curBlogs.length} article{curBlogs.length !== 1 ? 's' : ''}
-              </span>
             </div>
           </div>
 
-          {/* Decorative separator */}
-          <div className="flex items-center gap-3 pt-2">
-            <span className="h-px flex-1 bg-gradient-to-r from-slate-200 to-transparent" />
-            <span className="h-1 w-1 rounded-full bg-slate-300" />
-            <span className="h-px flex-1 bg-gradient-to-l from-slate-200 to-transparent" />
-          </div>
+          {/* Separator */}
+          <div className="mt-8 h-px bg-slate-200" />
         </motion.header>
 
         {/* ─── Blog List ──────────────────────────────────────────────── */}
