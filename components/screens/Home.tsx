@@ -29,8 +29,8 @@ export default function Home() {
 
   const services = [
     {
-      title: 'Full Stack Development',
-      description: 'End-to-end development of scalable web applications with modern frameworks and best practices.',
+      title: 'WordPress to Next.js Migration',
+      description: 'Reduce your hosting costs by 80% or more. I migrate WordPress sites to modern static architectures that load faster, cost less, and require minimal maintenance.',
       gradient: 'from-blue-500 to-cyan-500',
       bgGradient: 'from-blue-50 to-cyan-50',
       icon: (
@@ -40,8 +40,8 @@ export default function Home() {
       )
     },
     {
-      title: 'API Development',
-      description: 'RESTful API design and implementation with secure authentication and comprehensive documentation.',
+      title: 'Custom Web Applications',
+      description: 'Full-stack development with React, Next.js, and Node.js. From simple dashboards to complex SaaS platforms, I build solutions that scale with your business.',
       gradient: 'from-emerald-500 to-teal-500',
       bgGradient: 'from-emerald-50 to-teal-50',
       icon: (
@@ -51,24 +51,24 @@ export default function Home() {
       )
     },
     {
-      title: 'Database Architecture',
-      description: 'Design and optimization of database schemas for performance, scalability, and data integrity.',
+      title: 'Performance Optimization',
+      description: 'Cut page load times in half. I optimize images, implement caching, and refactor slow code to deliver sub-second load times and better SEO rankings.',
       gradient: 'from-orange-500 to-red-500',
       bgGradient: 'from-orange-50 to-red-50',
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
       )
     },
     {
-      title: 'Performance Optimization',
-      description: 'Code optimization, caching strategies, and performance tuning for faster load times.',
+      title: 'API Development & Integration',
+      description: 'Connect your systems efficiently. I build secure REST APIs, integrate third-party services like Stripe and Supabase, and ensure reliable data flow.',
       gradient: 'from-yellow-500 to-orange-500',
       bgGradient: 'from-yellow-50 to-orange-50',
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
         </svg>
       )
     }
@@ -131,10 +131,9 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
-              className="text-lg md:text-xl text-gray-500 max-w-3xl mx-auto mb-12 leading-relaxed"
+              className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed"
             >
-              Building scalable, high-performance web applications with 10+ years of expertise in modern technologies.
-              Transforming ideas into exceptional digital experiences.
+              I help businesses reduce hosting costs, improve performance, and ship faster. From WordPress migrations to custom web apps, I deliver solutions that save money and scale.
             </motion.p>
 
             <motion.div
@@ -220,10 +219,10 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              What I Do
+              How I Can Help
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Comprehensive development solutions tailored to drive your business forward
+              Practical solutions that save money, load faster, and solve real problems
             </p>
           </motion.div>
 
@@ -269,10 +268,10 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              Technical Skills
+              Technologies I Use
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Mastery across the full technology stack
+              Modern tools chosen for performance, reliability, and cost-effectiveness
             </p>
           </motion.div>
 
@@ -330,10 +329,10 @@ export default function Home() {
           className="relative max-w-4xl mx-auto text-center"
         >
           <h2 className="text-5xl md:text-6xl font-bold text-white mb-8">
-            Let's Build Something Great
+            Ready to Save Money and Ship Faster?
           </h2>
           <p className="text-xl text-gray-300 mb-12 leading-relaxed max-w-2xl mx-auto">
-            Ready to bring your vision to life? Let's discuss how we can create exceptional digital experiences together.
+            Whether you need to cut hosting costs, build a new application, or optimize an existing one, I deliver results that matter.
           </p>
           <div className="flex flex-wrap justify-center gap-6">
             <a href="mailto:weisen.li@hotmail.com">
@@ -342,18 +341,18 @@ export default function Home() {
                 whileTap={{ scale: 0.95 }}
                 className="px-10 py-5 bg-white text-gray-900 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transition-all"
               >
-                Start a Project
+                Get a Free Quote
               </motion.button>
             </a>
-            <a href="https://github.com/09liweis" target="_blank" rel="noopener noreferrer">
+            <Link href="/blogs">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-10 py-5 bg-gray-800 text-white rounded-xl font-bold text-lg border-2 border-gray-700 hover:border-gray-500 transition-all shadow-xl"
               >
-                View GitHub
+                Read Case Studies
               </motion.button>
-            </a>
+            </Link>
           </div>
         </motion.div>
       </section>
