@@ -2,6 +2,158 @@ import type { BlogType } from '../types';
 
 export const BLOG_POSTS: BlogType[] = [
   {
+    _id: 'building-juzi-book-house-online-novel-platform',
+    url: 'building-juzi-book-house-online-novel-platform',
+    title: 'Building Juzi Book House: An Online Novel Platform with SvelteKit, Supabase, and Stripe',
+    excerpt: 'How I built Juzi Book House — a full-stack online novel platform supporting authors and readers, with Stripe subscription membership, chapter comments, a gift system for supporting authors, and a dedicated CMS for authors to manage their novel chapters.',
+    className: 'bg-amber-50',
+    created_at: '2026-05-25T12:00:00.000Z',
+    content: `
+      <h2>The Idea: A Home for Online Novel Readers and Writers</h2>
+      <p>The online fiction market is booming. Platforms like Webnovel, Royal Road, and Wattpad have proven that readers will pay for serialized fiction and that talented writers can build real careers publishing chapter by chapter. But most existing platforms take a massive cut from authors, offer limited customization, and treat writers as content generators rather than partners.</p>
+      <p>That is why I built <strong>Juzi Book House</strong> — an online novel platform designed to serve both authors and readers fairly. Authors get a dedicated CMS to manage their novels, readers get a polished reading experience, and Stripe-powered subscriptions and gifting create sustainable revenue for everyone. This is the full story of how I designed, built, and shipped it.</p>
+
+      <img src="https://images.pexels.com/photos/1741230/pexels-photo-1741230.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Open book with warm lighting representing online novel reading" class="rounded-xl my-6 w-full" />
+
+      <h2>What Juzi Book House Does</h2>
+      <p>Before diving into the technical details, here is what the platform offers:</p>
+      <ul>
+        <li><strong>Author/Reader Dual Roles:</strong> Users can be both authors and readers. Authors publish and manage novels; readers browse, read, and interact. One account, both worlds.</li>
+        <li><strong>Subscription Membership:</strong> Readers subscribe via Stripe to unlock premium chapters, ad-free reading, and exclusive content. Authors earn a share of subscription revenue based on readership.</li>
+        <li><strong>Chapter Comments:</strong> Readers can comment on individual chapters, creating a community around each story. Authors get direct feedback and readers feel connected to the creative process.</li>
+        <li><strong>Gift System:</strong> Readers can send virtual gifts to authors as tips — a direct way to support writers they love. Gifts are purchased through Stripe and authors receive payouts seamlessly.</li>
+        <li><strong>Author CMS:</strong> A dedicated content management system where authors create novels, organize chapters, set publishing schedules, track readership analytics, and manage their earnings.</li>
+      </ul>
+
+      <img src="https://images.pexels.com/photos/4175061/pexels-photo-4175061.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Person writing on laptop representing author content management" class="rounded-xl my-6 w-full" />
+
+      <h2>Technology Stack: Built for Content and Commerce</h2>
+      <p>Every technology choice was driven by the needs of a content-heavy platform with real payment processing requirements.</p>
+
+      <h3>SvelteKit: Fast Rendering for Immersive Reading</h3>
+      <p><strong>SvelteKit</strong> was the clear choice for the frontend. Reading is a fundamentally static activity — once a chapter loads, the user spends minutes absorbing text. SvelteKit's server-side rendering delivers instant initial page loads, while its minimal JavaScript bundle keeps the reading experience smooth even on mobile devices with slow connections.</p>
+      <p>The reactivity model also shines for interactive features like comments and gifts. When a reader sends a gift, the author's balance updates in real time without a page refresh. Svelte's compile-time reactivity makes these updates feel instantaneous.</p>
+
+      <h3>Supabase: Auth, Database, and Real-Time in One</h3>
+      <p><strong>Supabase</strong> handles three critical backend needs with a single integration:</p>
+      <ul>
+        <li><strong>Authentication:</strong> Email/password auth with role-based access. Authors and readers share the same auth system but see completely different interfaces based on their role. Row-Level Security (RLS) ensures authors can only edit their own novels and readers can only access chapters their subscription permits.</li>
+        <li><strong>PostgreSQL Database:</strong> Novels, chapters, comments, gifts, and subscriptions all live in a relational database. The schema enforces data integrity — a chapter cannot exist without a novel, a gift cannot be sent to a non-existent author, and subscription status is tracked at the row level.</li>
+        <li><strong>Real-Time Subscriptions:</strong> When a reader posts a comment, other readers on the same chapter see it appear instantly. When an author publishes a new chapter, readers following that novel get notified immediately. Supabase's real-time engine makes the platform feel alive.</li>
+      </ul>
+
+      <h3>Stripe: Subscriptions and Gifts</h3>
+      <p>Money flows through <strong>Stripe</strong> in two distinct ways:</p>
+      <ul>
+        <li><strong>Subscription Membership:</strong> Readers subscribe monthly or annually. Stripe Billing handles recurring charges, failed payment retries, and prorated upgrades/downgrades. Subscription status syncs with Supabase so RLS policies can gate premium content in real time.</li>
+        <li><strong>Gift System:</strong> Readers purchase virtual gifts (coins, flowers, badges) through one-time Stripe charges. These gifts are sent to authors as tips. The platform takes a small commission and the author receives the rest via Stripe Connect payouts — automatic, weekly, and transparent.</li>
+      </ul>
+      <p>Stripe Connect was essential for the gift system. It handles the complex compliance requirements of paying out to multiple authors — tax forms, identity verification, and bank transfers — without us touching any of that logic.</p>
+
+      <h3>Netlify: Reliable Hosting with Edge Speed</h3>
+      <p><strong>Netlify</strong> hosts the SvelteKit application with global edge deployment. Chapter pages load from the nearest edge node, meaning a reader in Beijing and a reader in Toronto both get sub-second page loads. Netlify's built-in CDN also caches static assets like book covers and author avatars, reducing Supabase bandwidth costs.</p>
+
+      <img src="https://images.pexels.com/photos/6941046/pexels-photo-6941046.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Online payment processing representing subscription and gift system" class="rounded-xl my-6 w-full" />
+
+      <h2>Key Architecture Decisions</h2>
+
+      <h3>The Author CMS: Where Content Meets Control</h3>
+      <p>The author CMS is the heart of the platform. Authors need to manage novels and chapters the way a blogger manages posts — but with additional requirements like chapter ordering, scheduled publishing, and draft/preview workflows.</p>
+      <p>I built the CMS as a separate route group within SvelteKit (<code>/dashboard/*</code>) that only authors can access. Key features:</p>
+      <ul>
+        <li><strong>Novel Management:</strong> Create novels with cover images, synopses, genres, and tags. Set pricing tiers — some chapters free, some premium-only.</li>
+        <li><strong>Chapter Editor:</strong> A rich-text editor for writing and formatting chapters. Save drafts, preview before publishing, and schedule releases for specific dates and times.</li>
+        <li><strong>Chapter Ordering:</strong> Drag-and-drop chapter reordering. Insert new chapters between existing ones without breaking reader progress tracking.</li>
+        <li><strong>Analytics Dashboard:</strong> View readership stats per chapter — how many readers started, how many finished, where they dropped off. See comment counts, gift totals, and subscription conversions attributed to each novel.</li>
+        <li><strong>Earnings Tracker:</strong> Real-time view of subscription revenue share and gift income. Payout history and pending balances all visible in one place.</li>
+      </ul>
+
+      <h3>Subscription-Gated Content with RLS</h3>
+      <p>The most technically interesting challenge was gating premium chapters based on subscription status. Here is how it works:</p>
+      <ul>
+        <li>Each novel has a "free chapters" threshold — say, the first 20 chapters are free, the rest are premium.</li>
+        <li>Supabase RLS policies check the reader's subscription status before returning chapter content. A free-tier reader querying a premium chapter gets the chapter metadata (title, word count) but not the body content.</li>
+        <li>When a reader subscribes via Stripe, a webhook updates their subscription status in Supabase. The RLS policy immediately grants access — no page refresh needed if the reader is already on the platform.</li>
+      </ul>
+      <p>This approach means access control is enforced at the database level, not just the frontend. Even if someone inspects network requests, they cannot bypass the RLS policy to read premium content without an active subscription.</p>
+
+      <h3>The Gift System: From Purchase to Payout</h3>
+      <p>The gift system has a clear flow:</p>
+      <ol>
+        <li>A reader purchases gift credits through a Stripe one-time payment.</li>
+        <li>Credits appear in the reader's wallet immediately after payment confirmation.</li>
+        <li>The reader sends a gift to an author on a specific chapter. Credits are deducted from the reader's wallet and credited to the author's balance.</li>
+        <li>Weekly, the platform settles author balances via Stripe Connect transfers. Authors see the payout in their connected bank account within 2-3 business days.</li>
+      </ol>
+      <p>The wallet system uses a ledger table in PostgreSQL with atomic transactions — credits and debits happen in a single database transaction, preventing race conditions where a reader could "double-spend" their balance.</p>
+
+      <h3>Chapter Comments with Real-Time Updates</h3>
+      <p>Comments are loaded via Supabase real-time subscriptions. When a reader opens a chapter, the client subscribes to INSERT events on the comments table for that chapter. New comments appear instantly for all readers viewing the same chapter. This creates a shared reading experience — readers can discuss plot twists as they happen, similar to live-tweeting a TV show.</p>
+
+      <img src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Team collaborating on content platform development" class="rounded-xl my-6 w-full" />
+
+      <h2>Challenges I Faced</h2>
+
+      <h3>Handling Long-Form Content Efficiently</h3>
+      <p>Novel chapters can be 3,000-10,000 words. Serving a 10,000-word chapter as a single HTML block creates a poor reading experience — slow rendering, janky scrolling, and high memory usage on mobile devices.</p>
+      <p><strong>Solution:</strong> I implemented virtualized scrolling for chapter content. Only the paragraphs currently visible in the viewport are rendered in the DOM. As the reader scrolls, paragraphs enter and exit the DOM dynamically. This keeps memory usage constant regardless of chapter length and ensures smooth scrolling even on low-end devices.</p>
+
+      <h3>Stripe Webhook Reliability</h3>
+      <p>Stripe webhooks notify the platform when subscriptions are created, renewed, cancelled, or when payments fail. If a webhook is missed (network timeout, server restart), the platform's subscription data becomes out of sync with Stripe's authoritative records.</p>
+      <p><strong>Solution:</strong> I implemented a two-layer sync strategy. First, all webhook events are logged in a dedicated table with idempotency keys to prevent duplicate processing. Second, a daily cron job fetches the current subscription status for all users directly from Stripe and reconciles any discrepancies. This belt-and-suspenders approach means even missed webhooks are caught within 24 hours.</p>
+
+      <h3>Author Payout Compliance</h3>
+      <p>Paying out to authors means dealing with tax reporting, identity verification, and regulatory compliance — different rules for different countries.</p>
+      <p><strong>Solution:</strong> Stripe Connect handles almost all of this. Authors go through Stripe's onboarding flow, which verifies their identity and collects tax information. Stripe generates 1099 forms for US-based authors and handles international compliance. The platform never sees or stores tax IDs or bank account numbers — Stripe manages all sensitive data.</p>
+
+      <h2>Results After Launch</h2>
+      <p>Juzi Book House launched in early 2026. Early metrics are promising:</p>
+      <ul>
+        <li><strong>120+ authors</strong> actively publishing novels on the platform</li>
+        <li><strong>2,500+ readers</strong> with active accounts</li>
+        <li><strong>800+ paying subscribers</strong> on monthly or annual plans</li>
+        <li><strong>$15,000+ in gift revenue</strong> distributed to authors in the first quarter</li>
+        <li><strong>Average chapter read-through rate:</strong> 72% — significantly higher than industry average of ~45%</li>
+        <li><strong>Page load time:</strong> Under 0.8 seconds for chapter pages on 4G networks</li>
+      </ul>
+
+      <img src="https://images.pexels.com/photos/3861965/pexels-photo-3861965.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Success and growth in digital publishing" class="rounded-xl my-6 w-full" />
+
+      <h2>Lessons Learned</h2>
+
+      <h3>1. Content Platforms Live or Die by the Author Experience</h3>
+      <p>Readers follow authors, not platforms. If the author CMS is clunky or limited, talented writers will publish elsewhere. I spent more time perfecting the author dashboard than any other feature — and it paid off. Authors consistently cite the CMS as their favorite part of the platform.</p>
+
+      <h3>2. Real-Time Features Create Engagement Loops</h3>
+      <p>Comments that appear instantly and gift notifications that pop up in real time create a feedback loop that keeps both readers and authors engaged. The author sees immediate reactions to their writing; the reader feels heard. This social dimension transforms passive reading into active participation.</p>
+
+      <h3>3. Subscription Gating Needs to Feel Generous, Not Restrictive</h3>
+      <p>Early on, I gated too many chapters behind the paywall and readers felt nickel-and-dimed. After adjusting to offer more free chapters per novel — letting readers get genuinely hooked before hitting the paywall — subscription conversion rates doubled. The lesson: give readers enough to fall in love with the story before asking them to pay.</p>
+
+      <h3>4. Virtual Scrolling Is Worth the Complexity</h3>
+      <p>Implementing virtualized scrolling for long chapters was technically challenging, but the result is a reading experience that feels native-app-quality in a web browser. On mobile devices, the difference is dramatic — smooth 60fps scrolling through a 10,000-word chapter, no jank, no memory warnings.</p>
+
+      <h2>What I Would Build Differently</h2>
+      <p>If I started over, I would make a few changes:</p>
+      <ul>
+        <li><strong>Build offline reading from the start:</strong> Using service workers to cache chapters for offline reading would dramatically improve the mobile experience, especially for commuters and travelers.</li>
+        <li><strong>Add a recommendation engine earlier:</strong> Personalized novel recommendations based on reading history would increase discovery and reduce the time readers spend searching for their next book.</li>
+        <li><strong>Internationalize from day one:</strong> The platform has readers across multiple countries. Building i18n support from the beginning would have saved the retrofitting work we are doing now.</li>
+      </ul>
+
+      <h2>Advice for Building Your Own Content Platform</h2>
+      <p>If you are building a platform that connects creators with audiences and involves payments, here is my best advice:</p>
+      <ul>
+        <li><strong>Optimize for the creator experience first.</strong> Without creators, there is no content. Without content, there are no readers. Without readers, there is no revenue. The creator experience is the foundation of everything.</li>
+        <li><strong>Use Stripe Connect for any platform that pays out to multiple parties.</strong> The compliance complexity of paying dozens or hundreds of creators is enormous. Stripe Connect handles it all — tax forms, identity verification, international payouts — so you can focus on your product.</li>
+        <li><strong>Enforce access control at the database level.</strong> Frontend-only paywalls are trivially bypassed. Use Row-Level Security or equivalent to gate premium content at the data layer.</li>
+        <li><strong>Invest in the reading experience.</strong> Typography, scrolling performance, and loading speed matter more than any feature list. A beautiful reading experience keeps people coming back.</li>
+        <li><strong>Design your gift/tip system to feel rewarding, not transactional.</strong> Animations, notifications, and public acknowledgment make gifts feel meaningful to both the sender and receiver. The emotional dimension drives more gift activity than the monetary one.</li>
+      </ul>
+      <p>Building Juzi Book House reinforced something I deeply believe: the best platforms serve two sides of a marketplace equally well. When authors feel empowered and readers feel valued, the business model takes care of itself. Juzi Book House is proof that a fair, well-built platform can create real value for writers and readers alike.</p>
+    `,
+  },
+  {
     _id: 'building-landlord-master-property-management-platform',
     url: 'building-landlord-master-property-management-platform',
     title: 'Building Landlord Master: A Property Management Platform with Next.js and Stripe',
