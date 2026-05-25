@@ -62,7 +62,7 @@ export default function Projects() {
       category: "client",
       gradient: "from-orange-600 to-red-600",
       bgGradient: "from-orange-50 to-red-50",
-      image: "https://images.pexels.com/photos/110810/pexels-photo-110810.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop"
+      image: "https://images.pexels.com/photos/14213937/pexels-photo-14213937.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop"
     },
     {
       name: "Kaifei Landscaping",
@@ -109,7 +109,7 @@ export default function Projects() {
       category: "personal",
       gradient: "from-yellow-500 to-orange-600",
       bgGradient: "from-yellow-50 to-orange-50",
-      image: "https://images.pexels.com/photos/6512844/pexels-photo-6512844.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop"
+      image: "https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop"
     },
     {
       name: "Rick and Morty Explorer",
