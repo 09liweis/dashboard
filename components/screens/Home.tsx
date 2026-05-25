@@ -95,6 +95,20 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.25, duration: 0.5 }}
+              className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-emerald-500 to-teal-500 text-white rounded-full shadow-lg mb-8"
+            >
+              <span className="text-3xl md:text-4xl font-extrabold">$0</span>
+              <div className="text-left">
+                <span className="block text-xs font-semibold uppercase tracking-wider opacity-90">Monthly Fee</span>
+                <span className="block text-sm font-bold">Host Your Website</span>
+              </div>
+            </motion.div>
+
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -111,8 +125,8 @@ export default function Home() {
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6"
+              transition={{ delay: 0.35, duration: 0.6 }}
+              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
             >
               <span className="bg-linear-to-r from-gray-900 via-gray-800 to-gray-900 text-transparent bg-clip-text">
                 Sam Li
@@ -122,7 +136,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
+              transition={{ delay: 0.45, duration: 0.6 }}
               className="text-2xl md:text-3xl text-gray-600 font-medium mb-4"
             >
               Full Stack Developer
@@ -131,10 +145,10 @@ export default function Home() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
+              transition={{ delay: 0.55, duration: 0.6 }}
               className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed"
             >
-              I help businesses reduce hosting costs, improve performance, and ship faster. From WordPress migrations to custom web apps, I deliver solutions that save money and scale.
+              Migrate your website to a modern static architecture and pay zero monthly hosting fees. Fast, secure, and maintenance-free -- I build solutions that save you money from day one.
             </motion.p>
 
             <motion.div
