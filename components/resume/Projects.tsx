@@ -10,6 +10,7 @@ interface Project {
   category: string;
   gradient: string;
   bgGradient: string;
+  image: string;
 }
 
 export default function Projects() {
@@ -29,7 +30,8 @@ export default function Projects() {
       url: "https://aivio-digital.com",
       category: "client",
       gradient: "from-gray-600 to-gray-800",
-      bgGradient: "from-gray-50 to-gray-100"
+      bgGradient: "from-gray-50 to-gray-100",
+      image: "https://images.pexels.com/photos/270632/pexels-photo-270632.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop"
     },
     {
       name: "Realtor Service Platform",
@@ -44,7 +46,8 @@ export default function Projects() {
       url: "https://realtorservice.ca",
       category: "client",
       gradient: "from-blue-600 to-cyan-600",
-      bgGradient: "from-blue-50 to-cyan-50"
+      bgGradient: "from-blue-50 to-cyan-50",
+      image: "https://images.pexels.com/photos/8730040/pexels-photo-8730040.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop"
     },
     {
       name: "Hans Steel Canada",
@@ -58,7 +61,8 @@ export default function Projects() {
       url: "https://hanssteel.com",
       category: "client",
       gradient: "from-orange-600 to-red-600",
-      bgGradient: "from-orange-50 to-red-50"
+      bgGradient: "from-orange-50 to-red-50",
+      image: "https://images.pexels.com/photos/110810/pexels-photo-110810.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop"
     },
     {
       name: "Kaifei Landscaping",
@@ -73,7 +77,8 @@ export default function Projects() {
       url: "https://kaifeilandscaping.com",
       category: "client",
       gradient: "from-green-600 to-lime-600",
-      bgGradient: "from-green-50 to-lime-50"
+      bgGradient: "from-green-50 to-lime-50",
+      image: "https://images.pexels.com/photos/2132252/pexels-photo-2132252.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop"
     },
     {
       name: "Landlord Master",
@@ -88,7 +93,8 @@ export default function Projects() {
       url: "https://landlordmaster.com",
       category: "saas",
       gradient: "from-emerald-600 to-teal-600",
-      bgGradient: "from-emerald-50 to-teal-50"
+      bgGradient: "from-emerald-50 to-teal-50",
+      image: "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop"
     },
     {
       name: "Movie Progress Tracker",
@@ -102,7 +108,8 @@ export default function Projects() {
       url: "https://what-sam-watched.vercel.app",
       category: "personal",
       gradient: "from-yellow-500 to-orange-600",
-      bgGradient: "from-yellow-50 to-orange-50"
+      bgGradient: "from-yellow-50 to-orange-50",
+      image: "https://images.pexels.com/photos/6512844/pexels-photo-6512844.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop"
     },
     {
       name: "Rick and Morty Explorer",
@@ -116,7 +123,8 @@ export default function Projects() {
       url: "https://ricksammorty.netlify.app",
       category: "personal",
       gradient: "from-green-600 to-emerald-600",
-      bgGradient: "from-green-50 to-emerald-50"
+      bgGradient: "from-green-50 to-emerald-50",
+      image: "https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop"
     },
     {
       name: "Express API Server",
@@ -129,7 +137,8 @@ export default function Projects() {
       ],
       category: "api",
       gradient: "from-sky-600 to-blue-600",
-      bgGradient: "from-sky-50 to-blue-50"
+      bgGradient: "from-sky-50 to-blue-50",
+      image: "https://images.pexels.com/photos/1181246/pexels-photo-1181246.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop"
     },
     {
       name: "Portfolio & Dashboard",
@@ -143,7 +152,8 @@ export default function Projects() {
       url: "https://samliweisen.dev",
       category: "personal",
       gradient: "from-rose-600 to-pink-600",
-      bgGradient: "from-rose-50 to-pink-50"
+      bgGradient: "from-rose-50 to-pink-50",
+      image: "https://images.pexels.com/photos/196645/pexels-photo-196645.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop"
     }
   ];
 
@@ -222,6 +232,15 @@ export default function Projects() {
 
             <div className="relative bg-white rounded-2xl shadow-lg border-2 border-gray-100 hover:border-gray-200 transition-all hover:shadow-xl overflow-hidden">
               <div className={`h-2 w-full bg-linear-to-r ${project.gradient}`}></div>
+
+              <div className="relative h-40 overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.name}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+              </div>
 
               <div className="p-6">
                 <div className="flex items-start justify-between mb-4">
