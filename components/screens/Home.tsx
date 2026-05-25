@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from 'motion/react';
 import Link from 'next/link';
 import { useState } from 'react';
+import Projects from '@/components/resume/Projects';
 
 export default function Home() {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
@@ -183,6 +184,8 @@ export default function Home() {
           </motion.div>
         </motion.div>
       </section>
+
+      <Projects />
 
       <section className="py-10 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
