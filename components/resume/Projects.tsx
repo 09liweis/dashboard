@@ -81,6 +81,22 @@ export default function Projects() {
       image: "https://images.pexels.com/photos/2132252/pexels-photo-2132252.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop"
     },
     {
+      name: "Juzi Book House",
+      description: "Online novel platform with author/reader support, subscription membership, and chapter-based CMS",
+      technologies: ["SvelteKit", "Supabase", "Stripe", "Netlify"],
+      highlights: [
+        "Author/reader dual-role support",
+        "Stripe subscription membership",
+        "Chapter comments and gift system",
+        "Author CMS for novel chapter management"
+      ],
+      url: "https://juzibookhouse.com",
+      category: "saas",
+      gradient: "from-amber-600 to-orange-600",
+      bgGradient: "from-amber-50 to-orange-50",
+      image: "https://images.pexels.com/photos/1741230/pexels-photo-1741230.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop"
+    },
+    {
       name: "Landlord Master",
       description: "Property management platform for landlords and tenants",
       technologies: ["Next.js", "MongoDB", "Stripe API"],
