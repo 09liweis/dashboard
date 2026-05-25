@@ -23,7 +23,7 @@ export default function Home() {
 
   const stats = [
     { value: '10+', label: 'Years Experience', gradient: 'from-blue-500 to-cyan-500', lightBg: 'from-blue-50 to-cyan-50' },
-    { value: '50+', label: 'Projects Delivered', gradient: 'from-emerald-500 to-teal-500', lightBg: 'from-emerald-50 to-teal-50' },
+    { value: '10+', label: 'Projects Delivered', gradient: 'from-emerald-500 to-teal-500', lightBg: 'from-emerald-50 to-teal-50' },
     { value: '15+', label: 'Technologies', gradient: 'from-orange-500 to-red-500', lightBg: 'from-orange-50 to-red-50' },
     { value: '100%', label: 'Satisfaction', gradient: 'from-yellow-500 to-orange-500', lightBg: 'from-yellow-50 to-orange-50' }
   ];
