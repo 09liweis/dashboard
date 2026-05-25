@@ -61,6 +61,21 @@ export default function Projects() {
       bgGradient: "from-orange-50 to-red-50"
     },
     {
+      name: "Kaifei Landscaping",
+      description: "Landscaping business website migrated from Wix to Next.js with Mapbox integration and project gallery",
+      technologies: ["Next.js", "Tailwind CSS", "Mapbox", "Cloudinary"],
+      highlights: [
+        "Migrated from Wix to Next.js for better performance",
+        "Mapbox integration for service area visualization",
+        "Interactive project gallery with before/after",
+        "SEO optimized for local search"
+      ],
+      url: "https://kaifeilandscaping.com",
+      category: "client",
+      gradient: "from-green-600 to-lime-600",
+      bgGradient: "from-green-50 to-lime-50"
+    },
+    {
       name: "Landlord Master",
       description: "Property management platform for landlords and tenants",
       technologies: ["Next.js", "MongoDB", "Stripe API"],
