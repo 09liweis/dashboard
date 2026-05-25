@@ -19,6 +19,22 @@ export default function Projects() {
 
   const PROJECTS: Project[] = [
     {
+      name: "Hans Construction",
+      description: "Construction company website built with SvelteKit for fast performance and deployed on Vercel's edge network",
+      technologies: ["SvelteKit", "Tailwind CSS", "Vercel"],
+      highlights: [
+        "Fast SvelteKit static site generation",
+        "Vercel edge deployment for global performance",
+        "Project portfolio showcase",
+        "SEO-optimized for local construction leads"
+      ],
+      url: "https://hanscons.com",
+      category: "client",
+      gradient: "from-slate-600 to-gray-800",
+      bgGradient: "from-slate-50 to-gray-100",
+      image: "https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop"
+    },
+    {
       name: "Aivio Digital redesign",
       description: "Redesign website from wordpress to astro with fast render and better seo",
       technologies: ["Astro", "tailwindcss", "Vercel", "Resend"],
