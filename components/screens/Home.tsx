@@ -1,225 +1,161 @@
-import { motion, useScroll, useTransform } from 'motion/react';
+import { motion } from 'motion/react';
 import Link from 'next/link';
-import { useState } from 'react';
 import Projects from '@/components/resume/Projects';
 
+const skills = [
+  { name: 'React', category: 'Frontend' },
+  { name: 'Vue.js', category: 'Frontend' },
+  { name: 'Next.js', category: 'Framework' },
+  { name: 'Node.js', category: 'Backend' },
+  { name: 'TypeScript', category: 'Language' },
+  { name: 'MongoDB', category: 'Database' },
+  { name: 'PostgreSQL', category: 'Database' },
+  { name: 'Python', category: 'Language' },
+  { name: 'Docker', category: 'DevOps' },
+  { name: 'AWS', category: 'Cloud' },
+];
+
+const stats = [
+  { value: '10+', label: 'Years of Experience' },
+  { value: '11', label: 'Projects Delivered' },
+  { value: '15+', label: 'Technologies' },
+];
+
+const services = [
+  {
+    title: 'WordPress to Next.js Migration',
+    description: 'Cut hosting costs by 80% or more. Static architectures that load faster, cost less, and require minimal maintenance.',
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Custom Web Applications',
+    description: 'Full-stack development with React, Next.js, and Node.js. From dashboards to SaaS platforms that scale with your business.',
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Performance Optimization',
+    description: 'Cut page load times in half. Image optimization, caching strategies, and code refactoring for sub-second loads.',
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+      </svg>
+    ),
+  },
+  {
+    title: 'API Development & Integration',
+    description: 'Secure REST APIs, third-party service integration (Stripe, Supabase), and reliable data flow between systems.',
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+      </svg>
+    ),
+  },
+];
+
 export default function Home() {
-  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
-  const [hoveredService, setHoveredService] = useState<number | null>(null);
-  const { scrollY } = useScroll();
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
-  const scale = useTransform(scrollY, [0, 300], [1, 0.95]);
-
-  const skills = [
-    { name: 'React', level: 95, category: 'Frontend', color: 'from-cyan-400 to-blue-500' },
-    { name: 'Vue.js', level: 90, category: 'Frontend', color: 'from-emerald-400 to-teal-500' },
-    { name: 'Next.js', level: 92, category: 'Framework', color: 'from-gray-700 to-gray-900' },
-    { name: 'Node.js', level: 92, category: 'Backend', color: 'from-green-500 to-emerald-600' },
-    { name: 'TypeScript', level: 88, category: 'Language', color: 'from-blue-500 to-blue-700' },
-    { name: 'MongoDB', level: 90, category: 'Database', color: 'from-green-600 to-emerald-700' },
-    { name: 'PostgreSQL', level: 88, category: 'Database', color: 'from-blue-600 to-sky-700' },
-    { name: 'Python', level: 85, category: 'Language', color: 'from-yellow-500 to-blue-500' }
-  ];
-
-  const stats = [
-    { value: '10+', label: 'Years Experience', gradient: 'from-blue-500 to-cyan-500', lightBg: 'from-blue-50 to-cyan-50' },
-    { value: '10+', label: 'Projects Delivered', gradient: 'from-emerald-500 to-teal-500', lightBg: 'from-emerald-50 to-teal-50' },
-    { value: '15+', label: 'Technologies', gradient: 'from-orange-500 to-red-500', lightBg: 'from-orange-50 to-red-50' },
-    { value: '100%', label: 'Satisfaction', gradient: 'from-yellow-500 to-orange-500', lightBg: 'from-yellow-50 to-orange-50' }
-  ];
-
-  const services = [
-    {
-      title: 'WordPress to Next.js Migration',
-      description: 'Reduce your hosting costs by 80% or more. I migrate WordPress sites to modern static architectures that load faster, cost less, and require minimal maintenance.',
-      gradient: 'from-blue-500 to-cyan-500',
-      bgGradient: 'from-blue-50 to-cyan-50',
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-        </svg>
-      )
-    },
-    {
-      title: 'Custom Web Applications',
-      description: 'Full-stack development with React, Next.js, and Node.js. From simple dashboards to complex SaaS platforms, I build solutions that scale with your business.',
-      gradient: 'from-emerald-500 to-teal-500',
-      bgGradient: 'from-emerald-50 to-teal-50',
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-        </svg>
-      )
-    },
-    {
-      title: 'Performance Optimization',
-      description: 'Cut page load times in half. I optimize images, implement caching, and refactor slow code to deliver sub-second load times and better SEO rankings.',
-      gradient: 'from-orange-500 to-red-500',
-      bgGradient: 'from-orange-50 to-red-50',
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
-      )
-    },
-    {
-      title: 'API Development & Integration',
-      description: 'Connect your systems efficiently. I build secure REST APIs, integrate third-party services like Stripe and Supabase, and ensure reliable data flow.',
-      gradient: 'from-yellow-500 to-orange-500',
-      bgGradient: 'from-yellow-50 to-orange-50',
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
-        </svg>
-      )
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-white">
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-linear-to-br from-slate-50 via-white to-blue-50"></div>
-
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
-          <div className="absolute top-20 right-10 w-72 h-72 bg-cyan-300 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
-          <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-teal-300 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
-        </div>
-
-        <motion.div
-          // style={{ opacity, scale }}
-          className="relative max-w-7xl mx-auto px-4 py-10 text-center z-10"
-        >
+      {/* ─── Hero ──────────────────────────────────────────────────────── */}
+      <section className="relative overflow-hidden border-b border-gray-100">
+        <div className="max-w-6xl mx-auto px-6 pt-24 pb-20 md:pt-36 md:pb-28">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
+            className="max-w-3xl"
           >
-
+            {/* Status badge */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.25, duration: 0.5 }}
-              className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-emerald-500 to-teal-500 text-white rounded-full shadow-lg mb-8"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className="flex flex-wrap items-center gap-3 mb-8"
             >
-              <span className="text-3xl md:text-4xl font-extrabold">$0</span>
-              <div className="text-left">
-                <span className="block text-xs font-semibold uppercase tracking-wider opacity-90">Monthly Fee</span>
-                <span className="block text-sm font-bold">Host Your Website</span>
-              </div>
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-200 bg-emerald-50">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                </span>
+                <span className="text-sm font-medium text-emerald-800">Available for new projects</span>
+              </span>
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-amber-200 bg-amber-50">
+                <span className="text-2xl font-extrabold text-amber-700">$0</span>
+                <span className="text-sm font-medium text-amber-800">Monthly Hosting Fee</span>
+              </span>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded shadow border border-gray-200 mb-8"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-              </span>
-              <span className="text-sm font-semibold text-gray-700">Available for new projects</span>
-            </motion.div>
+            {/* Name */}
+            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-gray-900 mb-4 leading-[1.05]">
+              Sam Li
+            </h1>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.35, duration: 0.6 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
-            >
-              <span className="bg-linear-to-r from-gray-900 via-gray-800 to-gray-900 text-transparent bg-clip-text">
-                Sam Li
-              </span>
-            </motion.h1>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.45, duration: 0.6 }}
-              className="text-2xl md:text-3xl text-gray-600 font-medium mb-4"
-            >
+            {/* Role */}
+            <p className="text-xl md:text-2xl font-semibold text-gray-500 mb-6">
               Full Stack Developer
-            </motion.div>
+            </p>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.55, duration: 0.6 }}
-              className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed"
-            >
-              Migrate your website to a modern static architecture and pay zero monthly hosting fees. Fast, secure, and maintenance-free -- I build solutions that save you money from day one.
-            </motion.p>
+            {/* Description */}
+            <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mb-10">
+              I build fast, cost-effective web applications. Specializing in migrating sites to modern static architectures with zero hosting fees, and developing full-stack solutions that scale.
+            </p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.6 }}
-              className="flex flex-wrap justify-center gap-4"
-            >
+            {/* CTAs */}
+            <div className="flex flex-wrap gap-3">
               <Link href="/resume">
-                <motion.button
-                  whileHover={{ scale: 1.05, boxShadow: "0 20px 60px rgba(0,0,0,0.15)" }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-gray-900 text-white rounded-xl font-semibold shadow-xl hover:shadow-2xl transition-all relative overflow-hidden group"
+                <motion.span
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors cursor-pointer"
                 >
-                  <span className="relative z-10">View My Work</span>
-                  <div className="absolute inset-0 bg-linear-to-r from-blue-600 to-cyan-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </motion.button>
+                  View My Work
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </motion.span>
               </Link>
               <a href="mailto:weisen.li@hotmail.com">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-white text-gray-900 rounded-xl font-semibold shadow-xl border-2 border-gray-200 hover:border-gray-900 transition-all"
+                <motion.span
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-900 rounded-lg font-semibold border-2 border-gray-200 hover:border-gray-400 transition-colors cursor-pointer"
                 >
-                  Let's Connect
-                </motion.button>
+                  Get in Touch
+                </motion.span>
               </a>
-            </motion.div>
+            </div>
           </motion.div>
+        </div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1 }}
-            className="mt-20"
-          >
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ repeat: Infinity, duration: 2 }}
-              className="inline-flex flex-col items-center gap-2 text-gray-400"
-            >
-              <span className="text-sm font-medium">Scroll to explore</span>
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-              </svg>
-            </motion.div>
-          </motion.div>
-        </motion.div>
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(rgba(0,0,0,.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,.02)_1px,transparent_1px)] bg-[size:64px_64px]" />
       </section>
 
-      <Projects />
-
-      <section className="py-10 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((stat, index) => (
+      {/* ─── Stats ─────────────────────────────────────────────────────── */}
+      <section className="border-b border-gray-100">
+        <div className="max-w-6xl mx-auto px-6 py-12">
+          <div className="grid grid-cols-3 gap-8 md:gap-16">
+            {stats.map((stat, i) => (
               <motion.div
                 key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                className="relative group"
+                transition={{ delay: i * 0.1, duration: 0.4 }}
+                className="text-center"
               >
-                <div className={`absolute inset-0 bg-linear-to-br ${stat.gradient} opacity-0 group-hover:opacity-10 transition-opacity rounded-2xl`}></div>
-                <div className="relative bg-white rounded-2xl p-8 shadow-lg border border-gray-100 group-hover:border-transparent group-hover:shadow-2xl transition-all">
-                  <div className="text-3xl md:text-5xl font-bold bg-linear-to-br from-gray-900 to-gray-600 text-transparent bg-clip-text mb-2">
-                    {stat.value}
-                  </div>
-                  <div className="text-gray-600 font-medium">{stat.label}</div>
+                <div className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight mb-1">
+                  {stat.value}
+                </div>
+                <div className="text-sm md:text-base text-gray-500 font-medium">
+                  {stat.label}
                 </div>
               </motion.div>
             ))}
@@ -227,151 +163,134 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-10 px-4 bg-linear-to-b from-white to-gray-50">
-        <div className="max-w-7xl mx-auto">
+      {/* ─── Services ──────────────────────────────────────────────────── */}
+      <section className="py-20 md:py-28">
+        <div className="max-w-6xl mx-auto px-6">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="mb-14"
           >
-            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              How I Can Help
+            <p className="text-sm font-semibold uppercase tracking-widest text-emerald-600 mb-3">Services</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
+              What I Can Do for You
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Practical solutions that save money, load faster, and solve real problems
-            </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {services.map((service, index) => (
+          <div className="grid md:grid-cols-2 gap-px bg-gray-200 rounded-xl overflow-hidden">
+            {services.map((service, i) => (
               <motion.div
                 key={service.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.15 }}
-                onMouseEnter={() => setHoveredService(index)}
-                onMouseLeave={() => setHoveredService(null)}
-                className="relative group cursor-pointer"
+                transition={{ delay: i * 0.1, duration: 0.4 }}
+                className="bg-white p-8 md:p-10 group hover:bg-gray-50 transition-colors duration-200"
               >
-                <div className={`absolute inset-0 bg-linear-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity rounded-3xl`}></div>
-                <motion.div
-                  className="relative bg-white rounded-3xl p-5 md:p-10 shadow-lg border border-gray-100 h-full transition-all group-hover:shadow-2xl group-hover:border-transparent"
-                  whileHover={{ y: -8 }}
-                >
-                  <div className={`w-16 h-16 bg-linear-to-br ${service.gradient} rounded-2xl flex items-center justify-center mb-6 text-white shadow-lg transform group-hover:scale-110 group-hover:rotate-3 transition-all`}>
-                    {service.icon}
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {service.description}
-                  </p>
-                </motion.div>
+                <div className="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center text-gray-600 mb-5 group-hover:bg-gray-900 group-hover:text-white transition-colors duration-200">
+                  {service.icon}
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{service.title}</h3>
+                <p className="text-gray-600 leading-relaxed text-[15px]">{service.description}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-10 px-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
+      {/* ─── Technologies ──────────────────────────────────────────────── */}
+      <section className="py-20 md:py-28 bg-gray-50 border-y border-gray-100">
+        <div className="max-w-6xl mx-auto px-6">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="mb-14"
           >
-            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              Technologies I Use
+            <p className="text-sm font-semibold uppercase tracking-widest text-emerald-600 mb-3">Tech Stack</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
+              Technologies I Work With
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Modern tools chosen for performance, reliability, and cost-effectiveness
-            </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {skills.map((skill, index) => (
+          <div className="flex flex-wrap gap-3">
+            {skills.map((skill, i) => (
               <motion.div
                 key={skill.name}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
-                onMouseEnter={() => setHoveredSkill(skill.name)}
-                onMouseLeave={() => setHoveredSkill(null)}
-                whileHover={{ scale: 1.02 }}
-                className="bg-white rounded-2xl p-4 md:p-8 shadow border border-gray-100 hover:shadow-2xl transition-all"
+                transition={{ delay: i * 0.03, duration: 0.3 }}
+                whileHover={{ y: -2 }}
+                className="group flex items-center gap-3 px-5 py-3 bg-white rounded-lg border border-gray-200 hover:border-gray-400 hover:shadow-sm transition-all cursor-default"
               >
-                <div className="flex justify-between items-center mb-4">
-                  <div>
-                    <h3 className="font-bold text-gray-900 text-xl">{skill.name}</h3>
-                    <p className="text-sm text-gray-500 font-medium">{skill.category}</p>
-                  </div>
-                  <motion.div
-                    className="text-3xl font-bold bg-linear-to-br from-gray-900 to-gray-600 text-transparent bg-clip-text"
-                    animate={{ scale: hoveredSkill === skill.name ? 1.1 : 1 }}
-                  >
-                    {skill.level}%
-                  </motion.div>
-                </div>
-                <div className="relative w-full h-3 bg-gray-200 rounded-full overflow-hidden">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${skill.level}%` }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1, delay: index * 0.05, ease: "easeOut" }}
-                    className={`absolute top-0 left-0 h-full bg-linear-to-r ${skill.color} rounded-full shadow-md`}
-                  />
-                </div>
+                <span className="text-base font-semibold text-gray-900">{skill.name}</span>
+                <span className="text-xs font-medium text-gray-400 bg-gray-100 px-2 py-0.5 rounded">{skill.category}</span>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="relative py-32 px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-linear-to-br from-gray-900 via-gray-800 to-gray-900"></div>
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-500 rounded-full filter blur-3xl"></div>
+      {/* ─── Projects ──────────────────────────────────────────────────── */}
+      <section className="py-20 md:py-28">
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-14"
+          >
+            <p className="text-sm font-semibold uppercase tracking-widest text-emerald-600 mb-3">Portfolio</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
+              Featured Projects
+            </h2>
+          </motion.div>
+          <Projects />
         </div>
+      </section>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="relative max-w-4xl mx-auto text-center"
-        >
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-8">
-            Ready to Save Money and Ship Faster?
-          </h2>
-          <p className="text-xl text-gray-300 mb-12 leading-relaxed max-w-2xl mx-auto">
-            Whether you need to cut hosting costs, build a new application, or optimize an existing one, I deliver results that matter.
-          </p>
-          <div className="flex flex-wrap justify-center gap-6">
-            <a href="mailto:weisen.li@hotmail.com">
-              <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 20px 60px rgba(255,255,255,0.2)" }}
-                whileTap={{ scale: 0.95 }}
-                className="px-10 py-5 bg-white text-gray-900 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transition-all"
-              >
-                Get a Free Quote
-              </motion.button>
-            </a>
-            <Link href="/blogs">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-10 py-5 bg-gray-800 text-white rounded-xl font-bold text-lg border-2 border-gray-700 hover:border-gray-500 transition-all shadow-xl"
-              >
-                Read Case Studies
-              </motion.button>
-            </Link>
-          </div>
-        </motion.div>
+      {/* ─── CTA ────────────────────────────────────────────────────────── */}
+      <section className="py-20 md:py-28 bg-gray-900">
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-2xl"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+              Ready to start a project?
+            </h2>
+            <p className="text-lg text-gray-400 leading-relaxed mb-8">
+              Whether you need to cut hosting costs, build a new application, or optimize an existing one -- let's talk about what I can deliver.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <a href="mailto:weisen.li@hotmail.com">
+                <motion.span
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-900 rounded-lg font-semibold hover:bg-gray-100 transition-colors cursor-pointer"
+                >
+                  Get a Free Quote
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </motion.span>
+              </a>
+              <Link href="/blogs">
+                <motion.span
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-gray-800 text-gray-300 rounded-lg font-semibold border border-gray-700 hover:border-gray-500 hover:text-white transition-colors cursor-pointer"
+                >
+                  Read Case Studies
+                </motion.span>
+              </Link>
+            </div>
+          </motion.div>
+        </div>
       </section>
     </div>
   );
