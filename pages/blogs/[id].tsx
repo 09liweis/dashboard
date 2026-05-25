@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import type { NextPage, GetServerSideProps } from 'next';
+import Link from 'next/link';
 import { fetchAPI, getTranslate } from 'helpers';
 import { BLOG_LIST_API } from '../../constants';
 import { useRouter } from 'next/router';
@@ -69,13 +70,16 @@ const BlogDetail: NextPage<BlogDetailPageProps> = ({ blog: initialBlog, blogId, 
 
   const formatDisplayHTML = (html: string) => {
     let formatedHTML = html
-      .replaceAll('<h2>', '<h2 class="text-3xl mt-10 font-bold text-slate-900">')
-      .replaceAll('<h3>', '<h3 class="text-2xl mt-8 font-semibold text-slate-900">')
-      .replaceAll('<p>', '<p class="text-lg leading-8 text-slate-700">')
-      .replaceAll('<ul>', '<ul class="mt-4 ml-6 list-disc text-slate-700">')
-      .replaceAll('<ol>', '<ol class="mt-4 ml-6 list-decimal text-slate-700">')
-      .replaceAll('<li>', '<li class="mb-2">')
-      .replaceAll('<blockquote>', '<blockquote class="border-l-4 border-slate-300 pl-4 italic text-slate-600">');
+      .replaceAll('<h2>', '<h2 class="text-2xl sm:text-3xl mt-12 mb-4 font-bold text-slate-900 tracking-tight scroll-mt-24">')
+      .replaceAll('<h3>', '<h3 class="text-xl sm:text-2xl mt-10 mb-3 font-semibold text-slate-800 tracking-tight scroll-mt-24">')
+      .replaceAll('<p>', '<p class="text-base sm:text-lg leading-7 sm:leading-8 text-slate-600 mb-6">')
+      .replaceAll('<ul>', '<ul class="my-4 ml-6 list-disc space-y-2 text-slate-600">')
+      .replaceAll('<ol>', '<ol class="my-4 ml-6 list-decimal space-y-2 text-slate-600">')
+      .replaceAll('<li>', '<li class="text-base sm:text-lg leading-7 pl-1">')
+      .replaceAll('<blockquote>', '<blockquote class="my-8 border-l-4 border-slate-300 bg-slate-50/50 py-4 pl-6 pr-4 rounded-r-lg italic text-slate-500">')
+      .replaceAll('<code>', '<code class="rounded bg-slate-100 px-1.5 py-0.5 text-sm font-mono text-slate-700 ring-1 ring-inset ring-slate-200/50">')
+      .replaceAll('<strong>', '<strong class="font-semibold text-slate-900">')
+      .replaceAll('<img', '<img class="rounded-xl my-8 w-full"');
     return formatedHTML;
   };
 
@@ -157,41 +161,72 @@ const BlogDetail: NextPage<BlogDetailPageProps> = ({ blog: initialBlog, blogId, 
           about={geoAbout}
         />
       )}
-      <div className={`max-w-4xl mx-auto px-4 py-10 ${blog.className || ''}`}>
-        <article className="rounded-3xl border border-slate-200 bg-white p-8 shadow-xl shadow-slate-100/50">
-          <header className="space-y-4">
-            <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                <p className="text-sm uppercase tracking-[0.25em] text-slate-500">Blog Post</p>
-                <h1 className="text-4xl font-extrabold tracking-tight text-slate-900">{blog.title}</h1>
+      <div className="mx-auto max-w-3xl px-4 py-12 sm:py-16 lg:py-20">
+        {/* Back navigation */}
+        <Link
+          href="/blogs"
+          className="group mb-8 inline-flex items-center gap-2 text-sm font-medium text-slate-500 transition-colors hover:text-slate-900"
+        >
+          <svg
+            className="h-4 w-4 transition-transform group-hover:-translate-x-0.5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+          </svg>
+          Back to articles
+        </Link>
+
+        <article className="relative">
+          {/* Header */}
+          <header className="mb-10 space-y-6 border-b border-slate-200 pb-8">
+            <div className="space-y-3">
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-900 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white">
+                  <span className="relative flex h-1.5 w-1.5">
+                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                  </span>
+                  Article
+                </span>
+                {blog.created_at && (
+                  <span className="text-sm text-slate-400">
+                    {new Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(new Date(blog.created_at))}
+                  </span>
+                )}
               </div>
-              {blog.created_at && (
-                <p className="text-sm text-slate-500">Published {new Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(new Date(blog.created_at))}</p>
-              )}
+              <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+                {blog.title}
+              </h1>
             </div>
-            <div className="flex flex-wrap gap-3">
-              <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700">Web Development</span>
-              <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700">Cost Optimization</span>
-              <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-sm font-medium text-slate-700">Static Hosting</span>
-            </div>
+
+            {/* Excerpt */}
             {blog.excerpt && (
-              <p className="text-lg leading-relaxed text-slate-600 border-l-4 border-slate-200 pl-4 italic">
+              <p className="text-lg leading-relaxed text-slate-500">
                 {blog.excerpt}
               </p>
             )}
+
+            {/* Tags */}
+            <div className="flex flex-wrap gap-2">
+              <span className="rounded-md bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-600 ring-1 ring-inset ring-slate-200/50">Web Development</span>
+              <span className="rounded-md bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-600 ring-1 ring-inset ring-slate-200/50">Cost Optimization</span>
+              <span className="rounded-md bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-600 ring-1 ring-inset ring-slate-200/50">Static Hosting</span>
+            </div>
           </header>
 
-          <section className="mt-10 space-y-8 text-slate-700 leading-8">
+          {/* Content */}
+          <section className="prose-custom">
             <div dangerouslySetInnerHTML={{ __html: formatDisplayHTML(blog.content) }} />
           </section>
         </article>
 
         {user._id && (
-          <form className="mt-10 space-y-4 rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm" onSubmit={handleBlogSubmit}>
+          <form className="mt-12 space-y-4 rounded-2xl border border-slate-200 bg-slate-50/50 p-6" onSubmit={handleBlogSubmit}>
             <div>
               <label htmlFor="title" className="block text-sm font-semibold text-slate-700">Title</label>
               <input
-                className="mt-2 w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-slate-900 shadow-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 shadow-sm outline-none focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
                 name="title"
                 id="title"
                 onChange={handleBlogChange}
@@ -201,13 +236,13 @@ const BlogDetail: NextPage<BlogDetailPageProps> = ({ blog: initialBlog, blogId, 
             <div>
               <label htmlFor="content" className="block text-sm font-semibold text-slate-700">Content</label>
               <textarea
-                className="mt-2 h-80 w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-slate-900 shadow-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                className="mt-2 h-80 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 shadow-sm outline-none focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
                 name="content"
                 value={blog.content}
                 onChange={handleBlogChange}
               ></textarea>
             </div>
-            <button type="submit" className="inline-flex items-center justify-center rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-700">
+            <button type="submit" className="inline-flex items-center justify-center rounded-lg bg-slate-900 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-800">
               {getTranslate(lang, loading ? 'updating' : 'update')}
             </button>
           </form>
