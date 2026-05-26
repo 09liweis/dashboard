@@ -4,6 +4,17 @@ export default function Document() {
   return (
     <Html>
       <Head>
+        {/*Start of Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZM985DLTVZ"></script>
+        <script>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-ZM985DLTVZ');
+          `}
+        </script>
+        {/*End of Google Analytics */}
         {/*Start of Tawk.to Script*/}
         <script type="text/javascript">
           {`var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
