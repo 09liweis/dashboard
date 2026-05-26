@@ -2,6 +2,159 @@ import type { BlogType } from '../types';
 
 export const BLOG_POSTS: BlogType[] = [
   {
+    _id: 'surewin-multi-language-nuxt-site',
+    url: 'surewin-multi-language-nuxt-site',
+    title: 'Building Surewin: A Multi-Language Nuxt.js Website with Resend Email Integration',
+    excerpt: 'How I built a professional multi-language website for Surewin using Nuxt.js, deployed on Vercel, with Resend for email handling. Supporting English, Chinese, and French locales with seamless language switching.',
+    className: 'bg-slate-50',
+    created_at: '2026-05-26T09:00:00.000Z',
+    content: `
+      <h2>The Challenge: Multi-Language Support Without Complexity</h2>
+      <p>Surewin, a Canadian business, needed a website that could serve customers in multiple languages. Their requirements were clear:</p>
+      <ul>
+        <li><strong>Support for English, Chinese (Traditional), and French</strong> to reach diverse Canadian markets</li>
+        <li><strong>Contact form with reliable email delivery</strong> for customer inquiries</li>
+        <li><strong>Fast global performance</strong> for visitors from different regions</li>
+        <li><strong>Easy content management</strong> without requiring technical knowledge</li>
+        <li><strong>Cost-effective hosting</strong> to keep operational expenses low</li>
+      </ul>
+      <p>I chose Nuxt.js for this project because of its excellent internationalization (i18n) support and static site generation capabilities. Here's how I built it.</p>
+
+      <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Multi-language website development workspace" class="rounded-xl my-6 w-full" />
+
+      <h2>Why Nuxt.js for Multi-Language Sites</h2>
+      <p>Nuxt.js offers several advantages for multi-language websites:</p>
+      <ul>
+        <li><strong>Built-in i18n module:</strong> The @nuxtjs/i18n module handles routing, language detection, and SEO-friendly URL structures automatically</li>
+        <li><strong>Static site generation:</strong> All pages pre-rendered as static HTML for each language, ensuring fast loads</li>
+        <li><strong>SEO optimized:</strong> Automatic hreflang tags, language-specific meta tags, and proper URL structures</li>
+        <li><strong>Hot module replacement:</strong> Developers see changes instantly during development</li>
+        <li><strong>Vercel ready:</strong> Seamless deployment to Vercel's edge network</li>
+      </ul>
+
+      <h2>Setting Up Multi-Language Support</h2>
+      <p>The first step was configuring Nuxt.js with the i18n module. I structured the locales with three language files:</p>
+
+      <h3>Language Configuration</h3>
+      <p>I created separate JSON files for each language containing all translatable strings:</p>
+      <ul>
+        <li><code>locales/en.json</code> for English content</li>
+        <li><code>locales/zh.json</code> for Chinese (Traditional) content</li>
+        <li><code>locales/fr.json</code> for French content</li>
+      </ul>
+      <p>Each file contains the same keys with translated values. The i18n module automatically loads these based on the user's language preference.</p>
+
+      <h3>URL Structure</h3>
+      <p>For SEO, each language has its own URL prefix:</p>
+      <ul>
+        <li><code>/</code> - Default language (English)</li>
+        <li><code>/zh</code> - Chinese Traditional</li>
+        <li><code>/fr</code> - French</li>
+      </ul>
+      <p>This structure ensures Google indexes all language versions correctly and serves the right content to users searching in their preferred language.</p>
+
+      <img src="https://images.pexels.com/photos/1181246/pexels-photo-1181246.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Code editor showing Nuxt.js configuration" class="rounded-xl my-6 w-full" />
+
+      <h2>Language Switcher Component</h2>
+      <p>I built a language switcher that allows users to change languages instantly. The component:</p>
+      <ul>
+        <li><strong>Stores preference in cookies</strong> so returning visitors see their preferred language</li>
+        <li><strong>Updates all content dynamically</strong> without page reload</li>
+        <li><strong>Persists across navigation</strong> as users browse different pages</li>
+        <li><strong>Maintains current page context</strong> - switching language keeps you on the same page</li>
+      </ul>
+
+      <h2>Vercel Deployment and Edge Performance</h2>
+      <p>Deploying to Vercel was straightforward. Here's why Vercel was the right choice:</p>
+      <ul>
+        <li><strong>Global edge network:</strong> Static pages cached at 300+ edge locations worldwide</li>
+        <li><strong>Automatic HTTPS:</strong> SSL certificates provisioned automatically</li>
+        <li><strong>Git integration:</strong> Every push to main branch triggers automatic deployment</li>
+        <li><strong>Zero configuration:</strong> Nuxt.js detected automatically, optimal build settings applied</li>
+        <li><strong>Free tier covers the traffic:</strong> Surewin's expected traffic fits well within Vercel's free tier</li>
+      </ul>
+      <p>With static site generation, each language variant is pre-rendered at build time. This means:</p>
+      <ul>
+        <li><strong>No server-side rendering latency</strong> - pure HTML served instantly</li>
+        <li><strong>No database queries on page load</strong> - everything is pre-built</li>
+        <li><strong>Edge caching</strong> - pages delivered from the nearest server to each visitor</li>
+      </ul>
+
+      <img src="https://images.pexels.com/photos/270632/pexels-photo-270632.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Serverless architecture diagram" class="rounded-xl my-6 w-full" />
+
+      <h2>Integrating Resend for Email Delivery</h2>
+      <p>The contact form needed reliable email delivery. I chose Resend for several reasons:</p>
+      <ul>
+        <li><strong>Developer-friendly API:</strong> Simple REST API with excellent documentation</li>
+        <li><strong>Reliable delivery:</strong> High inbox placement rates, emails don't end up in spam</li>
+        <li><strong>Free tier:</strong> 3,000 emails per month free - perfect for small business contact forms</li>
+        <li><strong>Email templates:</strong> Support for HTML templates with dynamic content</li>
+        <li><strong>Webhooks:</strong> Delivery tracking for monitoring email status</li>
+      </ul>
+
+      <h3>Contact Form Implementation</h3>
+      <p>The contact form works as follows:</p>
+      <ul>
+        <li><strong>Frontend:</strong> Nuxt.js form with validation (name, email, phone, message)</li>
+        <li><strong>API route:</strong> Serverless function deployed on Vercel processes the form</li>
+        <li><strong>Resend API:</strong> Sends email to Surewin's team with inquiry details</li>
+        <li><strong>Confirmation:</strong> Auto-reply sent to the customer confirming receipt</li>
+      </ul>
+      <p>The serverless function runs in Vercel's edge network, ensuring low latency regardless of where the visitor is located.</p>
+
+      <h2>Tailwind CSS for Rapid Styling</h2>
+      <p>I used Tailwind CSS for styling because it integrates well with Nuxt.js and provides:</p>
+      <ul>
+        <li><strong>Responsive design out of the box:</strong> Mobile-first approach works perfectly for modern websites</li>
+        <li><strong>Dark mode support:</strong> Easy to add if needed in the future</li>
+        <li><strong>Small bundle size:</strong> Only used styles included in production build</li>
+        <li><strong>Consistent design language:</strong> Tailwind's utility classes ensure visual consistency</li>
+      </ul>
+
+      <img src="https://images.pexels.com/photos/196645/pexels-photo-196645.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&fit=crop" alt="Professional website on multiple devices" class="rounded-xl my-6 w-full" />
+
+      <h2>SEO Optimization for Multiple Languages</h2>
+      <p>Multi-language SEO requires special attention. Here's what I implemented:</p>
+
+      <h3>Technical SEO</h3>
+      <ul>
+        <li><strong>hreflang tags:</strong> Automatically generated by Nuxt i18n, telling Google which language version to show in search results</li>
+        <li><strong>Alternate links:</strong> Each page links to its equivalents in other languages</li>
+        <li><strong>Language-specific meta tags:</strong> Title, description, and keywords unique to each language</li>
+        <li><strong>XML sitemap:</strong> Includes all language versions of every page</li>
+        <li><strong>Robots.txt:</strong> Configured to allow all language variants</li>
+      </ul>
+
+      <h3>Content SEO</h3>
+      <ul>
+        <li><strong>Translated content:</strong> Not machine-translated, but professionally written content for each language</li>
+        <li><strong>Cultural adaptation:</strong> Content adjusted for cultural context, not just language</li>
+        <li><strong>Local keywords:</strong> Keyword research for each target market</li>
+      </ul>
+
+      <h2>The Results: Fast, Multilingual, Reliable</h2>
+      <p>The Surewin website launched with impressive metrics:</p>
+      <ul>
+        <li><strong>Page load time: Under 1 second</strong> for all language variants</li>
+        <li><strong>Lighthouse score: 95+</strong> across performance, accessibility, and SEO</li>
+        <li><strong>Edge locations: 300+</strong> worldwide through Vercel</li>
+        <li><strong>Email delivery: 99%+</strong> inbox placement via Resend</li>
+        <li><strong>Hosting cost: $0/month</strong> within Vercel and Resend free tiers</li>
+      </ul>
+
+      <h2>Key Takeaways</h2>
+      <p>Building a multi-language website doesn't have to be complicated. Here's what made this project successful:</p>
+      <ul>
+        <li><strong>Choose the right framework.</strong> Nuxt.js with i18n module handled multi-language routing seamlessly</li>
+        <li><strong>Static site generation is powerful.</strong> Pre-rendering pages for each language ensures fast loads and simple hosting</li>
+        <li><strong>Modern email services are reliable.</strong> Resend delivers emails that actually reach inboxes, with a generous free tier</li>
+        <li><strong>Vercel simplifies deployment.</strong> Zero-configuration deployment with global edge caching</li>
+        <li><strong>Don't forget SEO for each language.</strong> Proper hreflang tags and language-specific content are essential for search visibility</li>
+      </ul>
+      <p>The Surewin website now serves customers in their preferred language, delivers contact form submissions reliably, and costs nothing to host. It's a solution that scales with their business without scaling their costs.</p>
+    `,
+  },
+  {
     _id: 'migrating-hans-steel-wordpress-to-nextjs-reducing-costs',
     url: 'migrating-hans-steel-wordpress-to-nextjs-reducing-costs',
     title: 'Cutting Hosting Costs by 80%: Migrating Hans Steel from WordPress to Next.js',
