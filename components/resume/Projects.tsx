@@ -97,6 +97,22 @@ export default function Projects() {
       image: "https://images.pexels.com/photos/2132252/pexels-photo-2132252.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop"
     },
     {
+      name: "Surewin",
+      description: "Multi-language legal info website with contact form and email integration",
+      technologies: ["Nuxt.js", "Tailwind CSS", "Vercel", "Resend"],
+      highlights: [
+        "Multi-language support for global audience",
+        "Resend email integration for contact forms",
+        "Vercel deployment for fast global delivery",
+        "SEO optimized for multiple locales"
+      ],
+      url: "https://surewin.ca",
+      category: "client",
+      gradient: "from-violet-600 to-fuchsia-600",
+      bgGradient: "from-violet-50 to-fuchsia-50",
+      image: "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop"
+    },
+    {
       name: "Juzi Book House",
       description: "Online novel platform with author/reader support, subscription membership, and chapter-based CMS",
       technologies: ["SvelteKit", "Supabase", "Stripe", "Netlify"],
