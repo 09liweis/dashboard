@@ -5,7 +5,7 @@ export default function Skills() {
     {
       title: "Frontend",
       icon: "🎨",
-      color: "from-blue-500 to-cyan-500",
+      iconBg: "bg-blue-600",
       skills: [
         "React (daily driver)",
         "Next.js",
@@ -18,7 +18,7 @@ export default function Skills() {
     {
       title: "Backend",
       icon: "⚙️",
-      color: "from-green-500 to-emerald-500",
+      iconBg: "bg-emerald-600",
       skills: [
         "Node.js & Express",
         "RESTful & GraphQL APIs",
@@ -31,7 +31,7 @@ export default function Skills() {
     {
       title: "Databases",
       icon: "🗄️",
-      color: "from-purple-500 to-pink-500",
+      iconBg: "bg-cyan-600",
       skills: [
         "PostgreSQL",
         "MongoDB",
@@ -44,7 +44,7 @@ export default function Skills() {
     {
       title: "DevOps & Tools",
       icon: "🛠️",
-      color: "from-orange-500 to-red-500",
+      iconBg: "bg-amber-600",
       skills: [
         "Git & GitHub",
         "Docker",
@@ -59,77 +59,71 @@ export default function Skills() {
 
   return (
     <motion.section
-      className="mb-12"
+      className="mb-16"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
     >
-      <div className="text-center mb-10">
-        <h2 className="text-4xl font-bold mb-4 bg-linear-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">
+      <div className="text-left mb-10">
+        <p className="text-sm font-semibold uppercase tracking-widest text-slate-500 mb-3">Expertise</p>
+        <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 tracking-tight mb-4">
           What I Work With
         </h2>
+        <div className="w-20 h-1 bg-slate-900 rounded-full"></div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {skillCategories.map((category, categoryIndex) => (
           <motion.article
             key={category.title}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: categoryIndex * 0.15 }}
-            className="group relative overflow-hidden"
+            transition={{ delay: categoryIndex * 0.1 }}
+            className="group"
           >
-            {/* Background gradient */}
-            <div className={`absolute inset-0 bg-linear-to-br ${category.color} opacity-5 group-hover:opacity-10 transition-opacity duration-300 rounded-2xl`}></div>
-            
-            <div className="relative bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:shadow-xl">
-              {/* Category Header */}
-              <div className="flex items-center gap-4 mb-8">
-                <div className={`w-16 h-16 rounded-2xl bg-linear-to-br ${category.color} flex items-center justify-center shadow-lg`}>
-                  <span className="text-2xl">{category.icon}</span>
+            <div className="relative bg-white border-2 border-slate-100 rounded-lg p-6 group-hover:border-slate-200 transition-all h-full">
+              <div className="flex items-center gap-3 mb-5 pb-4 border-b border-slate-100">
+                <div className={`w-10 h-10 ${category.iconBg} rounded-md flex items-center justify-center flex-shrink-0`}>
+                  <span className="text-lg">{category.icon}</span>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900">{category.title}</h3>
-                  <p className="text-gray-500">{category.skills.length} technologies</p>
+                  <h3 className="text-xl font-bold text-slate-900">{category.title}</h3>
+                  <p className="text-xs text-slate-500 font-medium">{category.skills.length} technologies</p>
                 </div>
               </div>
 
-              {/* Skills List */}
-              <div className="space-y-3">
+              <div className="space-y-2.5">
                 {category.skills.map((skill, skillIndex) => (
                   <motion.div
                     key={skill}
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: categoryIndex * 0.15 + skillIndex * 0.05 }}
-                    className="flex items-center gap-3"
+                    transition={{ delay: categoryIndex * 0.1 + skillIndex * 0.03 }}
+                    className="flex items-start gap-2.5"
                   >
-                    <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex-shrink-0"></div>
-                    <span className="text-gray-700">
+                    <svg className="w-4 h-4 text-slate-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-sm text-slate-700 leading-relaxed">
                       {skill}
                     </span>
                   </motion.div>
                 ))}
               </div>
-
-              {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-linear-to-br from-white/20 to-transparent rounded-full blur-xl"></div>
-              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-linear-to-tr from-white/10 to-transparent rounded-full blur-lg"></div>
             </div>
           </motion.article>
         ))}
       </div>
 
-      {/* Additional Skills Section */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.8 }}
-        className="mt-12 text-center"
+        transition={{ delay: 0.5 }}
+        className="mt-6"
       >
-        <div className="bg-gray-50 p-8 rounded-2xl border border-gray-200">
-          <h3 className="text-lg font-bold text-gray-900 mb-4">Also comfortable with</h3>
-          <div className="flex flex-wrap justify-center gap-2">
+        <div className="bg-slate-50 rounded-lg p-6 border border-slate-200">
+          <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wide mb-3">Also comfortable with</h3>
+          <div className="flex flex-wrap gap-2">
             {[
               "Testing & debugging", "Performance tuning", "Security",
               "API design", "Team collaboration", "Mentoring",
@@ -137,11 +131,11 @@ export default function Skills() {
             ].map((skill, index) => (
               <motion.span
                 key={skill}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1 + index * 0.05 }}
-                whileHover={{ scale: 1.05, y: -2 }}
-                className="px-3 py-1 bg-white rounded-lg border border-gray-300 text-sm text-gray-600 transition-all cursor-default"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 + index * 0.04 }}
+                whileHover={{ scale: 1.02 }}
+                className="px-3 py-1.5 bg-white rounded-md border border-slate-200 text-xs font-medium text-slate-600 transition-all cursor-default"
               >
                 {skill}
               </motion.span>
