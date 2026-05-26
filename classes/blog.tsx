@@ -9,7 +9,7 @@ export default class Blog {
     this.title = blog.title;
     this._id = blog._id;
     this.excerpt = blog.excerpt || '';
-    this.content = blog.content;
+    this.content = blog.content || '';
     this.created_at = blog.created_at;
     this.url = blog.url;
   }

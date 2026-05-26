@@ -10,6 +10,8 @@ import { BlogType } from 'types';
 import SEO from '@/components/SEO';
 import { getBlogPostingSchema, getBreadcrumbSchema, getFAQSchema, getSpeakableSchema, GEO_META, extractSections, stripHtml } from '../../config/seo';
 import { BLOG_POSTS } from '../../data/blogs';
+import fs from 'fs';
+import path from 'path';
 
 interface BlogDetailPageProps {
   blog: BlogType;
@@ -266,13 +268,25 @@ export const getServerSideProps: GetServerSideProps<BlogDetailPageProps> = async
     };
   }
 
-  const blog = BLOG_POSTS.find((post) => post._id === blogId || post.url === blogId);
+  const blogMeta = BLOG_POSTS.find((post) => post._id === blogId || post.url === blogId);
 
-  if (!blog) {
+  if (!blogMeta) {
     return {
       notFound: true,
     };
   }
+
+  // Load content from separate JSON file named after the blog url
+  let content = '';
+  try {
+    const jsonPath = path.join(process.cwd(), 'data', 'blogs', `${blogMeta.url}.json`);
+    const jsonData = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
+    content = jsonData.content || '';
+  } catch {
+    content = '';
+  }
+
+  const blog: BlogType = { ...blogMeta, content };
 
   return {
     props: {
