@@ -264,7 +264,7 @@ export default function Home() {
               Ready to start a project?
             </h2>
             <p className="text-lg text-gray-400 leading-relaxed mb-8">
-              Whether you need to cut hosting costs, build a new application, or optimize an existing one -- let's talk about what I can deliver.
+              Whether you need to cut hosting costs, build a new application, or optimize an existing one -- let&apos;s talk about what I can deliver.
             </p>
             <div className="flex flex-wrap gap-3">
               <a href="mailto:weisen.li@hotmail.com">

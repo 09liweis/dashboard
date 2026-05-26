@@ -90,7 +90,7 @@ export default function Summary() {
               </div>
               <div className="flex-1">
                 <p className="text-base sm:text-lg text-slate-700 leading-relaxed mb-5">
-                  I've spent the last decade building web applications that actually work. Not just the shiny frontend stuff, but the whole stack—databases, APIs, deployment, the works. I focus on writing code that other developers can understand six months later.
+                  I&apos;ve spent the last decade building web applications that actually work. Not just the shiny frontend stuff, but the whole stack—databases, APIs, deployment, the works. I focus on writing code that other developers can understand six months later.
                 </p>
 
                 <div className="space-y-3">
@@ -99,7 +99,7 @@ export default function Summary() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
                     </svg>
                     <p className="text-slate-600 text-sm leading-relaxed">
-                      I've led teams through technical migrations (jQuery to React, monoliths to microservices) and actually shipped them. I enjoy mentoring junior developers and doing code reviews that help people grow.
+                      I&apos;ve led teams through technical migrations (jQuery to React, monoliths to microservices) and actually shipped them. I enjoy mentoring junior developers and doing code reviews that help people grow.
                     </p>
                   </div>
 
@@ -108,7 +108,7 @@ export default function Summary() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
                     </svg>
                     <p className="text-slate-600 text-sm leading-relaxed">
-                      My approach is pragmatic: use the right tool for the job, optimize when it matters, and keep things simple when possible. I've dealt with everything from small startup MVPs to systems handling millions of records.
+                      My approach is pragmatic: use the right tool for the job, optimize when it matters, and keep things simple when possible. I&apos;ve dealt with everything from small startup MVPs to systems handling millions of records.
                     </p>
                   </div>
 
@@ -117,7 +117,7 @@ export default function Summary() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
                     </svg>
                     <p className="text-slate-600 text-sm leading-relaxed">
-                      Currently working with React, Vue, Node.js, and various databases. I pick up new technologies quickly and I'm comfortable jumping into unfamiliar codebases.
+                      Currently working with React, Vue, Node.js, and various databases. I pick up new technologies quickly and I&apos;m comfortable jumping into unfamiliar codebases.
                     </p>
                   </div>
                 </div>
