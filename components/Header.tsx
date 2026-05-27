@@ -86,20 +86,30 @@ function NavItem({ nav, pathname, lang, onClick, index }: { nav: typeof NAV_LINK
   );
 }
 
-function MobileNavItem({ nav, pathname, lang, onClick }: { nav: typeof NAV_LINKS[0]; pathname: String; lang: String; onClick: () => void }) {
+function MobileMenuItem({ nav, pathname, lang, onClick, index }: { nav: typeof NAV_LINKS[0]; pathname: String; lang: String; onClick: () => void; index: number }) {
   const isActive = nav.url === pathname;
 
   return (
-    <Link key={nav.url} href={nav.url}>
-      <button
-        type="button"
-        onClick={onClick}
-        className={`w-full flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-medium transition-all text-left ${isActive ? 'bg-blue-600 text-white' : 'bg-gray-50 text-gray-700 hover:bg-blue-50'}`}
-      >
-        <Icon name={nav.icon} classNames="text-base" />
-        {getTranslate(lang, nav.tl)}
-      </button>
-    </Link>
+    <motion.div
+      initial={{ x: -300, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{ delay: index * 0.08, duration: 0.3, ease: 'easeOut' }}
+    >
+      <Link key={nav.url} href={nav.url} className="block">
+        <button
+          type="button"
+          onClick={onClick}
+          className={`w-full flex items-center gap-4 px-6 py-4 rounded-xl text-lg font-medium transition-colors text-left ${
+            isActive
+              ? 'bg-blue-600 text-white shadow-md'
+              : 'text-gray-700 hover:bg-blue-50 hover:text-blue-600'
+          }`}
+        >
+          <Icon name={nav.icon} classNames="text-2xl" />
+          <span>{getTranslate(lang, nav.tl)}</span>
+        </button>
+      </Link>
+    </motion.div>
   );
 }
 
@@ -145,14 +155,17 @@ export default function Header({
             onLogin={handleLoginClick}
           />
 
-          <button
-            type="button"
-            className="md:hidden inline-flex items-center justify-center p-2 rounded-lg bg-white/90 border border-gray-200 shadow-sm text-gray-700 hover:bg-blue-50 transition-all"
-            onClick={() => setMenuOpen(prev => !prev)}
-            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-          >
-            <Icon name={menuOpen ? 'xmark' : 'bars'} classNames="text-xl" />
-          </button>
+          {/* Hamburger menu button (only visible on mobile and when menu is closed) */}
+          {!menuOpen && (
+            <button
+              type="button"
+              className="md:hidden inline-flex items-center justify-center p-2 rounded-lg bg-white/90 border border-gray-200 shadow-sm text-gray-700 hover:bg-blue-50 transition-all"
+              onClick={() => setMenuOpen(true)}
+              aria-label="Open menu"
+            >
+              <Icon name="bars" classNames="text-xl" />
+            </button>
+          )}
         </div>
 
         <nav className="relative">
@@ -168,21 +181,56 @@ export default function Header({
             ))}
           </div>
 
-          {menuOpen && (
-            <div className="md:hidden mt-3 space-y-3 p-3 bg-white/90 rounded-xl border border-gray-200 shadow-lg backdrop-blur-sm">
-              <div className="grid grid-cols-2 gap-2">
-                {NAV_LINKS.map((nav) => (
-                  <MobileNavItem
+          {/* Full-screen mobile menu overlay */}
+          <motion.div
+            initial={false}
+            animate={{ x: menuOpen ? 0 : '-100%' }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className="md:hidden fixed inset-0 z-50 bg-white"
+          >
+            {/* Close button */}
+            <div className="absolute top-0 right-0 p-4 z-10">
+              <button
+                type="button"
+                onClick={() => setMenuOpen(false)}
+                className="p-2 rounded-lg bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors"
+                aria-label="Close menu"
+              >
+                <Icon name="xmark" classNames="text-2xl" />
+              </button>
+            </div>
+
+            {/* Menu content */}
+            <div className="h-full flex flex-col pt-16 px-6 pb-6 overflow-y-auto">
+              {/* Header */}
+              <div className="mb-8">
+                <h2 className="text-2xl font-bold text-gray-900">Navigation</h2>
+                <p className="text-sm text-gray-500 mt-1">Select a page to visit</p>
+              </div>
+
+              {/* Navigation items */}
+              <div className="flex-1 space-y-2">
+                {NAV_LINKS.map((nav, index) => (
+                  <MobileMenuItem
                     key={nav.url}
                     nav={nav}
                     pathname={pathname}
                     lang={lang}
                     onClick={() => setMenuOpen(false)}
+                    index={index}
                   />
                 ))}
               </div>
+
+              {/* Footer */}
+              <div className="mt-auto pt-6 border-t border-gray-200">
+                <div className="flex items-center justify-between text-sm text-gray-400">
+                  <span>Sam Li Portfolio</span>
+                  <span>2026</span>
+                </div>
+              </div>
             </div>
-          )}
+          </motion.div>
         </nav>
       </div>
     </motion.header>
