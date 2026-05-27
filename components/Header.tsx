@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { motion } from 'motion/react';
-import { getTranslate, getLanguageKeys } from '../helpers';
+import { getTranslate } from '../helpers';
 import { HeaderProps, emptyUser } from '../types';
 import Icon from './Icon';
 
@@ -37,21 +37,7 @@ export default function Header({
       {/* Content */}
       <div className="relative z-10 p-3">
         <div className="flex flex-col gap-4 flex-row items-center justify-between mb-6">
-          <div className="flex flex-wrap items-center gap-2">
-            {getLanguageKeys().map(({ k, v }: { [k: string]: string }) => (
-              <Link key={k} href={pathname.toString()} locale={k}>
-                <motion.span
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-3 py-1.5 text-sm font-medium rounded-lg bg-white/80 border border-gray-200 hover:border-blue-500 hover:bg-blue-50 transition-all cursor-pointer shadow-xs"
-                >
-                  {v}
-                </motion.span>
-              </Link>
-            ))}
-          </div>
-
-          <div className="flex items-center gap-4 justify-end">
+          <div className="flex items-center gap-4 justify-end ml-auto">
             {user._id ? (
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
