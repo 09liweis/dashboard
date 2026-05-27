@@ -1,6 +1,9 @@
 import { motion } from 'motion/react';
 import Link from 'next/link';
 import Projects from '@/components/resume/Projects';
+import Blog from 'classes/blog';
+import BlogList from '@/components/blog/BlogList';
+import { BlogType } from 'types';
 
 const skills = [
   { name: 'React', category: 'Frontend' },
@@ -60,7 +63,12 @@ const services = [
   },
 ];
 
-export default function Home() {
+interface HomeProps {
+  latestBlogs: BlogType[];
+}
+
+export default function Home({ latestBlogs }: HomeProps) {
+  const curBlogs = latestBlogs.map((b) => new Blog(b));
   return (
     <div className="min-h-screen bg-white">
       {/* ─── Hero ──────────────────────────────────────────────────────── */}
@@ -250,6 +258,40 @@ export default function Home() {
           <Projects />
         </div>
       </section>
+
+      {/* ─── Latest Blog Posts ──────────────────────────────────────────── */}
+      {curBlogs.length > 0 && (
+        <section className="py-20 md:py-28 bg-gray-50 border-y border-gray-100">
+          <div className="max-w-6xl mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mb-14 flex items-end justify-between"
+            >
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-widest text-emerald-600 mb-3">Blog</p>
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
+                  Latest Articles
+                </h2>
+              </div>
+              <Link href="/blogs">
+                <motion.span
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-gray-600 hover:text-gray-900 transition-colors cursor-pointer"
+                >
+                  View all
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </motion.span>
+              </Link>
+            </motion.div>
+            <BlogList blogs={curBlogs} />
+          </div>
+        </section>
+      )}
 
       {/* ─── CTA ────────────────────────────────────────────────────────── */}
       <section className="py-20 md:py-28 bg-gray-900">

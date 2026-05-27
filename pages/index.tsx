@@ -1,9 +1,15 @@
-import type { NextPage } from 'next';
+import type { NextPage, GetServerSideProps } from 'next';
 import Home from "@/components/screens/Home";
 import SEO from '@/components/SEO';
 import { getPersonSchema, getWebsiteSchema, getProfessionalServiceSchema } from '../config/seo';
+import { BLOG_POSTS } from '../data/blogs';
+import { BlogType } from '../types';
 
-const HomePage: NextPage = () => {
+interface HomePageProps {
+  latestBlogs: BlogType[];
+}
+
+const HomePage: NextPage<HomePageProps> = ({ latestBlogs }) => {
   const jsonLd = [
     getPersonSchema(),
     getWebsiteSchema(),
@@ -26,9 +32,22 @@ const HomePage: NextPage = () => {
         jsonLd={jsonLd}
         canonical="https://samliweisen.dev"
       />
-      <Home />
+      <Home latestBlogs={latestBlogs} />
     </>
   );
 }
+
+export const getServerSideProps: GetServerSideProps<HomePageProps> = async () => {
+  const sorted = [...BLOG_POSTS].sort(
+    (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+  );
+  const latestBlogs = sorted.slice(0, 3);
+
+  return {
+    props: {
+      latestBlogs,
+    },
+  };
+};
 
 export default HomePage;
