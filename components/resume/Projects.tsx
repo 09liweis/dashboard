@@ -172,7 +172,7 @@ export default function Projects() {
             onClick={() => setSelectedCategory(category.id)}
             className={`px-3 py-1.5 text-sm font-medium rounded-md transition-colors ${
               selectedCategory === category.id
-                ? "bg-slate-900 text-white"
+                ? "bg-primary text-white"
                 : "bg-white text-slate-700 border border-slate-300 hover:border-slate-400"
             }`}
           >
