@@ -1,20 +1,30 @@
-import Link from 'next/link';
-import { useState } from 'react';
-import { motion } from 'motion/react';
-import { getTranslate } from '../helpers';
-import { HeaderProps, emptyUser } from '../types';
-import Icon from './Icon';
+import Link from "next/link";
+import { useState } from "react";
+import { motion } from "motion/react";
+import { getTranslate } from "../helpers";
+import { HeaderProps, emptyUser } from "../types";
+import Icon from "./Icon";
 
 const NAV_LINKS = [
-  { tl: 'home', url: '/', icon: 'house-user' },
-  { tl: 'Resume', url: '/resume', icon: 'user' },
-  { tl: 'knowledges', url: '/knowledges', icon: 'book' },
-  { tl: 'todos', url: '/todos', icon: 'list' },
-  { tl: 'expenses', url: '/expenses', icon: 'piggy-bank' },
-  { tl: 'blogs', url: '/blogs', icon: 'piggy-bank' },
+  { tl: "home", url: "/", icon: "house-user" },
+  { tl: "Resume", url: "/resume", icon: "user" },
+  { tl: "knowledges", url: "/knowledges", icon: "book" },
+  // { tl: 'todos', url: '/todos', icon: 'list' },
+  { tl: "expenses", url: "/expenses", icon: "piggy-bank" },
+  { tl: "blogs", url: "/blogs", icon: "piggy-bank" },
 ];
 
-function UserSection({ user, lang, onLogout, onLogin }: { user: any; lang: String; onLogout: () => void; onLogin: () => void }) {
+function UserSection({
+  user,
+  lang,
+  onLogout,
+  onLogin,
+}: {
+  user: any;
+  lang: String;
+  onLogout: () => void;
+  onLogin: () => void;
+}) {
   if (user._id) {
     return (
       <motion.div
@@ -31,7 +41,7 @@ function UserSection({ user, lang, onLogout, onLogin }: { user: any; lang: Strin
           className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors shadow-xs font-medium cursor-pointer"
           onClick={onLogout}
         >
-          {getTranslate(lang, 'logout')}
+          {getTranslate(lang, "logout")}
         </motion.button>
       </motion.div>
     );
@@ -44,12 +54,24 @@ function UserSection({ user, lang, onLogout, onLogin }: { user: any; lang: Strin
       className="px-6 py-2 cursor-pointer bg-linear-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg font-medium"
       onClick={onLogin}
     >
-      {getTranslate(lang, 'login')}
+      {getTranslate(lang, "login")}
     </motion.button>
   );
 }
 
-function NavItem({ nav, pathname, lang, onClick, index }: { nav: typeof NAV_LINKS[0]; pathname: String; lang: String; onClick?: () => void; index: number }) {
+function NavItem({
+  nav,
+  pathname,
+  lang,
+  onClick,
+  index,
+}: {
+  nav: (typeof NAV_LINKS)[0];
+  pathname: String;
+  lang: String;
+  onClick?: () => void;
+  index: number;
+}) {
   const isActive = nav.url === pathname;
 
   return (
@@ -60,9 +82,10 @@ function NavItem({ nav, pathname, lang, onClick, index }: { nav: typeof NAV_LINK
         transition={{ delay: index * 0.1 }}
         className={`
           relative px-4 py-3 rounded-lg transition-all duration-300 cursor-pointer group
-          ${isActive
-            ? 'bg-linear-to-r from-blue-600 to-purple-600 text-white shadow-lg'
-            : 'text-gray-700 hover:bg-gray-100 hover:text-blue-600'
+          ${
+            isActive
+              ? "bg-linear-to-r from-blue-600 to-purple-600 text-white shadow-lg"
+              : "text-gray-700 hover:bg-gray-100 hover:text-blue-600"
           }
         `}
         onClick={onClick}
@@ -77,7 +100,7 @@ function NavItem({ nav, pathname, lang, onClick, index }: { nav: typeof NAV_LINK
           <motion.div
             layoutId="activeTab"
             className="absolute inset-0 bg-linear-to-r from-blue-600 to-purple-600 rounded-lg -z-10"
-            transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+            transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
           />
         )}
         <div className="absolute inset-0 bg-linear-to-r from-blue-600/0 to-purple-600/0 group-hover:from-blue-600/10 group-hover:to-purple-600/10 rounded-lg transition-all duration-300 -z-10"></div>
@@ -86,14 +109,26 @@ function NavItem({ nav, pathname, lang, onClick, index }: { nav: typeof NAV_LINK
   );
 }
 
-function MobileMenuItem({ nav, pathname, lang, onClick, index }: { nav: typeof NAV_LINKS[0]; pathname: String; lang: String; onClick: () => void; index: number }) {
+function MobileMenuItem({
+  nav,
+  pathname,
+  lang,
+  onClick,
+  index,
+}: {
+  nav: (typeof NAV_LINKS)[0];
+  pathname: String;
+  lang: String;
+  onClick: () => void;
+  index: number;
+}) {
   const isActive = nav.url === pathname;
 
   return (
     <motion.div
       initial={{ x: -300, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      transition={{ delay: index * 0.08, duration: 0.3, ease: 'easeOut' }}
+      transition={{ delay: index * 0.08, duration: 0.3, ease: "easeOut" }}
     >
       <Link key={nav.url} href={nav.url} className="block">
         <button
@@ -101,8 +136,8 @@ function MobileMenuItem({ nav, pathname, lang, onClick, index }: { nav: typeof N
           onClick={onClick}
           className={`w-full flex items-center gap-4 px-6 py-4 rounded-xl text-lg font-medium transition-colors text-left ${
             isActive
-              ? 'bg-blue-600 text-white shadow-md'
-              : 'text-gray-700 hover:bg-blue-50 hover:text-blue-600'
+              ? "bg-blue-600 text-white shadow-md"
+              : "text-gray-700 hover:bg-blue-50 hover:text-blue-600"
           }`}
         >
           <Icon name={nav.icon} classNames="text-2xl" />
@@ -124,7 +159,7 @@ export default function Header({
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleLogout = () => {
-    localStorage.removeItem('auth-token');
+    localStorage.removeItem("auth-token");
     setUser(emptyUser);
     setMenuOpen(false);
   };
@@ -184,8 +219,8 @@ export default function Header({
           {/* Full-screen mobile menu overlay */}
           <motion.div
             initial={false}
-            animate={{ x: menuOpen ? 0 : '-100%' }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            animate={{ x: menuOpen ? 0 : "-100%" }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
             className="md:hidden fixed inset-0 z-50 bg-white"
           >
             {/* Close button */}
@@ -205,7 +240,9 @@ export default function Header({
               {/* Header */}
               <div className="mb-8">
                 <h2 className="text-2xl font-bold text-gray-900">Navigation</h2>
-                <p className="text-sm text-gray-500 mt-1">Select a page to visit</p>
+                <p className="text-sm text-gray-500 mt-1">
+                  Select a page to visit
+                </p>
               </div>
 
               {/* Navigation items */}
