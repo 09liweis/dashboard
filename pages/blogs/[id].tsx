@@ -1,11 +1,6 @@
-import { useState, useEffect, useContext } from "react";
+import { useState } from "react";
 import type { NextPage, GetServerSideProps } from "next";
 import Link from "next/link";
-import { fetchAPI, getTranslate } from "helpers";
-import { BLOG_LIST_API } from "../../constants";
-import { useRouter } from "next/router";
-import AppContext from "AppContext";
-import useDebounce from "hooks/useDebounce";
 import { BlogType } from "types";
 import SEO from "@/components/SEO";
 import {
@@ -40,47 +35,7 @@ const BlogDetail: NextPage<BlogDetailPageProps> = ({
   blogId,
   isNew,
 }) => {
-  const router = useRouter();
-  const { user, lang } = useContext(AppContext);
-  const [loading, setLoading] = useState(false);
   const [blog, setBlog] = useState(initialBlog || emptyBlog);
-
-  const debounceUpdateContent = useDebounce(blog.content, 1000);
-
-  useEffect(() => {
-    if (!blog.initialLoad && debounceUpdateContent) {
-      updateBlog();
-    }
-  }, [debounceUpdateContent]);
-
-  const handleBlogChange = (e: any) => {
-    const { name, value } = e.target;
-    setBlog((prevBlog) => ({ ...prevBlog, [name]: value }));
-  };
-
-  const updateBlog = async () => {
-    setLoading(true);
-    let url = `${BLOG_LIST_API}/`;
-    let method = "POST";
-    if (!isNew) {
-      url += blogId;
-      method = "PUT";
-    }
-    const response = await fetchAPI({
-      url,
-      body: blog,
-      method,
-    });
-    setLoading(false);
-    if (isNew) {
-      router.replace(`/blogs/${response._id}`);
-    }
-  };
-
-  const handleBlogSubmit = async (e: any) => {
-    e.preventDefault();
-    await updateBlog();
-  };
 
   const formatDisplayHTML = (html: string) => {
     let formatedHTML = html
@@ -266,16 +221,6 @@ export const getServerSideProps: GetServerSideProps<
   const rawId = params?.id;
   const blogId =
     typeof rawId === "string" ? rawId : Array.isArray(rawId) ? rawId[0] : "";
-
-  if (blogId === "new") {
-    return {
-      props: {
-        blog: emptyBlog,
-        blogId,
-        isNew: true,
-      },
-    };
-  }
 
   const blogMeta = BLOG_POSTS.find(
     (post) => post._id === blogId || post.url === blogId
