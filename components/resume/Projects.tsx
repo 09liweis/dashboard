@@ -1,5 +1,4 @@
-import { motion } from 'motion/react';
-import { useState } from 'react';
+import { useState } from "react";
 
 interface Project {
   name: string;
@@ -8,371 +7,251 @@ interface Project {
   highlights: string[];
   url?: string;
   category: string;
-  gradient: string;
-  bgGradient: string;
-  image: string;
 }
 
 export default function Projects() {
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
-  const [hoveredProject, setHoveredProject] = useState<string | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
   const PROJECTS: Project[] = [
     {
       name: "Hans Construction",
-      description: "Construction company website built with SvelteKit for fast performance and deployed on Vercel's edge network",
+      description:
+        "Construction company website. Built with SvelteKit for fast performance.",
       technologies: ["SvelteKit", "Tailwind CSS", "Vercel"],
       highlights: [
-        "Fast SvelteKit static site generation",
-        "Vercel edge deployment for global performance",
-        "Project portfolio showcase",
-        "SEO-optimized for local construction leads"
+        "Static site generation for speed",
+        "Project portfolio",
+        "SEO work for local leads",
       ],
       url: "https://hanscons.com",
       category: "client",
-      gradient: "from-slate-600 to-gray-800",
-      bgGradient: "from-slate-50 to-gray-100",
-      image: "https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop"
     },
     {
-      name: "Aivio Digital redesign",
-      description: "Redesign website from wordpress to astro with fast render and better seo",
-      technologies: ["Astro", "tailwindcss", "Vercel", "Resend"],
+      name: "Aivio Digital",
+      description:
+        "Migrated from WordPress to Astro to improve performance and reduce hosting costs.",
+      technologies: ["Astro", "Tailwind CSS", "Vercel"],
       highlights: [
-        "Remove heavy wordpress support",
-        "Fast static site render from astro framework",
-        "Host in vercel for free in limit bandwidth"
+        "Removed WordPress dependency",
+        "Faster page loads",
+        "Low-cost hosting",
       ],
       url: "https://aivio-digital.com",
       category: "client",
-      gradient: "from-gray-600 to-gray-800",
-      bgGradient: "from-gray-50 to-gray-100",
-      image: "https://images.pexels.com/photos/270632/pexels-photo-270632.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop"
     },
     {
       name: "Realtor Service Platform",
-      description: "Full-stack real estate service platform with payment processing and property management",
+      description: "Real estate service marketplace with payment processing.",
       technologies: ["SvelteKit", "Tailwind CSS", "Stripe", "Supabase"],
-      highlights: [
-        "Secure Stripe payment integration",
-        "Real estate service marketplace",
-        "User authentication with Supabase",
-        "Service booking with notifications"
-      ],
+      highlights: ["Stripe payments", "User accounts", "Service booking"],
       url: "https://realtorservice.ca",
       category: "client",
-      gradient: "from-blue-600 to-cyan-600",
-      bgGradient: "from-blue-50 to-cyan-50",
-      image: "https://images.pexels.com/photos/8730040/pexels-photo-8730040.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop"
     },
     {
       name: "Hans Steel Canada",
-      description: "Corporate rebranding website for steel manufacturing company",
+      description: "Corporate website for a steel manufacturing company.",
       technologies: ["Next.js", "Tailwind CSS", "Netlify"],
-      highlights: [
-        "Complete corporate rebranding",
-        "Product showcase sections",
-        "SEO optimized"
-      ],
+      highlights: ["Product showcase", "Corporate rebrand", "SEO improvements"],
       url: "https://hanssteel.com",
       category: "client",
-      gradient: "from-orange-600 to-red-600",
-      bgGradient: "from-orange-50 to-red-50",
-      image: "https://images.pexels.com/photos/14213937/pexels-photo-14213937.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop"
     },
     {
       name: "Kaifei Landscaping",
-      description: "Landscaping business website migrated from Wix to Next.js with Mapbox integration and project gallery",
-      technologies: ["Next.js", "Tailwind CSS", "Mapbox", "Cloudinary"],
+      description:
+        "Landscaping business website. Moved from Wix to Next.js with a project gallery and service area map.",
+      technologies: ["Next.js", "Tailwind CSS", "Mapbox"],
       highlights: [
-        "Migrated from Wix to Next.js for better performance",
-        "Mapbox integration for service area visualization",
-        "Interactive project gallery with before/after",
-        "SEO optimized for local search"
+        "Performance upgrade from Wix",
+        "Project gallery",
+        "Local SEO",
       ],
       url: "https://kaifeilandscaping.com",
       category: "client",
-      gradient: "from-green-600 to-lime-600",
-      bgGradient: "from-green-50 to-lime-50",
-      image: "https://images.pexels.com/photos/2132252/pexels-photo-2132252.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop"
     },
     {
       name: "Surewin",
-      description: "Multi-language legal info website with contact form and email integration",
-      technologies: ["Nuxt.js", "Tailwind CSS", "Vercel", "Resend"],
+      description:
+        "Multi-language website for legal information with contact form integration.",
+      technologies: ["Nuxt.js", "Tailwind CSS", "Vercel"],
       highlights: [
-        "Multi-language support for global audience",
-        "Resend email integration for contact forms",
-        "Vercel deployment for fast global delivery",
-        "SEO optimized for multiple locales"
+        "Multi-language support",
+        "Contact form integration",
+        "SEO for multiple locales",
       ],
       url: "https://surewin.ca",
       category: "client",
-      gradient: "from-violet-600 to-fuchsia-600",
-      bgGradient: "from-violet-50 to-fuchsia-50",
-      image: "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop"
     },
     {
       name: "Juzi Book House",
-      description: "Online novel platform with author/reader support, subscription membership, and chapter-based CMS",
-      technologies: ["SvelteKit", "Supabase", "Stripe", "Netlify"],
+      description:
+        "Online novel platform with subscriptions and author management tools.",
+      technologies: ["SvelteKit", "Supabase", "Stripe"],
       highlights: [
-        "Author/reader dual-role support",
-        "Stripe subscription membership",
-        "Chapter comments and gift system",
-        "Author CMS for novel chapter management"
+        "Author dashboard",
+        "Subscription payments",
+        "Reader engagement features",
       ],
       url: "https://juzibookhouse.com",
       category: "saas",
-      gradient: "from-amber-600 to-orange-600",
-      bgGradient: "from-amber-50 to-orange-50",
-      image: "https://images.pexels.com/photos/1741230/pexels-photo-1741230.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop"
     },
     {
       name: "Landlord Master",
-      description: "Property management platform for landlords and tenants",
-      technologies: ["Next.js", "MongoDB", "Stripe API"],
+      description: "Property management platform for landlords.",
+      technologies: ["Next.js", "MongoDB", "Stripe"],
       highlights: [
-        "Property listing management",
-        "Tenant screening automation",
-        "Secure payment processing",
-        "Role-based access control"
+        "Property listings",
+        "Tenant management",
+        "Payment processing",
       ],
       url: "https://landlordmaster.com",
       category: "saas",
-      gradient: "from-emerald-600 to-teal-600",
-      bgGradient: "from-emerald-50 to-teal-50",
-      image: "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop"
     },
     {
       name: "Movie Progress Tracker",
-      description: "Track and analyze movie watching progress with detailed analytics",
-      technologies: ["Nuxt 3", "Vue.js", "FastAPI", "PostgreSQL"],
+      description: "Track movies watched with stats and visualizations.",
+      technologies: ["Nuxt 3", "Vue.js", "PostgreSQL"],
       highlights: [
-        "Movie progress tracking",
-        "IMDB and Cineplex API integration",
-        "Analytics dashboard"
+        "Progress tracking",
+        "Analytics dashboard",
+        "API integrations",
       ],
       url: "https://what-sam-watched.vercel.app",
       category: "personal",
-      gradient: "from-yellow-500 to-orange-600",
-      bgGradient: "from-yellow-50 to-orange-50",
-      image: "https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop"
     },
     {
       name: "Rick and Morty Explorer",
-      description: "Interactive character and episode explorer",
+      description: "Explore characters and episodes from the show.",
       technologies: ["SvelteKit", "GraphQL", "Tailwind CSS"],
-      highlights: [
-        "GraphQL data fetching",
-        "Dynamic search and filtering",
-        "Pagination for large datasets"
-      ],
+      highlights: ["GraphQL queries", "Search and filter", "Paginated results"],
       url: "https://ricksammorty.netlify.app",
       category: "personal",
-      gradient: "from-green-600 to-emerald-600",
-      bgGradient: "from-green-50 to-emerald-50",
-      image: "https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop"
     },
     {
       name: "Express API Server",
-      description: "RESTful API with authentication and rate limiting",
-      technologies: ["Express.js", "MongoDB", "JWT", "TypeScript"],
-      highlights: [
-        "JWT authentication & RBAC",
-        "Input validation & error handling",
-        "Rate limiting & security middleware"
-      ],
+      description: "REST API with auth and rate limiting.",
+      technologies: ["Express.js", "MongoDB", "TypeScript"],
+      highlights: ["JWT authentication", "Input validation", "Rate limiting"],
       category: "api",
-      gradient: "from-sky-600 to-blue-600",
-      bgGradient: "from-sky-50 to-blue-50",
-      image: "https://images.pexels.com/photos/1181246/pexels-photo-1181246.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop"
     },
     {
       name: "Portfolio & Dashboard",
-      description: "Personal portfolio with expense tracking",
+      description: "This site. Personal portfolio with expense tracking.",
       technologies: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB"],
-      highlights: [
-        "Responsive UI design",
-        "Expense tracking with visualizations",
-        "Real-time updates"
-      ],
+      highlights: ["Expense tracking", "Responsive design", "Blog system"],
       url: "https://samliweisen.dev",
       category: "personal",
-      gradient: "from-rose-600 to-pink-600",
-      bgGradient: "from-rose-50 to-pink-50",
-      image: "https://images.pexels.com/photos/196645/pexels-photo-196645.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop"
-    }
+    },
   ];
 
   const categories = [
-    { id: 'all', label: 'All Projects', count: PROJECTS.length },
-    { id: 'client', label: 'Client Work', count: PROJECTS.filter(p => p.category === 'client').length },
-    { id: 'saas', label: 'SaaS', count: PROJECTS.filter(p => p.category === 'saas').length },
-    { id: 'personal', label: 'Personal', count: PROJECTS.filter(p => p.category === 'personal').length },
-    { id: 'api', label: 'API', count: PROJECTS.filter(p => p.category === 'api').length }
+    { id: "all", label: "All" },
+    { id: "client", label: "Client Work" },
+    { id: "saas", label: "SaaS Products" },
+    { id: "personal", label: "Personal" },
+    { id: "api", label: "APIs" },
   ];
 
-  const filteredProjects = selectedCategory === 'all'
-    ? PROJECTS
-    : PROJECTS.filter(p => p.category === selectedCategory);
+  const filteredProjects =
+    selectedCategory === "all"
+      ? PROJECTS
+      : PROJECTS.filter((p) => p.category === selectedCategory);
 
   return (
-    <motion.section
-      className="mb-12"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-    >
-      <div className="text-center mb-10">
-        <h2 className="text-4xl font-bold mb-4 bg-linear-to-r from-blue-600 to-cyan-600 text-transparent bg-clip-text">
-          Featured Projects
-        </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          A selection of projects showcasing full-stack development, API design, and modern web technologies
+    <section className="mb-12">
+      <div className="mb-8">
+        <h2 className="text-3xl font-bold text-slate-900 mb-2">Projects</h2>
+        <p className="text-slate-600">
+          Some things I&apos;ve built or helped build.
         </p>
       </div>
 
-      <div className="flex flex-wrap justify-center gap-3 mb-8">
+      <div className="flex flex-wrap gap-2 mb-8">
         {categories.map((category) => (
-          <motion.button
+          <button
             key={category.id}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
             onClick={() => setSelectedCategory(category.id)}
-            className={`px-5 py-2.5 rounded-xl font-medium transition-all relative ${
+            className={`px-3 py-1.5 text-sm font-medium rounded-md transition-colors ${
               selectedCategory === category.id
-                ? 'bg-linear-to-r from-blue-600 to-cyan-600 text-white shadow-lg'
-                : 'bg-white text-gray-700 border-2 border-gray-200 hover:border-gray-300'
+                ? "bg-slate-900 text-white"
+                : "bg-white text-slate-700 border border-slate-300 hover:border-slate-400"
             }`}
           >
-            <span className="relative z-10 flex items-center gap-2">
-              {category.label}
-              <span className={`text-xs px-2 py-0.5 rounded-full ${
-                selectedCategory === category.id
-                  ? 'bg-white/20'
-                  : 'bg-gray-100'
-              }`}>
-                {category.count}
-              </span>
-            </span>
-          </motion.button>
+            {category.label}
+          </button>
         ))}
       </div>
 
-      <motion.div
-        layout
-        className="grid grid-cols-1 lg:grid-cols-2 gap-6"
-      >
-        {filteredProjects.map((project, index) => (
-          <motion.article
+      <div className="space-y-6">
+        {filteredProjects.map((project) => (
+          <article
             key={project.name}
-            layout
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            transition={{ delay: index * 0.05 }}
-            onMouseEnter={() => setHoveredProject(project.name)}
-            onMouseLeave={() => setHoveredProject(null)}
-            className="group relative overflow-hidden"
+            className="border-b border-slate-200 pb-6 last:border-0"
           >
-            <div className={`absolute inset-0 bg-linear-to-br ${project.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl`}></div>
-
-            <div className="relative bg-white rounded-2xl shadow-lg border-2 border-gray-100 hover:border-gray-200 transition-all hover:shadow-xl overflow-hidden">
-              <div className={`h-2 w-full bg-linear-to-r ${project.gradient}`}></div>
-
-              <div className="relative h-40 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-              </div>
-
-              <div className="p-6">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
-                      {project.name}
-                    </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      {project.description}
-                    </p>
-                  </div>
-
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+              <div>
+                <h3 className="text-lg font-semibold text-slate-900">
+                  {project.name}
                   {project.url && (
-                    <motion.a
+                    <a
                       href={project.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1, rotate: 15 }}
-                      className={`ml-4 w-10 h-10 rounded-xl bg-linear-to-br ${project.gradient} flex items-center justify-center text-white shadow-lg flex-shrink-0`}
+                      className="ml-2 text-slate-500 hover:text-slate-700"
                     >
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      <svg
+                        className="w-4 h-4 inline"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                        />
                       </svg>
-                    </motion.a>
+                    </a>
                   )}
-                </div>
-
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech, techIdx) => (
-                    <motion.span
-                      key={tech}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: index * 0.05 + techIdx * 0.02 }}
-                      className="px-3 py-1 bg-gray-50 text-gray-700 text-xs font-medium rounded-lg border border-gray-200 hover:border-gray-300 transition-colors"
-                    >
-                      {tech}
-                    </motion.span>
-                  ))}
-                </div>
-
-                <div className="space-y-2">
-                  {project.highlights.map((highlight, idx) => (
-                    <motion.div
-                      key={idx}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.05 + 0.2 + (idx * 0.05) }}
-                      className="flex items-start gap-2 text-gray-700 text-sm"
-                    >
-                      <div className={`w-1.5 h-1.5 rounded-full bg-linear-to-r ${project.gradient} mt-1.5 flex-shrink-0`}></div>
-                      <span>{highlight}</span>
-                    </motion.div>
-                  ))}
-                </div>
+                </h3>
               </div>
-
-              <motion.div
-                initial={false}
-                animate={{
-                  height: hoveredProject === project.name ? '4px' : '0px'
-                }}
-                className={`w-full bg-linear-to-r ${project.gradient}`}
-              />
+              <div className="text-sm text-slate-600 sm:text-right">
+                <span className="capitalize">{project.category}</span>
+              </div>
             </div>
 
-            <div className="absolute -top-4 -right-4 w-24 h-24 bg-white/20 rounded-full blur-2xl pointer-events-none"></div>
-          </motion.article>
-        ))}
-      </motion.div>
+            <p className="text-slate-700 mb-3">{project.description}</p>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3 }}
-        className="mt-12 text-center"
-      >
-        <div className="inline-flex items-center gap-2 px-6 py-3 bg-gray-50 rounded-xl border border-gray-200">
-          <svg className="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-          </svg>
-          <span className="text-gray-700 font-medium">{PROJECTS.length} projects delivered</span>
-        </div>
-      </motion.div>
-    </motion.section>
+            <div className="mb-3">
+              <div className="flex flex-wrap gap-1.5">
+                {project.technologies.map((tech) => (
+                  <span
+                    key={tech}
+                    className="text-xs px-2 py-0.5 bg-slate-100 text-slate-700 rounded"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {project.highlights.length > 0 && (
+              <div className="text-sm text-slate-600">
+                <span className="font-medium text-slate-700">
+                  Key features:{" "}
+                </span>
+                {project.highlights.join(" • ")}
+              </div>
+            )}
+          </article>
+        ))}
+      </div>
+
+      {filteredProjects.length === 0 && (
+        <p className="text-slate-600 text-center py-8">
+          No projects in this category yet.
+        </p>
+      )}
+    </section>
   );
 }
