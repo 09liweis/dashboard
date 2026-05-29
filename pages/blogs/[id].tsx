@@ -145,7 +145,7 @@ const BlogDetail: NextPage<BlogDetailPageProps> = ({
           about={geoAbout}
         />
       )}
-      <div className="mx-auto max-w-4xl px-4 py-10 sm:py-12">
+      <div className="mx-auto max-w-6xl px-4 py-10 sm:py-12">
         {/* Back navigation */}
         <Link
           href="/blogs"
@@ -167,61 +167,87 @@ const BlogDetail: NextPage<BlogDetailPageProps> = ({
           Back to articles
         </Link>
 
-        <article>
-          {/* Header */}
-          <header className="mb-8 pb-6 border-b border-slate-200">
-            {blog.created_at && (
-              <time
-                className="text-sm text-slate-500"
-                dateTime={blog.created_at}
-              >
-                {new Intl.DateTimeFormat("en-US", { dateStyle: "long" }).format(
-                  new Date(blog.created_at)
-                )}
-              </time>
-            )}
-            <h1 className="mt-3 text-3xl sm:text-4xl font-bold text-slate-900 leading-tight">
-              {blog.title}
-            </h1>
-            {blog.excerpt && (
-              <p className="mt-4 text-lg text-slate-600 leading-relaxed">
-                {blog.excerpt}
-              </p>
-            )}
-            {blog.projectName && blog.projectUrl && (
-              <p className="mt-4 text-sm text-slate-600">
-                Project: <a
+        <div className="grid gap-10 xl:grid-cols-[minmax(0,1fr)_280px]">
+          <article>
+            {/* Header */}
+            <header className="mb-8 pb-6 border-b border-slate-200">
+              {blog.created_at && (
+                <time
+                  className="text-sm text-slate-500"
+                  dateTime={blog.created_at}
+                >
+                  {new Intl.DateTimeFormat("en-US", { dateStyle: "long" }).format(
+                    new Date(blog.created_at)
+                  )}
+                </time>
+              )}
+              <h1 className="mt-3 text-3xl sm:text-4xl font-bold text-slate-900 leading-tight">
+                {blog.title}
+              </h1>
+              {blog.excerpt && (
+                <p className="mt-4 text-lg text-slate-600 leading-relaxed">
+                  {blog.excerpt}
+                </p>
+              )}
+              {blog.projectName && blog.projectUrl && (
+                <p className="mt-4 text-sm text-slate-600">
+                  Project: <a
+                    href={blog.projectUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-slate-900 hover:text-blue-600"
+                  >
+                    {blog.projectName}
+                  </a>
+                </p>
+              )}
+              {/* Tags */}
+              <div className="mt-4 flex flex-wrap gap-2">
+                <span className="px-3 py-1 text-xs font-medium text-slate-600 bg-slate-100 rounded-full">
+                  Web Development
+                </span>
+                <span className="px-3 py-1 text-xs font-medium text-slate-600 bg-slate-100 rounded-full">
+                  Cost Optimization
+                </span>
+                <span className="px-3 py-1 text-xs font-medium text-slate-600 bg-slate-100 rounded-full">
+                  Static Hosting
+                </span>
+              </div>
+            </header>
+
+            {/* Content */}
+            <div
+              className="prose-custom"
+              dangerouslySetInnerHTML={{
+                __html: formatDisplayHTML(blog.content),
+              }}
+            />
+          </article>
+
+          {blog.projectName && blog.projectUrl && (
+            <aside className="hidden xl:block">
+              <div className="sticky top-24 rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
+                  Related project
+                </p>
+                <h2 className="mt-4 text-xl font-semibold text-slate-900">
+                  {blog.projectName}
+                </h2>
+                <p className="mt-3 text-sm text-slate-600">
+                  This blog post is tied to a live project. Visit the project site anytime from this panel.
+                </p>
+                <a
                   href={blog.projectUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-semibold text-slate-900 hover:text-blue-600"
+                  className="mt-6 inline-flex items-center justify-center rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800"
                 >
-                  {blog.projectName}
+                  View project
                 </a>
-              </p>
-            )}
-            {/* Tags */}
-            <div className="mt-4 flex flex-wrap gap-2">
-              <span className="px-3 py-1 text-xs font-medium text-slate-600 bg-slate-100 rounded-full">
-                Web Development
-              </span>
-              <span className="px-3 py-1 text-xs font-medium text-slate-600 bg-slate-100 rounded-full">
-                Cost Optimization
-              </span>
-              <span className="px-3 py-1 text-xs font-medium text-slate-600 bg-slate-100 rounded-full">
-                Static Hosting
-              </span>
-            </div>
-          </header>
-
-          {/* Content */}
-          <div
-            className="prose-custom"
-            dangerouslySetInnerHTML={{
-              __html: formatDisplayHTML(blog.content),
-            }}
-          />
-        </article>
+              </div>
+            </aside>
+          )}
+        </div>
       </div>
     </>
   );
