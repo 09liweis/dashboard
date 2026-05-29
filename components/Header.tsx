@@ -9,7 +9,7 @@ const NAV_LINKS = [
   { tl: "home", url: "/", icon: "house-user" },
   { tl: "Resume", url: "/resume", icon: "user" },
   { tl: "knowledges", url: "/knowledges", icon: "book" },
-  { tl: "todos", url: "/todos", icon: "list" },
+  // { tl: "todos", url: "/todos", icon: "list" },
   { tl: "expenses", url: "/expenses", icon: "piggy-bank" },
   { tl: "blogs", url: "/blogs", icon: "piggy-bank" },
 ];
