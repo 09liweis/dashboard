@@ -9,7 +9,7 @@ const NAV_LINKS = [
   { tl: "home", url: "/", icon: "house-user" },
   { tl: "Resume", url: "/resume", icon: "user" },
   { tl: "knowledges", url: "/knowledges", icon: "book" },
-  // { tl: 'todos', url: '/todos', icon: 'list' },
+  { tl: "todos", url: "/todos", icon: "list" },
   { tl: "expenses", url: "/expenses", icon: "piggy-bank" },
   { tl: "blogs", url: "/blogs", icon: "piggy-bank" },
 ];
@@ -49,9 +49,9 @@ function UserSection({
 
   return (
     <motion.button
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      className="px-6 py-2 cursor-pointer bg-linear-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg font-medium"
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      className="px-6 py-2 cursor-pointer bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-all font-medium"
       onClick={onLogin}
     >
       {getTranslate(lang, "login")}
@@ -84,8 +84,8 @@ function NavItem({
           relative px-4 py-3 rounded-lg transition-all duration-300 cursor-pointer group
           ${
             isActive
-              ? "bg-linear-to-r from-blue-600 to-purple-600 text-white shadow-lg"
-              : "text-gray-700 hover:bg-gray-100 hover:text-blue-600"
+              ? "bg-gray-900 text-white shadow-md"
+              : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
           }
         `}
         onClick={onClick}
@@ -99,11 +99,11 @@ function NavItem({
         {isActive && (
           <motion.div
             layoutId="activeTab"
-            className="absolute inset-0 bg-linear-to-r from-blue-600 to-purple-600 rounded-lg -z-10"
+            className="absolute inset-0 bg-gray-900 rounded-lg -z-10"
             transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
           />
         )}
-        <div className="absolute inset-0 bg-linear-to-r from-blue-600/0 to-purple-600/0 group-hover:from-blue-600/10 group-hover:to-purple-600/10 rounded-lg transition-all duration-300 -z-10"></div>
+        <div className="absolute inset-0 bg-gray-900/0 group-hover:bg-gray-100 rounded-lg transition-all duration-300 -z-10"></div>
       </motion.div>
     </Link>
   );
@@ -136,8 +136,8 @@ function MobileMenuItem({
           onClick={onClick}
           className={`w-full flex items-center gap-4 px-6 py-4 rounded-xl text-lg font-medium transition-colors text-left ${
             isActive
-              ? "bg-blue-600 text-white shadow-md"
-              : "text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+              ? "bg-gray-900 text-white shadow-md"
+              : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
           }`}
         >
           <Icon name={nav.icon} classNames="text-2xl" />
@@ -175,11 +175,8 @@ export default function Header({
       animate={{ y: 0, opacity: 1 }}
       className="relative overflow-hidden"
     >
-      <div className="absolute inset-0 bg-linear-to-r from-blue-600/10 via-purple-600/10 to-pink-600/10 backdrop-blur-xl"></div>
-      <div className="absolute inset-0 bg-white/60 backdrop-blur-sm"></div>
-      <div className="absolute top-0 left-0 w-32 h-32 bg-blue-400/20 rounded-full blur-3xl -translate-x-16 -translate-y-16"></div>
-      <div className="absolute top-0 right-0 w-24 h-24 bg-purple-400/20 rounded-full blur-2xl translate-x-12 -translate-y-12"></div>
-      <div className="absolute bottom-0 left-1/2 w-20 h-20 bg-pink-400/20 rounded-full blur-2xl -translate-x-10 translate-y-10"></div>
+      <div className="absolute inset-0 bg-gray-50"></div>
+      <div className="absolute inset-0 bg-white/80"></div>
 
       <div className="relative z-10 p-3">
         <div className="flex items-center justify-end gap-4 mb-6">
