@@ -177,7 +177,7 @@ export default function KnowledgeFormModal({
                   </button>
                   <button
                     type="submit"
-                    className="w-full sm:w-auto cursor-pointer rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-700 active:scale-95 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-sm"
+                    className="w-full sm:w-auto cursor-pointer rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-dark active:scale-95 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-sm"
                   >
                     {editingKnowledge ? 'Save Changes' : 'Add Knowledge'}
                   </button>

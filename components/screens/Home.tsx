@@ -121,7 +121,7 @@ export default function Home({ latestBlogs }: HomeProps) {
                 <motion.span
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary-dark transition-colors cursor-pointer"
                 >
                   View My Work
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

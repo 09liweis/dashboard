@@ -21,7 +21,7 @@ export default function ViewToggle({ currentView, onViewChange }: ViewToggleProp
         {currentView === view && (
           <motion.div
             layoutId="activeView"
-            className="absolute inset-0 bg-blue-600 rounded-md"
+            className="absolute inset-0 bg-primary rounded-md"
             transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
           />
         )}

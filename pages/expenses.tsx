@@ -237,7 +237,7 @@ const Expense: NextPage = () => {
                 {downloading ? "Downloading..." : "Download CSV"}
               </button>
               <button
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors"
                 onClick={() => {
                   setShowForm(true);
                   setSelectTransaction({});
@@ -290,7 +290,7 @@ const Expense: NextPage = () => {
                   onClick={() => toggleCategory(category)}
                   className={`group relative px-2 py-1 cursor-pointer rounded-lg text-sm font-medium border-2 transition-all transform hover:scale-105 capitalize ${
                     isSelected
-                      ? "bg-blue-600 text-white border-blue-600 shadow-lg"
+                      ? "bg-primary text-white border-slate-900 shadow-lg"
                       : "bg-white text-gray-700 border-gray-200 hover:border-blue-400 hover:bg-blue-50"
                   }`}
                 >

@@ -102,7 +102,7 @@ export default function LoginForm({ setUser, setShowLogin }: LoginFormProps) {
           <button
             type="submit"
             disabled={loginLoading}
-            className="w-full py-3 px-4 bg-slate-800 text-white rounded-lg font-semibold hover:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-600 focus:ring-offset-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+            className="w-full py-3 px-4 bg-primary text-white rounded-lg font-semibold hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-slate-600 focus:ring-offset-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
           >
             {loginLoading ? <Loading /> : "Sign In"}
           </button>

@@ -132,7 +132,7 @@ export default function Calendar({ items }: CalendarProps) {
                 aspect-square rounded-lg flex items-center justify-center text-sm
                 transition-colors relative
                 ${status === 'inactive' ? 'text-gray-400' : 'text-gray-700'}
-                ${isToday ? 'bg-blue-600 text-white' : 'hover:bg-gray-100'}
+                ${isToday ? 'bg-primary text-white' : 'hover:bg-gray-100'}
               `}
             >
               <span>{date}</span>

@@ -86,7 +86,7 @@ export default function KnowledgeList({
             onClick={() => setActiveCategory(null)}
             className={`text-xs px-3 py-1 rounded-full font-medium border transition-all cursor-pointer ${
               activeCategory === null
-                ? 'bg-blue-600 text-white border-blue-600 shadow-sm'
+                ? 'bg-primary text-white border-slate-900 shadow-sm'
                 : 'bg-white text-gray-600 border-gray-200 hover:border-blue-400 hover:text-blue-600'
             }`}
           >
@@ -98,7 +98,7 @@ export default function KnowledgeList({
               onClick={() => setActiveCategory(activeCategory === cat ? null : cat)}
               className={`text-xs px-3 py-1 rounded-full font-medium border transition-all cursor-pointer capitalize ${
                 activeCategory === cat
-                  ? 'bg-blue-600 text-white border-blue-600 shadow-sm'
+                  ? 'bg-primary text-white border-slate-900 shadow-sm'
                   : 'bg-white text-gray-600 border-gray-200 hover:border-blue-400 hover:text-blue-600'
               }`}
             >

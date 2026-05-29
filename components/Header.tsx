@@ -51,7 +51,7 @@ function UserSection({
     <motion.button
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
-      className="px-6 py-2 cursor-pointer bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-all font-medium"
+      className="px-6 py-2 cursor-pointer bg-primary text-white rounded-lg hover:bg-primary-dark transition-all font-medium"
       onClick={onLogin}
     >
       {getTranslate(lang, "login")}
