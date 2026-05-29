@@ -188,6 +188,18 @@ const BlogDetail: NextPage<BlogDetailPageProps> = ({
                 {blog.excerpt}
               </p>
             )}
+            {blog.projectName && blog.projectUrl && (
+              <p className="mt-4 text-sm text-slate-600">
+                Project: <a
+                  href={blog.projectUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-slate-900 hover:text-blue-600"
+                >
+                  {blog.projectName}
+                </a>
+              </p>
+            )}
             {/* Tags */}
             <div className="mt-4 flex flex-wrap gap-2">
               <span className="px-3 py-1 text-xs font-medium text-slate-600 bg-slate-100 rounded-full">

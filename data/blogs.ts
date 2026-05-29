@@ -8,6 +8,8 @@ export const BLOG_POSTS: BlogType[] = [
     excerpt: 'How I built a professional multi-language website for Surewin using Nuxt.js, deployed on Vercel, with Resend for email handling. Supporting English, Chinese, and French locales with seamless language switching.',
     className: 'bg-slate-50',
     created_at: '2026-05-26T09:00:00.000Z',
+    projectName: 'Surewin',
+    projectUrl: 'https://surewin.ca',
   },
   {
     _id: 'migrating-hans-steel-wordpress-to-nextjs-reducing-costs',
@@ -16,6 +18,8 @@ export const BLOG_POSTS: BlogType[] = [
     excerpt: 'How I helped a manufacturing company reduce their monthly hosting and bandwidth costs from $300+ to under $50 by migrating from WordPress to a modern Next.js static site, while improving performance and SEO.',
     className: 'bg-slate-50',
     created_at: '2026-05-25T10:00:00.000Z',
+    projectName: 'Hans Steel Canada',
+    projectUrl: 'https://hanssteel.com',
   },
   {
     _id: 'building-juzi-book-house-online-novel-platform',
@@ -24,6 +28,8 @@ export const BLOG_POSTS: BlogType[] = [
     excerpt: 'How I built Juzi Book House — a full-stack online novel platform supporting authors and readers, with Stripe subscription membership, chapter comments, a gift system for supporting authors, and a dedicated CMS for authors to manage their novel chapters.',
     className: 'bg-amber-50',
     created_at: '2026-05-25T12:00:00.000Z',
+    projectName: 'Juzi Book House',
+    projectUrl: 'https://juzibookhouse.com',
   },
   {
     _id: 'building-landlord-master-property-management-platform',
@@ -32,6 +38,8 @@ export const BLOG_POSTS: BlogType[] = [
     excerpt: 'How I built Landlord Master, a full-stack property management platform for landlords and tenants — covering property listings, tenant screening, Stripe payment processing, and role-based access control using Next.js, MongoDB, and modern web technologies.',
     className: 'bg-emerald-50',
     created_at: '2026-05-25T09:00:00.000Z',
+    projectName: 'Landlord Master',
+    projectUrl: 'https://landlordmaster.com',
   },
   {
     _id: 'migrating-aivio-digital-from-wordpress-to-astro',
@@ -40,6 +48,8 @@ export const BLOG_POSTS: BlogType[] = [
     excerpt: 'The full story of migrating a digital agency site from WordPress to the Astro framework — cutting hosting costs from $78/month to $0, boosting PageSpeed from 58 to 97, eliminating 7 plugins, and gaining type-safe content validation with Zod schemas.',
     className: 'bg-emerald-50',
     created_at: '2026-05-24T09:00:00.000Z',
+    projectName: 'Aivio Digital',
+    projectUrl: 'https://aivio-digital.com',
   },
   {
     _id: 'build-realtor-service-platform',
@@ -48,6 +58,8 @@ export const BLOG_POSTS: BlogType[] = [
     excerpt: 'A deep dive into building a real estate service marketplace with SvelteKit, Supabase, and Stripe — covering architecture decisions, real-time booking updates, secure payment processing, and the lessons learned from launching a production platform.',
     className: 'bg-blue-50',
     created_at: '2026-05-22T09:00:00.000Z',
+    projectName: 'Realtor Service Platform',
+    projectUrl: 'https://realtorservice.ca',
   },
   {
     _id: 'static-websites-power-small-business-growth',
