@@ -1,18 +1,18 @@
-import { useState, useRef, useEffect } from 'react';
-import { motion } from "motion/react"
-import { fetchToken, fetchUser, setAuthToken } from '../helpers';
-import { LoginFormProps } from '../types';
-import Loading from './Loading';
+import { useState, useRef, useEffect } from "react";
+import { motion } from "motion/react";
+import { fetchToken, fetchUser, setAuthToken } from "../helpers";
+import { LoginFormProps } from "../types";
+import Loading from "./Loading";
 
 export default function LoginForm({ setUser, setShowLogin }: LoginFormProps) {
   const [loginLoading, setLoginLoading] = useState(false);
   const emailInput = useRef<HTMLInputElement>(null);
   const passwordInput = useRef<HTMLInputElement>(null);
-  const [msg, setMsg] = useState('');
+  const [msg, setMsg] = useState("");
 
-  useEffect(()=>{
+  useEffect(() => {
     emailInput.current?.focus();
-  },[]);
+  }, []);
 
   const handleLogin = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -21,7 +21,7 @@ export default function LoginForm({ setUser, setShowLogin }: LoginFormProps) {
       pwd: passwordInput?.current?.value,
     };
     setLoginLoading(true);
-    setMsg('');
+    setMsg("");
     const response = await fetchToken(body);
     if (response.token) {
       setAuthToken(response.token);
@@ -38,74 +38,73 @@ export default function LoginForm({ setUser, setShowLogin }: LoginFormProps) {
 
   return (
     <motion.section className="fixed w-full h-full flex justify-center items-center top-0 left-0 z-50">
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         onClick={() => setShowLogin(false)}
         className="fixed inset-0 bg-black/75 backdrop-blur-xs"
       />
-      
+
       <motion.form
         initial={{ scale: 0.9, opacity: 0, y: 20 }}
         animate={{ scale: 1, opacity: 1, y: 0 }}
         exit={{ scale: 0.9, opacity: 0, y: 20 }}
-        className="relative bg-white w-full max-w-md mx-4 rounded shadow overflow-hidden"
+        className="relative bg-white w-full max-w-md mx-4 rounded-lg shadow-xl overflow-hidden"
         onSubmit={handleLogin}
       >
         {/* Header */}
-        <div className="bg-linear-to-r from-blue-600 to-purple-600 px-6 py-8 text-white">
-          <h2 className="text-3xl font-bold text-center">Welcome Back</h2>
-          <p className="text-center mt-2 text-blue-100">Please sign in to continue</p>
+        <div className="bg-slate-800 px-8 py-8">
+          <h2 className="text-3xl font-bold text-white text-center">Sign In</h2>
         </div>
 
         {/* Form Content */}
-        <div className="p-6 space-y-4">
+        <div className="px-8 py-8 space-y-6">
           <div className="space-y-2">
-            <label htmlFor="emal" className="block text-sm font-medium text-gray-700">
-              Email
+            <label
+              htmlFor="emal"
+              className="block text-sm font-semibold text-gray-700"
+            >
+              Email Address
             </label>
-            <div className="relative">
-              <input
-                id="emal"
-                ref={emailInput}
-                className="w-full caret-purple-600 px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                placeholder="Enter your email"
-                required
-              />
-              <svg className="w-5 h-5 text-gray-400 absolute right-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-              </svg>
-            </div>
+            <input
+              id="emal"
+              ref={emailInput}
+              className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-slate-600 focus:ring-1 focus:ring-slate-600 transition-colors"
+              placeholder="you@example.com"
+              required
+            />
           </div>
 
           <div className="space-y-2">
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+            <label
+              htmlFor="password"
+              className="block text-sm font-semibold text-gray-700"
+            >
               Password
             </label>
-            <div className="relative">
-              <input
-                id="password"
-                type="password"
-                ref={passwordInput}
-                className="w-full caret-purple-600 px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                placeholder="Enter your password"
-                required
-              />
-              <svg className="w-5 h-5 text-gray-400 absolute right-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-              </svg>
-            </div>
+            <input
+              id="password"
+              type="password"
+              ref={passwordInput}
+              className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-slate-600 focus:ring-1 focus:ring-slate-600 transition-colors"
+              placeholder="Enter your password"
+              required
+            />
           </div>
 
-          {msg && <div className='text-red-600 p-1 text-center'>{msg}</div>}
+          {msg && (
+            <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg text-sm font-medium">
+              {msg}
+            </div>
+          )}
 
           <button
             type="submit"
             disabled={loginLoading}
-            className="w-full py-3 px-4 bg-linear-to-r from-blue-600 to-purple-600 text-white rounded font-medium hover:from-blue-700 hover:to-purple-700 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors disabled:opacity-50 flex items-center justify-center"
+            className="w-full py-3 px-4 bg-slate-800 text-white rounded-lg font-semibold hover:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-600 focus:ring-offset-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
           >
-            {loginLoading ? <Loading /> : 'Sign In'}
+            {loginLoading ? <Loading /> : "Sign In"}
           </button>
 
           {/* <div className="relative my-6">
@@ -132,10 +131,21 @@ export default function LoginForm({ setUser, setShowLogin }: LoginFormProps) {
         <button
           type="button"
           onClick={() => setShowLogin(false)}
-          className="absolute top-4 right-4 text-white/80 hover:text-white transition-all hover:rotate-90"
+          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+          aria-label="Close"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+          <svg
+            className="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
           </svg>
         </button>
       </motion.form>
