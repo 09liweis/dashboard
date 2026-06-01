@@ -76,6 +76,7 @@ export const PROJECTS: Project[] = [
     slug: "surewin",
     name: "Surewin",
     description: "Multi-language website for legal information with contact form integration.",
+    longDescription: "Surewin needed a professional website capable of serving visitors in multiple languages while maintaining strong search visibility across each locale. The project was built with Nuxt.js and a fully localized routing structure, allowing users to switch seamlessly between languages without losing context. Content is organized around legal service categories, making it easy for potential clients to find relevant information and contact the firm. Special attention was given to international SEO, including localized metadata, language-specific sitemaps, and structured data. The integrated contact forms route inquiries directly to the appropriate team, reducing response times and improving lead conversion. The final result is a fast, accessible, and search-engine-friendly platform that supports both local and international audiences.",
     technologies: ["Nuxt.js", "Tailwind CSS", "Vercel"],
     highlights: [
       "Multi-language support",
@@ -89,6 +90,7 @@ export const PROJECTS: Project[] = [
     slug: "juzi-book-house",
     name: "Juzi Book House",
     description: "Online novel platform with subscriptions and author management tools.",
+    longDescription: "Juzi Book House is a digital publishing platform designed for independent authors and online readers. Authors can create and manage novels, organize chapters, track subscriber activity, and publish updates through a dedicated dashboard. Readers can browse books by category, bookmark favorites, and unlock premium content through subscription plans powered by Stripe. Supabase handles authentication, content storage, and role-based permissions, ensuring authors only manage their own works while readers retain access to purchased content. The platform also includes reading progress tracking, chapter analytics, and engagement metrics to help authors understand audience behavior. Built with SvelteKit, the application delivers a fast reading experience while remaining scalable as the content library grows.",
     technologies: ["SvelteKit", "Supabase", "Stripe"],
     highlights: [
       "Author dashboard",
@@ -99,9 +101,10 @@ export const PROJECTS: Project[] = [
     category: "saas",
   },
   {
-    slug: 'landlord-master',
+    slug: "landlord-master",
     name: "Landlord Master",
     description: "Property management platform for landlords.",
+    longDescription: "Landlord Master was built to simplify rental property management for independent landlords and small property management companies. The platform centralizes property listings, tenant records, lease agreements, maintenance requests, and rent collection into a single dashboard. Landlords can track occupancy rates, monitor payment status, and manage multiple properties without relying on spreadsheets or disconnected tools. Stripe powers secure rent collection and automated payment reminders, while MongoDB stores tenant and property data with flexible schemas that accommodate different rental scenarios. The system reduces administrative workload and provides landlords with a clear overview of cash flow, upcoming lease renewals, and maintenance activity across their portfolio.",
     technologies: ["Next.js", "MongoDB", "Stripe"],
     highlights: [
       "Property listings",
@@ -112,9 +115,10 @@ export const PROJECTS: Project[] = [
     category: "saas",
   },
   {
-    slug: 'what-sam-watched',
+    slug: "what-sam-watched",
     name: "Movie Progress Tracker",
     description: "Track movies watched with stats and visualizations.",
+    longDescription: "Movie Progress Tracker started as a personal project to analyze viewing habits and build a richer movie-tracking experience than traditional watchlists. Users can log watched films, track progress toward yearly goals, and explore detailed statistics about genres, directors, countries, and viewing trends over time. The application integrates with external movie APIs to automatically retrieve posters, ratings, and metadata, reducing manual data entry. A custom analytics dashboard transforms viewing history into interactive charts and summaries, making it easy to identify patterns and discover gaps in personal watchlists. Built with Nuxt 3 and PostgreSQL, the project serves as both a practical tool and an exploration of data visualization techniques.",
     technologies: ["Nuxt 3", "Vue.js", "PostgreSQL"],
     highlights: [
       "Progress tracking",
@@ -125,29 +129,34 @@ export const PROJECTS: Project[] = [
     category: "personal",
   },
   {
-    slug: 'rich-sam-morty',
+    slug: "rich-sam-morty",
     name: "Rick and Morty Explorer",
     description: "Explore characters and episodes from the show.",
+    longDescription: "Rick and Morty Explorer is a frontend-focused project built to demonstrate GraphQL data fetching, filtering, and client-side search capabilities. The application consumes the public Rick and Morty GraphQL API and allows users to browse characters, episodes, and locations through a responsive interface. Advanced filtering and pagination help users quickly locate specific characters or explore the show's universe without overwhelming the interface. SvelteKit's routing and data loading features provide a fast, seamless browsing experience, while Tailwind CSS keeps the UI lightweight and responsive. The project serves as a practical showcase of modern frontend architecture and GraphQL integration patterns.",
     technologies: ["SvelteKit", "GraphQL", "Tailwind CSS"],
     highlights: ["GraphQL queries", "Search and filter", "Paginated results"],
     url: "https://ricksammorty.netlify.app",
     category: "personal",
   },
   {
+    slug: "express-api-server",
     name: "Express API Server",
     description: "REST API with auth and rate limiting.",
+    longDescription: "This Express API project provides a production-ready foundation for modern web applications requiring authentication, authorization, and secure data access. Built with TypeScript and MongoDB, it includes JWT-based authentication, request validation, role-based access control, and rate limiting to protect against abuse. The architecture separates controllers, services, and database logic to improve maintainability and scalability as new features are added. Error handling, logging, and environment-based configuration are built into the project from the start, making it suitable for both learning and real-world deployments. The API serves as a reusable backend template that can accelerate development for future SaaS and client projects.",
     technologies: ["Express.js", "MongoDB", "TypeScript"],
     highlights: ["JWT authentication", "Input validation", "Rate limiting"],
     category: "api",
   },
   {
+    slug: "portfolio-dashboard",
     name: "Portfolio & Dashboard",
     description: "This site. Personal portfolio with expense tracking.",
+    longDescription: "This website serves as both a personal portfolio and an internal business dashboard. Beyond showcasing client projects and technical skills, it includes a custom expense tracking system used to monitor project costs, recurring subscriptions, and business spending. The blog system allows technical articles and project write-ups to be published without relying on third-party platforms, while the dashboard provides a centralized view of financial activity. Built with Next.js, TypeScript, and MongoDB, the application emphasizes performance, maintainability, and full ownership of data. It also acts as a testing ground for new features, design ideas, and development workflows before they are introduced into client projects.",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB"],
     highlights: ["Expense tracking", "Responsive design", "Blog system"],
     url: "https://samliweisen.dev",
     category: "personal",
-  },
+  }
 ];
 
 export const PROJECT_CATEGORIES = [
