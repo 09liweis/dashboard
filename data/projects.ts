@@ -125,7 +125,7 @@ export const PROJECTS: Project[] = [
       "Analytics dashboard",
       "API integrations",
     ],
-    url: "https://what-sam-watched.vercel.app",
+    url: "https://movies.samliweisen.dev",
     category: "personal",
   },
   {
