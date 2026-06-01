@@ -1,3 +1,9 @@
+export interface ProjectScreenshot {
+  src: string;
+  alt: string;
+  caption: string;
+}
+
 export interface Project {
   slug?: string;
   name: string;
@@ -5,6 +11,7 @@ export interface Project {
   longDescription?: string;
   technologies: string[];
   highlights: string[];
+  screenshots?: ProjectScreenshot[];
   url?: string;
   category: string;
 }
@@ -21,6 +28,13 @@ export const PROJECTS: Project[] = [
       "Project portfolio",
       "SEO work for local leads",
     ],
+    screenshots: [
+      {
+        src: "/images/projects/hans-construction-home.svg",
+        alt: "Hans Construction homepage screenshot showing a construction portfolio landing page",
+        caption: "Homepage hero and project portfolio entry point",
+      },
+    ],
     url: "https://hanscons.com",
     category: "client",
   },
@@ -35,6 +49,13 @@ export const PROJECTS: Project[] = [
       "Faster page loads",
       "Low-cost hosting",
     ],
+    screenshots: [
+      {
+        src: "/images/projects/aivio-digital-home.svg",
+        alt: "Aivio Digital homepage screenshot showing a fast agency landing page",
+        caption: "Static Astro landing page after the WordPress migration",
+      },
+    ],
     url: "https://aivio-digital.com",
     category: "client",
   },
@@ -45,6 +66,13 @@ export const PROJECTS: Project[] = [
     longDescription: "This marketplace connects property owners with real estate service providers — home inspectors, stagers, photographers, and appraisers — across Canada. Property owners can browse by service type, compare providers, and book with confirmed pricing. Providers get a dashboard showing incoming requests, their availability calendar, and a live view of earnings. The platform uses Supabase for authentication and the database, with row-level security enforcing that providers can only see their own bookings and clients can only see their own history. Real-time booking status updates are powered by Supabase's subscription feature — when a provider accepts a request, the client sees the confirmation within seconds without refreshing. Stripe handles all payment processing and weekly provider payouts, keeping the platform free from PCI compliance complexity. The first year saw over $150,000 in transaction volume processed with a 4.6-star average rating from both sides of the marketplace.",
     technologies: ["SvelteKit", "Tailwind CSS", "Stripe", "Supabase"],
     highlights: ["Stripe payments", "User accounts", "Service booking"],
+    screenshots: [
+      {
+        src: "/images/projects/realtor-service-platform-dashboard.svg",
+        alt: "Realtor Service Platform dashboard screenshot with bookings and provider cards",
+        caption: "Marketplace dashboard for bookings and service-provider management",
+      },
+    ],
     url: "https://realtorservice.ca",
     category: "client",
   },
@@ -55,6 +83,13 @@ export const PROJECTS: Project[] = [
     longDescription: "Hans Steel was paying over $300/month to run a WordPress site that never changed — a collection of static product pages, a gallery, and a contact form. Emergency fixes, plugin updates, and bandwidth overages kept pushing the bill higher. I migrated the site to Next.js with static site generation deployed on Netlify. Every page is now pre-built HTML served from Netlify's edge network, eliminating database queries, PHP processing, and bandwidth overages entirely. Product photos went through Next.js's built-in image optimization, shrinking the homepage payload from 8 MB to under 800 KB. The contact form moved to Netlify Forms at no additional cost. The result was immediate: hosting cost dropped from $300+/month to $0, page load time fell from 4.2 seconds to 0.9 seconds, and the Lighthouse score jumped from 45 to 98. The sales team now spends time selling steel instead of managing a website.",
     technologies: ["Next.js", "Tailwind CSS", "Netlify"],
     highlights: ["Product showcase", "Corporate rebrand", "SEO improvements"],
+    screenshots: [
+      {
+        src: "/images/projects/hans-steel-canada-products.svg",
+        alt: "Hans Steel Canada product showcase screenshot with steel categories and contact CTA",
+        caption: "Product showcase and corporate lead-generation layout",
+      },
+    ],
     url: "https://hanssteel.com",
     category: "client",
   },
@@ -68,6 +103,13 @@ export const PROJECTS: Project[] = [
       "Performance upgrade from Wix",
       "Project gallery",
       "Local SEO",
+    ],
+    screenshots: [
+      {
+        src: "/images/projects/kaifei-landscaping-gallery.svg",
+        alt: "Kaifei Landscaping gallery screenshot with landscaping project cards and service area map",
+        caption: "Project gallery and service-area experience",
+      },
     ],
     url: "https://kaifeilandscaping.com",
     category: "client",
@@ -83,6 +125,13 @@ export const PROJECTS: Project[] = [
       "Contact form integration",
       "SEO for multiple locales",
     ],
+    screenshots: [
+      {
+        src: "/images/projects/surewin-localized-site.svg",
+        alt: "Surewin multilingual legal website screenshot with localized navigation and contact form",
+        caption: "Localized legal information pages with contact conversion flow",
+      },
+    ],
     url: "https://surewin.ca",
     category: "client",
   },
@@ -96,6 +145,13 @@ export const PROJECTS: Project[] = [
       "Author dashboard",
       "Subscription payments",
       "Reader engagement features",
+    ],
+    screenshots: [
+      {
+        src: "/images/projects/juzi-book-house-library.svg",
+        alt: "Juzi Book House library screenshot with novels, chapters, and subscription status",
+        caption: "Reader library and author publishing workflow",
+      },
     ],
     url: "https://juzibookhouse.com",
     category: "saas",
@@ -111,6 +167,13 @@ export const PROJECTS: Project[] = [
       "Tenant management",
       "Payment processing",
     ],
+    screenshots: [
+      {
+        src: "/images/projects/landlord-master-dashboard.svg",
+        alt: "Landlord Master dashboard screenshot with rental properties, payments, and maintenance cards",
+        caption: "Landlord operations dashboard for properties, payments, and maintenance",
+      },
+    ],
     url: "https://landlordmaster.com",
     category: "saas",
   },
@@ -125,6 +188,13 @@ export const PROJECTS: Project[] = [
       "Analytics dashboard",
       "API integrations",
     ],
+    screenshots: [
+      {
+        src: "/images/projects/what-sam-watched-stats.svg",
+        alt: "Movie Progress Tracker stats screenshot with movie cards and viewing analytics charts",
+        caption: "Viewing analytics and movie progress dashboard",
+      },
+    ],
     url: "https://movies.samliweisen.dev",
     category: "personal",
   },
@@ -135,6 +205,13 @@ export const PROJECTS: Project[] = [
     longDescription: "Rick and Morty Explorer is a frontend-focused project built to demonstrate GraphQL data fetching, filtering, and client-side search capabilities. The application consumes the public Rick and Morty GraphQL API and allows users to browse characters, episodes, and locations through a responsive interface. Advanced filtering and pagination help users quickly locate specific characters or explore the show's universe without overwhelming the interface. SvelteKit's routing and data loading features provide a fast, seamless browsing experience, while Tailwind CSS keeps the UI lightweight and responsive. The project serves as a practical showcase of modern frontend architecture and GraphQL integration patterns.",
     technologies: ["SvelteKit", "GraphQL", "Tailwind CSS"],
     highlights: ["GraphQL queries", "Search and filter", "Paginated results"],
+    screenshots: [
+      {
+        src: "/images/projects/rich-sam-morty-explorer.svg",
+        alt: "Rick and Morty Explorer screenshot with character cards, filters, and pagination",
+        caption: "GraphQL-powered character explorer with filtering",
+      },
+    ],
     url: "https://ricksammorty.netlify.app",
     category: "personal",
   },
@@ -145,6 +222,13 @@ export const PROJECTS: Project[] = [
     longDescription: "This Express API project provides a production-ready foundation for modern web applications requiring authentication, authorization, and secure data access. Built with TypeScript and MongoDB, it includes JWT-based authentication, request validation, role-based access control, and rate limiting to protect against abuse. The architecture separates controllers, services, and database logic to improve maintainability and scalability as new features are added. Error handling, logging, and environment-based configuration are built into the project from the start, making it suitable for both learning and real-world deployments. The API serves as a reusable backend template that can accelerate development for future SaaS and client projects.",
     technologies: ["Express.js", "MongoDB", "TypeScript"],
     highlights: ["JWT authentication", "Input validation", "Rate limiting"],
+    screenshots: [
+      {
+        src: "/images/projects/express-api-server-docs.svg",
+        alt: "Express API Server documentation screenshot with endpoint list and authentication flow",
+        caption: "API documentation and authentication flow overview",
+      },
+    ],
     category: "api",
   },
   {
@@ -154,6 +238,13 @@ export const PROJECTS: Project[] = [
     longDescription: "This website serves as both a personal portfolio and an internal business dashboard. Beyond showcasing client projects and technical skills, it includes a custom expense tracking system used to monitor project costs, recurring subscriptions, and business spending. The blog system allows technical articles and project write-ups to be published without relying on third-party platforms, while the dashboard provides a centralized view of financial activity. Built with Next.js, TypeScript, and MongoDB, the application emphasizes performance, maintainability, and full ownership of data. It also acts as a testing ground for new features, design ideas, and development workflows before they are introduced into client projects.",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB"],
     highlights: ["Expense tracking", "Responsive design", "Blog system"],
+    screenshots: [
+      {
+        src: "/images/projects/portfolio-dashboard-overview.svg",
+        alt: "Portfolio and Dashboard screenshot with expense widgets and content sections",
+        caption: "Portfolio and internal business dashboard overview",
+      },
+    ],
     url: "https://samliweisen.dev",
     category: "personal",
   }

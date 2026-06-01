@@ -1,4 +1,5 @@
 import type { NextPage, GetServerSideProps } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'motion/react';
 import { PROJECTS, PROJECT_CATEGORIES, Project } from '../../data/projects';
@@ -75,6 +76,41 @@ const ProjectDetailPage: NextPage<ProjectDetailPageProps> = ({ project }) => {
             <h1 className="text-4xl font-bold text-slate-900 mb-4">{project.name}</h1>
             <p className="text-lg text-slate-600 leading-relaxed max-w-2xl">{project.description}</p>
           </header>
+
+          {project.screenshots && project.screenshots.length > 0 && (
+            <section className="mb-10">
+              <h2 className="text-sm font-semibold uppercase tracking-widest text-slate-500 mb-4">
+                Project Screenshots
+              </h2>
+              <div className="grid gap-5 sm:grid-cols-2">
+                {project.screenshots.map((screenshot, index) => (
+                  <motion.figure
+                    key={screenshot.src}
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.08, duration: 0.35 }}
+                    className={`overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm ${
+                      index === 0 ? 'sm:col-span-2' : ''
+                    }`}
+                  >
+                    <div className="bg-slate-100 p-2">
+                      <Image
+                        src={screenshot.src}
+                        alt={screenshot.alt}
+                        width={1200}
+                        height={760}
+                        className="h-auto w-full rounded-xl border border-slate-200 bg-white"
+                        priority={index === 0}
+                      />
+                    </div>
+                    <figcaption className="px-4 py-3 text-sm text-slate-600">
+                      {screenshot.caption}
+                    </figcaption>
+                  </motion.figure>
+                ))}
+              </div>
+            </section>
+          )}
 
           {project.longDescription && (
             <div className="mb-10 prose prose-slate max-w-none">
