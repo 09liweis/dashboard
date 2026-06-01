@@ -76,6 +76,15 @@ const ProjectDetailPage: NextPage<ProjectDetailPageProps> = ({ project }) => {
             <p className="text-lg text-slate-600 leading-relaxed max-w-2xl">{project.description}</p>
           </header>
 
+          {project.longDescription && (
+            <div className="mb-10 prose prose-slate max-w-none">
+              <h2 className="text-sm font-semibold uppercase tracking-widest text-slate-500 mb-4">
+                About This Project
+              </h2>
+              <p className="text-slate-700 leading-relaxed text-base">{project.longDescription}</p>
+            </div>
+          )}
+
           <div className="grid md:grid-cols-2 gap-10">
             {/* Technologies */}
             <section>
