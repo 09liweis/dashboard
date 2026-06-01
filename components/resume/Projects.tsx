@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Link from "next/link";
 import { PROJECTS, PROJECT_CATEGORIES } from "../../data/projects";
 
 export default function Projects() {
@@ -43,14 +44,23 @@ export default function Projects() {
             className="border-b border-slate-200 pb-6 last:border-0"
           >
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
-              <h3 className="text-lg font-semibold text-slate-900">
-                {project.name}
+              <h3 className="text-lg font-semibold text-slate-900 flex items-center gap-2 flex-wrap">
+                {project.slug ? (
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="hover:text-blue-600 transition-colors"
+                  >
+                    {project.name}
+                  </Link>
+                ) : (
+                  project.name
+                )}
                 {project.url && (
                   <a
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="ml-2 text-slate-500 hover:text-slate-700"
+                    className="text-slate-500 hover:text-slate-700"
                   >
                     <svg
                       className="w-4 h-4 inline"
