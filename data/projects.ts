@@ -1,4 +1,5 @@
 export interface Project {
+    slug?: string;
     name: string;
     description: string;
     technologies: string[];
@@ -6,9 +7,10 @@ export interface Project {
     url?: string;
     category: string;
   }
-  
+
   export const PROJECTS: Project[] = [
     {
+      slug: "hans-construction",
       name: "Hans Construction",
       description: "Construction company website. Built with SvelteKit for fast performance.",
       technologies: ["SvelteKit", "Tailwind CSS", "Vercel"],
@@ -21,6 +23,7 @@ export interface Project {
       category: "client",
     },
     {
+      slug: "aivio-digital",
       name: "Aivio Digital",
       description: "Migrated from WordPress to Astro to improve performance and reduce hosting costs.",
       technologies: ["Astro", "Tailwind CSS", "Vercel"],
@@ -33,6 +36,7 @@ export interface Project {
       category: "client",
     },
     {
+      slug: "realtor-service-platform",
       name: "Realtor Service Platform",
       description: "Real estate service marketplace with payment processing.",
       technologies: ["SvelteKit", "Tailwind CSS", "Stripe", "Supabase"],
@@ -41,6 +45,7 @@ export interface Project {
       category: "client",
     },
     {
+      slug: "hans-steel-canada",
       name: "Hans Steel Canada",
       description: "Corporate website for a steel manufacturing company.",
       technologies: ["Next.js", "Tailwind CSS", "Netlify"],
@@ -49,6 +54,7 @@ export interface Project {
       category: "client",
     },
     {
+      slug: "kaifei-landscaping",
       name: "Kaifei Landscaping",
       description: "Landscaping business website. Moved from Wix to Next.js with a project gallery and service area map.",
       technologies: ["Next.js", "Tailwind CSS", "Mapbox"],
@@ -61,6 +67,7 @@ export interface Project {
       category: "client",
     },
     {
+      slug: "surewin",
       name: "Surewin",
       description: "Multi-language website for legal information with contact form integration.",
       technologies: ["Nuxt.js", "Tailwind CSS", "Vercel"],
@@ -73,6 +80,7 @@ export interface Project {
       category: "client",
     },
     {
+      slug: "juzi-book-house",
       name: "Juzi Book House",
       description: "Online novel platform with subscriptions and author management tools.",
       technologies: ["SvelteKit", "Supabase", "Stripe"],
@@ -85,6 +93,7 @@ export interface Project {
       category: "saas",
     },
     {
+      slug: 'landlord-master',
       name: "Landlord Master",
       description: "Property management platform for landlords.",
       technologies: ["Next.js", "MongoDB", "Stripe"],
@@ -97,6 +106,7 @@ export interface Project {
       category: "saas",
     },
     {
+      slug: 'what-sam-watched',
       name: "Movie Progress Tracker",
       description: "Track movies watched with stats and visualizations.",
       technologies: ["Nuxt 3", "Vue.js", "PostgreSQL"],
@@ -109,6 +119,7 @@ export interface Project {
       category: "personal",
     },
     {
+      slug: 'rich-sam-morty',
       name: "Rick and Morty Explorer",
       description: "Explore characters and episodes from the show.",
       technologies: ["SvelteKit", "GraphQL", "Tailwind CSS"],
