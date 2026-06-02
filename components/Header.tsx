@@ -6,12 +6,13 @@ import { HeaderProps, emptyUser } from "../types";
 import Icon from "./Icon";
 
 const NAV_LINKS = [
-  { tl: "home", url: "/", icon: "house-user" },
+  { tl: "Home", url: "/", icon: "house-user" },
   { tl: "Resume", url: "/resume", icon: "user" },
   { tl: "knowledges", url: "/knowledges", icon: "book" },
   // { tl: "todos", url: "/todos", icon: "list" },
-  { tl: "expenses", url: "/expenses", icon: "piggy-bank" },
-  { tl: "blogs", url: "/blogs", icon: "piggy-bank" },
+  { tl: "Expenses", url: "/expenses", icon: "piggy-bank" },
+  { tl: "Blogs", url: "/blogs", icon: "piggy-bank" },
+  { tl: "Faq", url: "/faq", icon: "comments" },
 ];
 
 function UserSection({
