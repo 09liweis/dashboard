@@ -8,9 +8,9 @@ const STATIC_PAGES = [
   { url: '/', changefreq: 'weekly', priority: 1.0 },
   { url: '/resume', changefreq: 'monthly', priority: 0.9 },
   { url: '/blogs', changefreq: 'weekly', priority: 0.8 },
-  { url: '/knowledges', changefreq: 'monthly', priority: 0.7 },
-  { url: '/todos', changefreq: 'daily', priority: 0.6 },
-  { url: '/expenses', changefreq: 'daily', priority: 0.6 },
+  { url: '/faq', changefreq: 'monthly', priority: 0.7 },
+  { url: '/calculator', changefreq: 'daily', priority: 0.6 },
+  // { url: '/expenses', changefreq: 'daily', priority: 0.6 },
 ];
 
 function generateSiteMap(dynamicPaths: { path: string; lastmod: string }[] = []) {

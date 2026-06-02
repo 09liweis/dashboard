@@ -6,12 +6,14 @@ import { HeaderProps, emptyUser } from "../types";
 import Icon from "./Icon";
 
 const NAV_LINKS = [
-  { tl: "home", url: "/", icon: "house-user" },
-  { tl: "Resume", url: "/resume", icon: "user" },
-  { tl: "knowledges", url: "/knowledges", icon: "book" },
+  { tl: "Home", url: "/", icon: "house-user" },
+  { tl: "About", url: "/resume", icon: "user" },
+  { tl: 'Cost Calculator', url: '/calculator', icon: 'book' },
+  // { tl: "knowledges", url: "/knowledges", icon: "book" },
   // { tl: "todos", url: "/todos", icon: "list" },
-  { tl: "expenses", url: "/expenses", icon: "piggy-bank" },
-  { tl: "blogs", url: "/blogs", icon: "piggy-bank" },
+  // { tl: "Expenses", url: "/expenses", icon: "piggy-bank" },
+  { tl: "Blogs", url: "/blogs", icon: "piggy-bank" },
+  { tl: "Faq", url: "/faq", icon: "comments" },
 ];
 
 function UserSection({
@@ -84,7 +86,7 @@ function NavItem({
           relative px-4 py-3 rounded-lg transition-all duration-300 cursor-pointer group
           ${
             isActive
-              ? "bg-gray-900 text-white shadow-md"
+              ? "bg-primary text-white shadow-md"
               : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
           }
         `}
@@ -99,7 +101,7 @@ function NavItem({
         {isActive && (
           <motion.div
             layoutId="activeTab"
-            className="absolute inset-0 bg-gray-900 rounded-lg -z-10"
+            className="absolute inset-0 bg-primary rounded-lg -z-10"
             transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
           />
         )}
