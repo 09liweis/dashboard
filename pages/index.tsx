@@ -1,4 +1,4 @@
-import type { NextPage, GetServerSideProps } from 'next';
+import type { NextPage, GetStaticProps } from 'next';
 import Home from "@/components/screens/Home";
 import SEO from '@/components/SEO';
 import { getPersonSchema, getWebsiteSchema, getProfessionalServiceSchema } from '../config/seo';
@@ -37,7 +37,7 @@ const HomePage: NextPage<HomePageProps> = ({ latestBlogs }) => {
   );
 }
 
-export const getServerSideProps: GetServerSideProps<HomePageProps> = async () => {
+export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
   const sorted = [...BLOG_POSTS].sort(
     (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
   );
@@ -47,6 +47,7 @@ export const getServerSideProps: GetServerSideProps<HomePageProps> = async () =>
     props: {
       latestBlogs,
     },
+    revalidate: 60,
   };
 };
 
