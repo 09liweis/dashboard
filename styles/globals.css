@@ -102,49 +102,6 @@ body {
   color: rgb(180, 77, 26);
 }
 
-.nav-link {
-  background: linear-gradient(to right, #f32170, #ff6b08, #cf23cf, #eedd44) no-repeat right bottom;
-  background-size: 0px 2px;
-  transition: background-size 0.5s;
-}
-
-.nav-link:hover {
-  background-position: left bottom;
-  background-size: 100% 2px;
-}
-
-.resume-section {
-  @apply p-1.5 text-white bg-black text-lg inline-block;
-}
-
 .knowledge-item {
   @apply font-bold transition duration-300 hover:translate-x-1;
-}
-
-.calendar-day {
-  @apply w-[14%] text-center p-4 cursor-pointer;
-}
-
-.calendar-day.active {
-  @apply text-red-800;
-}
-
-.calendar-day.inactive {
-  @apply text-gray-400;
-}
-
-.category-price {
-  @apply relative bg-linear-to-l from-red-300 border-dashed border-2 border-red-600 p-1 mb-1 rounded-sm transition duration-300;
-}
-
-.category-price.income {
-  @apply text-green-600;
-}
-
-.category-percentage {
-  @apply text-sm text-white text-right p-1 rounded-sm text-shadow-xs;
-}
-
-.category-percentage.income {
-  @apply bg-green-600;
 }
