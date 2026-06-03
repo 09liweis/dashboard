@@ -1,35 +1,68 @@
-如何更新本地代码
-在终端打 git pull origin main 按回车
+# Sam Li - Full Stack Developer
 
-如何提交代码
-点击左边第三个图标，添加带 M 的文件，添加后在消息栏写我做的内容，Ctrl+回车
-再在终端打 git push origin main 按回车
+Personal website and dashboard of **Sam Li (Weisen Li)**, a Senior Full Stack Developer based in Toronto, Canada. Built with Next.js, React, and Tailwind CSS.
 
-如何启动目录，如果没有终端，就要新建终端
-如果有终端，在终点里面打 npm run dev 鼠标点下边
-项目启动后打开 local host 的 url
+Live at **[samliweisen.dev](https://samliweisen.dev)**
 
-如何终止项目
-在终端按 ctrl+C
+## About
 
-## TODO
+I've spent the last decade building web applications that actually work — the whole stack: databases, APIs, deployment, frontend. I've led teams through technical migrations (jQuery to React, monoliths to microservices), mentored junior developers, and worked on everything from small startup MVPs to systems handling millions of records.
 
-- [x] upgrade to nextjs 13
-- [x] upgrade to nextjs 14
-- [x] todo page, style todo form
-- [x] update, delete todo with animation
-- [x] delete transaction
-- [ ] add statistic card on home page
-- [x] user github sign up
-- [x] user resume page
-- [ ] project dashboard page
-- [ ] experience dashboard page
-- [ ] resume public url
-- [ ] background image change randomly
+Currently a Senior Application Development Specialist at **OLG**, with deep expertise in React, Vue.js, Node.js, TypeScript, MongoDB, PostgreSQL, and cloud technologies.
 
+- **10+ years** of experience
+- **Full stack** specialization
+- **Results-driven** approach
+- **University of Toronto** alumni
 
+### Connect
+
+- [LinkedIn](https://www.linkedin.com/in/samliweisen/)
+- [GitHub](https://github.com/09liweis)
+- [weisen.li@hotmail.com](mailto:weisen.li@hotmail.com)
+
+## Tech Stack
+
+- **Framework:** Next.js 16 (Pages Router)
+- **UI:** React 19, Tailwind CSS 4, Motion (Framer Motion)
+- **Language:** TypeScript
+- **Analytics:** Vercel Analytics
+
+## Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm run start
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Pages
+
+| Page | Path | Description |
+|------|------|-------------|
+| Home | `/` | Landing page with projects and latest blog posts |
+| Resume | `/resume` | Professional resume, skills, experience, and education |
+| Calculator | `/calculator` | Cost calculator tool |
+| Blogs | `/blogs` | Technical blog posts and articles |
+| FAQ | `/faq` | Frequently asked questions |
+| Projects | `/projects/[slug]` | Individual project detail pages |
+
+## Docker
+
+```bash
 # Build the image
 docker build -t nextjs-app .
 
 # Run the container
 docker run -p 3000:3000 nextjs-app
+```
