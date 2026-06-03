@@ -3,12 +3,6 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
 
-  // i18n for multilingual support
-  i18n: {
-    locales: ["en", "zh"],
-    defaultLocale: "en",
-  },
-
   // Headers for security and SEO
   async headers() {
     return [

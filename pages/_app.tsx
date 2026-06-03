@@ -3,10 +3,8 @@ import '../styles/globals.css';
 import Head from 'next/head';
 import { Router, useRouter } from 'next/router';
 import type { AppProps } from 'next/app';
-import AppContext from '../AppContext';
 import Header from '../components/Header';
 import { useState, useEffect } from 'react';
-import { getLanguages } from '../helpers';
 import LoadingSkeleton from '@/components/LoadingSkeleton';
 
 const getPageTitle = (pageProps: any) => {
@@ -15,7 +13,6 @@ const getPageTitle = (pageProps: any) => {
 };
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [lang, setLang] = useState(getLanguages('en'));
   const [loading, setLoading] = useState(false);
   
   Router.events.on('routeChangeStart', () => {
@@ -44,10 +41,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   }, []);
 
-  useEffect(() => {
-    setLang(getLanguages(router.locale));
-  }, [router.locale]);
-
   return (
     <>
       <Head>
@@ -57,22 +50,13 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <AppContext.Provider
-        value={{
-          lang,
-        }}
-      >
-        <main className="p-2">
-          <Header
-            lang={lang}
-            router={router}
-          />
-          <section className="bg-card mt-2 p-2 rounded-sm">
-            {loading ? <LoadingSkeleton /> : <Component {...pageProps} />}
-          </section>
-          <Analytics />
-        </main>
-      </AppContext.Provider>
+      <main className="p-2">
+        <Header router={router} />
+        <section className="bg-card mt-2 p-2 rounded-sm">
+          {loading ? <LoadingSkeleton /> : <Component {...pageProps} />}
+        </section>
+        <Analytics />
+      </main>
     </>
   );
 }

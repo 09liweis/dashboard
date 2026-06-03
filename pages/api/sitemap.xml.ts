@@ -10,7 +10,6 @@ const STATIC_PAGES = [
   { url: '/blogs', changefreq: 'weekly', priority: 0.8 },
   { url: '/faq', changefreq: 'monthly', priority: 0.7 },
   { url: '/calculator', changefreq: 'daily', priority: 0.6 },
-  // { url: '/expenses', changefreq: 'daily', priority: 0.6 },
 ];
 
 function generateSiteMap(dynamicPaths: { path: string; lastmod: string }[] = []) {

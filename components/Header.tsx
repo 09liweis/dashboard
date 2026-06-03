@@ -1,27 +1,22 @@
 import Link from "next/link";
 import { useState } from "react";
-import { getTranslate } from "../helpers";
 import Icon from "./Icon";
 
 const NAV_LINKS = [
   { tl: "Home", url: "/", icon: "house-user" },
   { tl: "About", url: "/resume", icon: "user" },
   { tl: 'Cost Calculator', url: '/calculator', icon: 'book' },
-  // { tl: "knowledges", url: "/knowledges", icon: "book" },
-  // { tl: "Expenses", url: "/expenses", icon: "piggy-bank" },
   { tl: "Blogs", url: "/blogs", icon: "piggy-bank" },
-  { tl: "Faq", url: "/faq", icon: "comments" },
+  { tl: "Faqs", url: "/faq", icon: "comments" },
 ];
 
 function NavItem({
   nav,
   pathname,
-  lang,
   onClick,
 }: {
   nav: (typeof NAV_LINKS)[0];
   pathname: String;
-  lang: String;
   onClick?: () => void;
   index: number;
 }) {
@@ -43,7 +38,7 @@ function NavItem({
         <div className="flex items-center gap-2">
           <Icon name={nav.icon} classNames="text-lg" />
           <span className="font-medium text-sm md:text-base">
-            {getTranslate(lang, nav.tl)}
+            {nav.tl}
           </span>
         </div>
         <div className="absolute inset-0 bg-gray-900/0 group-hover:bg-gray-100 rounded-lg transition-all duration-300 -z-10"></div>
@@ -55,12 +50,10 @@ function NavItem({
 function MobileMenuItem({
   nav,
   pathname,
-  lang,
   onClick,
 }: {
   nav: (typeof NAV_LINKS)[0];
   pathname: String;
-  lang: String;
   onClick: () => void;
   index: number;
 }) {
@@ -79,7 +72,7 @@ function MobileMenuItem({
           }`}
         >
           <Icon name={nav.icon} classNames="text-2xl" />
-          <span>{getTranslate(lang, nav.tl)}</span>
+          <span>{nav.tl}</span>
         </button>
       </Link>
     </div>
@@ -88,10 +81,8 @@ function MobileMenuItem({
 
 export default function Header({
   router,
-  lang,
 }: {
   router: { pathname: String };
-  lang: String;
 }) {
   const pathname = router.pathname;
   const [menuOpen, setMenuOpen] = useState(false);
@@ -123,7 +114,6 @@ export default function Header({
                 key={nav.url}
                 nav={nav}
                 pathname={pathname}
-                lang={lang}
                 index={index}
               />
             ))}
@@ -161,7 +151,6 @@ export default function Header({
                       key={nav.url}
                       nav={nav}
                       pathname={pathname}
-                      lang={lang}
                       onClick={() => setMenuOpen(false)}
                       index={index}
                     />
