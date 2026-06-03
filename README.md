@@ -22,8 +22,6 @@
 - [ ] add statistic card on home page
 - [x] user github sign up
 - [x] user resume page
-- [x] contact page list
-- [x] contact form
 - [ ] project dashboard page
 - [ ] experience dashboard page
 - [ ] resume public url
