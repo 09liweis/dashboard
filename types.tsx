@@ -34,45 +34,6 @@ export interface HeaderProps {
   lang: String;
 }
 
-export interface Transaction {
-  _id?: string;
-  price?: string;
-  formatedPrice?: string;
-  income?:boolean;
-  date?: string;
-  title?: string;
-  place?: {
-    _id?: string;
-    name?: string;
-    address?: string;
-    place_id?: string;
-    lat?: number;
-    lng?: number;
-  };
-}
-
-export interface ExpenseResponse {
-  total: string;
-  incomes:string;
-  expenses:string;
-  date:string;
-  endDate?:string;
-  categoryPrice:CategoryTransaction[]
-}
-
-export interface CategoryTransaction {
-  total: string;
-  income: boolean;
-  category: string;
-  percentage: string;
-  items: Transaction[];
-}
-
-export interface ExpenseListProps {
-  categoryTransactions: CategoryTransaction[];
-  openTransactionDetail: Function;
-}
-
 export interface Knowledge {
   _id?: string;
   title: string;

@@ -347,11 +347,6 @@ export const PAGE_METADATA = {
     description: 'Personal task management and productivity tool.',
     keywords: ['todo', 'task manager', 'productivity'],
   },
-  expenses: {
-    title: 'Expense Tracker',
-    description: 'Track and manage personal expenses with detailed analytics.',
-    keywords: ['expense tracker', 'finance', 'budget'],
-  },
   knowledges: {
     title: 'Knowledge Base',
     description: 'Curated collection of programming knowledge, concepts, and best practices.',

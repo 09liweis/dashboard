@@ -12,7 +12,6 @@ const DASHBOARD_CARDS = [
   // { tl: 'cat', icon: 'cat', bg: 'purple-400' },
   { tl: 'todos', icon: 'list', bg: 'blue-400' },
   { tl: 'comments', icon: 'comments', bg: 'red-400' },
-  { tl: 'expense', icon: 'dollar-sign', bg: 'green-500' },
   { tl: 'places', icon: 'location-dot', bg: 'indigo-500' },
   { tl: 'blogs', icon: 'blog', bg: 'sky-500' },
   { tl: 'movie', icon: 'film', bg: 'teal-600' },
