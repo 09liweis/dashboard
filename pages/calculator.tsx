@@ -209,7 +209,7 @@ const CalculatorPage: NextPage = () => {
         </section>
 
         <div className="max-w-4xl mx-auto px-6 py-12">
-          <div className="grid gap-10 lg:grid-cols-[1fr_300px] items-start">
+          <div className="grid gap-10 lg:grid-cols-sidebar items-start">
             {/* Left: Questions */}
             <div className="space-y-10">
               {CATEGORIES.map((cat) => (

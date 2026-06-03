@@ -167,7 +167,7 @@ const BlogDetail: NextPage<BlogDetailPageProps> = ({
           Back to articles
         </Link>
 
-        <div className="grid gap-10 xl:grid-cols-[minmax(0,1fr)_280px]">
+        <div className="grid gap-10 xl:grid-cols-blog-layout">
           <article>
             {/* Header */}
             <header className="mb-8 pb-6 border-b border-slate-200">
@@ -227,7 +227,7 @@ const BlogDetail: NextPage<BlogDetailPageProps> = ({
           {blog.projectName && blog.projectUrl && (
             <aside className="hidden xl:block">
               <div className="sticky top-24 rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
+                <p className="text-xs font-semibold uppercase tracking-wide-lg text-slate-500">
                   Related project
                 </p>
                 <h2 className="mt-4 text-xl font-semibold text-slate-900">

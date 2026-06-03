@@ -18,7 +18,7 @@ export default function BlogCard({ blog, index = 0, featured = false }: BlogCard
         <Link href={`/blogs/${blog.getUrl()}`} className="flex flex-col lg:flex-row">
           {/* Featured image area */}
           <div className="relative flex-shrink-0 overflow-hidden bg-slate-100 lg:w-1/2">
-            <div className="flex h-56 items-center justify-center bg-gradient-to-br from-slate-800 to-slate-900 p-8 lg:h-full lg:min-h-[340px]">
+            <div className="flex h-56 items-center justify-center bg-gradient-to-br from-slate-800 to-slate-900 p-8 lg:h-full lg:min-h-card">
               <div className="space-y-4 text-center">
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white/80 backdrop-blur-sm">
                   <span className="relative flex h-1.5 w-1.5">

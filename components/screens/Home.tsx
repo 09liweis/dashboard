@@ -140,7 +140,7 @@ export default function Home({ latestBlogs }: HomeProps) {
             </div>
 
             {/* Name */}
-            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-gray-900 mb-4 leading-[1.05]">
+            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-gray-900 mb-4 lh-tight">
               Sam Li
             </h1>
 
@@ -186,7 +186,7 @@ export default function Home({ latestBlogs }: HomeProps) {
         </div>
 
         {/* Subtle grid pattern */}
-        <div className="absolute inset-0 -z-10 bg-[linear-gradient(rgba(0,0,0,.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,.02)_1px,transparent_1px)] bg-[size:64px_64px]" />
+        <div className="absolute inset-0 -z-10 bg-grid-pattern" />
       </section>
 
       {/* ─── Stats ─────────────────────────────────────────────────────── */}
@@ -234,7 +234,7 @@ export default function Home({ latestBlogs }: HomeProps) {
                 <h3 className="text-lg font-bold text-gray-900 mb-2">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed text-[15px]">
+                <p className="text-gray-600 leading-relaxed text-15">
                   {service.description}
                 </p>
               </div>
