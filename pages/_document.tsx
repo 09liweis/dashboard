@@ -2,7 +2,7 @@ import { Html, Head, Main, NextScript } from 'next/document'
 
 export default function Document() {
   return (
-    <Html>
+    <Html lang="en">
       <Head>
         {/*Start of Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZM985DLTVZ"></script>
