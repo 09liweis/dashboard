@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { NextPage, GetServerSideProps } from "next";
+import type { NextPage, GetStaticProps, GetStaticPaths } from "next";
 import Link from "next/link";
 import { BlogType } from "types";
 import SEO from "@/components/SEO";
@@ -253,7 +253,15 @@ const BlogDetail: NextPage<BlogDetailPageProps> = ({
   );
 };
 
-export const getServerSideProps: GetServerSideProps<
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = BLOG_POSTS.map((post) => ({
+    params: { id: post.url || post._id },
+  }));
+
+  return { paths, fallback: "blocking" };
+};
+
+export const getStaticProps: GetStaticProps<
   BlogDetailPageProps
 > = async ({ params }) => {
   const rawId = params?.id;

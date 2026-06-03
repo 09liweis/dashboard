@@ -1,4 +1,4 @@
-import type { NextPage, GetServerSideProps } from 'next';
+import type { NextPage, GetStaticProps } from 'next';
 import { BlogType } from 'types';
 import Blog from 'classes/blog';
 import BlogList from '@/components/blog/BlogList';
@@ -151,7 +151,7 @@ const Blogs: NextPage<BlogsPageProps> = ({ blogs }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps<BlogsPageProps> = async () => {
+export const getStaticProps: GetStaticProps<BlogsPageProps> = async () => {
   return {
     props: {
       blogs: BLOG_POSTS,

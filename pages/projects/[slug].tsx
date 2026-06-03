@@ -1,4 +1,4 @@
-import type { NextPage, GetServerSideProps } from 'next';
+import type { NextPage, GetStaticProps, GetStaticPaths } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'motion/react';
@@ -198,7 +198,15 @@ const ProjectDetailPage: NextPage<ProjectDetailPageProps> = ({ project }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps<ProjectDetailPageProps> = async ({ params }) => {
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = PROJECTS.map((project) => ({
+    params: { slug: project.slug },
+  }));
+
+  return { paths, fallback: "blocking" };
+};
+
+export const getStaticProps: GetStaticProps<ProjectDetailPageProps> = async ({ params }) => {
   const slug = typeof params?.slug === 'string' ? params.slug : '';
   const project = PROJECTS.find((p) => p.slug === slug);
 
