@@ -1,6 +1,5 @@
 import type { NextPage } from 'next';
-import { useContext, useEffect, useState } from 'react';
-import AppContext from '../AppContext';
+import { useEffect, useState } from 'react';
 import { CONTACT_LIST_API } from '../constants';
 import { fetchAPI } from '../helpers';
 import Loading from '../components/Loading';
@@ -18,8 +17,6 @@ const ContactsPage: NextPage = () => {
 
   const [showForm, setShowForm] = useState(false);
   const [loading, setLoading] = useState(false);
-
-  const { user } = useContext(AppContext);
 
   const fetchContacts = async () => {
     const response = await fetchAPI({
@@ -50,14 +47,12 @@ const ContactsPage: NextPage = () => {
       <h2 className="text-teal-600 cursor-pointer" onClick={() => handleContactEdit(contact)} >{contact.name}</h2>
       <section>
         <span className="text-blue-500">{contact.groups}</span>
-        {user._id && (
-          <span
-            className="group-hover:opacity-100 hover:scale-105 rounded-sm duration-300 transition cursor-pointer bg-red-800 text-white p-1 opacity-0"
-            onClick={() => handleContactDelete(contact._id)}
-          >
-            X
-          </span>
-        )}
+        <span
+          className="group-hover:opacity-100 hover:scale-105 rounded-sm duration-300 transition cursor-pointer bg-red-800 text-white p-1 opacity-0"
+          onClick={() => handleContactDelete(contact._id)}
+        >
+          X
+        </span>
       </section>
     </article>
   ));
@@ -69,7 +64,7 @@ const ContactsPage: NextPage = () => {
   }
 
   const handleContactDelete = async (id: string) => {
-    const todoResponse = await fetchAPI({
+    await fetchAPI({
       url: `${CONTACT_LIST_API}/${id}`,
       method: 'DELETE',
       body: {},
@@ -107,10 +102,8 @@ const ContactsPage: NextPage = () => {
       <section className='flex flex-wrap'>
         {contactsHTML}
       </section>
-      {user._id &&
-        <div className="fixed right-3 bottom-3 p-2 rounded-full font-bold text-lg shadow-lg bg-white leading-3 cursor-pointer" onClick={()=>setShowForm(true)}>+</div>
-      }
-      {user._id && showForm && (
+      <div className="fixed right-3 bottom-3 p-2 rounded-full font-bold text-lg shadow-lg bg-white leading-3 cursor-pointer" onClick={()=>setShowForm(true)}>+</div>
+      {showForm && (
         <section className='fixed w-full h-full left-0 top-0 bg-gray-600 flex justify-center items-center'>
           <a className='cursor-pointer transition duration-300 hover:scale-105 absolute top-5 right-5 text-white bg-red-800 p-2 rounded-sm' onClick={()=>setShowForm(false)}>Close</a>
           <form onSubmit={handleContactSubmit} className='w-96 bg-white p-2 rounded-sm'>

@@ -342,9 +342,4 @@ export const PAGE_METADATA = {
     description: 'Technical articles and insights about web development, programming, and software engineering.',
     keywords: ['blog', 'articles', 'tutorials', 'web development'],
   },
-  knowledges: {
-    title: 'Knowledge Base',
-    description: 'Curated collection of programming knowledge, concepts, and best practices.',
-    keywords: ['knowledge base', 'programming', 'learning'],
-  },
 };

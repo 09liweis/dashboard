@@ -5,10 +5,8 @@ import { Router, useRouter } from 'next/router';
 import type { AppProps } from 'next/app';
 import AppContext from '../AppContext';
 import Header from '../components/Header';
-import { emptyUser } from '../types';
 import { useState, useEffect } from 'react';
-import { checkUserToken, getLanguages } from '../helpers';
-import LoginForm from '../components/LoginForm';
+import { getLanguages } from '../helpers';
 import LoadingSkeleton from '@/components/LoadingSkeleton';
 
 const getPageTitle = (pageProps: any) => {
@@ -17,9 +15,7 @@ const getPageTitle = (pageProps: any) => {
 };
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [user, setUser] = useState(emptyUser);
   const [lang, setLang] = useState(getLanguages('en'));
-  const [showLogin, setShowLogin] = useState(false);
   const [loading, setLoading] = useState(false);
   
   Router.events.on('routeChangeStart', () => {
@@ -37,19 +33,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   useEffect(() => {
-    const userResponse = checkUserToken();
-    userResponse.then((res: any) => {
-      if (res?.user) {
-        setUser(res.user);
-      }
-    });
-
-    document.addEventListener('copy', (e) => {
+    document.addEventListener('copy', () => {
       alert('You are trying to copy my stuff');
     });
 
     return () => {
-      document.removeEventListener('copy', (e) => {
+      document.removeEventListener('copy', () => {
         console.info("remove copy event listener");
       })
     }
@@ -70,26 +59,17 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <AppContext.Provider
         value={{
-          isUserLoggedIn: user?._id,
-          user,
           lang,
-          setUser,
         }}
       >
         <main className="p-2">
           <Header
-            setShowLogin={setShowLogin}
             lang={lang}
-            user={user}
-            setUser={setUser}
             router={router}
           />
           <section className="bg-card mt-2 p-2 rounded-sm">
             {loading ? <LoadingSkeleton /> : <Component {...pageProps} />}
           </section>
-          {!user?._id && showLogin ? (
-            <LoginForm setShowLogin={setShowLogin} setUser={setUser} />
-          ) : null}
           <Analytics />
         </main>
       </AppContext.Provider>

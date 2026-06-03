@@ -1,8 +1,4 @@
-import { useContext } from 'react';
 import type { NextPage, GetServerSideProps } from 'next';
-import { getTranslate } from 'helpers';
-import Link from 'next/link';
-import AppContext from 'AppContext';
 import { BlogType } from 'types';
 import Blog from 'classes/blog';
 import BlogList from '@/components/blog/BlogList';
@@ -16,7 +12,6 @@ interface BlogsPageProps {
 }
 
 const Blogs: NextPage<BlogsPageProps> = ({ blogs }) => {
-  const { user, lang } = useContext(AppContext);
   const curBlogs = blogs.map((b) => new Blog(b));
 
   const breadcrumbs = [
@@ -132,31 +127,16 @@ const Blogs: NextPage<BlogsPageProps> = ({ blogs }) => {
             </div>
 
             <div className="flex flex-wrap items-center gap-3 sm:flex-shrink-0">
-              {user._id ? (
-                <Link href="/blogs/new">
-                  <motion.span
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.97 }}
-                    className="inline-flex cursor-pointer items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-primary-dark"
+              <div className="flex flex-wrap gap-2">
+                {['Web Dev', 'Performance', 'Architecture', 'Tutorials'].map((t) => (
+                  <span
+                    key={t}
+                    className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-500"
                   >
-                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
-                    </svg>
-                    {getTranslate(lang, 'addNew')}
-                  </motion.span>
-                </Link>
-              ) : (
-                <div className="flex flex-wrap gap-2">
-                  {['Web Dev', 'Performance', 'Architecture', 'Tutorials'].map((t) => (
-                    <span
-                      key={t}
-                      className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-500"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              )}
+                    {t}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
 

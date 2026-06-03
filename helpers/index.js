@@ -54,19 +54,9 @@ export async function fetchToken({ eml, pwd }) {
   return response;
 }
 
-export async function checkUserToken() {
-  const authToken = getAuthToken();
-  if (authToken) {
-    const userResponse = await fetchUser();
-    return userResponse;
-  }
-  return null;
-}
-
 export const LANGUAGES = {
   en: {
     home: 'Home',
-    knowledges: 'Knowledges',
     login: 'Login',
     logout: 'Log Out',
     addNew: 'Add New',
@@ -82,7 +72,6 @@ export const LANGUAGES = {
   zh: {
     home: '页面',
     Resume: '简历',
-    knowledges: '芝士',
     videos: 'Vlog',
     logout: '登出',
     total: '总计',

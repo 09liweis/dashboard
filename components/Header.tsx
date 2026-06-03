@@ -2,7 +2,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { motion } from "motion/react";
 import { getTranslate } from "../helpers";
-import { HeaderProps, emptyUser } from "../types";
 import Icon from "./Icon";
 
 const NAV_LINKS = [
@@ -14,51 +13,6 @@ const NAV_LINKS = [
   { tl: "Blogs", url: "/blogs", icon: "piggy-bank" },
   { tl: "Faq", url: "/faq", icon: "comments" },
 ];
-
-function UserSection({
-  user,
-  lang,
-  onLogout,
-  onLogin,
-}: {
-  user: any;
-  lang: String;
-  onLogout: () => void;
-  onLogin: () => void;
-}) {
-  if (user._id) {
-    return (
-      <motion.div
-        initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 1, x: 0 }}
-        className="flex items-center gap-4 flex-wrap"
-      >
-        <div className="px-4 py-2 bg-white/80 rounded-lg border border-gray-200 shadow-xs font-medium text-gray-700">
-          {user.nm}
-        </div>
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors shadow-xs font-medium cursor-pointer"
-          onClick={onLogout}
-        >
-          {getTranslate(lang, "logout")}
-        </motion.button>
-      </motion.div>
-    );
-  }
-
-  return (
-    <motion.button
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-      className="px-6 py-2 cursor-pointer bg-primary text-white rounded-lg hover:bg-primary-dark transition-all font-medium"
-      onClick={onLogin}
-    >
-      {getTranslate(lang, "login")}
-    </motion.button>
-  );
-}
 
 function NavItem({
   nav,
@@ -150,25 +104,14 @@ function MobileMenuItem({
 }
 
 export default function Header({
-  setShowLogin,
-  user,
-  setUser,
   router,
   lang,
-}: HeaderProps) {
+}: {
+  router: { pathname: String };
+  lang: String;
+}) {
   const pathname = router.pathname;
   const [menuOpen, setMenuOpen] = useState(false);
-
-  const handleLogout = () => {
-    localStorage.removeItem("auth-token");
-    setUser(emptyUser);
-    setMenuOpen(false);
-  };
-
-  const handleLoginClick = () => {
-    setShowLogin(true);
-    setMenuOpen(false);
-  };
 
   return (
     <motion.header
@@ -181,13 +124,6 @@ export default function Header({
 
       <div className="relative z-10 p-3">
         <div className="flex items-center justify-end gap-4 mb-6">
-          <UserSection
-            user={user}
-            lang={lang}
-            onLogout={handleLogout}
-            onLogin={handleLoginClick}
-          />
-
           {/* Hamburger menu button (only visible on mobile and when menu is closed) */}
           {!menuOpen && (
             <button
