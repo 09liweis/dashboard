@@ -342,11 +342,6 @@ export const PAGE_METADATA = {
     description: 'Technical articles and insights about web development, programming, and software engineering.',
     keywords: ['blog', 'articles', 'tutorials', 'web development'],
   },
-  todos: {
-    title: 'Todo Manager',
-    description: 'Personal task management and productivity tool.',
-    keywords: ['todo', 'task manager', 'productivity'],
-  },
   knowledges: {
     title: 'Knowledge Base',
     description: 'Curated collection of programming knowledge, concepts, and best practices.',

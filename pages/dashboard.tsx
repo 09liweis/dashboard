@@ -10,7 +10,6 @@ const DASHBOARD_CARDS = [
   // { tl: 'waifu', icon: 'person-dress', bg: 'purple-400' },
   // { tl: 'dog', icon: 'dog', bg: 'purple-400' },
   // { tl: 'cat', icon: 'cat', bg: 'purple-400' },
-  { tl: 'todos', icon: 'list', bg: 'blue-400' },
   { tl: 'comments', icon: 'comments', bg: 'red-400' },
   { tl: 'places', icon: 'location-dot', bg: 'indigo-500' },
   { tl: 'blogs', icon: 'blog', bg: 'sky-500' },

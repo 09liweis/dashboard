@@ -10,7 +10,6 @@ const NAV_LINKS = [
   { tl: "About", url: "/resume", icon: "user" },
   { tl: 'Cost Calculator', url: '/calculator', icon: 'book' },
   // { tl: "knowledges", url: "/knowledges", icon: "book" },
-  // { tl: "todos", url: "/todos", icon: "list" },
   // { tl: "Expenses", url: "/expenses", icon: "piggy-bank" },
   { tl: "Blogs", url: "/blogs", icon: "piggy-bank" },
   { tl: "Faq", url: "/faq", icon: "comments" },

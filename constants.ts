@@ -4,8 +4,6 @@ export const LOGIN_API = `${API_URL}user/login`;
 
 export const USER_API = `${API_URL}user/detail`;
 
-export const TODO_LIST_API = `${API_URL}todos`;
-
 export const CONTACT_LIST_API = `${API_URL}contacts`;
 
 export const COMMENT_LIST_API = `${API_URL}comments`;
