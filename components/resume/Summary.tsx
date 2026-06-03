@@ -1,5 +1,3 @@
-import { motion } from "motion/react";
-
 export default function Summary() {
   const highlights = [
     {
@@ -52,12 +50,7 @@ export default function Summary() {
   ];
 
   return (
-    <motion.section
-      className="mb-16"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-    >
+    <section className="mb-16">
       <div className="text-left mb-10">
         <p className="text-sm font-semibold uppercase tracking-widest text-slate-500 mb-3">
           About
@@ -69,13 +62,9 @@ export default function Summary() {
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10">
-        {highlights.map((item, index) => (
-          <motion.div
+        {highlights.map((item) => (
+          <div
             key={item.label}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.08 }}
-            whileHover={{ y: -4, transition: { duration: 0.15 } }}
             className="group"
           >
             <div className="relative bg-white rounded-lg border-2 border-gray-100 p-5 sm:p-6 group-hover:border-gray-200 group-hover:shadow-sm transition-all h-full">
@@ -89,16 +78,11 @@ export default function Summary() {
                 className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${item.gradient} rounded-b-lg opacity-0 group-hover:opacity-100 transition-opacity`}
               ></div>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3 }}
-        className="relative"
-      >
+      <div className="relative">
         <div className="bg-slate-50 rounded-xl border border-slate-200 overflow-hidden">
           <div className="h-1 w-full bg-gradient-to-r from-slate-700 via-blue-600 to-cyan-600"></div>
 
@@ -202,23 +186,19 @@ export default function Summary() {
                 Core Expertise
               </h3>
               <div className="flex flex-wrap gap-2">
-                {expertiseAreas.map((area, index) => (
-                  <motion.span
+                {expertiseAreas.map((area) => (
+                  <span
                     key={area.tech}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5 + index * 0.04 }}
-                    whileHover={{ scale: 1.03 }}
-                    className={`px-3 py-1.5 rounded-md border text-xs font-semibold ${area.color} cursor-default transition-transform`}
+                    className={`px-3 py-1.5 rounded-md border text-xs font-semibold ${area.color} cursor-default transition-transform hover:scale-103`}
                   >
                     {area.tech}
-                  </motion.span>
+                  </span>
                 ))}
               </div>
             </div>
           </div>
         </div>
-      </motion.div>
-    </motion.section>
+      </div>
+    </section>
   );
 }

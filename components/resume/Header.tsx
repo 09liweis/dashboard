@@ -1,13 +1,6 @@
-import { motion } from 'motion/react';
-
 export default function Header() {
   return (
-    <motion.header
-      className="text-center mb-8"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-    >
+    <header className="text-center mb-8">
       <h1 className="text-6xl font-bold mb-4 bg-linear-to-r from-blue-600 to-green-600 text-transparent bg-clip-text">
         Sam Li
       </h1>
@@ -37,6 +30,6 @@ export default function Header() {
           weisen.li@hotmail.com
         </a>
       </div>
-    </motion.header>
+    </header>
   );
 }

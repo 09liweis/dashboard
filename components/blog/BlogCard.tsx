@@ -1,4 +1,3 @@
-import { motion } from 'motion/react';
 import Link from 'next/link';
 import Blog from 'classes/blog';
 
@@ -15,12 +14,7 @@ export default function BlogCard({ blog, index = 0, featured = false }: BlogCard
 
   if (featured) {
     return (
-      <motion.article
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="group relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white transition-all duration-300 hover:border-slate-300 hover:shadow-xl hover:shadow-slate-200/50"
-      >
+      <article className="group relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white transition-all duration-300 hover:border-slate-300 hover:shadow-xl hover:shadow-slate-200/50">
         <Link href={`/blogs/${blog.getUrl()}`} className="flex flex-col lg:flex-row">
           {/* Featured image area */}
           <div className="relative flex-shrink-0 overflow-hidden bg-slate-100 lg:w-1/2">
@@ -82,17 +76,12 @@ export default function BlogCard({ blog, index = 0, featured = false }: BlogCard
             </div>
           </div>
         </Link>
-      </motion.article>
+      </article>
     );
   }
 
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.08 }}
-      className="group relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white transition-all duration-300 hover:border-slate-300 hover:shadow-lg hover:shadow-slate-200/40"
-    >
+    <article className="group relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white transition-all duration-300 hover:border-slate-300 hover:shadow-lg hover:shadow-slate-200/40">
       <Link href={`/blogs/${blog.getUrl()}`} className="block p-6 sm:p-7">
         {/* Top row: Category + Meta */}
         <div className="flex items-center justify-between">
@@ -125,6 +114,6 @@ export default function BlogCard({ blog, index = 0, featured = false }: BlogCard
           </span>
         </div>
       </Link>
-    </motion.article>
+    </article>
   );
 }

@@ -1,6 +1,5 @@
 import type { NextPage } from 'next';
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
 import SEO from '@/components/SEO';
 import { getBreadcrumbSchema } from '../config/seo';
 
@@ -56,13 +55,7 @@ const FAQAccordion = ({ item, index }: { item: FAQItem; index: number }) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.06, duration: 0.4 }}
-      className="border-b border-gray-200 last:border-0"
-    >
+    <div className="border-b border-gray-200 last:border-0">
       <button
         type="button"
         onClick={() => setOpen(!open)}
@@ -72,32 +65,22 @@ const FAQAccordion = ({ item, index }: { item: FAQItem; index: number }) => {
         <span className="text-base sm:text-lg font-semibold text-gray-900 group-hover:text-slate-700 transition-colors">
           {item.question}
         </span>
-        <motion.span
-          animate={{ rotate: open ? 45 : 0 }}
-          transition={{ duration: 0.2 }}
+        <span
+          style={{ transform: open ? 'rotate(45deg)' : 'rotate(0deg)', transition: 'transform 0.2s' }}
           className="flex-shrink-0 w-7 h-7 rounded-full bg-gray-100 group-hover:bg-gray-200 flex items-center justify-center text-gray-600 transition-colors"
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
           </svg>
-        </motion.span>
+        </span>
       </button>
 
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            key="content"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className="overflow-hidden"
-          >
-            <p className="pb-5 text-base text-gray-600 leading-relaxed">{item.answer}</p>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
+      {open && (
+        <div className="overflow-hidden">
+          <p className="pb-5 text-base text-gray-600 leading-relaxed">{item.answer}</p>
+        </div>
+      )}
+    </div>
   );
 };
 
@@ -145,11 +128,7 @@ const FAQPage: NextPage = () => {
         {/* Hero */}
         <section className="border-b border-gray-100">
           <div className="max-w-3xl mx-auto px-6 pt-16 pb-14 md:pt-24 md:pb-20">
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
+            <div>
               <p className="text-sm font-semibold uppercase tracking-widest text-emerald-600 mb-3">
                 FAQ
               </p>
@@ -159,7 +138,7 @@ const FAQPage: NextPage = () => {
               <p className="text-lg text-gray-500 leading-relaxed max-w-xl">
                 Everything you need to know before we start working together — pricing, timelines, communication, and what happens after launch.
               </p>
-            </motion.div>
+            </div>
           </div>
         </section>
 
@@ -177,12 +156,7 @@ const FAQPage: NextPage = () => {
         {/* CTA */}
         <section className="border-t border-gray-100 bg-gray-50 py-16 md:py-20">
           <div className="max-w-3xl mx-auto px-6 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
+            <div>
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
                 Still have questions?
               </h2>
@@ -198,7 +172,7 @@ const FAQPage: NextPage = () => {
                 </svg>
                 Email Me
               </a>
-            </motion.div>
+            </div>
           </div>
         </section>
       </div>

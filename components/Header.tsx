@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { useState } from "react";
-import { motion } from "motion/react";
 import { getTranslate } from "../helpers";
 import Icon from "./Icon";
 
@@ -19,7 +18,6 @@ function NavItem({
   pathname,
   lang,
   onClick,
-  index,
 }: {
   nav: (typeof NAV_LINKS)[0];
   pathname: String;
@@ -31,10 +29,7 @@ function NavItem({
 
   return (
     <Link key={nav.url} href={nav.url}>
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: index * 0.1 }}
+      <div
         className={`
           relative px-4 py-3 rounded-lg transition-all duration-300 cursor-pointer group
           ${
@@ -51,15 +46,8 @@ function NavItem({
             {getTranslate(lang, nav.tl)}
           </span>
         </div>
-        {isActive && (
-          <motion.div
-            layoutId="activeTab"
-            className="absolute inset-0 bg-primary rounded-lg -z-10"
-            transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-          />
-        )}
         <div className="absolute inset-0 bg-gray-900/0 group-hover:bg-gray-100 rounded-lg transition-all duration-300 -z-10"></div>
-      </motion.div>
+      </div>
     </Link>
   );
 }
@@ -69,7 +57,6 @@ function MobileMenuItem({
   pathname,
   lang,
   onClick,
-  index,
 }: {
   nav: (typeof NAV_LINKS)[0];
   pathname: String;
@@ -80,11 +67,7 @@ function MobileMenuItem({
   const isActive = nav.url === pathname;
 
   return (
-    <motion.div
-      initial={{ x: -300, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      transition={{ delay: index * 0.08, duration: 0.3, ease: "easeOut" }}
-    >
+    <div>
       <Link key={nav.url} href={nav.url} className="block">
         <button
           type="button"
@@ -99,7 +82,7 @@ function MobileMenuItem({
           <span>{getTranslate(lang, nav.tl)}</span>
         </button>
       </Link>
-    </motion.div>
+    </div>
   );
 }
 
@@ -114,11 +97,7 @@ export default function Header({
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <motion.header
-      initial={{ y: -20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      className="relative overflow-hidden"
-    >
+    <header className="relative overflow-hidden">
       <div className="absolute inset-0 bg-gray-50"></div>
       <div className="absolute inset-0 bg-white/80"></div>
 
@@ -151,59 +130,56 @@ export default function Header({
           </div>
 
           {/* Full-screen mobile menu overlay */}
-          <motion.div
-            initial={false}
-            animate={{ x: menuOpen ? 0 : "-100%" }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden fixed inset-0 z-50 bg-white"
-          >
-            {/* Close button */}
-            <div className="absolute top-0 right-0 p-4 z-10">
-              <button
-                type="button"
-                onClick={() => setMenuOpen(false)}
-                className="p-2 rounded-lg bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors"
-                aria-label="Close menu"
-              >
-                <Icon name="xmark" classNames="text-2xl" />
-              </button>
-            </div>
-
-            {/* Menu content */}
-            <div className="h-full flex flex-col pt-16 px-6 pb-6 overflow-y-auto">
-              {/* Header */}
-              <div className="mb-8">
-                <h2 className="text-2xl font-bold text-gray-900">Navigation</h2>
-                <p className="text-sm text-gray-500 mt-1">
-                  Select a page to visit
-                </p>
+          {menuOpen && (
+            <div className="md:hidden fixed inset-0 z-50 bg-white">
+              {/* Close button */}
+              <div className="absolute top-0 right-0 p-4 z-10">
+                <button
+                  type="button"
+                  onClick={() => setMenuOpen(false)}
+                  className="p-2 rounded-lg bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors"
+                  aria-label="Close menu"
+                >
+                  <Icon name="xmark" classNames="text-2xl" />
+                </button>
               </div>
 
-              {/* Navigation items */}
-              <div className="flex-1 space-y-2">
-                {NAV_LINKS.map((nav, index) => (
-                  <MobileMenuItem
-                    key={nav.url}
-                    nav={nav}
-                    pathname={pathname}
-                    lang={lang}
-                    onClick={() => setMenuOpen(false)}
-                    index={index}
-                  />
-                ))}
-              </div>
+              {/* Menu content */}
+              <div className="h-full flex flex-col pt-16 px-6 pb-6 overflow-y-auto">
+                {/* Header */}
+                <div className="mb-8">
+                  <h2 className="text-2xl font-bold text-gray-900">Navigation</h2>
+                  <p className="text-sm text-gray-500 mt-1">
+                    Select a page to visit
+                  </p>
+                </div>
 
-              {/* Footer */}
-              <div className="mt-auto pt-6 border-t border-gray-200">
-                <div className="flex items-center justify-between text-sm text-gray-400">
-                  <span>Sam Li Portfolio</span>
-                  <span>2026</span>
+                {/* Navigation items */}
+                <div className="flex-1 space-y-2">
+                  {NAV_LINKS.map((nav, index) => (
+                    <MobileMenuItem
+                      key={nav.url}
+                      nav={nav}
+                      pathname={pathname}
+                      lang={lang}
+                      onClick={() => setMenuOpen(false)}
+                      index={index}
+                    />
+                  ))}
+                </div>
+
+                {/* Footer */}
+                <div className="mt-auto pt-6 border-t border-gray-200">
+                  <div className="flex items-center justify-between text-sm text-gray-400">
+                    <span>Sam Li Portfolio</span>
+                    <span>2026</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </motion.div>
+          )}
         </nav>
       </div>
-    </motion.header>
+    </header>
   );
 }

@@ -24,7 +24,7 @@ Currently a Senior Application Development Specialist at **OLG**, with deep expe
 ## Tech Stack
 
 - **Framework:** Next.js 16 (Pages Router)
-- **UI:** React 19, Tailwind CSS 4, Motion (Framer Motion)
+- **UI:** React 19, Tailwind CSS 4
 - **Language:** TypeScript
 - **Analytics:** Vercel Analytics
 

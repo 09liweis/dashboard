@@ -1,7 +1,6 @@
 import type { NextPage, GetStaticProps, GetStaticPaths } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'motion/react';
 import { PROJECTS, PROJECT_CATEGORIES, Project } from '../../data/projects';
 import SEO from '@/components/SEO';
 import { getBreadcrumbSchema } from '../../config/seo';
@@ -47,11 +46,7 @@ const ProjectDetailPage: NextPage<ProjectDetailPageProps> = ({ project }) => {
           Back to Resume
         </Link>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-        >
+        <div>
           {/* Header */}
           <header className="mb-10 pb-8 border-b border-slate-200">
             <div className="flex flex-wrap items-center gap-3 mb-4">
@@ -84,11 +79,8 @@ const ProjectDetailPage: NextPage<ProjectDetailPageProps> = ({ project }) => {
               </h2>
               <div className="grid gap-5 sm:grid-cols-2">
                 {project.screenshots.map((screenshot, index) => (
-                  <motion.figure
+                  <figure
                     key={screenshot.src}
-                    initial={{ opacity: 0, y: 16 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.08, duration: 0.35 }}
                     className={`overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm ${
                       index === 0 ? 'sm:col-span-2' : ''
                     }`}
@@ -106,7 +98,7 @@ const ProjectDetailPage: NextPage<ProjectDetailPageProps> = ({ project }) => {
                     <figcaption className="px-4 py-3 text-sm text-slate-600">
                       {screenshot.caption}
                     </figcaption>
-                  </motion.figure>
+                  </figure>
                 ))}
               </div>
             </section>
@@ -129,15 +121,12 @@ const ProjectDetailPage: NextPage<ProjectDetailPageProps> = ({ project }) => {
               </h2>
               <div className="flex flex-wrap gap-2">
                 {project.technologies.map((tech) => (
-                  <motion.span
+                  <span
                     key={tech}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3 }}
                     className="px-3 py-1.5 text-sm font-medium bg-slate-900 text-white rounded-lg"
                   >
                     {tech}
-                  </motion.span>
+                  </span>
                 ))}
               </div>
             </section>
@@ -149,11 +138,8 @@ const ProjectDetailPage: NextPage<ProjectDetailPageProps> = ({ project }) => {
               </h2>
               <ul className="space-y-3">
                 {project.highlights.map((highlight, i) => (
-                  <motion.li
+                  <li
                     key={i}
-                    initial={{ opacity: 0, x: -16 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.08, duration: 0.3 }}
                     className="flex items-start gap-3 text-slate-700"
                   >
                     <svg
@@ -165,7 +151,7 @@ const ProjectDetailPage: NextPage<ProjectDetailPageProps> = ({ project }) => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
                     </svg>
                     <span className="text-base leading-relaxed">{highlight}</span>
-                  </motion.li>
+                  </li>
                 ))}
               </ul>
             </section>
@@ -173,12 +159,7 @@ const ProjectDetailPage: NextPage<ProjectDetailPageProps> = ({ project }) => {
 
           {/* CTA */}
           {project.url && (
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.4 }}
-              className="mt-12 pt-8 border-t border-slate-200"
-            >
+            <div className="mt-12 pt-8 border-t border-slate-200">
               <a
                 href={project.url}
                 target="_blank"
@@ -190,9 +171,9 @@ const ProjectDetailPage: NextPage<ProjectDetailPageProps> = ({ project }) => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
               </a>
-            </motion.div>
+            </div>
           )}
-        </motion.div>
+        </div>
       </div>
     </>
   );

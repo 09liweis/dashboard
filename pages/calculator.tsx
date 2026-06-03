@@ -1,6 +1,5 @@
 import type { NextPage } from 'next';
 import { useState, useMemo } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
 import SEO from '@/components/SEO';
 import Link from 'next/link';
 
@@ -179,11 +178,7 @@ const CalculatorPage: NextPage = () => {
         {/* Hero */}
         <section className="border-b border-gray-100">
           <div className="max-w-4xl mx-auto px-6 pt-14 pb-12 md:pt-20 md:pb-16">
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
+            <div>
               <p className="text-sm font-semibold uppercase tracking-widest text-emerald-600 mb-3">
                 Cost Estimator
               </p>
@@ -193,7 +188,7 @@ const CalculatorPage: NextPage = () => {
               <p className="text-lg text-gray-500 leading-relaxed max-w-2xl">
                 Answer a few questions about your project and get an instant, itemized estimate. No email required.
               </p>
-            </motion.div>
+            </div>
 
             {/* Progress bar */}
             <div className="mt-8">
@@ -204,9 +199,8 @@ const CalculatorPage: NextPage = () => {
                 <span className="text-sm font-semibold text-gray-900">{progress}%</span>
               </div>
               <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
-                <motion.div
-                  animate={{ width: `${progress}%` }}
-                  transition={{ duration: 0.4 }}
+                <div
+                  style={{ width: `${progress}%`, transition: 'width 0.4s' }}
                   className="h-full bg-gray-900 rounded-full"
                 />
               </div>
@@ -218,13 +212,8 @@ const CalculatorPage: NextPage = () => {
           <div className="grid gap-10 lg:grid-cols-[1fr_300px] items-start">
             {/* Left: Questions */}
             <div className="space-y-10">
-              {CATEGORIES.map((cat, catIdx) => (
-                <motion.section
-                  key={cat.id}
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: catIdx * 0.05, duration: 0.4 }}
-                >
+              {CATEGORIES.map((cat) => (
+                <section key={cat.id}>
                   <div className="mb-4">
                     <h2 className="text-xl font-bold text-gray-900">{cat.title}</h2>
                     <p className="text-sm text-gray-500 mt-0.5">
@@ -275,15 +264,11 @@ const CalculatorPage: NextPage = () => {
                       );
                     })}
                   </div>
-                </motion.section>
+                </section>
               ))}
 
               {/* Add-ons */}
-              <motion.section
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.35, duration: 0.4 }}
-              >
+              <section>
                 <div className="mb-4">
                   <h2 className="text-xl font-bold text-gray-900">Optional Add-ons</h2>
                   <p className="text-sm text-gray-500 mt-0.5">
@@ -331,29 +316,19 @@ const CalculatorPage: NextPage = () => {
                     );
                   })}
                 </div>
-              </motion.section>
+              </section>
             </div>
 
             {/* Right: Sticky estimate card */}
             <div className="lg:sticky lg:top-6">
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.4 }}
-                className="rounded-2xl border border-gray-200 bg-white shadow-lg overflow-hidden"
-              >
+              <div className="rounded-2xl border border-gray-200 bg-white shadow-lg overflow-hidden">
                 <div className="bg-gray-900 px-6 py-5">
                   <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-1">
                     Estimated Project Cost
                   </p>
-                  <motion.p
-                    key={total}
-                    initial={{ scale: 0.95 }}
-                    animate={{ scale: 1 }}
-                    className="text-4xl font-extrabold text-white"
-                  >
+                  <p className="text-4xl font-extrabold text-white">
                     {formatPrice(total)}
-                  </motion.p>
+                  </p>
                   {total === 0 && (
                     <p className="text-xs text-gray-500 mt-1">
                       Select options above to build your estimate
@@ -380,28 +355,20 @@ const CalculatorPage: NextPage = () => {
                         {showBreakdown ? 'Hide' : 'Show'} breakdown ({breakdown.length} items)
                       </button>
 
-                      <AnimatePresence>
-                        {showBreakdown && (
-                          <motion.ul
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: 'auto', opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.25 }}
-                            className="overflow-hidden mt-3 space-y-2"
-                          >
-                            {breakdown.map((item, i) => (
-                              <li key={i} className="flex justify-between text-sm">
-                                <span className="text-gray-600 truncate pr-2">{item.label}</span>
-                                <span className="font-semibold text-gray-900 whitespace-nowrap">{formatPrice(item.price)}</span>
-                              </li>
-                            ))}
-                            <li className="flex justify-between text-sm border-t border-gray-100 pt-2 mt-2">
-                              <span className="font-bold text-gray-900">Total</span>
-                              <span className="font-bold text-gray-900">{formatPrice(total)}</span>
+                      {showBreakdown && (
+                        <ul className="overflow-hidden mt-3 space-y-2">
+                          {breakdown.map((item, i) => (
+                            <li key={i} className="flex justify-between text-sm">
+                              <span className="text-gray-600 truncate pr-2">{item.label}</span>
+                              <span className="font-semibold text-gray-900 whitespace-nowrap">{formatPrice(item.price)}</span>
                             </li>
-                          </motion.ul>
-                        )}
-                      </AnimatePresence>
+                          ))}
+                          <li className="flex justify-between text-sm border-t border-gray-100 pt-2 mt-2">
+                            <span className="font-bold text-gray-900">Total</span>
+                            <span className="font-bold text-gray-900">{formatPrice(total)}</span>
+                          </li>
+                        </ul>
+                      )}
                     </div>
                   )}
 
@@ -423,7 +390,7 @@ const CalculatorPage: NextPage = () => {
                     Estimates are approximate. Final pricing depends on exact requirements and a brief discovery call.
                   </p>
                 </div>
-              </motion.div>
+              </div>
 
               {/* Reference ranges */}
               <div className="mt-5 rounded-xl border border-gray-100 bg-gray-50 p-5">

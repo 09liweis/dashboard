@@ -4,7 +4,6 @@ import Blog from 'classes/blog';
 import BlogList from '@/components/blog/BlogList';
 import SEO from '@/components/SEO';
 import { getBreadcrumbSchema, GEO_META, SITE_CONFIG } from '../../config/seo';
-import { motion } from 'motion/react';
 import { BLOG_POSTS } from '../../data/blogs';
 
 interface BlogsPageProps {
@@ -97,12 +96,7 @@ const Blogs: NextPage<BlogsPageProps> = ({ blogs }) => {
 
       <div className="mx-auto max-w-5xl px-4 py-12 sm:py-16 lg:py-20">
         {/* ─── Hero Section ───────────────────────────────────────────── */}
-        <motion.header
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-12 sm:mb-16"
-        >
+        <header className="mb-12 sm:mb-16">
           <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
             <div className="max-w-2xl space-y-4">
               <div className="flex items-center gap-3">
@@ -142,7 +136,7 @@ const Blogs: NextPage<BlogsPageProps> = ({ blogs }) => {
 
           {/* Separator */}
           <div className="mt-8 h-px bg-slate-200" />
-        </motion.header>
+        </header>
 
         {/* ─── Blog List ──────────────────────────────────────────────── */}
         <BlogList blogs={curBlogs} />

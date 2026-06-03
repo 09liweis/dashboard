@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import Link from "next/link";
 import Projects from "@/components/resume/Projects";
 import Blog from "classes/blog";
@@ -118,19 +117,9 @@ export default function Home({ latestBlogs }: HomeProps) {
       {/* ─── Hero ──────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-6 pt-24 pb-20 md:pt-36 md:pb-28">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="max-w-3xl"
-          >
+          <div className="max-w-3xl">
             {/* Status badge */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="flex flex-wrap items-center gap-3 mb-8"
-            >
+            <div className="flex flex-wrap items-center gap-3 mb-8">
               <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-200 bg-emerald-50">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
@@ -148,7 +137,7 @@ export default function Home({ latestBlogs }: HomeProps) {
                   Monthly Hosting Fee
                 </span>
               </span>
-            </motion.div>
+            </div>
 
             {/* Name */}
             <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-gray-900 mb-4 leading-[1.05]">
@@ -170,11 +159,7 @@ export default function Home({ latestBlogs }: HomeProps) {
             {/* CTAs */}
             <div className="flex flex-wrap gap-3">
               <Link href="/resume">
-                <motion.span
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary-dark transition-colors cursor-pointer"
-                >
+                <span className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary-dark transition-colors cursor-pointer">
                   View My Work
                   <svg
                     className="w-4 h-4"
@@ -189,19 +174,15 @@ export default function Home({ latestBlogs }: HomeProps) {
                       d="M17 8l4 4m0 0l-4 4m4-4H3"
                     />
                   </svg>
-                </motion.span>
+                </span>
               </Link>
               <a href="mailto:weisen.li@hotmail.com">
-                <motion.span
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-900 rounded-lg font-semibold border-2 border-gray-200 hover:border-gray-400 transition-colors cursor-pointer"
-                >
+                <span className="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-900 rounded-lg font-semibold border-2 border-gray-200 hover:border-gray-400 transition-colors cursor-pointer">
                   Get in Touch
-                </motion.span>
+                </span>
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Subtle grid pattern */}
@@ -212,13 +193,9 @@ export default function Home({ latestBlogs }: HomeProps) {
       <section className="border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-6 py-12">
           <div className="grid grid-cols-3 gap-8 md:gap-16">
-            {stats.map((stat, i) => (
-              <motion.div
+            {stats.map((stat) => (
+              <div
                 key={stat.label}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.4 }}
                 className="text-center"
               >
                 <div className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight mb-1">
@@ -227,7 +204,7 @@ export default function Home({ latestBlogs }: HomeProps) {
                 <div className="text-sm md:text-base text-gray-500 font-medium">
                   {stat.label}
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -236,28 +213,19 @@ export default function Home({ latestBlogs }: HomeProps) {
       {/* ─── Services ──────────────────────────────────────────────────── */}
       <section className="py-20 md:py-28">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-14"
-          >
+          <div className="mb-14">
             <p className="text-sm font-semibold uppercase tracking-widest text-emerald-600 mb-3">
               Services
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
               What I Can Do for You
             </h2>
-          </motion.div>
+          </div>
 
           <div className="grid md:grid-cols-2 gap-px bg-gray-200 rounded-xl overflow-hidden">
-            {services.map((service, i) => (
-              <motion.div
+            {services.map((service) => (
+              <div
                 key={service.title}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.4 }}
                 className="bg-white p-8 md:p-10 group hover:bg-gray-50 transition-colors duration-200"
               >
                 <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-white mb-5">
@@ -269,7 +237,7 @@ export default function Home({ latestBlogs }: HomeProps) {
                 <p className="text-gray-600 leading-relaxed text-[15px]">
                   {service.description}
                 </p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -278,29 +246,19 @@ export default function Home({ latestBlogs }: HomeProps) {
       {/* ─── Technologies ──────────────────────────────────────────────── */}
       <section className="py-20 md:py-28 bg-gray-50 border-y border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-14"
-          >
+          <div className="mb-14">
             <p className="text-sm font-semibold uppercase tracking-widest text-emerald-600 mb-3">
               Tech Stack
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
               Technologies I Work With
             </h2>
-          </motion.div>
+          </div>
 
           <div className="flex flex-wrap gap-3">
-            {skills.map((skill, i) => (
-              <motion.div
+            {skills.map((skill) => (
+              <div
                 key={skill.name}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.03, duration: 0.3 }}
-                whileHover={{ y: -2 }}
                 className="group flex items-center gap-3 px-5 py-3 bg-white rounded-lg border border-gray-200 hover:border-gray-400 hover:shadow-sm transition-all cursor-default"
               >
                 <span className="text-base font-semibold text-gray-900">
@@ -309,7 +267,7 @@ export default function Home({ latestBlogs }: HomeProps) {
                 <span className="text-xs font-medium text-gray-400 bg-gray-100 px-2 py-0.5 rounded">
                   {skill.category}
                 </span>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -318,19 +276,14 @@ export default function Home({ latestBlogs }: HomeProps) {
       {/* ─── Projects ──────────────────────────────────────────────────── */}
       <section className="py-20 md:py-28">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-14"
-          >
+          <div className="mb-14">
             <p className="text-sm font-semibold uppercase tracking-widest text-emerald-600 mb-3">
               Portfolio
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
               Featured Projects
             </h2>
-          </motion.div>
+          </div>
           <Projects />
         </div>
       </section>
@@ -339,12 +292,7 @@ export default function Home({ latestBlogs }: HomeProps) {
       {curBlogs.length > 0 && (
         <section className="py-20 md:py-28 bg-gray-50 border-y border-gray-100">
           <div className="max-w-6xl mx-auto px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="mb-14 flex items-end justify-between"
-            >
+            <div className="mb-14 flex items-end justify-between">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-widest text-emerald-600 mb-3">
                   Blog
@@ -354,11 +302,7 @@ export default function Home({ latestBlogs }: HomeProps) {
                 </h2>
               </div>
               <Link href="/blogs">
-                <motion.span
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-gray-600 hover:text-gray-900 transition-colors cursor-pointer"
-                >
+                <span className="inline-flex items-center gap-2 text-sm font-semibold text-gray-600 hover:text-gray-900 transition-colors cursor-pointer">
                   View all
                   <svg
                     className="w-4 h-4"
@@ -373,9 +317,9 @@ export default function Home({ latestBlogs }: HomeProps) {
                       d="M17 8l4 4m0 0l-4 4m4-4H3"
                     />
                   </svg>
-                </motion.span>
+                </span>
               </Link>
-            </motion.div>
+            </div>
             <BlogList blogs={curBlogs} />
           </div>
         </section>
@@ -384,12 +328,7 @@ export default function Home({ latestBlogs }: HomeProps) {
       {/* ─── CTA ────────────────────────────────────────────────────────── */}
       <section className="py-20 md:py-28 bg-gray-900">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-2xl"
-          >
+          <div className="max-w-2xl">
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
               Ready to start a project?
             </h2>
@@ -400,11 +339,7 @@ export default function Home({ latestBlogs }: HomeProps) {
             </p>
             <div className="flex flex-wrap gap-3">
               <a href="mailto:weisen.li@hotmail.com">
-                <motion.span
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-900 rounded-lg font-semibold hover:bg-gray-100 transition-colors cursor-pointer"
-                >
+                <span className="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-900 rounded-lg font-semibold hover:bg-gray-100 transition-colors cursor-pointer">
                   Get a Free Quote
                   <svg
                     className="w-4 h-4"
@@ -419,19 +354,15 @@ export default function Home({ latestBlogs }: HomeProps) {
                       d="M17 8l4 4m0 0l-4 4m4-4H3"
                     />
                   </svg>
-                </motion.span>
+                </span>
               </a>
               <Link href="/blogs">
-                <motion.span
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-gray-800 text-gray-300 rounded-lg font-semibold border border-gray-700 hover:border-gray-500 hover:text-white transition-colors cursor-pointer"
-                >
+                <span className="inline-flex items-center gap-2 px-6 py-3 bg-gray-800 text-gray-300 rounded-lg font-semibold border border-gray-700 hover:border-gray-500 hover:text-white transition-colors cursor-pointer">
                   Read Case Studies
-                </motion.span>
+                </span>
               </Link>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </div>

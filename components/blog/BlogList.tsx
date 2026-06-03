@@ -1,4 +1,3 @@
-import { motion } from 'motion/react';
 import Blog from 'classes/blog';
 import BlogCard from './BlogCard';
 
@@ -9,11 +8,7 @@ interface BlogListProps {
 export default function BlogList({ blogs }: BlogListProps) {
   if (blogs.length === 0) {
     return (
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-slate-300 bg-slate-50/50 px-6 py-20 text-center"
-      >
+      <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-slate-300 bg-slate-50/50 px-6 py-20 text-center">
         <div className="inline-flex items-center justify-center rounded-2xl bg-slate-100 p-5 ring-1 ring-slate-200/60">
           <svg
             className="h-10 w-10 text-slate-400"
@@ -33,7 +28,7 @@ export default function BlogList({ blogs }: BlogListProps) {
         <p className="mt-2 max-w-sm text-sm leading-relaxed text-slate-500">
           Check back soon for technical articles and insights on web development and software engineering.
         </p>
-      </motion.div>
+      </div>
     );
   }
 

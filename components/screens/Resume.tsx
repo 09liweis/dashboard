@@ -1,5 +1,4 @@
 import type { NextPage } from 'next';
-import { motion, useScroll, useSpring } from 'motion/react';
 import Header from '../resume/Header';
 import Summary from '../resume/Summary';
 import Education from '../resume/Education';
@@ -9,13 +8,6 @@ import Projects from '../resume/Projects';
 import ScrollReveal from '../ScrollReveal';
 
 const Resume: NextPage = () => {
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
-
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -25,11 +17,6 @@ const Resume: NextPage = () => {
 
   return (
     <>
-      <motion.div 
-        className="fixed top-0 left-0 right-0 h-1 bg-primary origin-left z-50"
-        style={{ scaleX }}
-      />
-      
       <nav className="sticky top-0 bg-white/80 backdrop-blur-md shadow-xs z-40 mb-8">
         <div className="max-w-5xl mx-auto px-4">
           <ul className="flex space-x-6 py-4 text-sm">

@@ -1,4 +1,3 @@
-import { motion } from 'motion/react';
 import { useState } from 'react';
 
 export interface Education {
@@ -44,18 +43,9 @@ export default function Education() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <motion.section
-      className="mb-16"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-    >
+    <section className="mb-16">
       <div className="text-center mb-12">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-        >
+        <div>
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
             <span className="bg-linear-to-r from-blue-600 via-cyan-600 to-teal-600 text-transparent bg-clip-text">
               Education
@@ -64,7 +54,7 @@ export default function Education() {
           <p className="text-gray-600 max-w-2xl mx-auto text-lg">
             Academic foundation in computer science and software engineering
           </p>
-        </motion.div>
+        </div>
       </div>
 
       <div className="relative max-w-4xl mx-auto">
@@ -76,29 +66,22 @@ export default function Education() {
           const isEven = eduIndex % 2 === 0;
 
           return (
-            <motion.article
+            <article
               key={education.school}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: eduIndex * 0.2, duration: 0.5 }}
               className={`relative mb-8 md:mb-12 ${
                 isEven ? 'md:pr-[50%]' : 'md:pl-[50%] md:ml-auto'
               }`}
             >
               {/* Timeline dot */}
               <div className="absolute left-0 md:left-1/2 top-8 transform -translate-x-1/2 z-10">
-                <motion.div
-                  whileHover={{ scale: 1.2 }}
-                  className={`w-12 h-12 rounded-full bg-gradient-to-br ${education.gradient} flex items-center justify-center shadow-lg ring-4 ring-white`}
-                >
+                <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${education.gradient} flex items-center justify-center shadow-lg ring-4 ring-white`}>
                   <span className="text-xl">{education.icon}</span>
-                </motion.div>
+                </div>
               </div>
 
               {/* Content card */}
               <div className={`ml-16 md:ml-0 ${isEven ? 'md:mr-8' : 'md:ml-8'}`}>
-                <motion.div
-                  whileHover={{ y: -5 }}
+                <div
                   onMouseEnter={() => setHoveredIndex(eduIndex)}
                   onMouseLeave={() => setHoveredIndex(null)}
                   className="relative bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden group"
@@ -135,78 +118,58 @@ export default function Education() {
                       {/* Details */}
                       <div className="space-y-3">
                         {education.details.map((detail, index) => (
-                          <motion.div
+                          <div
                             key={index}
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: eduIndex * 0.2 + index * 0.1 }}
                             className="flex items-start gap-3 text-gray-700 text-sm leading-relaxed"
                           >
                             <div className={`mt-1.5 flex-shrink-0 w-2 h-2 rounded-full bg-gradient-to-br ${education.gradient}`} />
                             <span className="flex-1">{detail}</span>
-                          </motion.div>
+                          </div>
                         ))}
                       </div>
                     </div>
                   </div>
 
                   {/* Animated bottom border */}
-                  <motion.div
-                    initial={false}
-                    animate={{
-                      height: isHovered ? '4px' : '0px'
-                    }}
+                  <div
+                    style={{ height: isHovered ? '4px' : '0px', transition: 'height 0.2s' }}
                     className={`w-full bg-gradient-to-r ${education.gradient}`}
                   />
-                </motion.div>
+                </div>
               </div>
-            </motion.article>
+            </article>
           );
         })}
       </div>
 
       {/* Certificates & Skills Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6 }}
-        className="mt-12 max-w-4xl mx-auto"
-      >
+      <div className="mt-12 max-w-4xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <motion.div
-            whileHover={{ scale: 1.05, y: -5 }}
-            className="bg-white rounded-xl border border-gray-200 p-6 text-center hover:shadow-lg transition-all"
-          >
+          <div className="bg-white rounded-xl border border-gray-200 p-6 text-center hover:shadow-lg transition-all">
             <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-br from-blue-100 to-cyan-100 flex items-center justify-center">
               <span className="text-xl">🏆</span>
             </div>
             <h4 className="font-semibold text-gray-900 mb-1">Strong Foundation</h4>
             <p className="text-sm text-gray-600">Computer Science Degree</p>
-          </motion.div>
+          </div>
 
-          <motion.div
-            whileHover={{ scale: 1.05, y: -5 }}
-            className="bg-white rounded-xl border border-gray-200 p-6 text-center hover:shadow-lg transition-all"
-          >
+          <div className="bg-white rounded-xl border border-gray-200 p-6 text-center hover:shadow-lg transition-all">
             <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-br from-emerald-100 to-teal-100 flex items-center justify-center">
               <span className="text-xl">💻</span>
             </div>
             <h4 className="font-semibold text-gray-900 mb-1">Practical Skills</h4>
             <p className="text-sm text-gray-600">Industry-Focused Training</p>
-          </motion.div>
+          </div>
 
-          <motion.div
-            whileHover={{ scale: 1.05, y: -5 }}
-            className="bg-white rounded-xl border border-gray-200 p-6 text-center hover:shadow-lg transition-all"
-          >
+          <div className="bg-white rounded-xl border border-gray-200 p-6 text-center hover:shadow-lg transition-all">
             <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center">
               <span className="text-xl">🚀</span>
             </div>
             <h4 className="font-semibold text-gray-900 mb-1">Continuous Learning</h4>
             <p className="text-sm text-gray-600">Always Growing</p>
-          </motion.div>
+          </div>
         </div>
-      </motion.div>
-    </motion.section>
+      </div>
+    </section>
   );
 }
