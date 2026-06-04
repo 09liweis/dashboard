@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 interface ExperienceItem {
   title: string;
@@ -29,8 +29,8 @@ export default function Experience() {
         "Led team in creating reusable HTML components with Tailwind CSS for lottery ticket design system",
         "Conducted code reviews and provided mentorship to ensure code quality and best practices",
         "Implemented CI/CD pipelines using GitHub Actions to automate testing and deployment processes",
-        "Optimized database queries and implemented caching strategies, reducing load times by 40%"
-      ]
+        "Optimized database queries and implemented caching strategies, reducing load times by 40%",
+      ],
     },
     {
       title: "Full Stack Developer",
@@ -39,7 +39,14 @@ export default function Experience() {
       icon: "🏢",
       gradient: "from-emerald-500 to-teal-500",
       bgGradient: "from-emerald-50 to-teal-50",
-      technologies: ["Vue.js", "React.js", "Node.js", "MongoDB", "Docker", "Kubernetes"],
+      technologies: [
+        "Vue.js",
+        "React.js",
+        "Node.js",
+        "MongoDB",
+        "Docker",
+        "Kubernetes",
+      ],
       duties: [
         "Built scalable solutions with Vue.js, React.js, and React Native for web and mobile applications",
         "Implemented RESTful APIs and database interactions using Node.js and MongoDB",
@@ -47,8 +54,8 @@ export default function Experience() {
         "Optimized Elasticsearch implementation for efficient searching of millions of records",
         "Developed and maintained microservices architecture using Docker and Kubernetes",
         "Led migration from monolithic to microservices architecture, improving system scalability",
-        "Implemented real-time features using WebSocket and Socket.io for live updates"
-      ]
+        "Implemented real-time features using WebSocket and Socket.io for live updates",
+      ],
     },
     {
       title: "Front End Developer",
@@ -63,8 +70,8 @@ export default function Experience() {
         "Created responsive web applications with focus on mobile-first design principles",
         "Implemented payment processing integration with Stripe and PayPal APIs",
         "Built content management systems (CMS) for small businesses using WordPress and custom plugins",
-        "Optimized website performance achieving 90+ scores on Google Lighthouse metrics"
-      ]
+        "Optimized website performance achieving 90+ scores on Google Lighthouse metrics",
+      ],
     },
     {
       title: "Web Developer",
@@ -79,9 +86,9 @@ export default function Experience() {
         "Collaborated with design team to implement pixel-perfect UI/UX designs",
         "Created custom WordPress themes and plugins for client requirements",
         "Implemented responsive design principles and cross-browser compatibility",
-        "Participated in daily stand-ups and sprint planning using Agile methodology"
-      ]
-    }
+        "Participated in daily stand-ups and sprint planning using Agile methodology",
+      ],
+    },
   ];
 
   return (
@@ -94,7 +101,8 @@ export default function Experience() {
             </span>
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-            A decade of building and shipping quality software across various industries
+            A decade of building and shipping quality software across various
+            industries
           </p>
         </div>
       </div>
@@ -112,23 +120,34 @@ export default function Experience() {
             <article
               key={index}
               className={`relative mb-8 md:mb-12 ${
-                isEven ? 'md:pr-[50%]' : 'md:pl-[50%] md:ml-auto'
+                isEven ? "md:pr-[50%]" : "md:pl-[50%] md:ml-auto"
               }`}
             >
               {/* Timeline dot */}
-              <div className={`absolute left-0 md:left-1/2 top-8 transform -translate-x-1/2 z-10`}>
-                <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${exp.gradient} flex items-center justify-center shadow-lg ring-4 ring-white`}>
+              <div
+                className={`absolute left-0 md:left-1/2 top-8 transform -translate-x-1/2 z-10`}
+              >
+                <div
+                  className={`w-12 h-12 rounded-full bg-gradient-to-br ${exp.gradient} flex items-center justify-center shadow-lg ring-4 ring-white`}
+                >
                   <span className="text-xl">{exp.icon}</span>
                 </div>
               </div>
 
               {/* Content card */}
-              <div className={`ml-16 md:ml-0 ${isEven ? 'md:mr-8' : 'md:ml-8'}`}>
+              <div
+                className={`ml-16 md:ml-0 ${isEven ? "md:mr-8" : "md:ml-8"}`}
+              >
                 <div className="relative bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden group cursor-pointer">
                   {/* Gradient accent border */}
-                  <div className={`h-1 w-full bg-gradient-to-r ${exp.gradient}`} />
+                  <div
+                    className={`h-1 w-full bg-gradient-to-r ${exp.gradient}`}
+                  />
 
-                  <div className="p-6" onClick={() => setExpandedIndex(isExpanded ? null : index)}>
+                  <div
+                    className="p-6"
+                    onClick={() => setExpandedIndex(isExpanded ? null : index)}
+                  >
                     {/* Header section */}
                     <div className="mb-4">
                       <div className="flex items-start justify-between gap-4 mb-3">
@@ -138,13 +157,15 @@ export default function Experience() {
                               {exp.title}
                             </h3>
                             {isCurrentRole && (
-                              <span className="px-2.5 py-1 bg-gradient-to-r from-green-100 to-emerald-100 text-green-700 text-xs font-semibold rounded-full border border-green-200">
+                              <span className="px-2 py-1 bg-gradient-to-r from-green-100 to-emerald-100 text-green-700 text-xs font-semibold rounded-full border border-green-200">
                                 Current
                               </span>
                             )}
                           </div>
                           <div className="flex items-center gap-2 text-gray-600">
-                            <span className="font-semibold text-gray-800">{exp.company}</span>
+                            <span className="font-semibold text-gray-800">
+                              {exp.company}
+                            </span>
                             <span className="text-gray-300">|</span>
                             <span className="text-sm">{exp.period}</span>
                           </div>
@@ -152,10 +173,25 @@ export default function Experience() {
 
                         <button
                           className="flex-shrink-0 w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center hover:bg-gray-100 transition-colors border border-gray-200"
-                          style={{ transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}
+                          style={{
+                            transform: isExpanded
+                              ? "rotate(180deg)"
+                              : "rotate(0deg)",
+                            transition: "transform 0.3s",
+                          }}
                         >
-                          <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                          <svg
+                            className="w-5 h-5 text-gray-600"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              d="M19 9l-7 7-7-7"
+                            />
                           </svg>
                         </button>
                       </div>
@@ -177,14 +213,31 @@ export default function Experience() {
 
                     {/* Expandable content */}
                     <div
-                      style={{ height: isExpanded ? 'auto' : 0, opacity: isExpanded ? 1 : 0, transition: 'height 0.3s ease-in-out, opacity 0.3s ease-in-out' }}
+                      style={{
+                        height: isExpanded ? "auto" : 0,
+                        opacity: isExpanded ? 1 : 0,
+                        transition:
+                          "height 0.3s ease-in-out, opacity 0.3s ease-in-out",
+                      }}
                       className="overflow-hidden"
                     >
                       <div className="pt-4 border-t border-gray-200 mt-4">
                         <h4 className="text-sm font-semibold text-gray-700 mb-4 flex items-center gap-2">
-                          <div className={`w-6 h-6 rounded-md bg-gradient-to-br ${exp.gradient} flex items-center justify-center`}>
-                            <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
+                          <div
+                            className={`w-6 h-6 rounded-md bg-gradient-to-br ${exp.gradient} flex items-center justify-center`}
+                          >
+                            <svg
+                              className="w-3.5 h-3.5 text-white"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2.5"
+                                d="M5 13l4 4L19 7"
+                              />
                             </svg>
                           </div>
                           Key Achievements
@@ -195,7 +248,9 @@ export default function Experience() {
                               key={dutyIdx}
                               className="flex items-start gap-3 text-gray-700 text-sm leading-relaxed"
                             >
-                              <div className={`mt-1.5 flex-shrink-0 w-2 h-2 rounded-full bg-gradient-to-br ${exp.gradient}`} />
+                              <div
+                                className={`mt-1.5 flex-shrink-0 w-2 h-2 rounded-full bg-gradient-to-br ${exp.gradient}`}
+                              />
                               <span className="flex-1">{duty}</span>
                             </li>
                           ))}
@@ -213,15 +268,21 @@ export default function Experience() {
       {/* Stats footer */}
       <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="bg-white rounded-xl border border-gray-200 p-5 text-center hover:shadow-lg transition-shadow">
-          <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 text-transparent bg-clip-text mb-1">10+</div>
+          <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 text-transparent bg-clip-text mb-1">
+            10+
+          </div>
           <div className="text-sm text-gray-600">Years Experience</div>
         </div>
         <div className="bg-white rounded-xl border border-gray-200 p-5 text-center hover:shadow-lg transition-shadow">
-          <div className="text-3xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 text-transparent bg-clip-text mb-1">4</div>
+          <div className="text-3xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 text-transparent bg-clip-text mb-1">
+            4
+          </div>
           <div className="text-sm text-gray-600">Companies</div>
         </div>
         <div className="bg-white rounded-xl border border-gray-200 p-5 text-center hover:shadow-lg transition-shadow">
-          <div className="text-3xl font-bold bg-gradient-to-r from-orange-600 to-red-600 text-transparent bg-clip-text mb-1">50+</div>
+          <div className="text-3xl font-bold bg-gradient-to-r from-orange-600 to-red-600 text-transparent bg-clip-text mb-1">
+            50+
+          </div>
           <div className="text-sm text-gray-600">Projects Delivered</div>
         </div>
       </div>

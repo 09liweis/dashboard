@@ -30,7 +30,7 @@ const Resume: NextPage = () => {
               <li key={id}>
                 <button
                   onClick={() => scrollToSection(id)}
-                  className="bg-primary text-white p-2 cursor-pointer"
+                  className="bg-primary text-white p-2 cursor-pointer rounded"
                 >
                   {label}
                 </button>
