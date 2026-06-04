@@ -176,9 +176,9 @@ const BlogDetail: NextPage<BlogDetailPageProps> = ({
                   className="text-sm text-slate-500"
                   dateTime={blog.created_at}
                 >
-                  {new Intl.DateTimeFormat("en-US", { dateStyle: "long" }).format(
-                    new Date(blog.created_at)
-                  )}
+                  {new Intl.DateTimeFormat("en-US", {
+                    dateStyle: "long",
+                  }).format(new Date(blog.created_at))}
                 </time>
               )}
               <h1 className="mt-3 text-3xl sm:text-4xl font-bold text-slate-900 leading-tight">
@@ -191,7 +191,8 @@ const BlogDetail: NextPage<BlogDetailPageProps> = ({
               )}
               {blog.projectName && blog.projectUrl && (
                 <p className="mt-4 text-sm text-slate-600">
-                  Project: <a
+                  Project:{" "}
+                  <a
                     href={blog.projectUrl}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -234,7 +235,8 @@ const BlogDetail: NextPage<BlogDetailPageProps> = ({
                   {blog.projectName}
                 </h2>
                 <p className="mt-3 text-sm text-slate-600">
-                  This blog post is tied to a live project. Visit the project site anytime from this panel.
+                  This blog post is tied to a live project. Visit the project
+                  site anytime from this panel.
                 </p>
                 <a
                   href={blog.projectUrl}
@@ -261,9 +263,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: "blocking" };
 };
 
-export const getStaticProps: GetStaticProps<
-  BlogDetailPageProps
-> = async ({ params }) => {
+export const getStaticProps: GetStaticProps<BlogDetailPageProps> = async ({
+  params,
+}) => {
   const rawId = params?.id;
   const blogId =
     typeof rawId === "string" ? rawId : Array.isArray(rawId) ? rawId[0] : "";
