@@ -231,7 +231,7 @@ export default function Home({ latestBlogs }: HomeProps) {
                 <h3 className="text-lg font-bold text-gray-900 mb-2">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed text-15">
+                <p className="text-gray-600 leading-relaxed">
                   {service.description}
                 </p>
               </div>
