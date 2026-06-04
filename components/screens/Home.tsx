@@ -194,10 +194,7 @@ export default function Home({ latestBlogs }: HomeProps) {
         <div className="max-w-6xl mx-auto px-6 py-12">
           <div className="grid grid-cols-3 gap-8 md:gap-16">
             {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="text-center"
-              >
+              <div key={stat.label} className="text-center">
                 <div className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight mb-1">
                   {stat.value}
                 </div>

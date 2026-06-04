@@ -101,7 +101,7 @@ const Blogs: NextPage<BlogsPageProps> = ({ blogs }) => {
           <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
             <div className="max-w-2xl space-y-4">
               <div className="flex items-center gap-3">
-                <span className="inline-flex items-center gap-2 rounded-full bg-primary px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-white">
+                <span className="inline-flex items-center gap-2 rounded-full bg-primary px-3 py-2 text-xs font-semibold uppercase tracking-wider text-white">
                   <span className="relative flex h-1.5 w-1.5">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
                     <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
@@ -129,7 +129,7 @@ const Blogs: NextPage<BlogsPageProps> = ({ blogs }) => {
                   (t) => (
                     <span
                       key={t}
-                      className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-500"
+                      className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-medium text-slate-500"
                     >
                       {t}
                     </span>
