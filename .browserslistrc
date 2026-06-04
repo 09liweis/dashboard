@@ -1,0 +1,11 @@
+# Target modern browsers only (Baseline Widely Available)
+# Avoids unnecessary polyfills and transforms for features
+# that all modern browsers already support natively.
+
+last 2 Chrome versions
+last 2 Firefox versions
+last 2 Safari versions
+last 2 Edge versions
+
+not dead
+not op_mini all
