@@ -120,7 +120,12 @@ export default function Footer({
         {/* Bottom bar */}
         <div className="mt-10 pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-400">
           <span>&copy; {new Date().getFullYear()} Sam Li. All rights reserved.</span>
-          <span>Toronto, Canada</span>
+          <div className="flex items-center gap-4">
+            <Link href="/sitemap">
+              <span className="hover:text-gray-600 transition-colors cursor-pointer">Sitemap</span>
+            </Link>
+            <span>Toronto, Canada</span>
+          </div>
         </div>
       </div>
     </footer>
