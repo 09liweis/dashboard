@@ -19,15 +19,15 @@ const skills = [
 
 const stats = [
   { value: "10+", label: "Years of Experience" },
-  { value: "11", label: "Projects Delivered" },
-  { value: "15+", label: "Technologies" },
+  { value: "50+", label: "Projects Delivered" },
+  { value: "15+", label: "Technologies Mastered" },
 ];
 
 const services = [
   {
-    title: "WordPress to Next.js Migration",
+    title: "Legacy CMS to Modern Stack Migration",
     description:
-      "Cut hosting costs by 80% or more. Static architectures that load faster, cost less, and require minimal maintenance.",
+      "Reduce hosting costs by up to 80% by migrating WordPress or Wix sites to high-performance static architectures built with Next.js or Astro.",
     icon: (
       <svg
         className="w-6 h-6"
@@ -45,9 +45,9 @@ const services = [
     ),
   },
   {
-    title: "Custom Web Applications",
+    title: "Full-Stack Web Application Development",
     description:
-      "Full-stack development with React, Next.js, and Node.js. From dashboards to SaaS platforms that scale with your business.",
+      "End-to-end development of scalable applications using React, Next.js, and Node.js — from internal dashboards and SaaS platforms to consumer-facing products.",
     icon: (
       <svg
         className="w-6 h-6"
@@ -65,9 +65,9 @@ const services = [
     ),
   },
   {
-    title: "Performance Optimization",
+    title: "Performance & Core Web Vitals Optimization",
     description:
-      "Cut page load times in half. Image optimization, caching strategies, and code refactoring for sub-second loads.",
+      "Diagnose and resolve front-end bottlenecks through image optimization, code splitting, and caching strategies to achieve sub-second load times.",
     icon: (
       <svg
         className="w-6 h-6"
@@ -85,9 +85,9 @@ const services = [
     ),
   },
   {
-    title: "API Development & Integration",
+    title: "API Development & Third-Party Integration",
     description:
-      "Secure REST APIs, third-party service integration (Stripe, Supabase), and reliable data flow between systems.",
+      "Design and implement secure REST APIs alongside seamless integrations with payment processors, authentication providers, and cloud services.",
     icon: (
       <svg
         className="w-6 h-6"
@@ -146,14 +146,16 @@ export default function Home({ latestBlogs }: HomeProps) {
 
             {/* Role */}
             <p className="text-xl md:text-2xl font-semibold text-gray-500 mb-6">
-              Full Stack Developer
+              Senior Full Stack Developer
             </p>
 
             {/* Description */}
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mb-10">
-              I build fast, cost-effective web applications. Specializing in
-              migrating sites to modern static architectures with zero hosting
-              fees, and developing full-stack solutions that scale.
+              I design and build high-performance web applications across the
+              full stack — from database architecture and REST APIs to polished,
+              accessible front-end interfaces. With over a decade of experience
+              delivering production software, I help teams ship faster and
+              systems run leaner.
             </p>
 
             {/* CTAs */}
@@ -215,7 +217,7 @@ export default function Home({ latestBlogs }: HomeProps) {
               Services
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
-              What I Can Do for You
+              How I Can Help
             </h2>
           </div>
 
@@ -248,7 +250,7 @@ export default function Home({ latestBlogs }: HomeProps) {
               Tech Stack
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
-              Technologies I Work With
+              Core Technologies
             </h2>
           </div>
 
@@ -278,7 +280,7 @@ export default function Home({ latestBlogs }: HomeProps) {
               Portfolio
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
-              Featured Projects
+              Selected Work
             </h2>
           </div>
           <Projects />
@@ -327,12 +329,12 @@ export default function Home({ latestBlogs }: HomeProps) {
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-2xl">
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
-              Ready to start a project?
+              Let&apos;s Build Something Together
             </h2>
             <p className="text-lg text-gray-400 leading-relaxed mb-8">
-              Whether you need to cut hosting costs, build a new application, or
-              optimize an existing one -- let&apos;s talk about what I can
-              deliver.
+              Whether you&apos;re looking to modernize an existing system, reduce
+              infrastructure costs, or bring a new product to market — I&apos;d
+              welcome the opportunity to discuss how I can contribute.
             </p>
             <div className="flex flex-wrap gap-3">
               <a href="mailto:weisen.li@hotmail.com">
@@ -355,7 +357,7 @@ export default function Home({ latestBlogs }: HomeProps) {
               </a>
               <Link href="/blogs">
                 <span className="inline-flex items-center gap-2 px-6 py-3 bg-gray-800 text-gray-300 rounded-lg font-semibold border border-gray-700 hover:border-gray-500 hover:text-white transition-colors cursor-pointer">
-                  Read Case Studies
+                  View Case Studies
                 </span>
               </Link>
             </div>
