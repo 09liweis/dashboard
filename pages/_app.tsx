@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { Router, useRouter } from 'next/router';
 import type { AppProps } from 'next/app';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import { useState, useEffect } from 'react';
 import LoadingSkeleton from '@/components/LoadingSkeleton';
 
@@ -55,6 +56,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <section className="bg-card mt-2 p-2 rounded-sm">
           {loading ? <LoadingSkeleton /> : <Component {...pageProps} />}
         </section>
+        <Footer router={router} />
         <Analytics />
       </main>
     </>
