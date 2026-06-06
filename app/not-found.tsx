@@ -1,12 +1,11 @@
-import type { AppProps } from 'next/app';
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
 
-export default function ErrorPage({ Component }: AppProps) {
+export default function NotFound() {
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-gray-50 relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl -translate-x-48 -translate-y-48"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl translate-x-48 translate-y-48"></div>
+      <div className="absolute top-0 left-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl -translate-x-48 -translate-y-48" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl translate-x-48 translate-y-48" />
 
       <div className="relative z-10 text-center max-w-2xl mx-auto px-6">
         <div className="mb-8">

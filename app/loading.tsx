@@ -1,18 +1,13 @@
-export default function LoadingSkeleton() {
+export default function Loading() {
   return (
     <div className="w-full">
       <div className="mx-auto max-w-4xl space-y-4">
-        {/* Header skeleton */}
         <div className="h-10 w-2/5 bg-slate-200 rounded animate-pulse" />
-
-        {/* Cards grid skeleton */}
         <div className="grid gap-3 sm:grid-cols-3">
           {[...Array(3)].map((_, i) => (
             <div key={i} className="h-16 bg-slate-200 rounded animate-pulse" />
           ))}
         </div>
-
-        {/* Content items skeleton */}
         {[...Array(3)].map((_, i) => (
           <article
             key={i}

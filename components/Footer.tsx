@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Icon from "./Icon";
 
 const NAV_LINKS = [
@@ -49,12 +52,8 @@ const SOCIAL_LINKS = [
   },
 ];
 
-export default function Footer({
-  router,
-}: {
-  router: { pathname: string };
-}) {
-  const pathname = router.pathname;
+export default function Footer() {
+  const pathname = usePathname();
 
   return (
     <footer className="border-t border-gray-200 bg-white">
@@ -119,10 +118,14 @@ export default function Footer({
 
         {/* Bottom bar */}
         <div className="mt-10 pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-400">
-          <span>&copy; {new Date().getFullYear()} Sam Li. All rights reserved.</span>
+          <span>
+            &copy; {new Date().getFullYear()} Sam Li. All rights reserved.
+          </span>
           <div className="flex items-center gap-4">
             <Link href="/sitemap">
-              <span className="hover:text-gray-600 transition-colors cursor-pointer">Sitemap</span>
+              <span className="hover:text-gray-600 transition-colors cursor-pointer">
+                Sitemap
+              </span>
             </Link>
             <span>Toronto, Canada</span>
           </div>

@@ -1,11 +1,14 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Icon from "./Icon";
 
 const NAV_LINKS = [
   { tl: "Home", url: "/", icon: "house-user" },
   { tl: "About", url: "/resume", icon: "user" },
-  { tl: 'Cost Calculator', url: '/calculator', icon: 'book' },
+  { tl: "Cost Calculator", url: "/calculator", icon: "book" },
   { tl: "Blogs", url: "/blogs", icon: "piggy-bank" },
   { tl: "Faqs", url: "/faq", icon: "comments" },
 ];
@@ -16,7 +19,7 @@ function NavItem({
   onClick,
 }: {
   nav: (typeof NAV_LINKS)[0];
-  pathname: String;
+  pathname: string;
   onClick?: () => void;
   index: number;
 }) {
@@ -37,11 +40,9 @@ function NavItem({
       >
         <div className="flex items-center gap-2">
           <Icon name={nav.icon} classNames="text-lg" />
-          <span className="font-medium text-sm md:text-base">
-            {nav.tl}
-          </span>
+          <span className="font-medium text-sm md:text-base">{nav.tl}</span>
         </div>
-        <div className="absolute inset-0 bg-gray-900/0 group-hover:bg-gray-100 rounded-lg transition-all duration-300 -z-10"></div>
+        <div className="absolute inset-0 bg-gray-900/0 group-hover:bg-gray-100 rounded-lg transition-all duration-300 -z-10" />
       </div>
     </Link>
   );
@@ -53,7 +54,7 @@ function MobileMenuItem({
   onClick,
 }: {
   nav: (typeof NAV_LINKS)[0];
-  pathname: String;
+  pathname: string;
   onClick: () => void;
   index: number;
 }) {
@@ -79,22 +80,17 @@ function MobileMenuItem({
   );
 }
 
-export default function Header({
-  router,
-}: {
-  router: { pathname: String };
-}) {
-  const pathname = router.pathname;
+export default function Header() {
+  const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <header className="relative overflow-hidden">
-      <div className="absolute inset-0 bg-gray-50"></div>
-      <div className="absolute inset-0 bg-white/80"></div>
+      <div className="absolute inset-0 bg-gray-50" />
+      <div className="absolute inset-0 bg-white/80" />
 
       <div className="relative z-10 p-3">
         <div className="flex items-center justify-end gap-4 mb-6">
-          {/* Hamburger menu button (only visible on mobile and when menu is closed) */}
           {!menuOpen && (
             <button
               type="button"
@@ -119,10 +115,8 @@ export default function Header({
             ))}
           </div>
 
-          {/* Full-screen mobile menu overlay */}
           {menuOpen && (
             <div className="md:hidden fixed inset-0 z-50 bg-white">
-              {/* Close button */}
               <div className="absolute top-0 right-0 p-4 z-10">
                 <button
                   type="button"
@@ -134,17 +128,16 @@ export default function Header({
                 </button>
               </div>
 
-              {/* Menu content */}
               <div className="h-full flex flex-col pt-16 px-6 pb-6 overflow-y-auto">
-                {/* Header */}
                 <div className="mb-8">
-                  <h2 className="text-2xl font-bold text-gray-900">Navigation</h2>
+                  <h2 className="text-2xl font-bold text-gray-900">
+                    Navigation
+                  </h2>
                   <p className="text-sm text-gray-500 mt-1">
                     Select a page to visit
                   </p>
                 </div>
 
-                {/* Navigation items */}
                 <div className="flex-1 space-y-2">
                   {NAV_LINKS.map((nav, index) => (
                     <MobileMenuItem
@@ -157,7 +150,6 @@ export default function Header({
                   ))}
                 </div>
 
-                {/* Footer */}
                 <div className="mt-auto pt-6 border-t border-gray-200">
                   <div className="flex items-center justify-between text-sm text-gray-400">
                     <span>Sam Li Portfolio</span>

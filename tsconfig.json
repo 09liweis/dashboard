@@ -13,23 +13,34 @@
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".",
     "paths": {
       "@/components/*": [
         "components/*"
+      ],
+      "classes/*": [
+        "classes/*"
+      ],
+      "types": [
+        "types"
       ]
-    }
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "pages/api/comments.js"
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

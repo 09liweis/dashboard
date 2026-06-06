@@ -1,4 +1,5 @@
-import type { NextPage } from "next";
+"use client";
+
 import Header from "../resume/Header";
 import Summary from "../resume/Summary";
 import Education from "../resume/Education";
@@ -7,7 +8,7 @@ import Experience from "../resume/Experience";
 import Projects from "../resume/Projects";
 import ScrollReveal from "../ScrollReveal";
 
-const Resume: NextPage = () => {
+export default function Resume() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -77,6 +78,4 @@ const Resume: NextPage = () => {
       </div>
     </>
   );
-};
-
-export default Resume;
+}
