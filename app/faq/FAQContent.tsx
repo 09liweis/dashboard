@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 interface FAQItem {
   question: string;
@@ -9,12 +9,23 @@ interface FAQItem {
 
 function FAQAccordion({ item }: { item: FAQItem }) {
   const [open, setOpen] = useState(false);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    if (contentRef.current) {
+      setHeight(contentRef.current.scrollHeight);
+    }
+  }, [open]);
 
   return (
     <div className="border-b border-gray-200 last:border-0">
       <button
         type="button"
-        onClick={() => setOpen(!open)}
+        onClick={(e) => {
+          e.preventDefault();
+          setOpen((prev) => !prev);
+        }}
         className="w-full flex items-center justify-between gap-4 py-5 text-left cursor-pointer group"
         aria-expanded={open}
       >
@@ -24,7 +35,7 @@ function FAQAccordion({ item }: { item: FAQItem }) {
         <span
           style={{
             transform: open ? "rotate(45deg)" : "rotate(0deg)",
-            transition: "transform 0.2s",
+            transition: "transform 0.25s ease",
           }}
           className="flex-shrink-0 w-7 h-7 rounded-full bg-gray-100 group-hover:bg-gray-200 flex items-center justify-center text-gray-600 transition-colors"
         >
@@ -43,13 +54,19 @@ function FAQAccordion({ item }: { item: FAQItem }) {
           </svg>
         </span>
       </button>
-      {open && (
-        <div className="overflow-hidden">
-          <p className="pb-5 text-base text-gray-600 leading-relaxed">
-            {item.answer}
-          </p>
-        </div>
-      )}
+      <div
+        ref={contentRef}
+        style={{
+          maxHeight: open ? `${height}px` : "0px",
+          overflow: "hidden",
+          transition: "max-height 0.3s ease, opacity 0.3s ease",
+          opacity: open ? 1 : 0,
+        }}
+      >
+        <p className="pb-5 text-base text-gray-600 leading-relaxed">
+          {item.answer}
+        </p>
+      </div>
     </div>
   );
 }
