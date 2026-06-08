@@ -19,7 +19,7 @@ export default function Comments() {
       const res = await fetch(COMMENT_LIST_API);
       if (!res.ok) throw new Error("Failed to fetch");
       const data = await res.json();
-      setComments(data);
+      setComments(data.comments || []);
     } catch {
       setError("Failed to load comments");
     } finally {
