@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { CommentType, PaginationType } from "../types";
 import { COMMENT_LIST_API } from "../constants";
 
@@ -42,6 +42,7 @@ export default function Comments() {
   const [submitting, setSubmitting] = useState(false);
   const [submitMsg, setSubmitMsg] = useState("");
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const commentsListRef = useRef<HTMLDivElement>(null);
 
   const fetchComments = useCallback(async (p: number) => {
     try {
@@ -64,6 +65,12 @@ export default function Comments() {
   useEffect(() => {
     fetchComments(page);
   }, [page, fetchComments]);
+
+  useEffect(() => {
+    if (!loading && commentsListRef.current) {
+      commentsListRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [comments, loading]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -393,7 +400,7 @@ export default function Comments() {
         ) : (
           <>
             {/* Comment count */}
-            <div className="flex items-center gap-3 mb-6">
+            <div ref={commentsListRef} className="flex items-center gap-3 mb-6">
               <span className="text-sm font-semibold text-gray-900">
                 {pagination?.total || comments.length} Comment
                 {(pagination?.total || comments.length) !== 1 ? "s" : ""}
