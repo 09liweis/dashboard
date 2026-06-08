@@ -63,7 +63,7 @@ function FAQAccordion({ item }: { item: FAQItem }) {
           opacity: open ? 1 : 0,
         }}
       >
-        <p className="pb-5 text-base text-gray-600 leading-relaxed">
+        <p className="pb-6 text-base text-gray-600 leading-relaxed">
           {item.answer}
         </p>
       </div>
