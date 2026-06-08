@@ -93,7 +93,7 @@ export default function Comments() {
             <button
               type="submit"
               disabled={submitting || !name.trim() || !content.trim()}
-              className="shrink-0 px-5 py-3 bg-blue-600 text-white text-sm font-semibold rounded-xl hover:bg-blue-700 disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer shadow-sm"
+              className="shrink-0 px-5 py-3 bg-primary text-white text-sm font-semibold rounded-xl disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer shadow-sm"
             >
               {submitting ? (
                 <span className="flex items-center gap-1">
