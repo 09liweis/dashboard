@@ -10,3 +10,13 @@ export interface BlogType {
   // projectUrl?: string;
   [key: string]: string;
 }
+
+export interface CommentType {
+  _id: string;
+  ip: string;
+  name: string;
+  content: string;
+  updated_at: string;
+  created_at: string;
+  __v: number;
+}
