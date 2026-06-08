@@ -69,8 +69,18 @@ export default async function ProjectDetailPage({ params }: Props) {
           href="/resume"
           className="inline-flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-slate-900 mb-8 transition-colors"
         >
-          <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+          <svg
+            className="h-4 w-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M15 19l-7-7 7-7"
+            />
           </svg>
           Back to Resume
         </Link>
@@ -88,26 +98,44 @@ export default async function ProjectDetailPage({ params }: Props) {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-xs font-medium text-blue-600 hover:text-blue-800 transition-colors"
                 >
-                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  <svg
+                    className="w-3.5 h-3.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    />
                   </svg>
                   Visit Site
                 </a>
               )}
             </div>
 
-            <h1 className="text-4xl font-bold text-slate-900 mb-4">{project.name}</h1>
-            <p className="text-lg text-slate-600 leading-relaxed max-w-2xl">{project.description}</p>
+            <h1 className="text-4xl font-bold text-slate-900 mb-4">
+              {project.name}
+            </h1>
+            <p className="text-lg text-slate-600 leading-relaxed max-w-2xl">
+              {project.description}
+            </p>
           </header>
 
           {project.screenshots && project.screenshots.length > 0 && (
             <section className="mb-10">
-              <h2 className="text-sm font-semibold uppercase tracking-widest text-slate-500 mb-4">Project Screenshots</h2>
+              <h2 className="text-sm font-semibold uppercase tracking-widest text-slate-500 mb-4">
+                Project Screenshots
+              </h2>
               <div className="grid gap-5 sm:grid-cols-2">
                 {project.screenshots.map((screenshot, index) => (
                   <figure
                     key={screenshot.src}
-                    className={`overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm ${index === 0 ? "sm:col-span-2" : ""}`}
+                    className={`overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm ${
+                      index === 0 ? "sm:col-span-2" : ""
+                    }`}
                   >
                     <div className="bg-slate-100 p-2">
                       <Image
@@ -119,7 +147,9 @@ export default async function ProjectDetailPage({ params }: Props) {
                         priority={index === 0}
                       />
                     </div>
-                    <figcaption className="px-4 py-3 text-sm text-slate-600">{screenshot.caption}</figcaption>
+                    <figcaption className="px-4 py-3 text-sm text-slate-600">
+                      {screenshot.caption}
+                    </figcaption>
                   </figure>
                 ))}
               </div>
@@ -128,17 +158,26 @@ export default async function ProjectDetailPage({ params }: Props) {
 
           {project.longDescription && (
             <div className="mb-10 prose prose-slate max-w-none">
-              <h2 className="text-sm font-semibold uppercase tracking-widest text-slate-500 mb-4">About This Project</h2>
-              <p className="text-slate-700 leading-relaxed text-base">{project.longDescription}</p>
+              <h2 className="text-sm font-semibold uppercase tracking-widest text-slate-500 mb-4">
+                About This Project
+              </h2>
+              <p className="text-slate-700 leading-relaxed text-base">
+                {project.longDescription}
+              </p>
             </div>
           )}
 
           <div className="grid md:grid-cols-2 gap-10">
             <section>
-              <h2 className="text-sm font-semibold uppercase tracking-widest text-slate-500 mb-4">Tech Stack</h2>
+              <h2 className="text-sm font-semibold uppercase tracking-widest text-slate-500 mb-4">
+                Tech Stack
+              </h2>
               <div className="flex flex-wrap gap-2">
                 {project.technologies.map((tech) => (
-                  <span key={tech} className="px-3 py-1.5 text-sm font-medium bg-slate-900 text-white rounded-lg">
+                  <span
+                    key={tech}
+                    className="px-3 py-1.5 text-sm font-medium bg-slate-900 text-white rounded-lg"
+                  >
                     {tech}
                   </span>
                 ))}
@@ -146,14 +185,28 @@ export default async function ProjectDetailPage({ params }: Props) {
             </section>
 
             <section>
-              <h2 className="text-sm font-semibold uppercase tracking-widest text-slate-500 mb-4">Key Features</h2>
+              <h2 className="text-sm font-semibold uppercase tracking-widest text-slate-500 mb-4">
+                Key Features
+              </h2>
               <ul className="space-y-3">
                 {project.highlights.map((highlight, i) => (
                   <li key={i} className="flex items-start gap-3 text-slate-700">
-                    <svg className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2.5"
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
-                    <span className="text-base leading-relaxed">{highlight}</span>
+                    <span className="text-base leading-relaxed">
+                      {highlight}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -161,7 +214,7 @@ export default async function ProjectDetailPage({ params }: Props) {
           </div>
 
           {project.url && (
-            <div className="mt-12 pt-8 border-t border-slate-200">
+            <div className="mt-12 pt-6 border-t border-slate-200">
               <a
                 href={project.url}
                 target="_blank"
@@ -169,8 +222,18 @@ export default async function ProjectDetailPage({ params }: Props) {
                 className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary-dark transition-colors"
               >
                 View Live Project
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  />
                 </svg>
               </a>
             </div>

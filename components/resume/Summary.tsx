@@ -63,10 +63,7 @@ export default function Summary() {
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10">
         {highlights.map((item) => (
-          <div
-            key={item.label}
-            className="group"
-          >
+          <div key={item.label} className="group">
             <div className="relative bg-white rounded-lg border-2 border-gray-100 p-5 sm:p-6 group-hover:border-gray-200 group-hover:shadow-sm transition-all h-full">
               <div className="text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">
                 {item.label}
@@ -181,7 +178,7 @@ export default function Summary() {
               </div>
             </div>
 
-            <div className="mt-6 pt-5 border-t border-slate-300">
+            <div className="mt-6 pt-6 border-t border-slate-300">
               <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-3">
                 Core Expertise
               </h3>

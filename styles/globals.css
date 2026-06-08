@@ -549,14 +549,8 @@ ul {
 .pt-4 {
   padding-top: 1rem;
 }
-.pt-5 {
-  padding-top: 1.25rem;
-}
 .pt-6 {
   padding-top: 1.5rem;
-}
-.pt-8 {
-  padding-top: 2rem;
 }
 .pt-14 {
   padding-top: 3.5rem;
@@ -567,9 +561,6 @@ ul {
 .pt-24 {
   padding-top: 6rem;
 }
-.pb-5 {
-  padding-bottom: 1.25rem;
-}
 .pb-6 {
   padding-bottom: 1.5rem;
 }
@@ -578,9 +569,6 @@ ul {
 }
 .pb-12 {
   padding-bottom: 3rem;
-}
-.pb-14 {
-  padding-bottom: 3.5rem;
 }
 .pb-20 {
   padding-bottom: 5rem;
@@ -632,9 +620,6 @@ ul {
 .text-6xl {
   font-size: 3.75rem;
   line-height: 1;
-}
-.text-15 {
-  font-size: 15px;
 }
 
 .font-medium {
