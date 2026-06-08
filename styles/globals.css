@@ -1020,7 +1020,7 @@ ul {
 }
 
 /* ─── Cursor ────────────────────────────────────────────── */
-.cursor-pointer {
+.cursor-pointer, button {
   cursor: pointer;
 }
 .cursor-default {
