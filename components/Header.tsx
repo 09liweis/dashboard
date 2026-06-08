@@ -10,7 +10,8 @@ const NAV_LINKS = [
   { tl: "About", url: "/resume", icon: "user" },
   { tl: "Cost Calculator", url: "/calculator", icon: "book" },
   { tl: "Blogs", url: "/blogs", icon: "piggy-bank" },
-  { tl: "Faqs", url: "/faq", icon: "comments" },
+  { tl: "FAQs", url: "/faq", icon: "comments" },
+  { tl: "Comments", url: "/comments", icon: "comment" },
 ];
 
 function NavItem({

@@ -14,6 +14,7 @@ const iconMap: Record<string, string> = {
   list: 'M5 7h2m4 0h8M5 12h2m4 0h8M5 17h2m4 0h8',
   'piggy-bank': 'M17 10a5 5 0 0 0-9.87-1H5v6h1.13A5 5 0 0 0 17 10zm-5 6a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm5-6h3v2h-1.5',
   comments: 'M4 4h16v12H7l-3 3V4zm4 3h8m-8 4h6',
+  comment: 'M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z',
   'dollar-sign': 'M12 4v16m2-14a2 2 0 0 1-2 2H9a2 2 0 0 0 0 4h3a2 2 0 0 1 2 2 2 2 0 0 1-2 2H9',
   'location-dot': 'M12 3a7 7 0 0 0-7 7c0 4.95 7 11 7 11s7-6.05 7-11a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z',
   blog: 'M6 4h12v16H6V4zm4 4h4m-4 4h4m-4 4h4',

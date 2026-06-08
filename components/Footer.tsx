@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { tl: "Cost Calculator", url: "/calculator", icon: "book" },
   { tl: "Blogs", url: "/blogs", icon: "piggy-bank" },
   { tl: "FAQs", url: "/faq", icon: "comments" },
+  { tl: "Comments", url: "/comments", icon: "comment" },
 ];
 
 const SOCIAL_LINKS = [

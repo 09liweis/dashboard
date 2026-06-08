@@ -3,7 +3,6 @@ import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Comments from "@/components/Comments";
 import "../styles/globals.css";
 
 export const metadata: Metadata = {
@@ -67,7 +66,6 @@ export default function RootLayout({
         <main className="p-2">
           <Header />
           <section className="bg-card mt-2 p-2 rounded-sm">{children}</section>
-          <Comments />
           <Footer />
           <Analytics />
         </main>
