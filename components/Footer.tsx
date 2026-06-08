@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Icon from "./Icon";
-import Comments from "./Comments";
 
 const NAV_LINKS = [
   { tl: "Home", url: "/", icon: "house-user" },
@@ -116,9 +115,6 @@ export default function Footer() {
             </div>
           </div>
         </div>
-
-        {/* Comments section */}
-        <Comments />
 
         {/* Bottom bar */}
         <div className="mt-10 pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-400">
