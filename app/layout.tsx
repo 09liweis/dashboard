@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -60,13 +61,22 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
+      <body>
+        <CopyPrevention />
+        <main className="p-2">
+          <Header />
+          <section className="bg-card mt-2 p-2 rounded-sm">{children}</section>
+          <Footer />
+          <Analytics />
+        </main>
         {/* Google Analytics */}
-        <script
-          async
+        <Script
+          strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-ZM985DLTVZ"
         />
-        <script
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
@@ -77,8 +87,9 @@ export default function RootLayout({
           }}
         />
         {/* Tawk.to Live Chat */}
-        <script
-          type="text/javascript"
+        <Script
+          id="tawk-to"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
@@ -93,15 +104,6 @@ export default function RootLayout({
             `,
           }}
         />
-      </head>
-      <body>
-        <CopyPrevention />
-        <main className="p-2">
-          <Header />
-          <section className="bg-card mt-2 p-2 rounded-sm">{children}</section>
-          <Footer />
-          <Analytics />
-        </main>
       </body>
     </html>
   );
