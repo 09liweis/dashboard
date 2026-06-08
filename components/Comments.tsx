@@ -1,11 +1,15 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import { CommentType } from "../types";
+import { CommentType, PaginationType } from "../types";
 import { COMMENT_LIST_API } from "../constants";
+
+const LIMIT = 5;
 
 export default function Comments() {
   const [comments, setComments] = useState<CommentType[]>([]);
+  const [pagination, setPagination] = useState<PaginationType | null>(null);
+  const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [name, setName] = useState("");
@@ -13,13 +17,17 @@ export default function Comments() {
   const [submitting, setSubmitting] = useState(false);
   const [submitMsg, setSubmitMsg] = useState("");
 
-  const fetchComments = useCallback(async () => {
+  const fetchComments = useCallback(async (p: number) => {
     try {
       setLoading(true);
-      const res = await fetch(COMMENT_LIST_API);
+      setError("");
+      const res = await fetch(`${COMMENT_LIST_API}?page=${p}&limit=${LIMIT}`);
       if (!res.ok) throw new Error("Failed to fetch");
       const data = await res.json();
       setComments(data.comments || []);
+      if (data.pagination) {
+        setPagination(data.pagination);
+      }
     } catch {
       setError("Failed to load comments");
     } finally {
@@ -28,8 +36,8 @@ export default function Comments() {
   }, []);
 
   useEffect(() => {
-    fetchComments();
-  }, [fetchComments]);
+    fetchComments(page);
+  }, [page, fetchComments]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -46,7 +54,8 @@ export default function Comments() {
       setName("");
       setContent("");
       setSubmitMsg("Comment posted!");
-      fetchComments();
+      setPage(1);
+      fetchComments(1);
     } catch {
       setSubmitMsg("Failed to post comment");
     } finally {
@@ -130,26 +139,82 @@ export default function Comments() {
         ) : comments.length === 0 ? (
           <p className="text-sm text-gray-400 py-4 italic">No comments yet. Be the first!</p>
         ) : (
-          <div className="space-y-3 max-h-80 overflow-y-auto pr-1">
-            {comments.map((c) => (
-              <div
-                key={c._id}
-                className="rounded-xl border border-gray-100 bg-gray-50/80 px-4 py-3"
-              >
-                <div className="flex items-center justify-between mb-1.5">
-                  <span className="text-sm font-semibold text-gray-800">
-                    {c.name}
-                  </span>
-                  <time className="text-xs text-gray-400">
-                    {formatDate(c.created_at)}
-                  </time>
+          <>
+            <div className="space-y-3">
+              {comments.map((c) => (
+                <div
+                  key={c._id}
+                  className="rounded-xl border border-gray-100 bg-gray-50/80 px-4 py-3"
+                >
+                  <div className="flex items-center justify-between mb-1.5">
+                    <span className="text-sm font-semibold text-gray-800">
+                      {c.name}
+                    </span>
+                    <time className="text-xs text-gray-400">
+                      {formatDate(c.created_at)}
+                    </time>
+                  </div>
+                  <p className="text-sm text-gray-600 leading-relaxed break-words">
+                    {c.content}
+                  </p>
                 </div>
-                <p className="text-sm text-gray-600 leading-relaxed break-words">
-                  {c.content}
-                </p>
+              ))}
+            </div>
+
+            {/* Pagination */}
+            {pagination && pagination.pages > 1 && (
+              <div className="flex items-center justify-between pt-4 mt-4 border-t border-gray-100">
+                <span className="text-xs text-gray-400">
+                  Page {pagination.page} of {pagination.pages} &middot;{" "}
+                  {pagination.total} comment{pagination.total !== 1 ? "s" : ""}
+                </span>
+                <div className="flex items-center gap-1">
+                  <button
+                    onClick={() => setPage((prev) => Math.max(1, prev - 1))}
+                    disabled={!pagination.hasPrev}
+                    className="px-3 py-1.5 text-xs font-medium rounded-lg border border-gray-200 bg-white text-gray-600 hover:bg-gray-50 disabled:opacity-30 disabled:cursor-not-allowed transition cursor-pointer"
+                  >
+                    Prev
+                  </button>
+                  {Array.from({ length: pagination.pages }, (_, i) => i + 1)
+                    .filter(
+                      (n) =>
+                        n === 1 ||
+                        n === pagination.pages ||
+                        (n >= page - 1 && n <= page + 1)
+                    )
+                    .map((n, idx, arr) => {
+                      const showEllipsis =
+                        idx > 0 && n - arr[idx - 1] > 1;
+                      return (
+                        <span key={n} className="flex items-center gap-1">
+                          {showEllipsis && (
+                            <span className="px-1 text-xs text-gray-300">...</span>
+                          )}
+                          <button
+                            onClick={() => setPage(n)}
+                            className={`px-3 py-1.5 text-xs font-medium rounded-lg border transition cursor-pointer ${
+                              n === page
+                                ? "border-blue-400 bg-blue-50 text-blue-600"
+                                : "border-gray-200 bg-white text-gray-600 hover:bg-gray-50"
+                            }`}
+                          >
+                            {n}
+                          </button>
+                        </span>
+                      );
+                    })}
+                  <button
+                    onClick={() => setPage((prev) => prev + 1)}
+                    disabled={!pagination.hasNext}
+                    className="px-3 py-1.5 text-xs font-medium rounded-lg border border-gray-200 bg-white text-gray-600 hover:bg-gray-50 disabled:opacity-30 disabled:cursor-not-allowed transition cursor-pointer"
+                  >
+                    Next
+                  </button>
+                </div>
               </div>
-            ))}
-          </div>
+            )}
+          </>
         )}
       </div>
     </section>

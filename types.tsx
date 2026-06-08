@@ -20,3 +20,12 @@ export interface CommentType {
   created_at: string;
   __v: number;
 }
+
+export interface PaginationType {
+  page: number;
+  limit: number;
+  total: number;
+  pages: number;
+  hasNext: boolean;
+  hasPrev: boolean;
+}
