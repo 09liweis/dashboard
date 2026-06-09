@@ -5,6 +5,8 @@ import { PROJECTS, Project } from "../../data/projects";
 import { BlogType } from "../../types";
 import type { Metadata } from "next";
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: "Sitemap | Sam Li",
   description: "A complete index of all pages on samliweisen.dev — projects, blog articles, and tools.",

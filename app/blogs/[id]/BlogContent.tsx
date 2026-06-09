@@ -31,7 +31,7 @@ export function BlogContent({ blog }: Props) {
         '<code class="px-1.5 py-0.5 bg-slate-100 text-slate-700 text-sm font-mono rounded">'
       )
       .replaceAll("<strong>", '<strong class="font-semibold text-slate-900">')
-      .replaceAll("<img", '<img class="rounded-lg my-6 w-full"');
+      .replaceAll("<img", '<img loading="lazy" decoding="async" class="rounded-lg my-6 w-full"');
     return formatedHTML;
   };
 

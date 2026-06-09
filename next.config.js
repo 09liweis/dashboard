@@ -46,6 +46,12 @@ const nextConfig = {
   // Compression
   compress: true,
 
+  // Image optimization
+  images: {
+    formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 86400,
+  },
+
   // Power by header removal for security
   poweredByHeader: false,
 

@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 import fs from "fs";
 import path from "path";
 import { BlogType } from "../../../types";
+
+export const revalidate = 3600;
+
 import {
   getBlogPostingSchema,
   getBreadcrumbSchema,

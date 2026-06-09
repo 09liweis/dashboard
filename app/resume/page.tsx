@@ -2,6 +2,8 @@ import Resume from "@/components/screens/Resume";
 import { getPersonSchema, getBreadcrumbSchema } from "../../config/seo";
 import type { Metadata } from "next";
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: "Resume & Experience - Sam Li | Senior Full Stack Developer",
   description:

@@ -4,6 +4,8 @@ import { getBreadcrumbSchema, SITE_CONFIG } from "../../config/seo";
 import { BLOG_POSTS } from "../../data/blogs";
 import type { Metadata } from "next";
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: "Blog - Technical Articles & Insights | Sam Li",
   description:

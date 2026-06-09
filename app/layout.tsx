@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Analytics } from "@vercel/analytics/react";
+import dynamic from "next/dynamic";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "../styles/globals.css";
+
+const Analytics = dynamic(
+  () => import("@vercel/analytics/react").then((m) => m.Analytics),
+  { ssr: false }
+);
 
 export const metadata: Metadata = {
   title: {
@@ -61,6 +66,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://embed.tawk.to" />
+        <link rel="preconnect" href="https://samliweisen.onrender.com" />
+      </head>
       <body>
         <CopyPrevention />
         <main className="p-2">
@@ -89,7 +99,7 @@ export default function RootLayout({
         {/* Tawk.to Live Chat */}
         <Script
           id="tawk-to"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
               var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
