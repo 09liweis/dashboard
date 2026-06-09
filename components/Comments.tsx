@@ -68,7 +68,10 @@ export default function Comments() {
 
   useEffect(() => {
     if (!loading && commentsListRef.current) {
-      commentsListRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+      commentsListRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }
   }, [comments, loading]);
 
@@ -170,21 +173,6 @@ export default function Comments() {
                   Your Name
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                    <svg
-                      className="w-5 h-5 text-gray-400"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={1.5}
-                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                      />
-                    </svg>
-                  </div>
                   <input
                     id="name"
                     type="text"
@@ -192,7 +180,7 @@ export default function Comments() {
                     onChange={(e) => setName(e.target.value)}
                     placeholder="John Doe"
                     maxLength={30}
-                    className="w-full rounded-xl border border-gray-200 bg-gray-50 pl-11 pr-4 py-3 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 outline-none transition-all"
+                    className="w-full rounded-xl border border-gray-200 bg-gray-50 pl-4 pr-4 py-3 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100 outline-none transition-all"
                   />
                 </div>
               </div>
