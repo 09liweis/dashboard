@@ -116,7 +116,7 @@ export default function Home({ latestBlogs }: HomeProps) {
     <div className="min-h-screen bg-white">
       {/* ─── Hero ──────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden border-b border-gray-100">
-        <div className="max-w-6xl mx-auto px-6 pt-24 pb-20 md:pt-36 md:pb-28">
+        <div className="max-w-6xl mx-auto px-6 pt-6 pb-20">
           <div className="max-w-3xl">
             {/* Status badge */}
             <div className="flex flex-wrap items-center gap-3 mb-8">
@@ -332,9 +332,9 @@ export default function Home({ latestBlogs }: HomeProps) {
               Let&apos;s Build Something Together
             </h2>
             <p className="text-lg text-gray-400 leading-relaxed mb-8">
-              Whether you&apos;re looking to modernize an existing system, reduce
-              infrastructure costs, or bring a new product to market — I&apos;d
-              welcome the opportunity to discuss how I can contribute.
+              Whether you&apos;re looking to modernize an existing system,
+              reduce infrastructure costs, or bring a new product to market —
+              I&apos;d welcome the opportunity to discuss how I can contribute.
             </p>
             <div className="flex flex-wrap gap-3">
               <a href="mailto:weisen.li@hotmail.com">
