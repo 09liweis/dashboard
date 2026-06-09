@@ -1,14 +1,9 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import dynamic from "next/dynamic";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AnalyticsWrapper from "@/components/AnalyticsWrapper";
 import "../styles/globals.css";
-
-const Analytics = dynamic(
-  () => import("@vercel/analytics/react").then((m) => m.Analytics),
-  { ssr: false }
-);
 
 export const metadata: Metadata = {
   title: {
@@ -56,7 +51,6 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   manifest: "/site.webmanifest",
-  themeColor: "#2563eb",
 };
 
 export default function RootLayout({
@@ -77,7 +71,7 @@ export default function RootLayout({
           <Header />
           <section className="bg-card mt-2 p-2 rounded-sm">{children}</section>
           <Footer />
-          <Analytics />
+          <AnalyticsWrapper />
         </main>
         {/* Google Analytics */}
         <Script
