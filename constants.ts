@@ -6,7 +6,7 @@ export const STATS_LIST_API = `${API_URL}stats`;
 
 export const NAV_LINKS = [
   { tl: "Home", url: "/", icon: "house-user" },
-  { tl: "About", url: "/resume", icon: "user" },
+  // { tl: "About", url: "/resume", icon: "user" },
   { tl: "Cost Calculator", url: "/calculator", icon: "book" },
   { tl: "Blogs", url: "/blogs", icon: "piggy-bank" },
   { tl: "FAQs", url: "/faq", icon: "comments" },
