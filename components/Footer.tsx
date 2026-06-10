@@ -3,15 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Icon from "./Icon";
-
-const NAV_LINKS = [
-  { tl: "Home", url: "/", icon: "house-user" },
-  { tl: "About", url: "/resume", icon: "user" },
-  { tl: "Cost Calculator", url: "/calculator", icon: "book" },
-  { tl: "Blogs", url: "/blogs", icon: "piggy-bank" },
-  { tl: "FAQs", url: "/faq", icon: "comments" },
-  { tl: "Comments", url: "/comments", icon: "comment" },
-];
+import { NAV_LINKS } from "../constants";
 
 const SOCIAL_LINKS = [
   {

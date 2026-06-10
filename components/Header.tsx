@@ -4,22 +4,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Icon from "./Icon";
-
-const NAV_LINKS = [
-  { tl: "Home", url: "/", icon: "house-user" },
-  { tl: "About", url: "/resume", icon: "user" },
-  { tl: "Cost Calculator", url: "/calculator", icon: "book" },
-  { tl: "Blogs", url: "/blogs", icon: "piggy-bank" },
-  { tl: "FAQs", url: "/faq", icon: "comments" },
-  { tl: "Comments", url: "/comments", icon: "comment" },
-];
+import { NAV_LINKS } from "../constants";
 
 function NavItem({
   nav,
   pathname,
   onClick,
 }: {
-  nav: (typeof NAV_LINKS)[0];
+  nav: any;
   pathname: string;
   onClick?: () => void;
   index: number;
@@ -54,7 +46,7 @@ function MobileMenuItem({
   pathname,
   onClick,
 }: {
-  nav: (typeof NAV_LINKS)[0];
+  nav: any;
   pathname: string;
   onClick: () => void;
   index: number;
