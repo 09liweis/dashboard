@@ -9,7 +9,8 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "Sitemap | Sam Li",
-  description: "A complete index of all pages on samliweisen.dev — projects, blog articles, and tools.",
+  description:
+    "A complete index of all pages on samliweisen.dev — projects, blog articles, and tools.",
   alternates: {
     canonical: "https://samliweisen.dev/sitemap",
   },
@@ -38,14 +39,28 @@ export default function SitemapPage() {
     description: "Primary navigation pages.",
     links: [
       { label: "Home", url: "/", description: "Portfolio landing page" },
-      { label: "About / Resume", url: "/resume", description: "Professional resume, skills, and experience" },
-      { label: "Cost Calculator", url: "/calculator", description: "Estimate your website project cost" },
-      { label: "Blogs", url: "/blogs", description: "Technical articles and case studies" },
+      {
+        label: "About / Resume",
+        url: "/resume",
+        description: "Professional resume, skills, and experience",
+      },
+      {
+        label: "Cost Calculator",
+        url: "/calculator",
+        description: "Estimate your website project cost",
+      },
+      {
+        label: "Blogs",
+        url: "/blogs",
+        description: "Technical articles and case studies",
+      },
       { label: "FAQs", url: "/faq", description: "Frequently asked questions" },
     ],
   };
 
-  const projectLinks = PROJECTS.filter((p): p is Project & { slug: string } => !!p.slug).map((p) => ({
+  const projectLinks = PROJECTS.filter(
+    (p): p is Project & { slug: string } => !!p.slug
+  ).map((p) => ({
     label: p.name,
     url: `/projects/${p.slug}`,
     description: p.description,
@@ -80,12 +95,16 @@ export default function SitemapPage() {
         }}
       />
       <div className="min-h-screen bg-white">
-        <section className="border-b border-gray-100">
-          <div className="max-w-4xl mx-auto px-6 pt-16 pb-12 md:pt-24 md:pb-16">
-            <p className="text-sm font-semibold uppercase tracking-widest text-emerald-600 mb-3">Sitemap</p>
-            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 mb-4">All Pages</h1>
-            <p className="text-lg text-gray-500 leading-relaxed max-w-xl">A complete index of every page on this site.</p>
-          </div>
+        <section className="max-w-4xl mx-auto px-6 pt-16">
+          <p className="text-sm font-semibold uppercase tracking-widest text-emerald-600 mb-3">
+            Sitemap
+          </p>
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 mb-4">
+            All Pages
+          </h1>
+          <p className="text-lg text-gray-500 leading-relaxed max-w-xl">
+            A complete index of every page on this site.
+          </p>
         </section>
 
         <section className="py-16 md:py-24">
@@ -93,7 +112,9 @@ export default function SitemapPage() {
             {groups.map((group) => (
               <div key={group.title}>
                 <div className="mb-6">
-                  <h2 className="text-xl font-bold text-gray-900 mb-1">{group.title}</h2>
+                  <h2 className="text-xl font-bold text-gray-900 mb-1">
+                    {group.title}
+                  </h2>
                   <p className="text-sm text-gray-500">{group.description}</p>
                 </div>
                 <div className="border border-gray-200 rounded-xl overflow-hidden">
@@ -109,14 +130,26 @@ export default function SitemapPage() {
                             {link.label}
                           </span>
                           {link.description && (
-                            <span className="block text-xs text-gray-400 mt-0.5 truncate">{link.description}</span>
+                            <span className="block text-xs text-gray-400 mt-0.5 truncate">
+                              {link.description}
+                            </span>
                           )}
                         </div>
                         <span className="flex-shrink-0 text-xs font-mono text-gray-400 group-hover:text-gray-600 transition-colors hidden sm:block">
                           {link.url}
                         </span>
-                        <svg className="flex-shrink-0 w-4 h-4 text-gray-300 group-hover:text-blue-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                        <svg
+                          className="flex-shrink-0 w-4 h-4 text-gray-300 group-hover:text-blue-500 transition-colors"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M9 5l7 7-7 7"
+                          />
                         </svg>
                       </div>
                     </Link>
