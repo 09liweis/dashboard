@@ -107,11 +107,11 @@ export default function SitemapPage() {
           </p>
         </section>
 
-        <section className="py-16 md:py-24">
-          <div className="max-w-4xl mx-auto px-6 space-y-16">
+        <section className="py-16">
+          <div className="max-w-4xl mx-auto px-6">
             {groups.map((group) => (
               <div key={group.title}>
-                <div className="mb-6">
+                <div className="my-6">
                   <h2 className="text-xl font-bold text-gray-900 mb-1">
                     {group.title}
                   </h2>
