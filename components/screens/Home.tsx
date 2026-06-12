@@ -325,7 +325,7 @@ export default function Home({ latestBlogs }: HomeProps) {
       )}
 
       {/* ─── CTA ────────────────────────────────────────────────────────── */}
-      <section className="py-20 md:py-28 bg-gray-900">
+      <section className="py-20 bg-gray-900">
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-2xl">
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
