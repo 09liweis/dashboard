@@ -132,7 +132,7 @@ export default function Comments() {
   const maxChars = 500;
 
   return (
-    <section className="py-20 md:py-28 bg-gray-50">
+    <section className="py-20 bg-gray-50">
       <div className="max-w-3xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-12">
