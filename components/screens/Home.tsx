@@ -243,7 +243,7 @@ export default function Home({ latestBlogs }: HomeProps) {
       </section>
 
       {/* ─── Technologies ──────────────────────────────────────────────── */}
-      <section className="py-20 md:py-28 bg-gray-50 border-y border-gray-100">
+      <section className="py-20 bg-gray-50 border-y border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
           <div className="mb-14">
             <p className="text-sm font-semibold uppercase tracking-widest text-emerald-600 mb-3">
