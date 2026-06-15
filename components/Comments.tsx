@@ -136,7 +136,7 @@ export default function Comments() {
       <div className="max-w-3xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 shadow-lg shadow-slate-900/20 mb-5">
+          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 shadow-lg mb-5">
             <svg
               className="w-6 h-6 text-white"
               fill="none"
@@ -223,7 +223,7 @@ export default function Comments() {
                 <button
                   type="submit"
                   disabled={submitting || !name.trim() || !content.trim()}
-                  className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-8 py-3 bg-primary text-white text-sm font-semibold rounded hover:from-slate-900 hover:to-black disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:from-slate-800 disabled:hover:to-slate-900 transition-all shadow-lg shadow-slate-900/20"
+                  className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-8 py-3 bg-primary text-white text-sm font-semibold rounded hover:from-slate-900 hover:to-black disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:from-slate-800 disabled:hover:to-slate-900 transition-all shadow-lg"
                 >
                   {submitting ? (
                     <>
