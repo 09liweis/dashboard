@@ -223,7 +223,7 @@ export default function Comments() {
                 <button
                   type="submit"
                   disabled={submitting || !name.trim() || !content.trim()}
-                  className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-8 py-3 bg-gradient-to-r from-slate-800 to-slate-900 text-white text-sm font-semibold rounded-xl hover:from-slate-900 hover:to-black disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:from-slate-800 disabled:hover:to-slate-900 transition-all shadow-lg shadow-slate-900/20"
+                  className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-8 py-3 bg-primary text-white text-sm font-semibold rounded hover:from-slate-900 hover:to-black disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:from-slate-800 disabled:hover:to-slate-900 transition-all shadow-lg shadow-slate-900/20"
                 >
                   {submitting ? (
                     <>
