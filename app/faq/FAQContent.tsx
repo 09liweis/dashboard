@@ -26,7 +26,7 @@ function FAQAccordion({ item }: { item: FAQItem }) {
           e.preventDefault();
           setOpen((prev) => !prev);
         }}
-        className="w-full bg-white flex items-center justify-between gap-4 p-5 text-left cursor-pointer group rounded"
+        className="w-full bg-white mb-3 flex items-center justify-between gap-4 p-5 text-left cursor-pointer group rounded"
         aria-expanded={open}
       >
         <span className="text-base sm:text-lg font-semibold text-gray-900 group-hover:text-slate-700 transition-colors">
