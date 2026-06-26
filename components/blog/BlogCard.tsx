@@ -74,14 +74,6 @@ export default function BlogCard({
             </div>
 
             <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-4">
-              <div className="flex flex-wrap gap-2">
-                <span className="rounded-md bg-slate-50 px-2 py-1 text-xs font-medium text-slate-600 ring-1 ring-inset ring-slate-200/50">
-                  Web Dev
-                </span>
-                <span className="rounded-md bg-slate-50 px-2 py-1 text-xs font-medium text-slate-600 ring-1 ring-inset ring-slate-200/50">
-                  Performance
-                </span>
-              </div>
               <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-900 transition-all duration-200 group-hover:text-blue-600">
                 Read article
                 <svg
