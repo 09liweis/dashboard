@@ -37,9 +37,6 @@ export default class Blog {
       .trim()
       .substring(0, 280);
   }
-  public getContent() {
-    return this.content;
-  }
   public getReadingTime() {
     const text = this.content.replace(/(<([^>]+)>)/gi, "");
     const wordCount = text.split(/\s+/).length;
