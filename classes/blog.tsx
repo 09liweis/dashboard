@@ -43,10 +43,6 @@ export default class Blog {
     const minutes = Math.max(1, Math.ceil(wordCount / 200));
     return `${minutes} min read`;
   }
-  public getCreatedAt() {
-    const dateFormatter = new Intl.DateTimeFormat("en-US").format;
-    return dateFormatter(new Date(this.created_at));
-  }
   public getFormattedDate() {
     return new Date(this.created_at).toLocaleDateString("en-US", {
       year: "numeric",
