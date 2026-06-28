@@ -59,7 +59,7 @@ function FAQAccordion({ item }: { item: FAQItem }) {
         style={{
           maxHeight: open ? `${height}px` : "0px",
           overflow: "hidden",
-          transition: "max-height 0.3s ease, opacity 0.3s ease",
+          transition: "max-height 0.5s ease, opacity 0.5s ease",
           opacity: open ? 1 : 0,
         }}
       >
