@@ -138,6 +138,7 @@ export default function Comments() {
         <div className="text-center mb-12">
           <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 shadow-lg mb-5">
             <svg
+              aria-hidden="true"
               className="w-6 h-6 text-white"
               fill="none"
               stroke="currentColor"
@@ -227,8 +228,7 @@ export default function Comments() {
                 >
                   {submitting ? (
                     <>
-                      <svg
-                        className="animate-spin w-4 h-4"
+                      <svg                        aria-hidden="true"                        className="animate-spin w-4 h-4"
                         fill="none"
                         viewBox="0 0 24 24"
                       >
@@ -251,6 +251,7 @@ export default function Comments() {
                   ) : (
                     <>
                       <svg
+                        aria-hidden="true"
                         className="w-4 h-4"
                         fill="none"
                         stroke="currentColor"
@@ -275,6 +276,7 @@ export default function Comments() {
                   >
                     {submitSuccess ? (
                       <svg
+                        aria-hidden="true"
                         className="w-4 h-4"
                         fill="none"
                         stroke="currentColor"
@@ -289,6 +291,7 @@ export default function Comments() {
                       </svg>
                     ) : (
                       <svg
+                        aria-hidden="true"
                         className="w-4 h-4"
                         fill="none"
                         stroke="currentColor"

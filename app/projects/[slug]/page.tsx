@@ -70,6 +70,7 @@ export default async function ProjectDetailPage({ params }: Props) {
           className="inline-flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-slate-900 mb-8 transition-colors"
         >
           <svg
+            aria-hidden="true"
             className="h-4 w-4"
             fill="none"
             stroke="currentColor"
@@ -192,6 +193,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                 {project.highlights.map((highlight, i) => (
                   <li key={i} className="flex items-start gap-3 text-slate-700">
                     <svg
+                      aria-hidden="true"
                       className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5"
                       fill="none"
                       stroke="currentColor"
@@ -223,6 +225,7 @@ export default async function ProjectDetailPage({ params }: Props) {
               >
                 View Live Project
                 <svg
+                  aria-hidden="true"
                   className="w-4 h-4"
                   fill="none"
                   stroke="currentColor"

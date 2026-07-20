@@ -164,6 +164,7 @@ export default function Home({ latestBlogs }: HomeProps) {
                 <span className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary-dark transition-colors cursor-pointer">
                   View My Work
                   <svg
+                    aria-hidden="true"
                     className="w-4 h-4"
                     fill="none"
                     stroke="currentColor"

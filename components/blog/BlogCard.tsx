@@ -77,6 +77,7 @@ export default function BlogCard({
               <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-900 transition-all duration-200 group-hover:text-blue-600">
                 Read article
                 <svg
+                  aria-hidden="true"
                   className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5"
                   fill="none"
                   stroke="currentColor"
