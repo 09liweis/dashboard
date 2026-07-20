@@ -66,7 +66,6 @@ export default function RootLayout({
         <link rel="preconnect" href="https://samliweisen.onrender.com" />
       </head>
       <body>
-        <CopyPrevention />
         <main className="p-2">
           <Header />
           <section className="bg-card mt-2 p-2 rounded-sm">{children}</section>
@@ -110,19 +109,5 @@ export default function RootLayout({
         />
       </body>
     </html>
-  );
-}
-
-function CopyPrevention() {
-  return (
-    <script
-      dangerouslySetInnerHTML={{
-        __html: `
-          document.addEventListener('copy', function() {
-            alert('You are trying to copy my stuff');
-          });
-        `,
-      }}
-    />
   );
 }
