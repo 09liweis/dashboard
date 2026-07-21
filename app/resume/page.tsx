@@ -22,6 +22,14 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "profile",
+    title: "Resume & Experience - Sam Li | Senior Full Stack Developer",
+    description: "Professional resume and work experience of a Senior Full Stack Developer",
+    url: "https://samliweisen.dev/resume",
+  },
+  twitter: {
+    card: "summary",
+    title: "Resume & Experience - Sam Li",
+    description: "Professional resume and work experience of a Senior Full Stack Developer",
   },
 };
 
