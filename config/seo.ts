@@ -287,7 +287,7 @@ export const getPageMetadata = (page: GeoPageMeta) => {
   
   const description = page.description || SITE_CONFIG.description;
   const keywords = [...SITE_CONFIG.keywords, ...(page.keywords || [])].join(', ');
-  const image = page.image || `${SITE_CONFIG.siteUrl}/og-image.png`;
+  const image = page.image || '';
   const url = `${SITE_CONFIG.siteUrl}${page.url || ''}`;
   const type = page.type || 'website';
 
@@ -324,6 +324,184 @@ export const getPageMetadata = (page: GeoPageMeta) => {
     },
   };
 };
+
+// JSON-LD Schema for Organization
+export const getOrganizationSchema = () => ({
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Sam Li - Full Stack Development',
+  url: SITE_CONFIG.siteUrl,
+  logo: `${SITE_CONFIG.siteUrl}/favicon.ico`,
+  description: SITE_CONFIG.description,
+  founder: {
+    '@type': 'Person',
+    name: 'Sam Li',
+    email: SITE_CONFIG.email,
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+1-647-WEISEN-CODE',
+    contactType: 'Customer Service',
+    email: SITE_CONFIG.email,
+  },
+  sameAs: [
+    SITE_CONFIG.social.linkedin,
+    SITE_CONFIG.social.github,
+  ],
+  areaServed: {
+    '@type': 'Country',
+    name: 'Canada',
+  },
+  knowsAbout: [
+    'Full Stack Development',
+    'Web Development',
+    'API Development',
+    'Database Design',
+    'Cloud Architecture',
+  ],
+});
+
+// JSON-LD Schema for LocalBusiness (Geographic targeting for Toronto)
+export const getLocalBusinessSchema = () => ({
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': `${SITE_CONFIG.siteUrl}#local-business`,
+  name: 'Sam Li - Web Developer Services',
+  description: 'Full Stack Web Development Services in Toronto',
+  url: SITE_CONFIG.siteUrl,
+  telephone: '+1-647-WEISEN-CODE',
+  email: SITE_CONFIG.email,
+  image: `${SITE_CONFIG.siteUrl}/favicon.ico`,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Toronto',
+    addressLocality: 'Toronto',
+    addressRegion: 'ON',
+    postalCode: 'M5V 3A8',
+    addressCountry: 'CA',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: '43.6532',
+    longitude: '-79.3832',
+  },
+  areaServed: [
+    {
+      '@type': 'City',
+      name: 'Toronto',
+    },
+    {
+      '@type': 'State',
+      name: 'Ontario',
+    },
+    {
+      '@type': 'Country',
+      name: 'Canada',
+    },
+  ],
+  sameAs: [
+    SITE_CONFIG.social.linkedin,
+    SITE_CONFIG.social.github,
+  ],
+});
+
+// JSON-LD Schema for Creative Work (Project/Portfolio)
+export const getCreativeWorkSchema = (project: {
+  name: string;
+  description: string;
+  url?: string;
+  technologies?: string[];
+}) => ({
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  name: project.name,
+  description: project.description,
+  url: project.url || `${SITE_CONFIG.siteUrl}/projects/${project.name}`,
+  creator: {
+    '@type': 'Person',
+    name: 'Sam Li',
+  },
+  author: {
+    '@type': 'Person',
+    name: 'Sam Li',
+  },
+  keywords: project.technologies?.join(', ') || 'web development',
+  isAccessibleForFree: true,
+});
+
+// JSON-LD Schema for Collection Page (Portfolio/Projects)
+export const getCollectionSchema = (items: Array<{
+  name: string;
+  description: string;
+  url?: string;
+}>) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Collection',
+  name: 'Portfolio Projects',
+  description: 'Collection of web development projects and case studies',
+  url: `${SITE_CONFIG.siteUrl}/projects`,
+  hasPart: items.map((item) => ({
+    '@type': 'CreativeWork',
+    name: item.name,
+    description: item.description,
+    url: item.url || `${SITE_CONFIG.siteUrl}/projects/${item.name}`,
+  })),
+});
+
+// JSON-LD Schema for Article (Blog Post - Enhanced)
+export const getArticleSchema = (article: {
+  title: string;
+  description: string;
+  content?: string;
+  image?: string;
+  datePublished: string;
+  dateModified?: string;
+  url: string;
+  author?: string;
+  keywords?: string[];
+}) => ({
+  '@context': 'https://schema.org',
+  '@type': 'NewsArticle',
+  headline: article.title,
+  description: article.description,
+  ...(article.image && { image: article.image }),
+  datePublished: article.datePublished,
+  dateModified: article.dateModified || article.datePublished,
+  author: {
+    '@type': 'Person',
+    name: article.author || SITE_CONFIG.author,
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: SITE_CONFIG.siteName,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${SITE_CONFIG.siteUrl}/favicon.ico`,
+    },
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': `${SITE_CONFIG.siteUrl}${article.url}`,
+  },
+  articleBody: article.content || article.description,
+  keywords: article.keywords?.join(', ') || 'web development',
+  wordCount: article.content?.split(/\s+/).length || 500,
+  isAccessibleForFree: true,
+});
+
+// JSON-LD Schema for FAQPage
+export const getFAQPageSchema = (faqs: Array<{ question: string; answer: string }>) => ({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+});
 
 // Page-specific metadata
 export const PAGE_METADATA = {
