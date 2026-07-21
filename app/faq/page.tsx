@@ -20,6 +20,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://samliweisen.dev/faq",
   },
+  openGraph: {
+    type: "website",
+    title: "FAQ - Frequently Asked Questions | Sam Li",
+    description: "Answers to common questions about web development services",
+    url: "https://samliweisen.dev/faq",
+  },
 };
 
 export default function FAQPage() {
