@@ -27,6 +27,9 @@ export const metadata: Metadata = {
   authors: [{ name: "Sam Li" }],
   creator: "Sam Li",
   metadataBase: new URL("https://samliweisen.dev"),
+  applicationName: "Sam Li - Full Stack Developer",
+  referrer: "strict-origin-when-cross-origin",
+  colorScheme: "light dark",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -34,23 +37,33 @@ export const metadata: Metadata = {
     title: "Sam Li - Full Stack Developer",
     description:
       "Full Stack Developer with 10+ years of experience in React, Vue.js, Node.js, and modern web technologies.",
+    url: "https://samliweisen.dev",
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     creator: "@samliweisen",
+    title: "Sam Li - Full Stack Developer",
+    description:
+      "Full Stack Developer with 10+ years of experience in React, Vue.js, Node.js, and modern web technologies.",
   },
   robots: {
     index: true,
     follow: true,
-    "max-image-preview": "large",
-    "max-snippet": -1,
-    "max-video-preview": -1,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",
   },
   manifest: "/site.webmanifest",
+  category: "technology",
 };
 
 export default function RootLayout({
@@ -61,9 +74,24 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* ─── Preconnect to External Services ──────────────────────── */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://embed.tawk.to" />
         <link rel="preconnect" href="https://samliweisen.onrender.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        
+        {/* ─── Theme and Format Detection ─────────────────────────── */}
+        <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        
+        {/* ─── Additional Meta Tags ────────────────────────────────── */}
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="Sam Li" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
       </head>
       <body>
         <main className="p-2">

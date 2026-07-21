@@ -1,5 +1,5 @@
 import Home from "@/components/screens/Home";
-import { getPersonSchema, getWebsiteSchema, getProfessionalServiceSchema } from "../config/seo";
+import { getPersonSchema, getWebsiteSchema, getProfessionalServiceSchema, getOrganizationSchema, getLocalBusinessSchema } from "../config/seo";
 import { BLOG_POSTS } from "../data/blogs";
 import type { Metadata } from "next";
 
@@ -37,6 +37,8 @@ export default function HomePage() {
     getPersonSchema(),
     getWebsiteSchema(),
     getProfessionalServiceSchema(),
+    getOrganizationSchema(),
+    getLocalBusinessSchema(),
   ];
 
   return (
