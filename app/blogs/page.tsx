@@ -25,6 +25,20 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://samliweisen.dev/blogs",
   },
+  openGraph: {
+    type: "website",
+    title: "Blog - Technical Articles & Insights | Sam Li",
+    description: "Read technical articles and insights about web development and programming",
+    url: "https://samliweisen.dev/blogs",
+    images: [
+      {
+        url: "https://samliweisen.dev/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Blog - Technical Articles & Insights",
+      },
+    ],
+  },
 };
 
 export default function BlogsPage() {

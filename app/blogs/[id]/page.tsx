@@ -69,6 +69,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `${blogMeta.title} | Blog - Sam Li`,
       description,
       url: `https://samliweisen.dev/blogs/${id}`,
+      publishedTime: blogMeta.created_at,
+      authors: ["Sam Li"],
+      images: [
+        {
+          url: "https://samliweisen.dev/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: blogMeta.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${blogMeta.title} | Blog - Sam Li`,
+      description,
+      images: ["https://samliweisen.dev/og-image.png"],
     },
   };
 }
