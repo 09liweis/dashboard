@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { PROJECTS, PROJECT_CATEGORIES } from "../../../data/projects";
-import { getBreadcrumbSchema } from "../../../config/seo";
+import { getBreadcrumbSchema, getCreativeWorkSchema } from "../../../config/seo";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -36,6 +36,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     openGraph: {
       type: "article",
+      title: `${project.name} | Project - Sam Li`,
+      description: project.description,
+      url: `https://samliweisen.dev/projects/${project.slug}`,
+    },
+    twitter: {
+      card: "summary",
+      title: `${project.name} | Project - Sam Li`,
+      description: project.description,
     },
   };
 }
@@ -54,7 +62,15 @@ export default async function ProjectDetailPage({ params }: Props) {
     { name: project.name, url: `/projects/${project.slug}` },
   ];
 
-  const jsonLd = [getBreadcrumbSchema(breadcrumbs)];
+  const jsonLd = [
+    getBreadcrumbSchema(breadcrumbs),
+    getCreativeWorkSchema({
+      name: project.name,
+      description: project.longDescription || project.description,
+      url: `https://samliweisen.dev/projects/${project.slug}`,
+      technologies: project.technologies,
+    }),
+  ];
 
   return (
     <>
