@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { BLOG_POSTS } from "../../../data/blogs";
+import { PROJECTS } from "../../../data/projects";
 
 const SITE_URL = "https://samliweisen.dev";
 
@@ -7,6 +8,7 @@ const STATIC_PAGES = [
   { url: "/", changefreq: "weekly", priority: 1.0 },
   { url: "/resume", changefreq: "monthly", priority: 0.9 },
   { url: "/blogs", changefreq: "weekly", priority: 0.8 },
+  { url: "/projects", changefreq: "monthly", priority: 0.75 },
   { url: "/faq", changefreq: "monthly", priority: 0.7 },
   { url: "/calculator", changefreq: "daily", priority: 0.6 },
 ];
@@ -54,7 +56,13 @@ export async function GET() {
       ).toISOString(),
     }));
 
-    const sitemap = generateSiteMap(blogPaths);
+    const projectPaths = PROJECTS.map((project) => ({
+      path: `/projects/${project.slug}`,
+      lastmod: new Date().toISOString(),
+    }));
+
+    const allDynamicPaths = [...blogPaths, ...projectPaths];
+    const sitemap = generateSiteMap(allDynamicPaths);
 
     return new NextResponse(sitemap, {
       headers: {
