@@ -19,7 +19,6 @@ Currently a Senior Application Development Specialist at **OLG**, with deep expe
 
 - [LinkedIn](https://www.linkedin.com/in/samliweisen/)
 - [GitHub](https://github.com/09liweis)
-- [weisen.li@hotmail.com](mailto:weisen.li@hotmail.com)
 
 ## Tech Stack
 
