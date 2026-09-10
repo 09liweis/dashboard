@@ -27,24 +27,6 @@ Currently a Senior Application Development Specialist at **OLG**, with deep expe
 - **Language:** TypeScript
 - **Analytics:** Vercel Analytics
 
-## Getting Started
-
-```bash
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Start production server
-npm run start
-```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
 ## Pages
 
 | Page | Path | Description |
@@ -55,13 +37,3 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 | Blogs | `/blogs` | Technical blog posts and articles |
 | FAQ | `/faq` | Frequently asked questions |
 | Projects | `/projects/[slug]` | Individual project detail pages |
-
-## Docker
-
-```bash
-# Build the image
-docker build -t nextjs-app .
-
-# Run the container
-docker run -p 3000:3000 nextjs-app
-```
