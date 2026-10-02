@@ -18,7 +18,6 @@ export interface CommentType {
   content: string;
   updated_at: string;
   created_at: string;
-  __v: number;
 }
 
 export interface PaginationType {
