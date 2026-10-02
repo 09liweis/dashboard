@@ -101,7 +101,7 @@ export default function Footer() {
                 Sitemap
               </span>
             </Link>
-            <span>Toronto, Canada</span>
+            <span>Markham, Canada</span>
           </div>
         </div>
       </div>
