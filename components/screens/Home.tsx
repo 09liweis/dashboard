@@ -8,6 +8,7 @@ const skills = [
   { name: "React", category: "Frontend" },
   { name: "Vue.js", category: "Frontend" },
   { name: "Next.js", category: "Framework" },
+  { name: "Nuxt.js", category: "Framework" },
   { name: "Node.js", category: "Backend" },
   { name: "TypeScript", category: "Language" },
   { name: "MongoDB", category: "Database" },
