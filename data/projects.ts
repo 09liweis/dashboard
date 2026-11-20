@@ -161,7 +161,7 @@ export const PROJECTS: Project[] = [
     name: "Landlord Master",
     description: "Property management platform for landlords.",
     longDescription: "Landlord Master was built to simplify rental property management for independent landlords and small property management companies. The platform centralizes property listings, tenant records, lease agreements, maintenance requests, and rent collection into a single dashboard. Landlords can track occupancy rates, monitor payment status, and manage multiple properties without relying on spreadsheets or disconnected tools. Stripe powers secure rent collection and automated payment reminders, while MongoDB stores tenant and property data with flexible schemas that accommodate different rental scenarios. The system reduces administrative workload and provides landlords with a clear overview of cash flow, upcoming lease renewals, and maintenance activity across their portfolio.",
-    technologies: ["Next.js", "MongoDB", "Stripe"],
+    technologies: ["Next.js", "MongoDB", "Stripe", "Vercel"],
     highlights: [
       "Property listings",
       "Tenant management",
